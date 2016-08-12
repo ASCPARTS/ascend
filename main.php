@@ -4,33 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         body {
             font-family: Arial;
             font-size: 10pt;
