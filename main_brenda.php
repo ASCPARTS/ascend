@@ -13,6 +13,7 @@
         }
 
         input[type=text]{
+            width: 150px;
             font-size: 12pt;
             background-color: #F1F1F1;
             border: 1px #1E202C solid;
@@ -23,6 +24,26 @@
             background-repeat: repeat-y, no-repeat;
             background-position: 26px, 0;
         }
+        input[type=text].proveedor{
+            margin: 3px 3px 3px 3px;
+
+        }
+        input[type=text].fecha{
+            margin: 3px 3px 3px 3px;
+        }
+        input[type=text].precio{
+            margin: 3px 3px 3px 3px;
+        }
+        input[type=text].costo{
+            margin: 3px 3px 3px 3px;
+        }
+        input[type=text].precioVenta{
+            margin: 3px 3px 3px 3px;
+        }
+        input[type=text].tiempo{
+            margin: 3px 3px 3px 3px;
+        }
+
 
         input[type=button] {
             font-size: 12pt;
@@ -220,27 +241,25 @@
     <tr style="calc(100% - 50px)">
         <td style="background-color: #00B8FE; padding: 0 0 0 0;" width="152">
             <div style="width: calc(100% - 4px); height: 100%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
-                <div class="tabMain" title="Organización de Productos"><label class="labelContent">Organización de pr...</label><label class="labelClose">&#10006</label></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
+                <div class="tabMain" title="Nueva orden de compra"><label class="labelContent">Nueva orden...</label><label class="labelClose">&#10006</label></div>
+                <div class="tabMain" title="Registrar numero guia"><div class="labelContent">Registrar número...</div><div class="labelClose">&#10006</div></div>
+                <div class="tabMain" title="Responder Cotización"><div class="labelContent">Responder cot...</div><div class="labelClose">&#10006</div></div>
                 <div class="tabMain" title="Organización"><div class="labelContentSelected">Organización</div><div class="labelCloseSelected">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
+                <div class="tabMain" title="Reporte de Datos de Entrada"><div class="labelContent">Reporte datos..</div><div class="labelClose">&#10006</div></div>
+                <div class="tabMain" title="OReporte de pedidos pendientes"><div class="labelContent">Reporte pedidos...</div><div class="labelClose">&#10006</div></div>
             </div>
         </td>
         <td style="padding: 0 0 0 0" width="*">
             <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
-                <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Catálogo de Productos</div>
-                <input type="text" placeholder="valor">
+                <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Orden de Cotización</div>
+                <input type="text" placeholder="Proveedor" class="proveedor">
+                <input type="text" placeholder="Fecha" class="fecha">
+                <input type="text" placeholder="Tiempo de Llegada" class="tiempo">
+                <input type="text" placeholder="Costo" class="costo">
+                <input type="text" placeholder="Precio 1" class="precio">
+                <input type="text" placeholder="Precio 2" class="precio">
+                <input type="text" placeholder="Precio 3" class="precio">
+                <input type="text" placeholder="Precio de Venta" class="precioVenta" >
                 <br />
                 <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
                 <br /><br />
