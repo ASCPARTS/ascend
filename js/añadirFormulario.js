@@ -6,7 +6,7 @@ $(document).ready(function(){
     $("#add").click(function() {
 
         /* Opción 1 */
-        var n = $('tr:last td', $("#formulario")).length;
+        var n = $('tr:last td', $("#mitabla")).length;
 
 
         for(var i = 0; i <n; i++){
@@ -29,6 +29,6 @@ $(document).ready(function(){
 
         }
 
-        $("#formulario").append(tds);
+        $("#mitabla").append(tds);
     });
 });

@@ -257,14 +257,15 @@
             <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
                 <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Orden de Cotización</div>
 
-                    <br>
-                <div style="border: solid">
-                <table id="formulario" style="border: solid; width: 97%; margin: 10px 10px 10px 10px" >
+                <br>
+
+                <table id="mitabla" style="width: 97%; height: auto; margin: 10px 10px 10px 10px" >
                      <tr>
                          <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
                          <td></td>
                          <td></td>
-                         <td><input type="image" src="imagenes/add.png" id="add"  align="right" width="40px"></td>
+                         <td><input type="image" src="/imagenes/add.png" value="Mostrar" id="add"  width="50px" align="right" title="Agregar Cotización" >
+                         </td>
                      </tr>
                      <tr>
                         <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
@@ -282,8 +283,8 @@
                          <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
                      </tr>
                 </table>
-                <input type="button" value="alguna acción" class="colorgreen">
-                </div>
+                <input type="button" value="alguna acción" class="colorgreen" >
+
         </td>
         <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
             <div style=" width: calc(100% - 4px); height: 55%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
