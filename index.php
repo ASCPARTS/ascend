@@ -97,7 +97,7 @@
 <table class="tblLogin">
     <tr>
         <td style="width: 55vw; vertical-align: middle;">
-            <img src="logo_colors-01.png" style="width: 50vw">
+            <img src="img/logo_v_byn_1024.png" style="height: 70vh">
         </td>
         <td style="width: 45vw; vertical-align: top; text-align: right; padding-right: 30px">
             <div class="divLoginMain">
