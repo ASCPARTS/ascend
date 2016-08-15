@@ -26,6 +26,10 @@
         }
         input[type=text].proveedor{
             margin: 3px 3px 3px 3px;
+            background-image: url('pixel_1E202C.png'), url('imagenes/user.png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 20px, 2px;
+            margin: 3px 3px 3px 3px;
 
         }
         input[type=date].fecha{
@@ -36,26 +40,47 @@
             outline: none;
             color: gray;
             padding: 3px 5px 3px 31px;
+            background-image: url('pixel_1E202C.png'), url('imagenes/calendar.png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 20px, 2px;
+            margin: 3px 3px 3px 3px;
 
         }
         input[type=text].precio{
             margin: 3px 3px 3px 3px;
-            background-image: url('pixel_1E202C.png'), url('input_img.png');
+            background-image: url('pixel_1E202C.png'), url('imagenes/dollar-symbol.png');
             background-repeat: repeat-y, no-repeat;
-            background-position: 26px, 0;
+            background-position: 26px, 2px;
             margin: 3px 3px 3px 3px;
         }
         input[type=text].costo{
             margin: 3px 3px 3px 3px;
+            background-image: url('pixel_1E202C.png'), url('imagenes/price-tag (1).png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 20px, 2px;
+            margin: 3px 3px 3px 3px;
         }
         input[type=text].precioVenta{
+            margin: 3px 3px 3px 3px;
+            background-image: url('pixel_1E202C.png'), url('imagenes/price-tag (2).png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 20px, 2px;
             margin: 3px 3px 3px 3px;
         }
         input[type=text].tiempo{
             margin: 3px 3px 3px 3px;
+            background-image: url('pixel_1E202C.png'), url('imagenes/time.png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 20px, 2px;
+            margin: 3px 3px 3px 3px;
         }
         input[type=text].buscar{
             margin: 3px 3px 3px 3px;
+            background-image: url('pixel_1E202C.png'), url('imagenes/search.png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 20px, 2px;
+            margin: 3px 3px 3px 3px;
+
         }
 
 
@@ -291,11 +316,6 @@
                 $("#mitabla").append(tds);
             });
         });
-    </script>
-    <script>
-        function myFunction() {
-            document.getElementById("mitabla").deleteRow(0);
-        }
     </script>
 </head>
 <body>

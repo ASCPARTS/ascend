@@ -24,3 +24,4 @@ function openSubCategory($strCategory,$strSubCategory){
     }
     $('#divSubCategoryContainer_' + $strSubCategory).slideDown('fast');
 }
+
