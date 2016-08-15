@@ -17,7 +17,7 @@ function openCategory($strCategory){
         };
     }
 
-    $('#divCategoryContainer_' + $strCategory).css('height', 'calc(100vh - ' + parseInt(parseInt($('#divMenuHeader').css('height').replace('px','').replace(' ','')) + 4 + ($arrMenu.Categories.length * 34)) + 'px)');
+    $('#divCategoryContainer_' + $strCategory).css('height', 'calc(100vh - ' + parseInt(parseInt($('#divMenuHeader').css('height').replace('px','').replace(' ','')) + 4 + ($arrMenu.Categories.length * 32) + 2) + 'px)');
     $('#divCategoryContainer_' + $strCategory).slideDown('fast');
 }
 
