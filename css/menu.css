@@ -41,7 +41,7 @@
 .divMenuCategory {
     margin-bottom: 2px;
     font-size: 10pt;
-    padding: 2px 2px 2px 0;
+    padding: 2px 2px 2px 2px;
     background-color: #00B8FE;
     border: 0;
 }
@@ -53,7 +53,7 @@
     font-weight: normal;
     border: 0;
     background-color: #00B8FE;
-    margin-bottom: 2px;
+    margin-bottom: 0;
     color: #050409;
 }
 
@@ -77,18 +77,18 @@
     color: #F1F1F1;
 }
 
-.divMenuSubCategory:hover{
-    background-color: #00346F;
-}
-
 .divSubCategory{
     cursor:pointer;
     border: 0;
 }
 
+.divSubCategory:hover{
+    background-color: #00346F;
+}
+
 .divSubCategoryContainer{
     display: none;
-    padding: 0 0 0 20px;
+    padding: 0 2px 0 20px;
     border: 0;
 }
 
@@ -99,7 +99,8 @@
     padding: 2px 2px 2px 2px;
     border: 0;
     background-color: #D8D8D8;
-    margin-bottom: 2px;
+    margin-top: 2px;
+    color: #050409;
 }
 
 .divMenuOption:hover{

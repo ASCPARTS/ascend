@@ -1,4 +1,17 @@
 input[type=text]{
+    font-size: 12pt;
+    background-color: #F1F1F1;
+    border: 1px #1E202C solid;
+    outline: none;
+    color: #1E202C;
+    padding: 3px 5px 3px 31px;
+    background-image: url('pixel_1E202C.png'), url('input_img.png'), url('img/pixel_00B8FE.png');
+    background-repeat: repeat-y, no-repeat, no-repeat;
+    background-position: 26px, 0, 0;
+    background-size: auto, auto, 26px 25px;
+}
+
+input[type=text]{
     width: 150px;
     font-size: 12pt;
     background-color: white;
