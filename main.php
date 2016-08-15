@@ -163,57 +163,7 @@
 
 
             <td style="padding: 0 0 0 0" width="*">
-                <div id="pestanas" style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px;">
-
-                    <div id="pesta1" style="z-index:1000; visibility:visible; position:absolute">
-                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Botones</div>
-                    <input type="button" value="alguna acción" class="colorblue">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="coloryellow">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colorgreen">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colordarkblue">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colorred">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colordarkgrey">
-                    </div>
-
-                    <div id="pesta2" style="z-index:1; visibility:hidden; position:absolute">
-                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Formulario</div>
-                        <table id="mitabla" style="width: 100%; height: auto" >
-                            <tr>
-                                <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
-                                <td></td>
-                                <td></td>
-                                <td><input type="image" src="img/add.png" value="Mostrar" id="add" style="margin-left: 61%" width="50px" title="Agregar Cotización" >
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
-                                <td><input type="date" placeholder="Fecha" class="fecha"></td>
-                                <td><input type="text" placeholder="Tiempo de Llegada" class="tiempo"></td>
-                                <td><input type="text" placeholder="Costo" class="costo"></td>
-
-                            </tr>
-                            <tr>
-                                <td><input type="text" placeholder="Precio 1" class="precio"></td>
-                                <td><input type="text" placeholder="Precio 2" class="precio"></td>
-                                <td><input type="text" placeholder="Precio 3" class="precio"></td>
-                                <td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>
-
-                            </tr>
-                            <tr>
-                                <td colspan="5">
-                                    <div style="margin: 5px 0 5px 0; height: 10px; background-color: #D8D8D8;"></div>
-                                </td>
-                            </tr>
-
-
-                        </table>
-                    </div>
-
+                <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px;">
 
                 </div>
             </td>
