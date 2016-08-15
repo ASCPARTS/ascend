@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/añadirFormulario.js"></script>
     <style>
         body {
             font-family: Arial;
@@ -11,19 +13,7 @@
             margin: 0 0 0 0;
         }
 
-        input[type=text]{
-            font-size: 12pt;
-            background-color: #F1F1F1;
-            border: 1px #1E202C solid;
-            outline: none;
-            color: #1E202C;
-            padding: 3px 5px 3px 31px;
-            background-image: url('pixel_1E202C.png'), url('input_img.png');
-            background-repeat: repeat-y, no-repeat;
-            background-position: 26px, 0;
-        }
-
-        input[type=button] {
+            input[type=button] {
             font-size: 12pt;
             padding: 3px 12px 3px 12px;
             outline: none;
@@ -142,66 +132,11 @@
             float: right;
             border-left: 2px #D8D8D8 solid;
         }
-        .tabNot{
-            display: inline-block;
-            height: 52px;
-            width: 185px;
-            vertical-align: top;
-            margin: 4px 3px 3px 5px;
-            text-shadow: 0 1px 0 #00000;
-            color: #f1f1f1;
-            border: 1px solid #d2cfd8;
-        }
-        .tabNot .imagen{
-            float: left;
-            width: 50px;
-            height: 50px;
-            margin: 0 3px 0 0;
-            border: 1px #d2cfd8 solid;
-        }
-        .tabNot .labelContent {
-            position: inherit;
-            display: inline-block;
-            width: calc(100% - 73px);
-            vertical-align: top;
-            padding: 4px 2px 4px 2px;
-            cursor: pointer;
-            font-size: 9pt;
-            font-weight: bold;
-        }
-        .tabNot .labelPendientes {
-            height: auto;
-            width: calc(100% - 33px);
-            padding: 4px 2px 4px 2px;
-            cursor: pointer;
-            font-size: 9pt;
-        }
-        .tabNot .labelContentSelected {
-            position: inherit;
-            display: inline-block;
-            width: calc(100% - 23px);
-            vertical-align: top;
-            padding: 4px 2px 4px 2px;
-            cursor: pointer;
-            background-color: #1766A1;
-            color:#F1F1F1;
-        }
-        .tabNot .labelClose {
-            position: inherit;
-            display: inline-block;
-            width: 15px;
-            padding: 4px 2px 4px 2px;
-            text-align: center;
-            cursor: pointer;
-            color: #1766A1;
-        }
-        .tabNot:hover {
-            background-color: #f1f1f1;
-            color:#1766A1;
-        }
 
     </style>
     <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/formulario.css">
+    <link rel="stylesheet" type="text/css" href="css/panelNotificaciones.css">
 </head>
 <body>
 <table style="width: 100vw; height: 100vh; border: 0; border-spacing: 2px; border-collapse: separate;  ">
@@ -220,19 +155,19 @@
         <tr style="calc(100% - 50px)">
             <td style="background-color: #00B8FE; padding: 0 0 0 0;" width="152">
                 <div style="width: calc(100% - 4px); height: 100%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
-                    <div class="tabMain" title="Diseño de Botones"><div class="labelContent">Diseño Botones</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Formularios"><div class="labelContent">Diseño Formulario</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Reportes"><div class="labelContent">Diseño Reportes</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Botones"><div class="labelContent" onClick="pestana('pestanas', 'pesta1')" >Diseño Botones</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Formularios"><div class="labelContent" onClick="pestana('pestanas', 'pesta2')">Diseño Formulario</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Reportes"><div class="labelContent" onClick="pestana('pestanas', 'pesta3')">Diseño Reportes</div><div class="labelClose">&#10006</div></div>
                     <div class="tabMain" title="Diseño de Graficas"><div class="labelContentSelected">Diseño Graficas</div><div class="labelCloseSelected">&#10006</div></div>
                 </div>
             </td>
+
+
             <td style="padding: 0 0 0 0" width="*">
-                <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
-                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Catálogo de Productos</div>
-                    <input type="text" placeholder="valor">
-                    <br />
-                    <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
-                    <br /><br />
+                <div id="pestanas" style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px;">
+
+                    <div id="pesta1" style="z-index:1000; visibility:visible; position:absolute">
+                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Botones</div>
                     <input type="button" value="alguna acción" class="colorblue">
                     <br /><br />
                     <input type="button" value="alguna acción" class="coloryellow">
@@ -244,8 +179,48 @@
                     <input type="button" value="alguna acción" class="colorred">
                     <br /><br />
                     <input type="button" value="alguna acción" class="colordarkgrey">
+                    </div>
+
+                    <div id="pesta2" style="z-index:-1000; visibility:hidden; position:absolute">
+                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Formulario</div>
+                        <table id="mitabla" style="width: 100%; height: auto" >
+                            <tr>
+                                <td><span style="border: 1px gray"><img src="imagenes/search.png"></span><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
+                                <td></td>
+                                <td></td>
+                                <td><input type="image" src="img/add.png" value="Mostrar" id="add" style="margin-left: 61%" width="50px" title="Agregar Cotización" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
+                                <td><input type="date" placeholder="Fecha" class="fecha"></td>
+                                <td><input type="text" placeholder="Tiempo de Llegada" class="tiempo"></td>
+                                <td><input type="text" placeholder="Costo" class="costo"></td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="Precio 1" class="precio"></td>
+                                <td><input type="text" placeholder="Precio 2" class="precio"></td>
+                                <td><input type="text" placeholder="Precio 3" class="precio"></td>
+                                <td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <div style="margin: 5px 0 5px 0; height: 10px; background-color: #D8D8D8;"></div>
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+
+
                 </div>
             </td>
+
+
+
             <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
                 <div style=" width: calc(100% - 4px); height: 55%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
                     <div >
@@ -273,22 +248,22 @@
                     <label style="font-size: 10pt; color: #d2cfd8">&nbsp;&nbsp;Notificaciones</label>
                     <div style="margin: 5px 7px 5px 7px; ;height: 1px; background-color: #D8D8D8;"></div>
                     <div class="tabNot"  >
-                        <div class="imagen"><img src="imagenes/aldo.jpg" width="50px"></div>
+                        <div class="imagen"><img src="img/aldo.jpg" width="50px"></div>
                         <div class="labelContent">Aldo Araya libero un pedido</div>
                         <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">7:15a.m</div>
                     </div>
                     <div class="tabNot" >
-                        <div class="imagen"><img src="imagenes/rocio.jpg" width="50px"></div>
+                        <div class="imagen"><img src="img/rocio.jpg" width="50px"></div>
                         <div class="labelContent">Rocio Barcenas envio un pedido</div>
                         <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
                     </div>
                     <div class="tabNot" >
-                        <div class="imagen"><img src="imagenes/ismael.jpg" width="50px"></div>
+                        <div class="imagen"><img src="img/ismael.jpg" width="50px"></div>
                         <div class="labelContent">Ismael Gomez envio cotización</div>
                         <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
                     </div>
                     <div class="tabNot" >
-                        <div class="imagen"><img src="imagenes/francisco.jpg" width="50px"></div>
+                        <div class="imagen"><img src="img/francisco.jpg" width="50px"></div>
                         <div class="labelContent">Fco Torres recibio material</div>
                         <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
                     </div>
