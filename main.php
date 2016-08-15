@@ -154,9 +154,9 @@
         <tr style="calc(100% - 50px)">
             <td style="background-color: #00B8FE; padding: 0 0 0 0;" width="152">
                 <div style="width: calc(100% - 4px); height: 100%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
-                    <div class="tabMain" title="Diseño de Botones"><div class="labelContent" onClick="pestana('pestanas', 'pesta1')" >Diseño Botones</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Formularios"><div class="labelContent" onClick="pestana('pestanas', 'pesta2')">Diseño Formulario</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Reportes"><div class="labelContent" onClick="pestana('pestanas', 'pesta3')">Diseño Reportes</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Botones"><div class="labelContent"  >Diseño Botones</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Formularios"><div class="labelContent" ">Diseño Formulario</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Reportes"><div class="labelContent" ">Diseño Reportes</div><div class="labelClose">&#10006</div></div>
                     <div class="tabMain" title="Diseño de Graficas"><div class="labelContentSelected">Diseño Graficas</div><div class="labelCloseSelected">&#10006</div></div>
                 </div>
             </td>
@@ -164,7 +164,19 @@
 
             <td style="padding: 0 0 0 0" width="*">
                 <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px;">
-
+                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Botones</div>
+                    <input type="button" value="alguna acción" class="colorblue">
+                    <br /><br />
+                    <input type="button" value="alguna acción" class="coloryellow">
+                    <br /><br />
+                    <input type="button" value="alguna acción" class="colorgreen">
+                    <br /><br />
+                    <input type="button" value="alguna acción" class="colordarkblue">
+                    <br /><br />
+                    <input type="button" value="alguna acción" class="colorred">
+                    <br /><br />
+                    <input type="button" value="alguna acción" class="colordarkgrey">
+                </div>
                 </div>
             </td>
 
