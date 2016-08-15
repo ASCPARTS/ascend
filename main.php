@@ -220,21 +220,10 @@
         <tr style="calc(100% - 50px)">
             <td style="background-color: #00B8FE; padding: 0 0 0 0;" width="152">
                 <div style="width: calc(100% - 4px); height: 100%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
-                    <div class="tabMain" title="Organización de Productos"><label class="labelContent">Organización de pr...</label><label class="labelClose">&#10006</label></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContentSelected">Organización</div><div class="labelCloseSelected">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Organización"><div class="labelContent">Organización</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Botones"><div class="labelContent">Diseño Botones</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Formularios"><div class="labelContent">Diseño Formulario</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Reportes"><div class="labelContent">Diseño Reportes</div><div class="labelClose">&#10006</div></div>
+                    <div class="tabMain" title="Diseño de Graficas"><div class="labelContentSelected">Diseño Graficas</div><div class="labelCloseSelected">&#10006</div></div>
                 </div>
             </td>
             <td style="padding: 0 0 0 0" width="*">
