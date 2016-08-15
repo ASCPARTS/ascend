@@ -142,6 +142,63 @@
             float: right;
             border-left: 2px #D8D8D8 solid;
         }
+        .tabNot{
+            display: inline-block;
+            height: 52px;
+            width: 185px;
+            vertical-align: top;
+            margin: 4px 3px 3px 5px;
+            text-shadow: 0 1px 0 #00000;
+            color: #f1f1f1;
+            border: 1px solid #d2cfd8;
+        }
+        .tabNot .imagen{
+            float: left;
+            width: 50px;
+            height: 50px;
+            margin: 0 3px 0 0;
+            border: 1px #d2cfd8 solid;
+        }
+        .tabNot .labelContent {
+            position: inherit;
+            display: inline-block;
+            width: calc(100% - 73px);
+            vertical-align: top;
+            padding: 4px 2px 4px 2px;
+            cursor: pointer;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        .tabNot .labelPendientes {
+            height: auto;
+            width: calc(100% - 33px);
+            padding: 4px 2px 4px 2px;
+            cursor: pointer;
+            font-size: 9pt;
+        }
+        .tabNot .labelContentSelected {
+            position: inherit;
+            display: inline-block;
+            width: calc(100% - 23px);
+            vertical-align: top;
+            padding: 4px 2px 4px 2px;
+            cursor: pointer;
+            background-color: #1766A1;
+            color:#F1F1F1;
+        }
+        .tabNot .labelClose {
+            position: inherit;
+            display: inline-block;
+            width: 15px;
+            padding: 4px 2px 4px 2px;
+            text-align: center;
+            cursor: pointer;
+            color: #1766A1;
+        }
+        .tabNot:hover {
+            background-color: #f1f1f1;
+            color:#1766A1;
+        }
 
     </style>
     <link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -200,7 +257,54 @@
                     <input type="button" value="alguna acción" class="colordarkgrey">
                 </div>
             </td>
-            <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200"></td>
+            <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
+                <div style=" width: calc(100% - 4px); height: 55%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
+                    <div >
+                        <div style="color: #d2cfd8; font-size: 14pt; width: 195px"><b>&nbsp;Mis Tareas<b></b></div>
+                    </div>
+                    <div style="margin: 5px 7px 5px 7px; ;height: 1px; background-color: #D8D8D8;"></div>
+                    <div class="tabNot" >
+                        <div class="labelPendientes" >Cotizar orden #7456 partida #4</div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="labelPendientes" >Enviar factura #673456-B a Trafico </div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="labelPendientes" >Calcular maximos y minimos</div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="labelPendientes" >Descargar historial de Proveedor HP</div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="labelPendientes" >Enviar reporte de evaluación de personal a Luis Quintero</div>
+                    </div>
+                </div>
+
+                <div style=" width: calc(100% - 4px); height: 45%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
+                    <label style="font-size: 10pt; color: #d2cfd8">&nbsp;&nbsp;Notificaciones</label>
+                    <div style="margin: 5px 7px 5px 7px; ;height: 1px; background-color: #D8D8D8;"></div>
+                    <div class="tabNot"  >
+                        <div class="imagen"><img src="imagenes/aldo.jpg" width="50px"></div>
+                        <div class="labelContent">Aldo Araya libero un pedido</div>
+                        <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">7:15a.m</div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="imagen"><img src="imagenes/rocio.jpg" width="50px"></div>
+                        <div class="labelContent">Rocio Barcenas envio un pedido</div>
+                        <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="imagen"><img src="imagenes/ismael.jpg" width="50px"></div>
+                        <div class="labelContent">Ismael Gomez envio cotización</div>
+                        <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
+                    </div>
+                    <div class="tabNot" >
+                        <div class="imagen"><img src="imagenes/francisco.jpg" width="50px"></div>
+                        <div class="labelContent">Fco Torres recibio material</div>
+                        <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
+                    </div>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
