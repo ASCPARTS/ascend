@@ -103,7 +103,7 @@
             <div class="divLoginMain">
                 <input type="text" placeholder="cuenta" value=""><br>
                 <input type="password" placeholder="contraseña" value=""><br>
-                <input type="button" value="ingresar">
+                <input type="button" value="ingresar" onclick="location.href='main.php'">
             </div>
             <br /><br /><br /><br />
             <img src="logo_white-01.png" style="width: 10vw">
