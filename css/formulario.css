@@ -1,0 +1,68 @@
+input[type=text]{
+    width: 150px;
+    font-size: 12pt;
+    background-color: white;
+    border: 1px gray solid;
+    outline: none;
+    color: #1E202C;
+    padding: 3px 5px 3px 31px;
+
+}
+input[type=text].proveedor{
+    margin: 3px 3px 3px 3px;
+    background-image: url('../pixel_1E202C.png'), url('../imagenes/user.png');
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+
+}
+input[type=date].fecha{
+    width: 150px;
+    font-size: 9pt;
+    background-color:#b3e9ff;
+    border: 1px gray solid;
+    outline: none;
+    color: gray;
+    padding: 3px 5px 3px 31px;
+    background-image: url('../pixel_1E202C.png'), url('../imagenes/calendar.png');
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+
+}
+input[type=text].precio{
+    margin: 3px 3px 3px 3px;
+    background-image: url('../pixel_1E202C.png'), url('../imagenes/dollar-symbol.png');
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+}
+input[type=text].costo{
+    margin: 3px 3px 3px 3px;
+    background-image: url('../pixel_1E202C.png'), url('../imagenes/price-tag (1).png');
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+}
+input[type=text].precioVenta{
+    margin: 3px 3px 3px 3px;
+    background-image: url('../pixel_1E202C.png'), url('../imagenes/price-tag (2).png');
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+}
+input[type=text].tiempo{
+    margin: 3px 3px 3px 3px;
+    background-image: url('../pixel_1E202C.png'), url('../imagenes/time.png');
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+}
+input[type=text].buscar{
+    margin: 3px 3px 3px 3px;
+    /*background-image: url('../pixel_1E202C.png'), url('../imagenes/search.png');*/
+    background-repeat: repeat-y, no-repeat;
+    background-position: 20px, 2px;
+    margin: 3px 3px 3px 3px;
+
+}
