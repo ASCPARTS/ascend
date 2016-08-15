@@ -23,11 +23,7 @@ $(document).ready(function(){
             tds +='<td><input type="text" placeholder="Precio 3" class="precio"></td>';
             tds +='<td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>';
             tds +='</tr>';
-            tds +='<tr>';
-            tds +='<div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>';
-            tds +='</tr>';
-
-        }
+            }
 
         $("#mitabla").append(tds);
     });

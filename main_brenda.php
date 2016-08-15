@@ -256,15 +256,12 @@
         <td style="padding: 0 0 0 0; " width="*">
             <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
                 <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Orden de Cotización</div>
-
-                <br>
-
-                <table id="mitabla" style="width: 97%; height: auto; margin: 10px 10px 10px 10px" >
+                <table id="mitabla" style="width: 100%; height: auto; border: solid" >
                      <tr>
                          <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
                          <td></td>
                          <td></td>
-                         <td><input type="image" src="/imagenes/add.png" value="Mostrar" id="add"  width="50px" align="right" title="Agregar Cotización" >
+                         <td><input type="image" src="imagenes/add.png" value="Mostrar" id="add"  width="50px" align="right" title="Agregar Cotización" >
                          </td>
                      </tr>
                      <tr>
@@ -279,11 +276,8 @@
                         <td><input type="text" placeholder="Precio 3" class="precio"></td>
                         <td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>
                      </tr>
-                     <tr>
-                         <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
-                     </tr>
                 </table>
-                <input type="button" value="alguna acción" class="colorgreen" >
+                <input type="button" value="Responder" class="colorgreen" >
 
         </td>
         <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
