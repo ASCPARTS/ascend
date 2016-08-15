@@ -180,11 +180,11 @@
                     <input type="button" value="alguna acción" class="colordarkgrey">
                     </div>
 
-                    <div id="pesta2" style="z-index:-1000; visibility:hidden; position:absolute">
+                    <div id="pesta2" style="z-index:1; visibility:hidden; position:absolute">
                     <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Formulario</div>
                         <table id="mitabla" style="width: 100%; height: auto" >
                             <tr>
-                                <td><span style="border: 1px gray"><img src="imagenes/search.png"></span><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
+                                <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
                                 <td></td>
                                 <td></td>
                                 <td><input type="image" src="img/add.png" value="Mostrar" id="add" style="margin-left: 61%" width="50px" title="Agregar Cotización" >
