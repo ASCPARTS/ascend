@@ -181,7 +181,7 @@
                             <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
                             <td></td>
                             <td></td>
-                            <td><input type="image" src="imagenes/signs.png" value="Mostrar" id="add"  style="margin-left: 61%" width="50px" title="Agregar Cotización" >
+                            <td><input type="image" src="img/add.png" value="Mostrar" id="add" style="margin-left: 61%" width="50px" title="Agregar Cotización" >
                             </td>
                         </tr>
                         <tr>
@@ -243,22 +243,22 @@
                 <label style="font-size: 10pt; color: #d2cfd8">&nbsp;&nbsp;Notificaciones</label>
                 <div style="margin: 5px 7px 5px 7px; ;height: 1px; background-color: #D8D8D8;"></div>
                 <div class="tabNot"  >
-                    <div class="imagen"><img src="imagenes/aldo.jpg" width="50px"></div>
+                    <div class="imagen"><img src="img/aldo.jpg" width="50px"></div>
                     <div class="labelContent">Aldo Araya libero un pedido</div>
                     <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">7:15a.m</div>
                 </div>
                 <div class="tabNot" >
-                    <div class="imagen"><img src="imagenes/rocio.jpg" width="50px"></div>
+                    <div class="imagen"><img src="img/rocio.jpg" width="50px"></div>
                     <div class="labelContent">Rocio Barcenas envio un pedido</div>
                     <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
                 </div>
                 <div class="tabNot" >
-                    <div class="imagen"><img src="imagenes/ismael.jpg" width="50px"></div>
+                    <div class="imagen"><img src="img/ismael.jpg" width="50px"></div>
                     <div class="labelContent">Ismael Gomez envio cotización</div>
                     <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
                 </div>
                 <div class="tabNot" >
-                    <div class="imagen"><img src="imagenes/francisco.jpg" width="50px"></div>
+                    <div class="imagen"><img src="img/francisco.jpg" width="50px"></div>
                     <div class="labelContent">Fco Torres recibio material</div>
                     <div style=" width: 55px; height: 15px; margin-left: 135px; font-size: 8pt">10:48a.m</div>
                 </div>
