@@ -16,11 +16,11 @@
             width: 150px;
             font-size: 12pt;
             background-color: white;
-            border: 1px #1E202C solid;
+            border: 1px gray solid;
             outline: none;
             color: #1E202C;
             padding: 3px 5px 3px 31px;
-            background-image: url('pixel_1E202C.png'), url('input_img.png');
+           /* background-image: url('pixel_1E202C.png'), url('input_img.png');*/
             background-repeat: repeat-y, no-repeat;
             background-position: 26px, 0;
         }
@@ -28,10 +28,21 @@
             margin: 3px 3px 3px 3px;
 
         }
-        input[type=text].fecha{
-            margin: 3px 3px 3px 3px;
+        input[type=date].fecha{
+            width: 150px;
+            font-size: 9pt;
+            background-color: white;
+            border: 1px gray solid;
+            outline: none;
+            color: gray;
+            padding: 3px 5px 3px 31px;
+
         }
         input[type=text].precio{
+            margin: 3px 3px 3px 3px;
+            background-image: url('pixel_1E202C.png'), url('input_img.png');
+            background-repeat: repeat-y, no-repeat;
+            background-position: 26px, 0;
             margin: 3px 3px 3px 3px;
         }
         input[type=text].costo{
@@ -89,7 +100,6 @@
         .colordarkgrey {
             box-shadow: 0 4px 0 #323544;
         }
-
 
         .tabMain{
             display: inline-block;
@@ -221,13 +231,72 @@
             cursor: pointer;
             color: #1766A1;
         }
+        .labelCloseFormulario {
+            position: inherit;
+            display: inline-block;
+            width: 15px;
+            padding: 4px 2px 4px 2px;
+            text-align: center;
+            cursor: pointer;
+            color: #323544;
+        }
+
+        }
         .tabNot:hover {
             background-color: #f1f1f1;
             color:#1766A1;
         }
+        .responder{
+            margin-top: 3%;
+            width: 110px;
+            margin-left: 84.5%;
+
+        }
     </style>
 
     <script src="jquery-3.1.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#add").click(function() {
+
+                /* Opción 1 */
+                var n = $('tr:last td', $("#mitabla")).length;
+
+                for(var i = 0; i <n; i++){
+
+                    var tds = '<tr>';
+                    tds += '<td><input type="text" placeholder="Proveedor" class="proveedor"></td>';
+                    tds += '<td><input type="date" placeholder="Fecha" class="fecha"></td>';
+                    tds += '<td><input type="text" placeholder="Tiempo de Llegada" class="tiempo"></td>';
+                    tds += '<td><input type="text" placeholder="Costo" class="costo"></td>';
+                    tds += '</tr>';
+
+                    tds += '<tr>';
+                    tds += '<td><input type="text" placeholder="Precio 1" class="precio"></td>';
+                    tds += '<td><input type="text" placeholder="Precio 2" class="precio"></td>';
+                    tds += '<td><input type="text" placeholder="Precio 3" class="precio"></td>';
+                    tds += '<td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>';
+                    tds +='<td><div class="labelCloseFormulario" onclick="myFunction()">&#10006</div></div></td>';
+                    tds += '</tr>';
+                    tds += '<tr>';
+                    tds += '<td colspan="4">';
+                    tds +='<div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>';
+                    tds += '<td>';
+                    tds +='</tr>';
+
+
+                }
+
+                $("#mitabla").append(tds);
+            });
+        });
+    </script>
+    <script>
+        function myFunction() {
+            document.getElementById("mitabla").deleteRow(0);
+        }
+    </script>
 </head>
 <body>
 <table style="width: 100vw; height: 100vh; border: 0; border-spacing: 2px; border-collapse: separate;  ">
@@ -256,28 +325,42 @@
         <td style="padding: 0 0 0 0; " width="*">
             <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
                 <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Orden de Cotización</div>
-                <table id="mitabla" style="width: 100%; height: auto; border: solid" >
+                <table id="mitabla" style="width: 100%; height: auto" >
                      <tr>
                          <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
                          <td></td>
                          <td></td>
-                         <td><input type="image" src="imagenes/add.png" value="Mostrar" id="add"  width="50px" align="right" title="Agregar Cotización" >
+                         <td><input type="image" src="imagenes/add.png" value="Mostrar" id="add"  style="margin-left: 61%" width="50px" title="Agregar Cotización" >
                          </td>
                      </tr>
                      <tr>
                         <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
-                        <td><input type="text" placeholder="Fecha" class="fecha"></td>
+                        <td><input type="date" placeholder="Fecha" class="fecha"></td>
                         <td><input type="text" placeholder="Tiempo de Llegada" class="tiempo"></td>
                         <td><input type="text" placeholder="Costo" class="costo"></td>
+
                      </tr>
                      <tr>
                         <td><input type="text" placeholder="Precio 1" class="precio"></td>
                         <td><input type="text" placeholder="Precio 2" class="precio"></td>
                         <td><input type="text" placeholder="Precio 3" class="precio"></td>
                         <td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>
+
+
                      </tr>
+                    <tr>
+                    <td colspan="4">
+                        <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
+                    </td>
+                    </tr>
+
+
                 </table>
-                <input type="button" value="Responder" class="colorgreen" >
+
+                <div class="responder">
+                    <input type="button" value="Responder" class="colorgreen">
+                </div>
+
 
         </td>
         <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
