@@ -181,7 +181,7 @@
                             <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
                             <td></td>
                             <td></td>
-                            <td><input type="image" src="img/add.png" value="Mostrar" id="add" style="margin-left: 61%" width="50px" title="Agregar Cotización" >
+                            <td><input type="image" src="img/add.png" value="Mostrar" id="add" class="añadir" title="Agregar Cotización" >
                             </td>
                         </tr>
                         <tr>
