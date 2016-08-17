@@ -6,8 +6,8 @@
                 <div class="divMenuCategory">
                     <div class="divCategory" onclick="openCategory('1')">Catálogos</div>
                     <div class="divCategoryContainer" id="divCategoryContainer_1">
-                        <div class="divMenuOption">Clientes</div>
-                        <div class="divMenuOption">Proveedores</div>
+                        <div class="divMenuOption" onclick="handleTab('1','Clientes','clientes.php')">Clientes</div>
+                        <div class="divMenuOption" onclick="handleTab('2','Proveedores','proveedores.php')">Proveedores</div>
                         <div class="divMenuOption">Productos</div>
                         <div class="divMenuOption">Bancos</div>
                         <div class="divMenuOption">Almacenes</div>
@@ -130,4 +130,3 @@
         '8':Array()
     };
 </script>
-<script src="js/menu.js"></script>

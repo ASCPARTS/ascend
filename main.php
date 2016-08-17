@@ -54,86 +54,9 @@
             box-shadow: 0 4px 0 #323544;
         }
 
-        .tabMain{
-            display: inline-block;
-            width: 100%;
-            vertical-align: top;
-            margin-bottom: 2px;
-            background-color: #323544;
-            color: #F1F1F1;
-            text-shadow: 0 1px 0 #00000;
-        }
-
-        .tabMain .labelContent {
-            position: inherit;
-            display: inline-block;
-            width: calc(100% - 23px);
-            vertical-align: top;
-            padding: 4px 2px 4px 2px;
-            cursor: pointer;
-        }
-
-        .tabMain .labelContentSelected {
-            position: inherit;
-            display: inline-block;
-            width: calc(100% - 23px);
-            vertical-align: top;
-            padding: 4px 2px 4px 2px;
-            cursor: pointer;
-            background-color: #F1F1F1;
-            color:#323544;
-            font-weight: bold;
-        }
-
-        .tabMain .labelClose {
-            position: inherit;
-            display: inline-block;
-            width: 15px;
-            padding: 4px 2px 4px 2px;
-            text-align: center;
-            cursor: pointer;
-            color: #323544;
-        }
-
-        .tabMain .labelClose:hover {
-            color:#F1F1F1;
-        }
-
-        .tabMain .labelCloseSelected {
-            position: inherit;
-            display: inline-block;
-            width: 15px;
-            padding: 4px 2px 4px 2px;
-            text-align: center;
-            cursor: pointer;
-            color: #F1F1F1;
-            background-color: #F1F1F1;
-        }
-
-        .tabMain .labelCloseSelected:hover {
-            color:#323544;
-        }
-
-        .altMenuLeft {
-            cursor:pointer;
-            display: block;
-            height: 50px;
-            width: 50px;
-            float: left;
-            border-right: 2px #D8D8D8 solid;
-        }
-
-        .altMenuRight {
-            cursor:pointer;
-            display: block;
-            height: 50px;
-            width: 50px;
-            float: right;
-            border-left: 2px #D8D8D8 solid;
-        }
-
     </style>
     <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/tab.css">
     <link rel="stylesheet" type="text/css" href="css/formulario.css">
     <link rel="stylesheet" type="text/css" href="css/panelNotificaciones.css">
 </head>
@@ -142,46 +65,23 @@
     <tbody>
         <tr style="height: 50px">
             <td colspan="3" style="background-color: #050409; padding: 0 0 0 0">
-                <div class="altMenuLeft" style="background-image: url('img/logo_h_byn_128.png'); background-repeat: no-repeat; background-position: center center; width: 152px !important; "></div>
-                <div class="altMenuLeft" onclick="openMenu();" style="background-image: url('menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
-                <div class="altMenuRight" style="width: 200px !important;"></div>
-                <div class="altMenuRight"></div>
-                <div class="altMenuRight"></div>
-                <div class="altMenuRight"></div>
-                <div class="altMenuRight"></div>
+                <div class="divTopMenuLogo"></div>
+                <div class="divTopMenuLeft" onclick="openMenu();" style="background-image: url('img/menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
+                <div class="divTopMenuRight" style="width: 200px !important;"></div>
+                <div class="divTopMenuRight" onclick="handleTab('200','Cámaras','modules/cams/');" style="background-image: url('img/video-camera.png'); background-repeat: no-repeat; background-position: center center"></div>
+                <div class="divTopMenuRight" onclick="handleTab('201','HP Parts','http://partsurfer.hp.com/search.aspx');" style="background-image: url('img/hp32.png'); background-repeat: no-repeat; background-position: center center;"></div>
+                <div class="divTopMenuRight" onclick="handleTab('202','Impact','https://www.impactcomputers.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif'); background-repeat: no-repeat; background-position: center center; background-size: 90% auto"></div>
+                <div class="divTopMenuRight"></div>
+                <div class="divTopMenuRight"></div>
             </td>
         </tr>
         <tr style="calc(100% - 50px)">
-            <td style="background-color: #00B8FE; padding: 0 0 0 0;" width="152">
-                <div style="width: calc(100% - 4px); height: 100%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
-                    <div class="tabMain" title="Diseño de Botones"><div class="labelContent"  >Diseño Botones</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Formularios"><div class="labelContent" ">Diseño Formulario</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Reportes"><div class="labelContent" ">Diseño Reportes</div><div class="labelClose">&#10006</div></div>
-                    <div class="tabMain" title="Diseño de Graficas"><div class="labelContentSelected">Diseño Graficas</div><div class="labelCloseSelected">&#10006</div></div>
-                </div>
+            <td class="tdTabMainContainer" width="152">
+                <div id="divTabContainer" class="divTabContainer"></div>
             </td>
-
-
-            <td style="padding: 0 0 0 0" width="*">
-                <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px;">
-                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Diseño de Botones</div>
-                    <input type="button" value="alguna acción" class="colorblue">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="coloryellow">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colorgreen">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colordarkblue">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colorred">
-                    <br /><br />
-                    <input type="button" value="alguna acción" class="colordarkgrey">
-                </div>
-                </div>
+            <td clas="tdSheetMainContainer" width="*">
+                <div id="divSheetContainer" class="divSheetContainer"></div>
             </td>
-
-
-
             <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
                 <div style=" width: calc(100% - 4px); height: 55%; overflow-x: hidden; overflow-y: auto; padding: 2px 2px 2px 2px;">
                     <div >
@@ -234,6 +134,13 @@
     </tbody>
 </table>
 <?php require_once 'inc/menu.php'; ?>
+<script src="js/menu.js"></script>
+<script src="js/tab.js"></script>
 <script type="text/javascript" src="js/añadirFormulario.js"></script>
+
+<script>
+    handleTab('1','Clientes','clientes.php');
+    handleTab('2','Proveedores','proveedores.php');
+</script>
 </body>
 </html>

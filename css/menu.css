@@ -106,3 +106,41 @@
 .divMenuOption:hover{
     background-color: #A6A6A6;
 }
+
+.divTopMenuLogo {
+    display: block;
+    height: 50px;
+    width: 152px;
+    float: left;
+    border-right: 2px #D8D8D8 solid;
+    background-image: url('../img/logo_h_byn_128.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.divTopMenuLeft {
+    cursor:pointer;
+    display: block;
+    height: 50px;
+    width: 50px;
+    float: left;
+    border-right: 2px #D8D8D8 solid;
+}
+
+.divTopMenuLeft:hover {
+    background-color: #1E202C;
+}
+
+.divTopMenuRight {
+    cursor:pointer;
+    display: block;
+    height: 50px;
+    width: 50px;
+    float: right;
+    border-left: 2px #D8D8D8 solid;
+}
+
+.divTopMenuRight:hover {
+    background-color: #1E202C;
+}
+
