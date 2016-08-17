@@ -14,9 +14,6 @@
             margin: 0 0 0 0;
         }
 
-
-
-
         input[type=button] {
             font-size: 12pt;
             padding: 3px 12px 3px 12px;
@@ -143,6 +140,7 @@
             margin-left: 84.5%;
 
         }
+
     </style>
     <link rel="stylesheet" type="text/css" href="css/formulario.css">
     <link rel="stylesheet" type="text/css" href="css/panelNotificaciones.css">
@@ -175,42 +173,28 @@
         <td style="padding: 0 0 0 0; " width="*">
 
                      <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
-                    <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Orden de Cotización</div>
-                    <table id="mitabla" style="width: 100%; height: auto" >
-                        <tr>
-                            <td><input type="text" placeholder="Numero de Cotización" class="buscar"></td>
-                            <td></td>
-                            <td></td>
-                            <td><input type="image" src="img/add.png" value="Mostrar" id="add" class="añadir" title="Agregar Cotización" >
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
-                            <td><input type="date" placeholder="Fecha" class="fecha"></td>
-                            <td><input type="text" placeholder="Tiempo de Llegada" class="tiempo"></td>
-                            <td><input type="text" placeholder="Costo" class="costo"></td>
-
-                        </tr>
-                        <tr>
-                            <td><input type="text" placeholder="Precio 1" class="precio"></td>
-                            <td><input type="text" placeholder="Precio 2" class="precio"></td>
-                            <td><input type="text" placeholder="Precio 3" class="precio"></td>
-                            <td><input type="text" placeholder="Precio de Venta" class="precioVenta" ></td>
+                    <div class="lineaDivisora">Reportes</div>
+                         <div style="width:80%;max-width:400px; box-shadow:0 5px 7px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
 
 
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
-                            </td>
-                        </tr>
 
 
-                    </table>
+                             <label>&#9656;</label><span style="height: 25px;">Estado de Cuenta de Cliente</span><br>
+                             <label>&#9656;</label><span style="height: 25px;">Estado de Cuenta de Cliente</span><br>
+                             <label>&#9656;</label><span>Estado de Cuenta de Cliente</span><br>
+                             <label>&#9656;</label><span>Estado de Cuenta de Cliente</span><br>
+                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
+                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
+                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
+                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
+                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
+                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
 
-                    <div class="responder">
-                        <input type="button" value="Responder" class="colorgreen">
-                    </div>
+                         </div>
+
+
+
+
 
 
         </td>
