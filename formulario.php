@@ -25,6 +25,14 @@
             <td><input type="image" src="img/add.png" value="Mostrar" id="add" class="añadir" title="Agregar Cotización" >
             </td>
         </tr>
+        <tr style="height: 15px"></tr>
+
+        <tr>
+            <td><input type="text" value="39723" class="proveedor"></td>
+            <td><input type="text" value="3" class="proveedor"></td>
+        </tr>
+        <tr style="height: 15px"></tr>
+
         <tr>
             <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
             <td><input type="date" placeholder="Fecha" class="fecha"></td>
@@ -40,6 +48,7 @@
 
 
         </tr>
+
         <tr>
             <td colspan="4">
                 <div style="margin: 5px 0 5px 0; ;height: 1px; background-color: #D8D8D8;"></div>
