@@ -23,7 +23,7 @@ input[type=text]{
 }
 input[type=text].proveedor{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/proveedores_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/usuario_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 20px, 2px, 0;
     margin: 3px 3px 3px 3px;
@@ -38,7 +38,7 @@ input[type=date].fecha{
     outline: none;
     color: gray;
     padding: 3px 5px 3px 31px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/calendar.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/calendario_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 20px, 2px, 0;
     margin: 3px 3px 3px 3px;
@@ -47,7 +47,7 @@ input[type=date].fecha{
 }
 input[type=text].precio{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/dollar-symbol.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/precio_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 20px, 2px,0;
     margin: 3px 3px 3px 3px;
@@ -55,7 +55,7 @@ input[type=text].precio{
 }
 input[type=text].costo{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/price-tag (1).png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/ventas_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 20px, 2px,0;
     margin: 3px 3px 3px 3px;
@@ -63,21 +63,21 @@ input[type=text].costo{
 }
 input[type=text].precioVenta{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/price-tag (2).png');
+    background-image: url('../pixel_1E202C.png'), url('../img/ventas_16.png');
     background-repeat: repeat-y, no-repeat;
     background-position: 20px, 2px;
     margin: 3px 3px 3px 3px;
 }
 input[type=text].tiempo{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/time.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/reloj_16.png');
     background-repeat: repeat-y, no-repeat;
     background-position: 20px, 2px;
     margin: 3px 3px 3px 3px;
 }
 input[type=text].buscar{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/search.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/busqueda_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 20px, 2px, 0;
     margin: 3px 3px 3px 3px;
