@@ -23,7 +23,7 @@ input[type=text]{
 }
 input[type=text].proveedor{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../imagenes/user.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../pixel_1E202C.png'), url('../img/proveedores_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 20px, 2px, 0;
     margin: 3px 3px 3px 3px;
@@ -84,6 +84,26 @@ input[type=text].buscar{
 
     background-size: auto, auto, 20px 24px;
 
+}
+input[type=button] {
+    font-size: 12pt;
+    padding: 3px 12px 3px 12px;
+    outline: none;
+    cursor: pointer;
+    font-weight: normal;
+    background-color: #D8D8D8;
+    border-left: 0px #1E202C solid;
+    border-top: 0px #1E202C solid;
+    border-right: 0px #1E202C solid;
+    border-bottom: 0px #1E202C solid;
+    color: #1E202C;
+}
+
+input[type=button]:hover{
+    background-color: #D2CFD8;
+}
+.colorgreen {
+    box-shadow: 0 4px 0 #55B844;
 }
 .añadir{
     margin-left: 68%;
