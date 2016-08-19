@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body {
-            font-family: Arial;
-            font-size: 10pt;
-            background-color: #D8D8D8;
-            margin: 0 0 0 0;
-        }
-
-    </style>
+    <style></style>
     <link rel="stylesheet" type="text/css" href="css/formulario.css">
     <script src="jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/añadirFormulario.js"></script>
 </head>
 <body>
-<div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
+<div class="principal">
     <div style="font-size: 15pt; font-weight: bold; color:#1766A1; border-bottom: 1px #1766A1 solid; margin-bottom: 8px; ">Orden de Cotización</div>
     <table id="mitabla" style="width: 100%; height: auto" >
         <tr>
