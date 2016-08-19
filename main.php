@@ -145,6 +145,7 @@
     handleTab('2','Proveedores','proveedores.php');
     handleTab('3','Formulario','formulario.php');
     handleTab('4','Reportes','reportes.php');
+    handleTab('5','Reporte','infoCliente.php');
 </script>
 </body>
 </html>
