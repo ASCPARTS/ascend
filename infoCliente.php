@@ -16,9 +16,8 @@
 
 <body>
 <div class="principal">
+
     <div class="lineaDivisora">Ficha de Seguimiento de Cliente</div>
-
-
 
     <div style=" width:50%; border: 1px gray solid; background-color: white; margin: 15px 15px 15px 15px; float: left">
         <div style="margin: 15px 15px 15px 15px" >
@@ -45,8 +44,9 @@
         <img src="img/grafica.jpg" width="350px" height="300px" style="padding: 60px 20px 60px 23px;">
     </div>
 
+    <div class="lineaDivisora">Información de Cotizaciones y Ventas</div>
 
-        <div style="border: 1px gray solid; margin-top: 15px;">
+        <div style="border: 2px gray solid; margin-top: 15px; background-color: white">
             <div class="lineaDivisora" style="text-align: center;">COTIZACIONES POR FAMILIA</div>
         <table width="100%" >
                     <tr style="text-align: center">
@@ -117,7 +117,7 @@
         </div>
 
 
-            <div style="border: 1px gray solid; margin-top: 15px; background-color: white;">
+            <div style="border: 2px gray solid; margin-top: 15px; background-color: white;">
                 <table width="100%">
             <tr style="text-align: center">
 
@@ -192,7 +192,7 @@
 
 
 
-            <div style="border: 1px gray solid; margin-top: 15px;">
+            <div style="border: 2px gray solid; margin-top: 15px; background-color: white;">
                 <table width="100%">
                     <tr style="text-align: center">
 
@@ -279,7 +279,7 @@
             </div>
 
 
-                <div style="border: 1px gray solid; margin-top: 15px; background-color: white">
+                <div style="border: 2px gray solid; margin-top: 15px; background-color: white">
                      <table width="100%">
         <tr style="text-align: center">
 
@@ -358,7 +358,7 @@
                 </div>
 
 
-        <div style="border: 1px gray solid; margin-top: 15px;" >
+        <div style="border: 2px gray solid; margin-top: 15px; background-color: white;" >
             <table style="text-align: center; ">
             <div class="lineaDivisora" style="text-align: center">TRAMITES RMA POR ESTATUS</div>
             <td><h3>Tipo Trámite y Último Estatus</h3></td>
