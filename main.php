@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>:: ASCEND ::</title>
     <script src="lib/jquery-3.1.0.min.js"></script>
     <style>
         body {
@@ -141,6 +141,7 @@
 <script>
     handleTab('1','Clientes','clientes.php');
     handleTab('2','Proveedores','proveedores.php');
+    handleTab('3','test','index.php');
 </script>
 </body>
 </html>
