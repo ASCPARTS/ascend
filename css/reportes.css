@@ -1,3 +1,15 @@
+body {
+    font-family: Arial;
+    font-size: 10pt;
+    margin: 0 0 0 0;
+}
+.principal{
+    width: calc(100% - 10px);
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 5px 5px 5px 5px; "
+}
 .lineaDivisora{
     font-size: 15pt;
     font-weight: bold;
@@ -10,7 +22,7 @@
     width:80%;
     height: 80%;
     max-width:350px;
-    border: 1px #f1f1f1 solid;
+    border: 1px #f1f1f1 dashed;
     margin-left: 30%;
     text-align: center;
 }
@@ -31,9 +43,8 @@
     display:none;
     slow: 600ms;
     fast: 200ms;
-    border: 2px dashed #f1f1f1;
+    border: 2px dashed #D8D8D8;
     color: #00B8FE;
-    font: bold;
     font-size: 10pt;
 
 }
