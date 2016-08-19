@@ -49,6 +49,46 @@ body, html{
     background-position: right top;
 }
 
+#divIndexLogin{
+    background-color: #F1F1F1;
+    height: 85%;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+input[type=text]{
+    position: relative;
+    display: inline-block;
+    background-color: #F1F1F1;
+    width: 90%;
+    border: 1px #050409 solid;
+    height: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+input[type=password]{
+    position: relative;
+    display: inline-block;
+    background-color: #F1F1F1;
+    width: 90%;
+    border: 1px #050409 solid;
+    height: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+input[type=button]{
+    position: relative;
+    display: inline-block;
+    background-color: #F1F1F1;
+    width: 90%;
+    border: 1px #050409 solid;
+    height: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 #divIndexFooter{
     background-color: #1766A1;
     height: 50px;

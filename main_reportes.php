@@ -174,28 +174,20 @@
 
                      <div style="width: calc(100% - 10px); height: 100%; overflow-x: auto; overflow-y: auto; background-color: #F1F1F1; padding: 5px 5px 5px 5px; ">
                     <div class="lineaDivisora">Reportes</div>
-                         <div style="width:80%;max-width:400px; box-shadow:0 5px 7px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
+                         <div style="width:80%;max-width:350px; box-shadow:0 5px 7px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
 
-
-
-
-                             <label>&#9656;</label><span style="height: 25px;">Estado de Cuenta de Cliente</span><br>
-                             <label>&#9656;</label><span style="height: 25px;">Estado de Cuenta de Cliente</span><br>
-                             <label>&#9656;</label><span>Estado de Cuenta de Cliente</span><br>
-                             <label>&#9656;</label><span>Estado de Cuenta de Cliente</span><br>
-                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
-                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
-                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
-                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
-                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
-                             <label>&#9656;</label><label>Estado de Cuenta de Cliente</label><br>
+                             <label>&#9656;</label><span class="nombre">Facturas por forma de pago</span><br>
+                             <label>&#9656;</label><span class="nombre">Notas de credito</span><br>
+                             <label>&#9656;</label><span class="nombre">Pedidos facturados por mes</span><br>
+                             <label>&#9656;</label><span class="nombre">Antigüedad de saldos</span><br>
+                             <label>&#9656;</label><span class="nombre">Días Cartera</span><br>
+                             <label>&#9656;</label><span class="nombre">Aplicación de anticipos detallados</span><br>
+                             <label>&#9656;</label><span class="nombre">Aplicación de cobro detallado</span><br>
+                             <label>&#9656;</label><span class="nombre">Factura diaria por serie y número de pago</span><br>
+                             <label>&#9656;</label><span class="nombre">Notas de crédito por aplicación detallada</span><br>
+                             <label>&#9656;</label><span class="nombre">Catálogo de clientes con vencimiento de pagaré</span><br>
 
                          </div>
-
-
-
-
-
 
         </td>
 

@@ -1,0 +1,45 @@
+.lineaDivisora{
+    font-size: 15pt;
+    font-weight: bold;
+    color:#1766A1;
+    border-bottom: 1px #1766A1 solid;
+    margin-bottom: 8px;
+}
+.reportes{
+    background-color: white;
+    width:80%;
+    height: 80%;
+    max-width:350px;
+    border: 1px #f1f1f1 solid;
+    margin-left: 30%;
+    text-align: center;
+}
+.nombre{
+    cursor: pointer;
+
+}
+.nombre:hover{
+    color: #00B8FE;
+    font-size: 12pt;
+}
+
+
+.filtros{
+    margin-left: 19%;
+    width: 65%;
+    height: 90%;
+    display:none;
+    slow: 600ms;
+    fast: 200ms;
+    border: 2px dashed #f1f1f1;
+    color: #00B8FE;
+    font: bold;
+    font-size: 10pt;
+
+}
+.botonDer{
+    margin-left: 40%;
+}
+.botonIzq{
+    margin-left: 10%;
+}

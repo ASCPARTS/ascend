@@ -141,7 +141,8 @@
 <script>
     handleTab('1','Clientes','clientes.php');
     handleTab('2','Proveedores','proveedores.php');
-    handleTab('3','test','index.php');
+    handleTab('3','Formulario','formulario.php');
+    handleTab('4','Reportes','reportes.php');
 </script>
 </body>
 </html>
