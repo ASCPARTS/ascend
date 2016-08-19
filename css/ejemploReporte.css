@@ -1,0 +1,19 @@
+body {
+    font-family: Arial;
+    font-size: 10pt;
+    margin: 0 0 0 0;
+}
+.principal{
+    width: calc(100% - 10px);
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 5px 5px 5px 5px; "
+}
+.lineaDivisora{
+    font-size: 15pt;
+    font-weight: bold;
+    color:#1766A1;
+    border-bottom: 1px #1766A1 solid;
+    margin-bottom: 8px;
+}
