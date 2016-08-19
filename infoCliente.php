@@ -9,6 +9,11 @@
         h3{
             color: blue;
         }
+        .clienteCredito{
+            color: #0086cc;
+            font-size: 10pt;
+            font-weight: bold;
+        }
     </style>
 
     <link rel="stylesheet" type="text/css" href="css/ejemploReporte.css">
@@ -38,11 +43,46 @@
             <h4>Compras Web del Mes:  2</h4>
             <h4>Ultima Compra Web: 17 Agosto 2016</h4>
         </div>
+        </div>
 
-    </div>
-    <div style="border: 1px gray solid; background-color: #00B8FE; margin: 15px 15px 15px 15px;  width: 43%; height: 435px; float: right">
-        <img src="img/grafica.jpg" width="350px" height="300px" style="padding: 60px 20px 60px 23px;">
-    </div>
+            <div style="border: 1px gray solid; background-color: #00B8FE; margin: 15px 15px 15px 15px;  width: 43%; height: 263px; float: right">
+                <img src="img/grafica.jpg" width="390px"  style="padding: 5px 2px 5px 2px"></td>
+            </div>
+
+                        <div style="border: 1px gray solid; background-color: white; margin: 1px 15px 15px 15px;  width: 43%; height: 150px; float: right">
+                            <table width="100%">
+                                <tr>
+                                    <td width="50%">
+                                        <label class="clienteCredito">Crédito:</label><br>
+                                        <label class="clienteCredito">Monto Ejercido:</label><br>
+                                        <label class="clienteCredito">Monto Vencido:</label><br>
+                                        <label class="clienteCredito">Condicion de Pago:</label><br>
+                                        <label class="clienteCredito">Precio de Lista:</label><br>
+                                        <label class="clienteCredito">Clase Cliente:</label><br>
+                                        <label class="clienteCredito">Categoria (Auto):</label><br>
+                                        <label class="clienteCredito">Venta Estrategia:</label><br>
+                                        <label class="clienteCredito">Ultima Compra:</label><br>
+                                        <label class="clienteCredito">Visita 30 dias:</label><br>
+                                    </td>
+                                    <td width="50%">
+                                        <label>$ 5, 000.00</label><br>
+                                        <label>$311.6</label><br>
+                                        <label>$167.42</label><br>
+                                        <label>Credito a 15 dias</label><br>
+                                        <label>DIST3</label><br>
+                                        <label>A</label><br>
+                                        <label>CAT2</label><br>
+                                        <label>S</label><br>
+                                        <label>17 Agosto 2016</label><br>
+                                        <label>O veces</label><br>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+<br>
+
+
 
     <div class="lineaDivisora">Información de Cotizaciones y Ventas</div>
 
