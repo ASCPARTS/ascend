@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>:: ASCEND ::</title>
+    <title>ASCEND, ASC Parts</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="lib/jquery-3.1.0.min.js"></script>
     <style>
         body {

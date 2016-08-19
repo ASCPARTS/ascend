@@ -31,62 +31,51 @@ body, html{
 }
 
 #divIndexLoginContainer{
-    background-color: #F1F1F1;
     width: 50%;
-    height: 50%;
+    height: 45%;
     display: inline-block;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#divIndexLoginLogo{
-    background-color: #050409;
-    height: 15%;
-    background-image: url('../img/logo_white-01.png');
-    background-repeat: no-repeat;
-    background-size: auto 85%;
-    background-position: right top;
-}
-
-#divIndexLogin{
-    background-color: #F1F1F1;
-    height: 85%;
-    text-align: center;
-    vertical-align: bottom;
+    top: 45%;
+    transform: translateY(-45%);
+    vertical-align: top;
+    padding: 0 0 0 0;
 }
 
 input[type=text]{
-    position: relative;
-    display: inline-block;
-    background-color: #F1F1F1;
-    width: 90%;
-    border: 1px #050409 solid;
-    height: 20%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    background-color: #FFFFFF;
+    width: 100%;
+    border: 1px #323544 solid;
+    height: 60%;
+    padding: 0 0 0 0;
+    font-size: 2em;
+    text-align: center;
+    outline: none;
+    color: #323544;
 }
 
 input[type=password]{
-    position: relative;
-    display: inline-block;
-    background-color: #F1F1F1;
-    width: 90%;
-    border: 1px #050409 solid;
-    height: 20%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    background-color: #FFFFFF;
+    width: 100%;
+    border: 1px #323544 solid;
+    height: 60%;
+    padding: 0 0 0 0;
+    font-size: 2em;
+    text-align: center;
+    outline: none;
+    color: #323544;
 }
 
 input[type=button]{
-    position: relative;
-    display: inline-block;
-    background-color: #F1F1F1;
-    width: 90%;
-    border: 1px #050409 solid;
-    height: 20%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    background-color: #00B8FE;
+    width: 100%;
+    border: 1px #00B8FE solid;
+    height: 58%;
+    padding: 0 0 0 0;
+    font-size: 1.5em;
+    text-align: center;
+    box-shadow: 0 5px 0 #1766A1;
+    color: #050409;
+    cursor: pointer;
 }
 
 #divIndexFooter{
