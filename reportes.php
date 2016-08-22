@@ -10,41 +10,72 @@
 </head>
 
 <body>
-<div class="principal">
-    <div class="lineaDivisora">Reportes</div>
-    <div>
-        <input type="text" placeholder="Buscar Reporte" class="buscar" align="center">
-    </div>
-    <div class="reportes">
-        <table align="center" >
+        <div id="principal" >
+
+            <div class="lineaDivisora">Reportes</div>
+            <div>
+                <input type="text" placeholder="Buscar Reporte" class="buscar" align="center">
+            </div>
+
+            <div style="height: 15px;"></div>
 
 
+            <div style="width: 48%; height: auto; float: left; background-color: white; border: 1px gray solid; margin: 6px 6px 6px 10px;">
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div id="nivel1" class="nombreReporte"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
+                <div id="nivel2" class="filtros">
 
-
-
-
-            <tr style=" border: 1px gray solid" ><td><div class="nombre"><label>&#9656;</label>Pedidos facturados por mes</div></td></tr>
-            <tr><td>
-                    <a id="nivel1" class="nombre">&#9656;Ficha de Seguimiento de Clientes</a>
-                    <div id="nivel2" class="filtros">
-
-                        Filtrar por:
-                        <input type="text" placeholder="Cliente" class="buscar">
-                        <input type="date" placeholder="Fecha" class="fecha">
-                        <br><br>
-                            <input type="button" value="Aceptar" onclick="location.href='infoCliente.php'" class="colorgreen" style="margin-left: 10%"  >
-                        <br>
+                    Filtrar por:<br>
+                    <input type="text" placeholder="Cliente" class="buscar"><br>
+                    <input type="date" placeholder="Fecha" class="fecha"><br>
+                    <div style="margin-left: 5%">
+                        <input type="button" value="Aceptar" onclick="location.href='infoCliente.php'" class="colorGreen">
+                        <input type="button" value="Cancelar" onclick="" class="colorRed">
                     </div>
-             </td></tr>
-            <tr><td><div class="nombre"><label>&#9656;</label>Días Cartera</div></td></tr>
-            <tr><td><div class="nombre" id="myBtn"><label>&#9656;</label>Estado de Cuenta de Cliente</div></td></tr>
-            <tr><td><div class="nombre"><label>&#9656;</label>Aplicación de anticipos detallados</div></td></tr>
-            <tr><td><div class="nombre"><label>&#9656;</label>Aplicación de cobro detallado</div></td></tr>
-            <tr><td><div class="nombre"><label>&#9656;</label>Factura diaria por serie y número de pago</div></td></tr>
-            <tr><td><div class="nombre"><label>&#9656;</label>Notas de crédito por aplicación detallada</div></td></tr>
-            <tr><td><div class="nombre"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div></td></tr>
-        </table>
-    </div>
-    </div>
+                    <br>
+                </div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Ficha de Cliente</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+
+            </div>
+
+            <div style="width: 48%; height: auto; float: right; background-color: white; border: 1px gray solid; margin: 6px 10px 6px 6px;">
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
