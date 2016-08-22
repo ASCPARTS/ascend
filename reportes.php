@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<script src="jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="js/reportes.js"></script>
+<script src="lib/jquery-3.1.0.min.js"></script>
 <head>
     <style></style>
     <link rel="stylesheet" type="text/css" href="css/reportes.css">
@@ -28,7 +27,6 @@
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div id="nivel1" class="nombreReporte"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
                 <div id="nivel2" class="filtros">
-
                     Filtrar por:<br>
                     <input type="text" placeholder="Cliente" class="buscar"><br>
                     <input type="date" placeholder="Fecha" class="fecha"><br>
@@ -55,10 +53,7 @@
 
 
         </div>
-
-
-
-        <h2>Modal Example</h2>
+        
         <div id="myModal" class="modal">
 
             <!-- Modal content -->
@@ -82,6 +77,9 @@
                             </td>
                         </tr>
                     </table>
+                </div>
+                <div>
+
                 </div>
 
 
@@ -483,4 +481,5 @@
         }
     }
 </script>
+<script type="text/javascript" src="js/reportes.js"></script>
 </html>
