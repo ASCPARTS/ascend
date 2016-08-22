@@ -8,7 +8,11 @@
         }
         h3{
             color: blue;
-            font: bold;
+        }
+        .clienteCredito{
+            color: #0086cc;
+            font-size: 10pt;
+            font-weight: bold;
         }
     </style>
 
@@ -17,42 +21,75 @@
 
 <body>
 <div class="principal">
+
     <div class="lineaDivisora">Ficha de Seguimiento de Cliente</div>
-    <table style="width: 100%; ">
-        <tr>
-            <td style=" width:50%; border: 1px gray solid; background-color: white">
-                <div >
-                    <h2>Datos Fiscles del Contacto</h2>
-                    <h3>VICKY MONSERRAT SANTANA GARFIAS</h3>
-                    <label>Clave del cliente: 19-475</label><br>
-                    <label>RFC: SAGV-890501-R26</label><br>
-                    <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
-                    <label>Iguala de la Indepegro</label>
-                    <br>
-                    <h2>Domicilios de Embarque y Sucursales</h2>
-                    <h3>Clave del destino: 19-475-01</h3>
-                    <label>VICKY MONSERRAT SANTANA GARFIAS</label><br>
-                    <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
-                    <label>Iguala de la Indepegro</label>
-                    <h3>Cuentas de correo electronico</h3>
-                    <label>ventas@accecomp.com.mx</label>
-                    <h4>Compras Web del Mes:  2</h4>
-                    <h4>Ultima Compra Web: 17 Agosto 2016</h4>
 
-                </div>
-            </td>
-            <td style="width: 50%; border: 1px gray solid; background-color: white">
-                <div style="padding: 10px 10px 10px 10px">
-                    <img src="img/grafica.jpg" width="450px" height="300px">
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td style="border: 1px gray solid">
-                <table>
+    <div style=" width:50%; border: 1px gray solid; background-color: white; margin: 15px 15px 15px 15px; float: left">
+        <div style="margin: 15px 15px 15px 15px" >
+            <h2>Datos Fiscles del Contacto</h2>
+            <h3>VICKY MONSERRAT SANTANA GARFIAS</h3>
+            <label>Clave del cliente: 19-475</label><br>
+            <label>RFC: SAGV-890501-R26</label><br>
+            <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
+            <label>Iguala de la Indepegro</label>
+            <br>
+            <h2>Domicilios de Embarque y Sucursales</h2>
+            <h3>Clave del destino: 19-475-01</h3>
+            <label>VICKY MONSERRAT SANTANA GARFIAS</label><br>
+            <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
+            <label>Iguala de la Indepegro</label>
+            <h3>Cuentas de correo electronico</h3>
+            <label>ventas@accecomp.com.mx</label>
+            <h4>Compras Web del Mes:  2</h4>
+            <h4>Ultima Compra Web: 17 Agosto 2016</h4>
+        </div>
+        </div>
+
+            <div style="border: 1px gray solid; background-color: #00B8FE; margin: 15px 15px 15px 15px;  width: 43%; height: 263px; float: right">
+                <img src="img/grafica.jpg" width="390px"  style="padding: 5px 2px 5px 2px"></td>
+            </div>
+
+                        <div style="border: 1px gray solid; background-color: white; margin: 1px 15px 15px 15px;  width: 43%; height: 150px; float: right">
+                            <table width="100%">
+                                <tr>
+                                    <td width="50%">
+                                        <label class="clienteCredito">Crédito:</label><br>
+                                        <label class="clienteCredito">Monto Ejercido:</label><br>
+                                        <label class="clienteCredito">Monto Vencido:</label><br>
+                                        <label class="clienteCredito">Condicion de Pago:</label><br>
+                                        <label class="clienteCredito">Precio de Lista:</label><br>
+                                        <label class="clienteCredito">Clase Cliente:</label><br>
+                                        <label class="clienteCredito">Categoria (Auto):</label><br>
+                                        <label class="clienteCredito">Venta Estrategia:</label><br>
+                                        <label class="clienteCredito">Ultima Compra:</label><br>
+                                        <label class="clienteCredito">Visita 30 dias:</label><br>
+                                    </td>
+                                    <td width="50%">
+                                        <label>$ 5, 000.00</label><br>
+                                        <label>$311.6</label><br>
+                                        <label>$167.42</label><br>
+                                        <label>Credito a 15 dias</label><br>
+                                        <label>DIST3</label><br>
+                                        <label>A</label><br>
+                                        <label>CAT2</label><br>
+                                        <label>S</label><br>
+                                        <label>17 Agosto 2016</label><br>
+                                        <label>O veces</label><br>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+<br>
+
+
+
+    <div class="lineaDivisora">Información de Cotizaciones y Ventas</div>
+
+        <div style="border: 2px gray solid; margin-top: 15px; background-color: white">
+            <div class="lineaDivisora" style="text-align: center;">COTIZACIONES POR FAMILIA</div>
+        <table width="100%" >
                     <tr style="text-align: center">
-
-                        <div class="lineaDivisora" style="text-align: center">COTIZACIONES POR FAMILIA</div>
                         <td><h3>Familia</h3></td>
                         <td><h3>2 años Anteriores</h3></td>
                         <td><h3>Año Anteior</h3></td>
@@ -116,15 +153,91 @@
                         <td>0.00</td>
                         <td>0.00</td>
                     </tr>
-
                 </table>
-            </td>
-            <td style="border: 1px gray solid">
-                <table>
+        </div>
+
+
+            <div style="border: 2px gray solid; margin-top: 15px; background-color: white;">
+                <table width="100%">
+            <tr style="text-align: center">
+
+                <div class="lineaDivisora" style="text-align: center">VENTAS POR FAMILIA</div>
+                <td><h3>Familia</h3></td>
+                <td><h3>2 años Anteriores</h3></td>
+                <td><h3>Año Anteior</h3></td>
+                <td><h3>Año Actual</h3></td>
+                <td><h3>PCT Actual VS Anterior</h3></td>
+                <td colspan="5"><div class="lineaDivisora" ></div></td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Laptops</td>
+                <td>5,895.95</td>
+                <td>4,504.51</td>
+                <td>2,576.36</td>
+                <td>0.57</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Acccesories</td>
+                <td>116.03</td>
+                <td>175.54</td>
+                <td>81.20</td>
+                <td>0.46</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Mobiles</td>
+                <td>327.24</td>
+                <td>350.70</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Printers</td>
+                <td>23.49</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Projectors</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Copiers</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Servers</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+            <tr style="text-align: center">
+                <td>Desktops</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+
+        </table>
+            </div>
+
+
+
+
+            <div style="border: 2px gray solid; margin-top: 15px; background-color: white;">
+                <table width="100%">
                     <tr style="text-align: center">
 
-                        <div class="lineaDivisora" style="text-align: center">VENTAS POR FAMILIA</div>
-                        <td><h3>Familia</h3></td>
+                        <div class="lineaDivisora" style="text-align: center">VENTAS DE FAMILIA POR MARCA</div>
+                        <td><h3>Familia Marca</h3></td>
                         <td><h3>2 años Anteriores</h3></td>
                         <td><h3>Año Anteior</h3></td>
                         <td><h3>Año Actual</h3></td>
@@ -132,238 +245,213 @@
                         <td colspan="5"><div class="lineaDivisora" ></div></td>
                     </tr>
                     <tr style="text-align: center">
-                        <td>Laptops</td>
-                        <td>5,895.95</td>
-                        <td>4,504.51</td>
-                        <td>2,576.36</td>
-                        <td>0.57</td>
+                        <td><h2>Accesories</h2></td>
+                        <td>0.03</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td></td>
                     </tr>
                     <tr style="text-align: center">
-                        <td>Acccesories</td>
-                        <td>116.03</td>
-                        <td>175.54</td>
-                        <td>81.20</td>
-                        <td>0.46</td>
+                        <td>Power Plus</td>
+                        <td>0.03</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
                     </tr>
                     <tr style="text-align: center">
-                        <td>Mobiles</td>
+                        <td><h2>Laptops</h2></td>
+                        <td>1,696.45</td>
+                        <td>1,459.86</td>
+                        <td>1, 067.20</td>
+                        <td></td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td>Power Plus</td>
+                        <td>1,696.45</td>
+                        <td>1,459.86</td>
+                        <td>1, 067.20</td>
+                        <td>0.73</td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td><h2>Mobiles</h2></td>
                         <td>327.24</td>
                         <td>350.70</td>
                         <td>0.00</td>
+                        <td></td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td>Apple</td>
+                        <td>222.84</td>
+                        <td>198.24</td>
+                        <td>0.00</td>
                         <td>0.00</td>
                     </tr>
                     <tr style="text-align: center">
-                        <td>Printers</td>
+                        <td>Power Plus</td>
+                        <td>104.40</td>
+                        <td>117.66</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td>NIM</td>
+                        <td>0.00</td>
+                        <td>34.80</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td><h2>Printers</h2></td>
                         <td>23.49</td>
                         <td>0.00</td>
                         <td>0.00</td>
-                        <td>0.00</td>
+                        <td></td>
                     </tr>
                     <tr style="text-align: center">
-                        <td>Projectors</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Copiers</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Servers</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Desktops</td>
-                        <td>0.00</td>
+                        <td>HP</td>
+                        <td>23.49</td>
                         <td>0.00</td>
                         <td>0.00</td>
                         <td>0.00</td>
                     </tr>
 
                 </table>
-            </td>
+            </div>
+
+
+                <div style="border: 2px gray solid; margin-top: 15px; background-color: white">
+                     <table width="100%">
+        <tr style="text-align: center">
+
+            <div class="lineaDivisora" style="text-align: center">VENTAS POR GRUPO</div>
+            <td><h3>Grupo</h3></td>
+            <td><h3>2 años Anteriores</h3></td>
+            <td><h3>Año Anteior</h3></td>
+            <td><h3>Año Actual</h3></td>
+            <td><h3>PCT Actual VS Anterior</h3></td>
+            <td colspan="5"><div class="lineaDivisora" ></div></td>
         </tr>
-        <tr>
-            <td style="border: 1px gray solid">
-                <table>
-                    <tr style="text-align: center">
-
-                        <div class="lineaDivisora" style="text-align: center">VENTAS DE FAMILIA POR MARCA</div>
-                        <td><h3>Familia Marca</h3></td>
-                        <td><h3>2 años Anteriores</h3></td>
-                        <td><h3>Año Anteior</h3></td>
-                        <td><h3>Año Actual</h3></td>
-                        <td><h3>PCT Actual VS Anterior</h3></td>
-                        <td colspan="5"><div class="lineaDivisora" ></div></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Accesories</h2></td>
-                        <td>0.03</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Power Plus</td>
-                        <td>0.03</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Laptops</h2></td>
-                        <td>1,696.45</td>
-                        <td>1,459.86</td>
-                        <td>1, 067.20</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Power Plus</td>
-                        <td>1,696.45</td>
-                        <td>1,459.86</td>
-                        <td>1, 067.20</td>
-                        <td>0.73</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Mobiles</h2></td>
-                        <td>327.24</td>
-                        <td>350.70</td>
-                        <td>0.00</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Apple</td>
-                        <td>222.84</td>
-                        <td>198.24</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Power Plus</td>
-                        <td>104.40</td>
-                        <td>117.66</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>NIM</td>
-                        <td>0.00</td>
-                        <td>34.80</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Printers</h2></td>
-                        <td>23.49</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>HP</td>
-                        <td>23.49</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tr style="text-align: center">
-
-                        <div class="lineaDivisora" style="text-align: center">VENTAS DE FAMILIA POR MARCA</div>
-                        <td><h3>Familia Marca</h3></td>
-                        <td><h3>2 años Anteriores</h3></td>
-                        <td><h3>Año Anteior</h3></td>
-                        <td><h3>Año Actual</h3></td>
-                        <td><h3>PCT Actual VS Anterior</h3></td>
-                        <td colspan="5"><div class="lineaDivisora" ></div></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Accesories</h2></td>
-                        <td>0.03</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Power Plus</td>
-                        <td>0.03</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Laptops</h2></td>
-                        <td>1,696.45</td>
-                        <td>1,459.86</td>
-                        <td>1, 067.20</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Power Plus</td>
-                        <td>1,696.45</td>
-                        <td>1,459.86</td>
-                        <td>1, 067.20</td>
-                        <td>0.73</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Mobiles</h2></td>
-                        <td>327.24</td>
-                        <td>350.70</td>
-                        <td>0.00</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Apple</td>
-                        <td>222.84</td>
-                        <td>198.24</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>Power Plus</td>
-                        <td>104.40</td>
-                        <td>117.66</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>NIM</td>
-                        <td>0.00</td>
-                        <td>34.80</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td><h2>Printers</h2></td>
-                        <td>23.49</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td></td>
-                    </tr>
-                    <tr style="text-align: center">
-                        <td>HP</td>
-                        <td>23.49</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                    </tr>
-
-                </table>
-            </td>
+        <tr style="text-align: center">
+            <td>AC Adapters</td>
+            <td>3,450.74</td>
+            <td>2,795.90</td>
+            <td>1,775.96</td>
+            <td>0.64</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Batteries</td>
+            <td>1,406.55</td>
+            <td>918.72</td>
+            <td>378.16</td>
+            <td>0.41</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Displays</td>
+            <td>999.51</td>
+            <td>690.39</td>
+            <td>267.96</td>
+            <td>0.39</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Keyboards</td>
+            <td>146.16</td>
+            <td>128.76</td>
+            <td>154.28</td>
+            <td>1.20</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>General Parts</td>
+            <td>116.00</td>
+            <td>211.28</td>
+            <td>81.20</td>
+            <td>0.38</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Digitizers</td>
+            <td>139.32</td>
+            <td>157.60</td>
+            <td>0.00</td>
+            <td>0.00</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Power Bank</td>
+            <td>104.40</td>
+            <td>117.66</td>
+            <td>0.00</td>
+            <td>0.00</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Cords</td>
+            <td>0.00</td>
+            <td>10.44</td>
+            <td>0.00</td>
+            <td>0.00</td>
+        </tr>
+        <tr style="text-align: center">
+            <td>Marketing</td>
+            <td>0.00</td>
+            <td>0.00</td>
+            <td>0.00</td>
+            <td>0.00</td>
         </tr>
     </table>
+                </div>
+
+
+        <div style="border: 2px gray solid; margin-top: 15px; background-color: white;" >
+            <table style="text-align: center; ">
+            <div class="lineaDivisora" style="text-align: center">TRAMITES RMA POR ESTATUS</div>
+            <td><h3>Tipo Trámite y Último Estatus</h3></td>
+            <td><h3>Dos Años Antes</h3></td>
+            <td><h3>Año Anterior</h3></td>
+            <td><h3>Año Actual</h3></td>
+            <td><h3>PCT Actual VS Anterior</h3></td>
+        </tr>
+        <tr>
+            <td><h2>Devolución</h2></td>
+            <td>3</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Devolución realizada. Nota de crédito generada.</td>
+            <td>3</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Tramite Cancelado</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td><h2>Garantia</h2></td>
+            <td>5</td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Tramite finalizado. Confirmado y aceptado por el cliente.</td>
+            <td>5</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>RMA rechazado</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+            </table>
+    </table>
+            </div>
 
 
 
