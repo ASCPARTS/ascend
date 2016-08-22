@@ -82,10 +82,10 @@
             <td class="tdTabMainContainer" width="152">
                 <div id="divTabContainer" class="divTabContainer"></div>
             </td>
-            <td clas="tdSheetMainContainer" width="*">
+            <td class="tdSheetMainContainer" width="*">
                 <div id="divSheetContainer" class="divSheetContainer"></div>
             </td>
-            <td style="background-color: #1766A1; padding: 0 0 0 0;" width="200">
+            <td id="tdNotificationContainer" width="200">
 <?php require_once 'inc/notification.php'; ?>
             </td>
         </tr>

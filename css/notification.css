@@ -1,0 +1,117 @@
+#tdNotificationContainer{
+    background-color: #1766A1;
+    padding: 0 0 0 0;
+    vertical-align: top;
+}
+
+#divAlertMain{
+    height: 50%;
+    vertical-align: top
+}
+
+#divAlertTitle{
+    color: #FFC000;
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 2px 2px 2px 2px;
+    border: 0;
+    border-bottom: 2px #D8D8D8 solid;
+    background-color: #050409;
+}
+
+#divAlertContainer{
+    height: calc(100% - 22px);
+    padding: 2px 2px 2px 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.divAlert{
+    height: 36px;
+    padding: 2px 2px 2px 42px;
+    background-color: #D2CFD8;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    font-size: 8pt;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.divAlert:hover{
+    background-color: #D8D8D8;
+}
+
+.divAlertDescription{
+    color: #323544;
+    font-weight: bold;
+    height: 26px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.divAlertTime{
+    color: #050409;
+    text-align: right;
+    font-size: 7pt;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 10px;
+}
+
+
+#divNotificationMain{
+    height: 50%;
+    vertical-align: top
+}
+
+#divNotificationTitle{
+    color: #FFC000;
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 2px 2px 2px 2px;
+    border: 0;
+    border-bottom: 2px #D8D8D8 solid;
+    border-top: 2px #D8D8D8 solid;
+    background-color: #050409;
+}
+
+#divNotificationContainer{
+    height: calc(100% - 26px);
+    padding: 2px 2px 2px 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.divNotification{
+    height: 36px;
+    padding: 2px 42px 2px 2px;
+    background-color: #D2CFD8;
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    font-size: 8pt;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.divNotification:hover{
+    background-color: #D8D8D8;
+}
+
+.divNotificationDescription{
+    color: #323544;
+    font-weight: bold;
+    height: 26px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.divNotificationTime{
+    color: #050409;
+    text-align: right;
+    font-size: 7pt;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 10px;
+}
