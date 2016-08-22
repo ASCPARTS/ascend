@@ -1,0 +1,327 @@
+/*### BEGIN: General ###*/
+html, body {
+    font-family: Arial;
+    font-size: 10pt;
+    background-color: #D8D8D8;
+    margin: 0 0 0 0;
+    vertical-align: top;
+}
+/*### END: General ###*/
+
+/*### BEGIN: Main Menu ###*/
+#divMenuMain {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+#tblMenu {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#tdMenu {
+    background-color: #F1F1F1;
+    width: 204px;
+    padding: 2px 2px 0 2px;
+    vertical-align: top;
+}
+
+#tdMenuClear {
+    background-color: rgba(0,0,0,.7);
+    width: calc(100% - 204px);
+}
+
+#divMenuHeader {
+    background-color: #1766A1;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 2px;
+    background-image: url('../img/logo_h_a_256.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+    border: 0;
+}
+
+.divMenuCategory {
+    margin-bottom: 2px;
+    font-size: 10pt;
+    padding: 2px 2px 2px 2px;
+    background-color: #00B8FE;
+    border: 0;
+}
+
+.divCategory{
+    cursor:pointer;
+    padding: 2px 2px 2px 2px;
+    font-size: 14pt;
+    font-weight: normal;
+    border: 0;
+    background-color: #00B8FE;
+    margin-bottom: 0;
+    color: #050409;
+}
+
+.divCategory:hover{
+    background-color: #0086cc;
+}
+
+.divCategoryContainer{
+    display: none;
+    padding: 0 0 0 20px;
+    border: 0;
+}
+
+.divMenuSubCategory{
+    font-size: 12pt;
+    font-weight: normal;
+    padding: 2px 0 2px 2px;
+    border: 0;
+    background-color: #1766A1;
+    margin-bottom: 2px;
+    color: #F1F1F1;
+}
+
+.divSubCategory{
+    cursor:pointer;
+    border: 0;
+}
+
+.divSubCategory:hover{
+    background-color: #00346F;
+}
+
+.divSubCategoryContainer{
+    display: none;
+    padding: 0 2px 0 20px;
+    border: 0;
+}
+
+.divMenuOption{
+    font-size: 10pt;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 2px 2px 2px 2px;
+    border: 0;
+    background-color: #D8D8D8;
+    margin-top: 2px;
+    color: #050409;
+}
+
+.divMenuOption:hover{
+    background-color: #A6A6A6;
+}
+/*### END: Main Menu ###*/
+
+/*### BEGIN: Top Menu ###*/
+.divTopMenuLogo {
+    display: block;
+    height: 50px;
+    width: 152px;
+    float: left;
+    border-right: 2px #D8D8D8 solid;
+    background-image: url('../img/logo_h_byn_128.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.divTopMenuLeft {
+    cursor:pointer;
+    display: block;
+    height: 50px;
+    width: 50px;
+    float: left;
+    border-right: 2px #D8D8D8 solid;
+}
+
+.divTopMenuLeft:hover {
+    background-color: #1E202C;
+}
+
+.divTopMenuRight {
+    cursor:pointer;
+    display: block;
+    height: 50px;
+    width: 50px;
+    float: right;
+    border-left: 2px #D8D8D8 solid;
+}
+
+.divTopMenuRight:hover {
+    background-color: #1E202C;
+}
+/*### END: Top Menu ###*/
+
+/*### BEGIN: Tab and Workingsheet ###*/
+.tdTabMainContainer{
+    background-color: #1766A1;
+    padding: 0 0 0 0;
+}
+
+.divTabContainer{
+    width: calc(100% - 4px);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 2px 2px 2px 2px;
+}
+
+.divTab {
+    background-color: #FFFFFF;
+    height: 26px;
+    white-space: nowrap;
+    font-size: 11pt;
+    padding: 0 0 0 0;
+    line-height: 26px;
+    border: 0;
+    margin-bottom: 2px;
+    color: #1E202C;
+}
+
+.labelTab{
+    display: inline-block;
+    width: calc(100% - 42px);
+    float: left;
+    border-left: 8px #FFFFFF solid;
+    padding: 0 0 0 8px;
+    cursor: pointer;
+}
+
+.labelTab:hover {
+    background-color: #F1F1F1;
+}
+
+.labelTabSelected{
+    border-left: 8px #FFC000 solid;
+}
+
+.labelTabClose {
+    background-color: #F1F1F1;
+    display: inline-block;
+    float: right;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.labelTabClose:hover {
+    color: #FF2828;
+    font-weight: bold;
+}
+
+.tdSheetMainContainer{
+    padding: 0 0 0 0;
+    vertical-align: top;
+}
+
+.divSheetContainer{
+    width: calc(100% - 0px);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #F1F1F1;
+    padding: 0 0 0 0;
+    vertical-align: top;
+    padding-bottom: 0;
+}
+
+.iframeSheet {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border: 0;
+}
+/*### END: Tab and Workingsheet ###*/
+
+/*### BEGIN: Notification Panel ###*/
+#tdNotificationContainer{
+    background-color: #1766A1;
+    padding: 0 0 0 0;
+    vertical-align: top;
+}
+
+#divNotificationMain{
+    height: 50%;
+    vertical-align: top
+}
+
+#divNotificationTitle{
+    color: #FFC000;
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 2px 2px 2px 2px;
+    border: 0;
+    border-bottom: 2px #D8D8D8 solid;
+    background-color: #050409;
+}
+
+.divNotificationTitleTopBorder{
+    border-top: 2px #D8D8D8 solid !important;
+}
+
+#divNotificationContainer{
+    padding: 2px 2px 2px 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.divNotificationContainerTop{
+    height: calc(100% - 22px);
+}
+
+.divNotificationContainerBottom{
+    height: calc(100% - 26px);
+}
+
+.divNotification{
+    height: 36px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    font-size: 8pt;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.divNotificationLeft{
+    padding: 2px 2px 2px 42px;
+    background-position: left top;
+}
+
+.divNotificationRight{
+    padding: 2px 42px 2px 2px;
+    background-position: right top;
+}
+
+.divNotification:hover{
+    background-color: #F1F1F1;
+}
+
+.divNotificationDescription{
+    color: #1E202C;
+    height: 26px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    border: 0;
+}
+
+.divNotificationTime{
+    color: #1E202C;
+    text-align: right;
+    font-size: 7pt;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 10px;
+    border:0;
+}
+/*### END: Notification Panel ###*/
+
+
