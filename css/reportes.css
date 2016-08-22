@@ -17,36 +17,17 @@ body {
     border-bottom: 1px #1766A1 solid;
     margin-bottom: 8px;
 }
-.reportes{
-    background-color: white;
-    width:80%;
-    height: 80%;
-    max-width:350px;
-    border: 1px #f1f1f1 dashed;
-    margin-left: 30%;
-    text-align: center;
-}
-.nombre{
-    cursor: pointer;
-
-}
-.nombre:hover{
-    color: #00B8FE;
-    font-size: 12pt;
-}
-
-
 .filtros{
-    margin-left: 19%;
-    width: 65%;
-    height: 90%;
+    margin-left: 30%;
+    width: 45%;
+    height: 85%;
     display:none;
     slow: 600ms;
     fast: 200ms;
-    border: 2px dashed #D8D8D8;
+    border: 1px dashed #D8D8D8;
     color: #00B8FE;
     font-size: 10pt;
-
+    background-color: white;
 }
 .botonDer{
     margin-left: 40%;
@@ -54,3 +35,35 @@ body {
 .botonIzq{
     margin-left: 10%;
 }
+.nombreReporte{
+    height: 30px;
+    text-align: center;
+    background-color: #f1f1f1 ;
+
+    border:  1px gray solid;
+    margin: 8px 5px 5px 5px;
+    font-size: 10pt;
+}
+.nombreReporte:hover{
+    font-size: 12pt;
+    background-color: #00B8FE;
+    color: white;
+}
+.colorGreen {
+    font-size: 12pt;
+    background-color: #55B844;
+    border: 1px #55B844 solid;
+    outline: none;
+    color: #55B844;
+    padding: 3px 5px 3px 31px;
+}
+.colorRed {
+    font-size: 12pt;
+    background-color: red;
+    border: 1px red solid;
+    outline: none;
+    color: red;
+    padding: 3px 5px 3px 31px;
+
+}
+
