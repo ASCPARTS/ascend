@@ -18,7 +18,7 @@
                 </tr>
                 <tr>
                     <td style="height: 29%; background-color: #F1F1F1; border:0;border-collapse: collapse; border-spacing: 0; vertical-align: middle; padding: 0 3% 0 3%">
-                        <input type="text" value="" placeholder="usuario" style="background-image: url('img/usuario_32.png'); background-repeat: no-repeat; background-position: left top; background-size: auto 100%;" />
+                        <input type="text" value="" placeholder="usuario" />
                     </td>
                 </tr>
                 <tr>
