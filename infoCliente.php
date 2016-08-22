@@ -7,7 +7,7 @@
             color: #00346F;
         }
         h3{
-            color: blue;
+            color: #1766A1;
         }
         .clienteCredito{
             color: #0086cc;
@@ -21,8 +21,6 @@
 
 <body>
 <div class="principal">
-
-    <div class="lineaDivisora">Ficha de Seguimiento de Cliente</div>
 
     <div style=" width:50%; border: 1px gray solid; background-color: white; margin: 15px 15px 15px 15px; float: left">
         <div style="margin: 15px 15px 15px 15px" >
@@ -43,50 +41,60 @@
             <h4>Compras Web del Mes:  2</h4>
             <h4>Ultima Compra Web: 17 Agosto 2016</h4>
         </div>
-        </div>
+    </div>
 
-            <div style="border: 1px gray solid; background-color: #00B8FE; margin: 15px 15px 15px 15px;  width: 43%; height: 263px; float: right">
-                <img src="img/grafica.jpg" width="390px"  style="padding: 5px 2px 5px 2px"></td>
-            </div>
+    <div style="border: 1px gray solid; background-color: white; margin: 15px 15px 15px 15px;  width: 43%; height: 150px; float: right">
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <label class="clienteCredito">Crédito:</label><br>
+                    <label class="clienteCredito">Monto Ejercido:</label><br>
+                    <label class="clienteCredito">Monto Vencido:</label><br>
+                    <label class="clienteCredito">Condicion de Pago:</label><br>
+                    <label class="clienteCredito">Precio de Lista:</label><br>
+                    <label class="clienteCredito">Clase Cliente:</label><br>
+                    <label class="clienteCredito">Categoria (Auto):</label><br>
+                    <label class="clienteCredito">Venta Estrategia:</label><br>
+                    <label class="clienteCredito">Ultima Compra:</label><br>
+                    <label class="clienteCredito">Visita 30 dias:</label><br>
+                </td>
+                <td width="50%" style="text-align: right">
+                    <label>$ 5, 000.00</label><br>
+                    <label>$311.6</label><br>
+                    <label>$167.42</label><br>
+                    <label>Credito a 15 dias</label><br>
+                    <label>DIST3</label><br>
+                    <label>A</label><br>
+                    <label>CAT2</label><br>
+                    <label>S</label><br>
+                    <label>17 Agosto 2016</label><br>
+                    <label>O veces</label><br>
+                </td>
+            </tr>
+        </table>
 
-                        <div style="border: 1px gray solid; background-color: white; margin: 1px 15px 15px 15px;  width: 43%; height: 150px; float: right">
-                            <table width="100%">
-                                <tr>
-                                    <td width="50%">
-                                        <label class="clienteCredito">Crédito:</label><br>
-                                        <label class="clienteCredito">Monto Ejercido:</label><br>
-                                        <label class="clienteCredito">Monto Vencido:</label><br>
-                                        <label class="clienteCredito">Condicion de Pago:</label><br>
-                                        <label class="clienteCredito">Precio de Lista:</label><br>
-                                        <label class="clienteCredito">Clase Cliente:</label><br>
-                                        <label class="clienteCredito">Categoria (Auto):</label><br>
-                                        <label class="clienteCredito">Venta Estrategia:</label><br>
-                                        <label class="clienteCredito">Ultima Compra:</label><br>
-                                        <label class="clienteCredito">Visita 30 dias:</label><br>
-                                    </td>
-                                    <td width="50%">
-                                        <label>$ 5, 000.00</label><br>
-                                        <label>$311.6</label><br>
-                                        <label>$167.42</label><br>
-                                        <label>Credito a 15 dias</label><br>
-                                        <label>DIST3</label><br>
-                                        <label>A</label><br>
-                                        <label>CAT2</label><br>
-                                        <label>S</label><br>
-                                        <label>17 Agosto 2016</label><br>
-                                        <label>O veces</label><br>
-                                    </td>
-                                </tr>
-                            </table>
+    </div>
 
-                        </div>
-<br>
+    <div style="border: 1px gray solid; background-color: white; margin: 1px 15px 15px 15px;  width: 43%; height: 263px; float: right">
+        <table width="100%">
+            <tr >
+                <td width="50%" style="background-color: #00B8FE">
+                    <img src="img/grafica.jpg" width="200px"  style="padding: 5px 2px 5px 2px">
+                </td>
+                <td width="50%">
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="lineaDivisoraTitulo">Ficha de Seguimiento de Cliente</div>
 
 
 
-    <div class="lineaDivisora">Información de Cotizaciones y Ventas</div>
 
-        <div style="border: 2px gray solid; margin-top: 15px; background-color: white">
+
+        <div style="border: 1px #050409 solid; margin-top: 15px; background-color: white">
             <div class="lineaDivisora" style="text-align: center;">COTIZACIONES POR FAMILIA</div>
         <table width="100%" >
                     <tr style="text-align: center">
@@ -157,7 +165,7 @@
         </div>
 
 
-            <div style="border: 2px gray solid; margin-top: 15px; background-color: white;">
+            <div style="border: 1px #050409 solid; margin-top: 15px; background-color: white;">
                 <table width="100%">
             <tr style="text-align: center">
 
@@ -232,7 +240,7 @@
 
 
 
-            <div style="border: 2px gray solid; margin-top: 15px; background-color: white;">
+            <div style="border: 1px #050409 solid; margin-top: 15px; background-color: white;">
                 <table width="100%">
                     <tr style="text-align: center">
 
@@ -319,7 +327,7 @@
             </div>
 
 
-                <div style="border: 2px gray solid; margin-top: 15px; background-color: white">
+                <div style="border: 1px #050409 solid; margin-top: 15px; background-color: white">
                      <table width="100%">
         <tr style="text-align: center">
 
@@ -398,7 +406,7 @@
                 </div>
 
 
-        <div style="border: 2px gray solid; margin-top: 15px; background-color: white;" >
+        <div style="border: 1px #050409 solid; margin-top: 15px; background-color: white;" >
             <table style="text-align: center; ">
             <div class="lineaDivisora" style="text-align: center">TRAMITES RMA POR ESTATUS</div>
             <td><h3>Tipo Trámite y Último Estatus</h3></td>
