@@ -38,3 +38,13 @@ function cleanMenu(){
         };
     }
 }
+
+$intCloseFlag = 0;
+
+function openUserMenu(){
+    $('#divTopMenuUserMain').slideDown('slow');
+}
+
+function closeUserMenu(){
+    $('#divTopMenuUserMain').slideUp('fast');
+}

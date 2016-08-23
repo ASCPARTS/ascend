@@ -131,31 +131,90 @@ html, body {
     background-position: center center;
 }
 
-.divTopMenuLeft {
+.divTopMenu {
     cursor:pointer;
     display: block;
     height: 50px;
     width: 50px;
+}
+
+.divTopMenuLeft {
     float: left;
     border-right: 2px #D8D8D8 solid;
 }
 
-.divTopMenuLeft:hover {
-    background-color: #1E202C;
-}
-
 .divTopMenuRight {
-    cursor:pointer;
-    display: block;
-    height: 50px;
-    width: 50px;
     float: right;
     border-left: 2px #D8D8D8 solid;
 }
 
-.divTopMenuRight:hover {
+.divTopMenu:hover {
     background-color: #1E202C;
 }
+
+.divTopMenuUser {
+    cursor:pointer;
+    display: block;
+    height: 46px;
+    width: 146px;
+    float: right;
+    line-height: 46px;
+    color: #F1F1F1;
+    font-weight: bold;
+    font-size: 12pt;
+    text-align: center;
+    border-left: 2px #D8D8D8 solid;
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    padding: 2px 52px 2px 2px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.divTopMenuUser:hover {
+    background-color: #1E202C;
+}
+
+#divTopMenuUserMain {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+}
+
+#tableTopMenuUserMain {
+    width: 100%;
+    height: 100%;
+    border-spacing: 2px;
+    border-collapse: collapse;
+}
+
+#tdTopMenuUser {
+    background-color: #050409;
+    vertical-align: top;
+    padding: 2px 2px 2px 2px;
+}
+
+.divTopMenuUserOption {
+    height: 18px;
+    font-size: 11pt;
+    line-height: 18px;
+    padding: 2px 2px 2px 24px;
+    color: #1E202C;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 2px center;
+    cursor: pointer;
+}
+
+.divTopMenuUserOption:hover {
+    background-color: #F1F1F1;
+}
+
 /*### END: Top Menu ###*/
 
 /*### BEGIN: Tab and Workingsheet ###*/

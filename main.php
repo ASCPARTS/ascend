@@ -10,18 +10,13 @@
     <script src="lib/jquery-3.1.0.min.js"></script>
 </head>
 <body>
-<table style="width: 100vw; height: 100vh; border: 0; border-spacing: 2px; border-collapse: separate;  ">
+<table style="width: 100vw; height: 100vh; border: 0; border-spacing: 2px; border-collapse: separate;">
     <tbody>
         <tr style="height: 50px">
             <td colspan="3" style="background-color: #050409; padding: 0 0 0 0">
                 <div class="divTopMenuLogo"></div>
-                <div class="divTopMenuLeft" onclick="openMenu();" style="background-image: url('img/menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
-                <div class="divTopMenuRight" style="width: 200px !important;"></div>
-                <div class="divTopMenuRight" onclick="handleTab('200','Cámaras','modules/cams/');" style="background-image: url('img/video-camera.png'); background-repeat: no-repeat; background-position: center center"></div>
-                <div class="divTopMenuRight" onclick="handleTab('201','HP Parts','http://partsurfer.hp.com/search.aspx');" style="background-image: url('img/hp32.png'); background-repeat: no-repeat; background-position: center center;"></div>
-                <div class="divTopMenuRight" onclick="handleTab('202','Impact','https://www.impactcomputers.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif'); background-repeat: no-repeat; background-position: center center; background-size: 90% auto"></div>
-                <div class="divTopMenuRight" onclick="handleTab('203','Drive','http://mail.ascparts.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif'); background-repeat: no-repeat; background-position: center center; background-size: 90% auto"></div>
-                <div class="divTopMenuRight"></div>
+                <div class="divTopMenu divTopMenuLeft" onclick="openMenu();" style="background-image: url('img/menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
+<?php require_once 'inc/topmenu.php'; ?>
             </td>
         </tr>
         <tr style="calc(100% - 50px)">
