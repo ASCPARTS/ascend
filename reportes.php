@@ -4,7 +4,6 @@
 <head>
     <style></style>
     <link rel="stylesheet" type="text/css" href="css/reportes.css">
-    <link rel="stylesheet" type="text/css" href="css/formulario.css">
 
 </head>
 
@@ -111,7 +110,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="border: 1px dimgray solid">
+                        <td style="border: 1px dimgray solid;">
                                 <h2>Datos Fiscales del Contacto</h2>
                                 <h3>VICKY MONSERRAT SANTANA GARFIAS</h3>
                                 <label>Clave del cliente: 19-475</label><br>
