@@ -13,9 +13,10 @@ body {
 .lineaDivisora{
     font-size: 15pt;
     font-weight: bold;
-    color:#1766A1;
-    border-bottom: 1px #1766A1 solid;
+    color:white;
+    border-bottom: 1px #050409 solid;
     margin-bottom: 8px;
+    background-color: #050409;
 }
 .lineaDivisoraTitulo{
     font-size: 15pt;
@@ -57,6 +58,7 @@ body {
     background: gray;
 }
 .filtros{
+    text-align: center;
     margin-left: 30%;
     width: 45%;
     height: 85%;
@@ -75,11 +77,10 @@ body {
 
     border:  1px gray solid;
     margin: 8px 5px 5px 5px;
-    font-size: 10pt;
+    font-size: 11pt;
 }
 .nombreReporte:hover{
-    font-size: 12pt;
-    background-color: #00B8FE;
+    background-color: #D8D8D8;
     color: white;
 }
 .colorGreen {
@@ -139,4 +140,58 @@ body {
 label{
     font-weight: bold;
 }
-
+.infoGeneral{
+    background-color: white;
+    float: left;
+    width: 100%;
+    height: auto;
+    margin: 0 0 0 0;"
+}
+.infoUsuario{
+    float: left;
+    background-color: white;
+    width: 48%;
+    height: auto;
+    margin: 5px 5px 5px 5px;
+    border: 1px gray solid;"
+}
+.infoEstadistica{
+    float: left;
+    background-color: white;
+    width: 48%;
+    height: auto;
+    margin:  5px 5px 5px 5px;
+}
+.infoCredito{
+    float: left;
+    width: 100%;
+    height: auto;
+    border: 1px gray solid;
+    margin: 0 0 5px 0;"
+}
+.Grafica{
+    float: left;
+    width: 100%;
+    height: auto;
+    border: 1px gray solid;
+    margin: 0 0 0 0;
+}
+.infoGrafica{
+    float: left;
+    width: 50%;
+    height: auto;"
+}
+tr:nth-child(odd) {
+    background-color:#f2f2f2;
+}
+tr:nth-child(even) {
+    background-color:#fbfbfb;
+}
+.reportePrincipal{
+    width: 80%;
+    max-width: 80%;
+    height: auto;
+    background-color: white;
+    border: 1px gray solid;
+    margin-left: 10%;
+}

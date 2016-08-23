@@ -15,7 +15,7 @@
 
         <div id="principal" >
 
-            <div class="lineaDivisora">Reportes</div>
+            <div class="lineaDivisoraTitulo">Reportes</div>
             <div>
                 <input type="text" placeholder="Buscar Reporte" class="buscar" align="center">
             </div>
@@ -23,7 +23,7 @@
             <div style="height: 15px;"></div>
 
 
-            <div style="width: 80%; height: auto; background-color: white; border: 1px gray solid; margin: 6px 6px 6px 10px;">
+            <div class="reportePrincipal">
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div id="nivel1" class="nombreReporte"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
                 <div id="nivel2" class="filtros">
@@ -53,7 +53,7 @@
 
 
         </div>
-        
+
         <div id="myModal" class="modal">
 
             <!-- Modal content -->
@@ -78,9 +78,111 @@
                         </tr>
                     </table>
                 </div>
-                <div>
 
+
+
+                <div class="infoGeneral">
+                    <div class="infoUsuario" >
+
+                            <h2>Datos Fiscales del Contacto</h2>
+                            <h3>VICKY MONSERRAT SANTANA GARFIAS</h3>
+                            <label>Clave del cliente: 19-475</label><br>
+                            <label>RFC: SAGV-890501-R26</label><br>
+                            <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
+                            <label>Iguala de la Indepegro</label><br>
+                            <h2>Domicilios de Embarque y Sucursales</h2>
+                            <h3>Clave del destino: 19-475-01</h3>
+                            <label>VICKY MONSERRAT SANTANA GARFIAS</label><br>
+                            <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
+                            <label>Iguala de la Indepegro</label>
+                            <h3>Cuentas de correo electronico</h3>
+                            <label>ventas@accecomp.com.mx</label>
+                            <h4>Compras Web del Mes:  2</h4>
+                            <h4>Ultima Compra Web: 17 Agosto 2016</h4>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="infoEstadistica">
+
+                        <div class="Grafica">
+                            <table width="100%">
+                                <tr >
+                                    <td>
+                                        <img src="img/grafica.jpg" width="390px"  style="padding: 5px 2px 5px 2px">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table width="100%" style="text-align: center">
+                                            <tr>
+                                                <td><h3>Periodo</h3></td>
+                                                <td><h3>Valor</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ago 2015
+                                                </td>
+                                                <td>575.18</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sep 2015</td>
+                                                <td>239.26</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Oct 2015</td>
+                                                <td>115.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nov 2015</td>
+                                                <td>314.44</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dic 2015</td>
+                                                <td>232.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ene 2016</td>
+                                                <td>303.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Feb 2016</td>
+                                                <td>297.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mar 2016</td>
+                                                <td>234.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Abr 2016</td>
+                                                <td>281.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>May 2016</td>
+                                                <td>303.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jun 2016</td>
+                                                <td>424.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Total anual</b></td>
+                                                <td><b>3,443. 88</b></td>
+                                            </tr>
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+                <br>
+                <br>
 
 
                 <div style="border: 1px #050409 solid; margin-top: 15px; background-color: white">
