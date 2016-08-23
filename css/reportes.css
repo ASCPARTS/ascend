@@ -1,4 +1,4 @@
-body {
+body, html {
     font-family: Arial;
     font-size: 10pt;
     margin: 0 0 0 0;
@@ -74,14 +74,13 @@ body {
     height: 30px;
     text-align: center;
     background-color: #f1f1f1 ;
-
     border:  1px gray solid;
     margin: 8px 5px 5px 5px;
     font-size: 11pt;
 }
 .nombreReporte:hover{
     background-color: #D8D8D8;
-    
+
 }
 .colorGreen {
     font-size: 12pt;
@@ -152,28 +151,26 @@ label{
     background-color: white;
     width: 48%;
     height: auto;
-    margin: 5px 5px 5px 5px;
-    border: 1px gray solid;"
+
 }
 .infoEstadistica{
     float: left;
     background-color: white;
     width: 48%;
     height: auto;
-    margin:  5px 5px 5px 5px;
+
 }
 .infoCredito{
     float: left;
     width: 100%;
     height: auto;
-    border: 1px gray solid;
-    margin: 0 0 5px 0;"
+
 }
 .Grafica{
     float: left;
     width: 100%;
     height: auto;
-    border: 1px gray solid;
+
     margin: 0 0 0 0;
 }
 .infoGrafica{
