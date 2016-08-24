@@ -1,3 +1,5 @@
+<div class="divTopMenuLogo"></div>
+<div class="divTopMenu divTopMenuLeft" onclick="openMenuMain();" style="background-image: url('img/menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
 <div class="divTopMenu divTopMenuLeft" title="Indicadores" onclick="handleTab('200','Indicadores','modules/kpi/');" style="background-image: url('img/business-bars-graphic.png'); background-repeat: no-repeat; background-position: center center"></div>
 <div class="divTopMenu divTopMenuLeft" title="Cámaras" onclick="handleTab('201','Cámaras','modules/cams/');" style="background-image: url('img/video-camera.png'); background-repeat: no-repeat; background-position: center center"></div>
 <div class="divTopMenu divTopMenuLeft" title="HP Parts Store" onclick="handleTab('202','HP Parts Store','http://partsurfer.hp.com/search.aspx');" style="background-image: url('img/hp32.png'); background-repeat: no-repeat; background-position: center center;"></div>

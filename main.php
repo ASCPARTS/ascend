@@ -14,8 +14,6 @@
     <tbody>
         <tr style="height: 50px">
             <td colspan="3" style="background-color: #050409; padding: 0 0 0 0">
-                <div class="divTopMenuLogo"></div>
-                <div class="divTopMenu divTopMenuLeft" onclick="openMenu();" style="background-image: url('img/menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
 <?php require_once 'inc/topmenu.php'; ?>
             </td>
         </tr>

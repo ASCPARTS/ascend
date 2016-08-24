@@ -1,12 +1,41 @@
-function openMenu(){
-    $('#divMenuMain').fadeIn('fast');
+function openMenuMain(){
+    $('#divMenuMain').css('width','100%');
 }
 
-function closeMenu() {
-    cleanMenu();
-    $('#divMenuMain').fadeOut('fast');
+function closeMenuMain() {
+    limpiarmenu();
+    $('#divMenuMain').css('width','0');
 }
 
+function openMenu($intLevel,$intMenu){
+    switch ($intLevel){
+        case 1:
+            $('#divcleanmenu').css('width','70%');
+            for($intIndex=0;$intIndex<$arrMenu.Categories.length;$intIndex++){
+                $('#divMenuCategory_' + $arrMenu.Categories[$intIndex]).removeClass('divMenuCategorySelected');
+                $('#divMenuMain' + $intLevel + '_' + $arrMenu.Categories[$intIndex]).css('width','0');
+                //if($arrMenu[$arrMenu.Categories[$intIndex]].length!=0){
+                //    for($intSubIndex=0;$intSubIndex<$arrMenu[$arrMenu.Categories[$intIndex]].length;$intSubIndex++){
+                //        $('#divSubCategoryContainer_' + $arrMenu[$arrMenu.Categories[$intIndex]][$intSubIndex]).slideUp('fast');
+                //    }
+                //}
+            }
+            $('#divMenuCategory_' + $intMenu).addClass('divMenuCategorySelected');
+            $('#divMenuMain' + $intLevel + '_' + $intMenu).css('width','15%');
+            break;
+        case 2:
+            $('#divcleanmenu').css('width','55%');
+            for($intSubIndex=0;$intSubIndex<$arrMenu[$strCategory].length;$intSubIndex++){
+                $('#divSubCategoryContainer_' + $arrMenu[$strCategory][$intSubIndex]).slideUp('fast');
+            }
+            $('#divMenuSubCategory_1_' + $intMenu).addClass('divMenuSubCategorySelected');
+            $('#divMenuMain' + $intLevel + '_' + $intMenu).css('width','15%');
+    }
+
+
+}
+
+/*
 function openCategory($strCategory){
     for($intIndex=0;$intIndex<$arrMenu.Categories.length;$intIndex++){
         $('#divCategoryContainer_' + $arrMenu.Categories[$intIndex]).slideUp('fast');
@@ -16,7 +45,6 @@ function openCategory($strCategory){
             }
         };
     }
-
     $('#divCategoryContainer_' + $strCategory).css('height', 'calc(100vh - ' + parseInt(parseInt($('#divMenuHeader').css('height').replace('px','').replace(' ','')) + 4 + ($arrMenu.Categories.length * 32) + 2) + 'px)');
     $('#divCategoryContainer_' + $strCategory).slideDown('fast');
 }
@@ -38,9 +66,7 @@ function cleanMenu(){
         };
     }
 }
-
-$intCloseFlag = 0;
-
+*/
 function openUserMenu(){
     $('#divTopMenuUserMain').slideDown('slow');
 }
