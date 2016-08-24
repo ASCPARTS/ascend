@@ -111,7 +111,7 @@ input[type=text].proveedor{
     border: 1px dashed #D8D8D8;
     color: #00B8FE;
     font-size: 10pt;
-    background-color: white;
+    background-color: #f1f1f1;
 }
 .nombreReporte{
     height: 30px;
