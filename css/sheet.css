@@ -33,7 +33,6 @@ html, body {
     margin: 0 auto 6px auto;
     width: calc(100% - 16px);
     max-width: 1100px;
-    float: left;
 }
 
 input[type=button] {

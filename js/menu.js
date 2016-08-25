@@ -13,7 +13,7 @@ function openMenu($intLevel,$intMenu){
             $('#divcleanmenu').css('width','70%');
             for($intIndex=0;$intIndex<$arrMenu.Categories.length;$intIndex++){
                 $('#divMenuCategory_' + $arrMenu.Categories[$intIndex]).removeClass('divMenuCategorySelected');
-                $('#divMenuMain' + $intLevel + '_' + $arrMenu.Categories[$intIndex]).css('width','0');
+                $('#divMenuMain_' + $arrMenu.Categories[$intIndex]).css('width','0');
                 //if($arrMenu[$arrMenu.Categories[$intIndex]].length!=0){
                 //    for($intSubIndex=0;$intSubIndex<$arrMenu[$arrMenu.Categories[$intIndex]].length;$intSubIndex++){
                 //        $('#divSubCategoryContainer_' + $arrMenu[$arrMenu.Categories[$intIndex]][$intSubIndex]).slideUp('fast');
@@ -21,7 +21,7 @@ function openMenu($intLevel,$intMenu){
                 //}
             }
             $('#divMenuCategory_' + $intMenu).addClass('divMenuCategorySelected');
-            $('#divMenuMain' + $intLevel + '_' + $intMenu).css('width','15%');
+            $('#divMenuMain_' + $intMenu).css('width','15%');
             break;
         case 2:
             $('#divcleanmenu').css('width','55%');

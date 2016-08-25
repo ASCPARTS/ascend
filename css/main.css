@@ -315,9 +315,10 @@ html, body {
 }
 
 #divNotificationTitle{
+    text-transform: uppercase;
     color: #FFC000;
     font-size: 10pt;
-    font-weight: bold;
+    font-weight: normal;
     padding: 2px 2px 2px 2px;
     border: 0;
     border-bottom: 2px #D8D8D8 solid;

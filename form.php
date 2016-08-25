@@ -61,18 +61,7 @@
 
         </div>
 
-        <div class="SubTitle">Titulo de 5 selectores</div>
-        <div class="row">
-
-            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-1">
-                <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
-                </div>
-            </div>
-
-        </div>
-
+        <br style="clear: both;" />
     </div>
 </body>
 </html>
