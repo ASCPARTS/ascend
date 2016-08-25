@@ -11,7 +11,6 @@ input[type=text]{
     outline: none;
     color: #1E202C;
     padding: 3px 5px 3px 31px;
-
 }
 input[type=text].buscar{
     margin: 3px 3px 3px 3px;
@@ -20,7 +19,6 @@ input[type=text].buscar{
     background-position: 26px, 5px, 0;
     margin: 3px 3px 3px 3px;
     background-size: auto, auto, 26px 25px;
-
 }
 input[type=date].fecha{
     width: 150px;
@@ -82,6 +80,7 @@ input[type=text].proveedor{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     -webkit-border-radius: 10px;
     border-radius: 10px;
+
 }
 ::-webkit-scrollbar-thumb{
     background: -webkit-linear-gradient(top, #f1f1f1, #f1f1f1);
@@ -130,16 +129,15 @@ input[type=text].proveedor{
     background-color: #55B844;
     border: 1px #55B844 solid;
     outline: none;
-    color: #55B844;
-    padding: 3px 5px 3px 31px;
+    color: white;
 }
 .colorRed {
     font-size: 12pt;
     background-color: red;
     border: 1px red solid;
     outline: none;
-    color: red;
-    padding: 3px 5px 3px 31px;
+    color: white;
+
 
 }
 .modal {
