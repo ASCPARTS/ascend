@@ -36,7 +36,7 @@
 <script type="text/javascript" src="js/notification.js"></script>
 <script type="text/javascript" src="js/añadirFormulario.js"></script>
 <script>
-    handleTab('3','Formulario','formulario.php');
+    handleTab('3','Formulario','form.php');
     handleTab('4','Reportes','reportes.php');
 </script>
 </body>

@@ -15,9 +15,9 @@ input[type=text]{
     background-color: #F1F1F1;
     border: 1px #1E202C solid;
     outline: none;
-    color: #1E202C;
+    color: #444444;
     padding: 3px 5px 3px 31px;
-    background-image: url('pixel_1E202C.png'), url('input_img.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/input_img.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 0, 0;
     background-size: auto, auto, 26px 25px;
@@ -29,13 +29,12 @@ input[type=text]{
     background-color: white;
     border: 1px gray solid;
     outline: none;
-    color: #1E202C;
     padding: 3px 5px 3px 31px;
 
 }
 input[type=text].proveedor{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/usuario_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/usuario_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 5px, 0;
     margin: 3px 3px 3px 3px;
@@ -48,9 +47,8 @@ input[type=date].fecha{
     background-color:white;
     border: 1px gray solid;
     outline: none;
-    color: gray;
     padding: 3px 5px 3px 31px;
-    background-image: url('../pixel_1E202C.png'), url('../img/calendario_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/calendario_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 5px, 0;
     margin: 3px 3px 3px 3px;
@@ -59,7 +57,7 @@ input[type=date].fecha{
 }
 input[type=text].precio{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/precio_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/precio_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 5px,0;
     margin: 3px 3px 3px 3px;
@@ -67,7 +65,7 @@ input[type=text].precio{
 }
 input[type=text].costo{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/ventas_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/ventas_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 5px,0;
     margin: 3px 3px 3px 3px;
@@ -75,7 +73,7 @@ input[type=text].costo{
 }
 input[type=text].precioVenta{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/ventas_16.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/ventas_16.png');
     background-repeat: repeat-y, no-repeat;
     background-position: 26px, 5px;
     margin: 3px 3px 3px 3px;
@@ -83,7 +81,7 @@ input[type=text].precioVenta{
 }
 input[type=text].tiempo{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/reloj_16.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/reloj_16.png');
     background-repeat: repeat-y, no-repeat;
     background-position: 26px, 5px;
     margin: 3px 3px 3px 3px;
@@ -91,7 +89,7 @@ input[type=text].tiempo{
 }
 input[type=text].buscar{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/busqueda_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_808080.png'), url('../img/busqueda_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 5px, 0;
     margin: 3px 3px 3px 3px;
@@ -138,4 +136,7 @@ input[type=button]:hover{
     color:#1766A1;
     border-bottom: 1px #1766A1 solid;
     margin-bottom: 8px;
+}
+label{
+
 }
