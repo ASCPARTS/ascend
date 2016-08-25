@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../css/sheet.css">
-    <script src="../../lib/jquery-3.1.0.min.js"></script>
+    <?php require_once("../../inc/sheet.inc");?>
 </head>
 <body>
     <div class="MainTitle">Cámaras</div>

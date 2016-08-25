@@ -27,7 +27,9 @@ html, body {
     text-align: left;
     padding: 6px 6px 6px 6px;
     border: 1px #1E202C solid;
-    margin: 0 0 6px 0;
+    margin: 0 auto 6px auto;
+    width: calc(100% - 16px);
+    max-width: 1100px;
 }
 
 input[type=button] {
@@ -48,3 +50,4 @@ input[type=button] {
 .buttonBrandBlue:hover {
     background-color: #00346F;
 }
+
