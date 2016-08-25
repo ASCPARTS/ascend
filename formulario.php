@@ -26,7 +26,7 @@
         <tr style="height: 15px"></tr>
 
         <tr>
-            <td><input type="text" placeholder="Proveedor" class="proveedor"></td>
+            <td><label class="proveedor">Proveedor</label><input type="text" ></td>
             <td><input type="date" placeholder="Fecha" class="fecha"></td>
             <td><input type="text" placeholder="Tiempo de Llegada" class="tiempo"></td>
             <td><input type="text" placeholder="Costo" class="costo"></td>
