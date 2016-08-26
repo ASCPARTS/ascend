@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"  style="margin: 0; padding: 0; ">
 <head>
-    <?php require_once("inc/sheet.inc");?>
+    <?php require_once("../../inc/sheet.inc");?>
 </head>
 <body style="margin: 0; padding: 0; ">
     <div class="MainTitle">Diseño formulario</div>
