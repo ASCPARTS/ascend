@@ -234,9 +234,6 @@ input[type=button] {
 
 .divInputText{
     background-color: #1766A1;
-    background-repeat: repeat-y,  no-repeat;
-    background-position: 32px, 0;
-    background-size: auto, 32px 35px;
     border: solid #1766A1 1px;
     height: 35px;
     text-align: right;
@@ -247,7 +244,6 @@ input[type=button] {
     text-transform: capitalize;
     padding: 0px 0px 0px 0px;
     width: 100%;
-
 }
 
 .divInputText input[type=text]{
@@ -287,18 +283,23 @@ input[type=button] {
 
 
 
+.divInputText{
+    background-color: #1766A1;
+    border: solid #1766A1 1px;
+    height: 35px;
+    text-align: right;
+    vertical-align: top;
+    color: #00346F;
+    font-size: 0.8em;
+    align-items: flex-end;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
 
-
-
-
-
+}
 
 .divSelect{
-    background-image: url('../img/pixel_808080.png'), url('../img/pixel_00b8fe.png');
-    background-repeat: repeat-y,  no-repeat;
-    background-position: 32px, 0;
-    background-size: auto, 32px 35px;
-    border: solid #00b8f3 1px;
+    background-color: #1766A1;
+    border: solid #1766A1 1px;
     height: 35px;
     text-align: right;
     vertical-align: top;
@@ -332,7 +333,7 @@ input[type=button] {
     border: solid #FFFFFF 0px;
     margin: 0;
     padding: 0;
-    background-color: #00b8fe;
+    background-color: #1766A1;
     height: 13px;
     padding: 0px 5px 0px 0px;
 }
@@ -357,13 +358,14 @@ input[type=button] {
 
 
 .divInputTextArea{
-    background-color: #1766A1;
+    /*background-color: #1766A1;*/
+    background-color: #FF2828;
     background-repeat: repeat-y,  no-repeat;
     background-position: 32px, 0;
     background-size: auto, 32px 35px;
     border: solid #1766A1 1px;
-    height: 35px;
-    text-align: right;
+    height: 77px;
+    text-align: left;
     vertical-align: top;
     color: #00346F;
     font-size: 0.8em;
@@ -374,22 +376,23 @@ input[type=button] {
 
 }
 
-.divInputText input[type=text]{
-    height: 20px;
+.divInputTextArea textarea{
+    height: 60px;
     border: solid #FFFFFF 0px;
-    width: calc(100% - 33px);
+    width: calc(100% - 4px);
     text-indent: 10px;
     color: #444444;
     outline:  solid #ffffff 0px;
     text-transform: uppercase;
     font-size: 10pt;
+    resize: none;
 }
 
-.divInputText label
+.divInputTextArea label
 {
     display:inline-block;
     text-transform: uppercase;
-    width: calc(100% - 33px);
+    width: calc(100% - 5px);
     cursor: text;
     outline:  solid #ffffff 0px;
     border: solid #FFFFFF 0px;
@@ -398,6 +401,7 @@ input[type=button] {
     height: 13px;
     padding: 0px 5px 0px 0px;
     color: #FFFFFF;
+    text-align: center;
 }
 
 
