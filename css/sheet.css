@@ -283,20 +283,6 @@ input[type=button] {
 
 
 
-.divInputText{
-    background-color: #1766A1;
-    border: solid #1766A1 1px;
-    height: 35px;
-    text-align: right;
-    vertical-align: top;
-    color: #00346F;
-    font-size: 0.8em;
-    align-items: flex-end;
-    padding: 0px 0px 0px 0px;
-    width: 100%;
-
-}
-
 .divSelect{
     background-color: #1766A1;
     border: solid #1766A1 1px;
@@ -332,10 +318,10 @@ input[type=button] {
     outline:  solid #ffffff 0px;
     border: solid #FFFFFF 0px;
     margin: 0;
-    padding: 0;
     background-color: #1766A1;
     height: 13px;
     padding: 0px 5px 0px 0px;
+    color: #FFFFFF;
 }
 
 

@@ -2,13 +2,14 @@
 <html lang="en"  style="margin: 0; padding: 0; ">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-    <script src="../../lib/datepicker.js"></script>
+    <script type="text/javascript" src="../../lib/datepicker.js"></script>
     <link type="text/css" rel="stylesheet" href="../../css/datepicker.css">
     <script>
         $(document).ready(function()
         {
-            alert('entro')
+            
             $('#dte1').datepicker({'format': 'yyyy-mm-dd', 'startView':2, 'todayHighlight':true, 'autoclose':true, 'language':"es", 'maxViewMode':2, 'orientation':'bottom'});
+
         });
     </script>
 </head>
