@@ -14,7 +14,7 @@ input[type=text]{
 }
 input[type=text].buscar{
     margin: 3px 3px 3px 3px;
-    background-image: url('../pixel_1E202C.png'), url('../img/busqueda_16.png'), url('../img/pixel_00b8fe.png');
+    background-image: url('../img/pixel_1E202C.png'), url('../img/busqueda_16.png'), url('../img/pixel_00b8fe.png');
     background-repeat: repeat-y, no-repeat, no-repeat;
     background-position: 26px, 5px, 0;
     margin: 3px 3px 3px 3px;

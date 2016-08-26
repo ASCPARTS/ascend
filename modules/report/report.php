@@ -2,9 +2,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <style></style>
-    <link rel="stylesheet" type="text/css" href="css/report.css">
-    <?php require_once("inc/sheet.inc");?>
+    <?php require_once("../../inc/sheet.inc");?>
+    <link rel="stylesheet" type="text/css" href="../../css/report.css">
+
 
 </head>
 
@@ -130,7 +130,7 @@
 
                         </td>
                         <td style="border: 1px dimgray solid">
-                            <img src="img/grafica.jpg" width="470px"  style="padding: 5px 2px 5px 2px">
+                            <img src="../../img/grafica.jpg" width="470px"  style="padding: 5px 2px 5px 2px">
                             <div class="Grafica">
                                 <table width="100%">
                                     <tr >
@@ -615,5 +615,5 @@
         }
     }
 </script>
-<script type="text/javascript" src="js/reportes.js"></script>
+<script type="text/javascript" src="../../js/reportes.js"></script>
 </html>
