@@ -38,6 +38,7 @@
 <script>
     handleTab('1','Formulario','modules/test/form.php');
     handleTab('2','Reportes','report.php');
+    handleTab('1','Formulario','modules/order/quotationOrder.php');
 </script>
 </body>
 </html>
