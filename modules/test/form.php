@@ -7,8 +7,8 @@
     <script>
         $(document).ready(function()
         {
-            
-            $('#dte1').datepicker({'format': 'yyyy-mm-dd', 'startView':2, 'todayHighlight':true, 'autoclose':true, 'language':"es", 'maxViewMode':2, 'orientation':'bottom'});
+
+            //$('input.datepicker').Zebra_DatePicker();
 
         });
     </script>
@@ -97,14 +97,14 @@
         <div class="row">
 
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-                <div class="divInputText">
-                    <input type="text" id="dte1">
+                <div class="divInputDate">
+                    <input type="date" id="dte1">
                     <label for="dte1">ejemplo 1</label>
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-                <div class="divInputText">
-                    <input type="text" id="dte2">
+                <div class="divInputDate">
+                    <input type="date" id="dte2">
                     <label for="dte2">ejemplo 1</label>
                 </div>
             </div>
@@ -190,6 +190,12 @@
 
         </div>
 
+        <div class="SubTitle">Ejemplo Brenda</div>
+        <div class="row">
+            <div class="col-md-4">
+                asdsa
+            </div>
+        </div>
         <br style="clear: both;" />
     </div>
 </body>

@@ -274,6 +274,45 @@ input[type=button] {
 
 
 
+.divInputDate{
+    background-color: #1766A1;
+    border: solid #1766A1 1px;
+    height: 35px;
+    text-align: right;
+    vertical-align: top;
+    color: #00346F;
+    font-size: 0.8em;
+    align-items: flex-end;
+    text-transform: capitalize;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.divInputDate input[type=date]{
+    height: 20px;
+    border: solid #FFFFFF 0px;
+    width: calc(100% - 33px);
+    text-indent: 10px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+    text-transform: uppercase;
+    font-size: 10pt;
+}
+
+.divInputDate label
+{
+    display:inline-block;
+    text-transform: uppercase;
+    width: calc(100% - 33px);
+    cursor: text;
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    margin: 0;
+    background-color: #1766A1;
+    height: 13px;
+    padding: 0px 5px 0px 0px;
+    color: #FFFFFF;
+}
 
 
 
