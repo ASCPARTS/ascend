@@ -96,14 +96,8 @@ unset($conMySql);
     }
 
     $arrMenu = {
-        'Categories':Array('1','12','38','42','47','50','58','62'),
-        '1':Array(),
-        '2':Array('2_1','2_2','2_3'),
-        '3':Array(),
-        '4':Array(),
-        '5':Array(),
-        '6':Array(),
-        '7':Array(),
-        '8':Array()
+        'Categories':Array('1','12','38','42','47','50','58','62','END'),
+        '12':Array('2_1','2_2','2_3'),
+        'END':''
     };
 </script>
