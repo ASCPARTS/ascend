@@ -22,15 +22,15 @@ html, body {
 
 .divMenuLevel0 {
     height: 100%;
-    width: 15%;
-    background-color: #F1F1F1;
+    width: 20%;
+    background-color: #1766A1;
     float: left;
     display: block;
     overflow-x: hidden;
 }
 
 .divMenuLevel1 {
-    background-color: #00B8FE;
+    background-color: #4695D0;
     height: 100%;
     width: 0;
     float: left;
@@ -39,7 +39,7 @@ html, body {
 }
 
 .divMenuLevel2 {
-    background-color: #6285AD;
+    background-color: #75C4FF;
     height: 100%;
     width: 0;
     float: left;
@@ -50,52 +50,52 @@ html, body {
 .divMenuClear{
     height: 100%;
     width: 85%;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0,0,0,.5);
     float: left;
     display: block;
     overflow-x: hidden;
 }
 
 .divMenuCategory {
-    margin: 4px 4px 0px 4px;
-    font-size: 12pt;
+    margin: 2px 2px 0px 2px;
+    font-size: 1.3em;
     padding: 0 0 0 8px;
     background-color: #D8D8D8;
-    border: 0;
+    border: 1px #1E202C solid;
     cursor: pointer;
 }
 
 .divMenuCategory:hover {
-    background-color: #00B8FE;
+    background-color: #4695D0;
 }
 
 .divMenuCategorySelected {
-    background-color: #00B8FE;
+    background-color: #4695D0;
 }
 
 .divMenuSubCategory {
-    margin: 4px 4px 0px 4px;
-    font-size: 12pt;
+    margin: 2px 2px 0px 2px;
+    font-size: 1.3em;
     padding: 0 0 0 8px;
     background-color: #D8D8D8;
-    border: 0;
+    border: 1px #1E202C solid;
     cursor: pointer;
 }
 
 .divMenuSubCategory:hover {
-    background-color: #6285Ad;
+    background-color: #75C4FF;
 }
 
 .divMenuSubCategorySelected {
-    background-color: #6285Ad;
+    background-color: #75C4FF;
 }
 
 .divMenuOption {
-    margin: 4px 4px 0px 4px;
-    font-size: 12pt;
+    margin: 2px 2px 0px 2px;
+    font-size: 1.3em;
     padding: 0 0 0 8px;
     background-color: #D8D8D8;
-    border: 0;
+    border: 1px #1E202C solid;
     cursor: pointer;
 }
 

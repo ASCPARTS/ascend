@@ -1,72 +1,54 @@
+$intCurrentCategory = '';
+$intCurrentSubCategory = '';
+
 function openMenuMain(){
     $('#divMenuMain').css('width','100%');
 }
 
 function closeMenuMain() {
-    limpiarmenu();
+    $('#divcleanmenu').css('width', '80%');
+    if($intCurrentSubCategory!=''){
+        $('#divMenuSubCategory_' + $intCurrentSubCategory).removeClass('divMenuSubCategorySelected');
+        $('#divMenuMain_' + $intCurrentSubCategory).css('width','0');
+        $intCurrentSubCategory = '';
+    }
     $('#divMenuMain').css('width','0');
+    if($intCurrentCategory!=''){
+        $('#divMenuCategory_' + $intCurrentCategory).removeClass('divMenuCategorySelected');
+        $('#divMenuMain_' + $intCurrentCategory).css('width','0');
+        $intCurrentCategory = '';
+    }
 }
 
 function openMenu($intLevel,$intMenu){
-    switch ($intLevel){
-        case 1:
-            $('#divcleanmenu').css('width','70%');
-            for($intIndex=0;$intIndex<$arrMenu.Categories.length;$intIndex++){
-                $('#divMenuCategory_' + $arrMenu.Categories[$intIndex]).removeClass('divMenuCategorySelected');
-                $('#divMenuMain_' + $arrMenu.Categories[$intIndex]).css('width','0');
-                //if($arrMenu[$arrMenu.Categories[$intIndex]].length!=0){
-                //    for($intSubIndex=0;$intSubIndex<$arrMenu[$arrMenu.Categories[$intIndex]].length;$intSubIndex++){
-                //        $('#divSubCategoryContainer_' + $arrMenu[$arrMenu.Categories[$intIndex]][$intSubIndex]).slideUp('fast');
-                //    }
-                //}
-            }
-            $('#divMenuCategory_' + $intMenu).addClass('divMenuCategorySelected');
-            $('#divMenuMain_' + $intMenu).css('width','15%');
-            break;
+    $('#divcleanmenu').css('width', parseInt(100 - (20 * $intLevel)) + '%');
+    switch($intLevel){
         case 2:
-            $('#divcleanmenu').css('width','55%');
-            for($intSubIndex=0;$intSubIndex<$arrMenu[$strCategory].length;$intSubIndex++){
-                $('#divSubCategoryContainer_' + $arrMenu[$strCategory][$intSubIndex]).slideUp('fast');
+            if($intCurrentSubCategory!=''){
+                $('#divMenuSubCategory_' + $intCurrentSubCategory).removeClass('divMenuSubCategorySelected');
+                $('#divMenuMain_' + $intCurrentSubCategory).css('width','0');
+                $intCurrentSubCategory = '';
             }
-            $('#divMenuSubCategory_1_' + $intMenu).addClass('divMenuSubCategorySelected');
-            $('#divMenuMain' + $intLevel + '_' + $intMenu).css('width','15%');
-    }
-
-
-}
-
-/*
-function openCategory($strCategory){
-    for($intIndex=0;$intIndex<$arrMenu.Categories.length;$intIndex++){
-        $('#divCategoryContainer_' + $arrMenu.Categories[$intIndex]).slideUp('fast');
-        if($arrMenu[$arrMenu.Categories[$intIndex]].length!=0){
-            for($intSubIndex=0;$intSubIndex<$arrMenu[$arrMenu.Categories[$intIndex]].length;$intSubIndex++){
-                $('#divSubCategoryContainer_' + $arrMenu[$arrMenu.Categories[$intIndex]][$intSubIndex]).slideUp('fast');
+            if($intCurrentCategory!=''){
+                $('#divMenuCategory_' + $intCurrentCategory).removeClass('divMenuCategorySelected');
+                $('#divMenuMain_' + $intCurrentCategory).css('width','0');
             }
-        };
-    }
-    $('#divCategoryContainer_' + $strCategory).css('height', 'calc(100vh - ' + parseInt(parseInt($('#divMenuHeader').css('height').replace('px','').replace(' ','')) + 4 + ($arrMenu.Categories.length * 32) + 2) + 'px)');
-    $('#divCategoryContainer_' + $strCategory).slideDown('fast');
-}
-
-function openSubCategory($strCategory,$strSubCategory){
-    for($intSubIndex=0;$intSubIndex<$arrMenu[$strCategory].length;$intSubIndex++){
-        $('#divSubCategoryContainer_' + $arrMenu[$strCategory][$intSubIndex]).slideUp('fast');
-    }
-    $('#divSubCategoryContainer_' + $strSubCategory).slideDown('fast');
-}
-
-function cleanMenu(){
-    for($intIndex=0;$intIndex<$arrMenu.Categories.length;$intIndex++){
-        $('#divCategoryContainer_' + $arrMenu.Categories[$intIndex]).slideUp('fast');
-        if($arrMenu[$arrMenu.Categories[$intIndex]].length!=0){
-            for($intSubIndex=0;$intSubIndex<$arrMenu[$arrMenu.Categories[$intIndex]].length;$intSubIndex++){
-                $('#divSubCategoryContainer_' + $arrMenu[$arrMenu.Categories[$intIndex]][$intSubIndex]).slideUp('fast');
+            $intCurrentCategory = $intMenu;
+            $('#divMenuCategory_' + $intMenu).addClass('divMenuCategorySelected');
+            $('#divMenuMain_' + $intMenu).css('width', '20%');
+            break;
+        case 3:
+            if($intCurrentSubCategory!=''){
+                $('#divMenuSubCategory_' + $intCurrentSubCategory).removeClass('divMenuSubCategorySelected');
+                $('#divMenuMain_' + $intCurrentSubCategory).css('width','0');
             }
-        };
+            $intCurrentSubCategory = $intMenu;
+            $('#divMenuSubCategory_' + $intMenu).addClass('divMenuSubCategorySelected');
+            $('#divMenuMain_' + $intMenu).css('width', '20%');
+            break;
     }
 }
-*/
+
 function openUserMenu(){
     $('#divTopMenuUserMain').slideDown('slow');
 }
