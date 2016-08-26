@@ -21,6 +21,7 @@
                     <input type="text" id="text2">
                     <label for="text2">ejemplo 1</label>
                 </div>
+
             </div>
             <div class="col-lg-5 col-md-5 col-sm-2 col-xs-1">
                 <div class="divInputText">

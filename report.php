@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<script src="lib/jquery-3.1.0.min.js"></script>
+
 <head>
     <style></style>
-    <link rel="stylesheet" type="text/css" href="css/reportes.css">
+    <link rel="stylesheet" type="text/css" href="css/report.css">
+    <?php require_once("inc/sheet.inc");?>
 
 </head>
 
@@ -14,7 +15,7 @@
 
         <div id="principal" >
 
-            <div class="lineaDivisoraTitulo">Reportes</div>
+            <div class="MainTitle">Reportes</div>
             <div>
                 <input type="text" placeholder="Buscar Reporte" class="buscar" align="center">
             </div>
