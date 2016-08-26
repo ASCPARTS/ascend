@@ -37,7 +37,8 @@
 <script type="text/javascript" src="js/añadirFormulario.js"></script>
 <script>
     handleTab('1','Formulario','modules/test/form.php');
-    handleTab('2','Reportes','report.php');
+    handleTab('2','Reportes','modules/report/report.php');
+    handleTab('3','Cotizacion','modules/order/quotationOrder.php');
 </script>
 </body>
 </html>
