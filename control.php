@@ -47,7 +47,6 @@ while($arrLevel0=mysqli_fetch_assoc($rstLevel0)){
         unset($arrLevel2);
         if(mysqli_num_rows($rstLevel2)!=0) {
             $strDivs2 .= "</div>" . "\r\n";
-            //$strJavaScriptArray1 .= ")" . "\r\n";
         }
         mysqli_free_result($rstLevel2);
         unset($rstLevel2);
@@ -55,21 +54,23 @@ while($arrLevel0=mysqli_fetch_assoc($rstLevel0)){
     unset($arrLevel1);
     if(mysqli_num_rows($rstLevel1)!=0) {
         $strDivs1 .= "</div>" . "\r\n";
+        $strJavaScriptArray1 .= "'END'),";
     }
     mysqli_free_result($rstLevel1);
     unset($rstLevel1);
 }
 unset($arrLevel0);
 $strDivs0 .= "</div>" . "\r\n";
-$strJavaScriptArray0 .= "'END')," . "\r\n";
+$strJavaScriptArray0 .= "'END'),";
 mysqli_free_result($rstLevel0);
 unset($rstLevel0);
 
 mysqli_close($conMySql);
 unset($conMySql);
+
+$strJavaScriptArray= str_replace(",'END'","",$strJavaScriptArray0) . str_replace("'END'","",str_replace(",'END'","",$strJavaScriptArray1));
+$strJavaScriptArray = "$arrMenu = {" . substr($strJavaScriptArray,0,strlen($strJavaScriptArray) - 1) . "};\r\n";
+
 ?>
-
-<textarea style="width: 100%; height: 800px;"><?php echo $strJavaScriptArray1; ?></textarea>
-
 </body>
 </html>
