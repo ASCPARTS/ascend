@@ -21,7 +21,7 @@
         <div class="SubTitle">Titulo de tabla</div>
         <div class="row">
 
-            <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
+            <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1 tblContainer">
                 <table>
                     <caption>This is my caption</caption>
                     <thead>
@@ -31,6 +31,7 @@
                         <th>Enc 2</th>
                         <th>Enc 3</th>
                         <th>Enc 4</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -53,6 +54,54 @@
                         <td>Val 4</td>
                     </tr>
                     <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr class="green">
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr class="blue">
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr class="red">
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr class="yellow">
                         <td>Val 1</td>
                         <td>Val 2</td>
                         <td>Val 3</td>
