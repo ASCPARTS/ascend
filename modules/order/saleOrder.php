@@ -110,7 +110,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
+        <div class="col-lg-1-4 col-md-1-4 col-sm-1-3 col-ofset-lg-2-4">
             <div class="divInputText">
                 <input id="x" type="text">
                 <label for="x">Descuento</label>
