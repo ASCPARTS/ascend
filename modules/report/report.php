@@ -9,13 +9,8 @@
 </head>
 
 <body>
-
-
-
-
-        <div id="principal" >
-
-            <div class="MainTitle">Reportes</div>
+<div class="MainTitle">Reportes</div>
+        <div class="MainContainer" >
             <div>
                 <input type="text" placeholder="Buscar Reporte" class="buscar" align="center">
             </div>
