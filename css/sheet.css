@@ -35,13 +35,24 @@ html, body {
     max-width: 1100px;
 }
 
-tr:nth-child(odd) {
-    background-color:#f2f2f2;
-}
-tr:nth-child(even) {
-    background-color:#fbfbfb;
-}
 
+
+
+
+
+
+
+.ButtonContainer
+{
+    float: left;
+    width: calc( 100% - 30px );
+    height: auto;
+    margin-bottom: 6px;
+    text-align: right;
+    margin-right: 15px;
+    margin-left: 15px;
+
+}
 
 
 .btn {
@@ -50,7 +61,40 @@ tr:nth-child(even) {
     font-size: 10pt;
     text-align: center;
     cursor: pointer;
-    margin: 0 0 4px 0;
+    margin: 4px 0 4px 0;
+    width:100%;
+    text-transform: capitalize;
+    font-weight:bolder;
+}
+
+/* SIZE COL SM*/
+@media (min-width: 768px)
+{
+    .btn
+    {
+        width:auto;
+        margin: 4px 0 4px 4px;
+    }
+}
+
+/* SIZE COL MD*/
+@media (min-width: 992px)
+{
+    .btn
+    {
+        width:auto;
+        margin: 4px 0 4px 4px;
+    }
+}
+
+/* SIZE COL LG*/
+@media (min-width: 1200px)
+{
+    .btn
+    {
+        width:auto;
+        margin: 4px 0 4px 4px;
+    }
 }
 
 .btnOverBlue {
@@ -582,4 +626,17 @@ tr:nth-child(even) {
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;
+}
+
+
+
+
+
+
+
+tr:nth-child(odd) {
+    background-color:#f2f2f2;
+}
+tr:nth-child(even) {
+    background-color:#fbfbfb;
 }

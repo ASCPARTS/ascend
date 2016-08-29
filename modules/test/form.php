@@ -17,6 +17,56 @@
     <div class="MainTitle">Diseño formulario</div>
     <div class="MainContainer">
 
+        <!-- Table -->
+        <div class="SubTitle">Titulo de tabla</div>
+        <div class="row">
+
+            <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Enc 1</th>
+                        <th>Enc 2</th>
+                        <th>Enc 3</th>
+                        <th>Enc 4</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    <tr>
+                        <td>Val 1</td>
+                        <td>Val 2</td>
+                        <td>Val 3</td>
+                        <td>Val 4</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <!-- Radio -->
         <div class="SubTitle">Checkboxes</div>
         <div class="row">
@@ -313,6 +363,7 @@
             </div>
 
         </div>
+
 
 
 
