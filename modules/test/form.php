@@ -25,7 +25,7 @@
                 <table>
                     <caption>This is my caption</caption>
                     <thead>
-
+                    
                     <tr>
                         <th>Enc 1</th>
                         <th>Enc 2</th>
