@@ -17,6 +17,24 @@
     <div class="MainTitle">Diseño formulario</div>
     <div class="MainContainer">
 
+        <!-- Radio -->
+        <div class="SubTitle">Checkboxes</div>
+        <div class="row">
+
+            <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
+                <div class="divInputRadio">
+                    <input type="radio" id="rad">
+                    <label for="rad">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
+                <div class="divInputCheck">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
+                </div>
+            </div>
+        </div>
+        
         <!-- TEXT -->
         <div class="SubTitle">Titulo de 5 componentes</div>
         <div class="row">
@@ -96,16 +114,31 @@
         <div class="SubTitle">Titulo de datepicker's</div>
         <div class="row">
 
-            <div class="col-lg-1-2 col-md-1-2">
+            <div class="col-lg-1-4 col-md-1-4">
                 <div class="divInputDate">
                     <input type="date" id="dte1">
                     <label for="dte1">ejemplo 1</label>
                 </div>
             </div>
-            <div class="col-lg-1-2 col-md-1-2">
+
+            <div class="col-lg-1-4 col-md-1-4">
                 <div class="divInputDate">
-                    <input type="date" id="dte2">
-                    <label for="dte2">ejemplo 1</label>
+                    <input type="date" id="dte1">
+                    <label for="dte1">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4">
+                <div class="divInputDate">
+                    <input type="date" id="dte1">
+                    <label for="dte1">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4">
+                <div class="divInputDate">
+                    <input type="date" id="dte1">
+                    <label for="dte1">ejemplo 1</label>
                 </div>
             </div>
 
@@ -195,78 +228,75 @@
         <div class="SubTitle">New Grid</div>
         <div class="row">
             <div class="col-xs-1-1 col-sm-2-2 col-md-4-5 col-lg-4-5">
-                <div class="">
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-lg-1-4 col-md-1-4">
+                    <div class="divInputDate">
+                        <input type="date" id="dte1">
+                        <label for="dte1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
+                </div>
 
-                    <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
-                            <input type="text" id="text1">
-                            <label for="text1">ejemplo 1</label>
-                        </div>
+                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
+                    <div class="divInputText">
+                        <input type="text" id="text1">
+                        <label for="text1">ejemplo 1</label>
                     </div>
                 </div>
             </div>
             <div class="col-xs-1-1 col-md-1-1 col-md-1-5 col-md-1-5">
-                <div>
-                    <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
+                <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
 
-                        <div class="divInputTextArea">
-                            <label for="textarea1">Este es mi text area</label>
-                            <textarea id="textarea1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-                        </div>
-
+                    <div class="divInputTextArea">
+                        <label for="textarea1">Este es mi text area</label>
+                        <textarea id="textarea1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
                     </div>
+
                 </div>
             </div>
 
         </div>
+
 
 
         <br style="clear: both;" />

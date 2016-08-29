@@ -35,6 +35,13 @@ html, body {
     max-width: 1100px;
 }
 
+tr:nth-child(odd) {
+    background-color:#f2f2f2;
+}
+tr:nth-child(even) {
+    background-color:#fbfbfb;
+}
+
 input[type=button] {
     border: 0;
     padding: 4px 8px 8px 8px;
@@ -102,11 +109,6 @@ input[type=button] {
     float: left;
 }
 
-.col-md-1-5 .row, .col-md-4-5 .row
-{
-    margin-right: -15px;
-    margin-left: -15px;
-}
 
 /* SIZE COL XS*/
 .col-xs-1-1 {   width: calc( 100% - 30px );  }
@@ -413,4 +415,70 @@ input[type=button] {
 /* Pseudo-clase */
 ::-webkit-scrollbar-thumb:window-inactive {
     background: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.divInputRadio, .divInputCheck {
+    background-color: #1766A1;
+    border: solid #1766A1 1px;
+    height: 35px;
+    text-align: left;
+    vertical-align: middle;
+    color: #00346F;
+    font-size: 0.8em;
+    align-items: flex-end;
+    text-transform: capitalize;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.divInputRadio input[type=radio], .divInputCheck input[type=checkbox] {
+    display:inline-block;
+    height: 14px;
+    width: 14px;
+    margin: 11px 11px 10px 10px;
+    border: solid #FFFFFF 0px;
+    width: 14px;
+    text-indent: 10px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    float: left;
+}
+
+.divInputRadio label, .divInputCheck label
+{
+    display:inline-block;
+    height: 19px;
+    font-size: 14px;
+    background-color:  #FFFFFF;
+    text-transform: uppercase;
+    width: calc(100% - 50px);
+    cursor: pointer;
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    margin: 0;
+    padding: 8px 5px 8px 10px;
+    color: #1e202c;
+    float: left;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
 }
