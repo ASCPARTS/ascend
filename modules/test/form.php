@@ -34,7 +34,24 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- Buttons -->
+        <div class="ButtonContainer">
+            <input class="btn btnOverBlue" type="button" value="Click me">
+            <button class="btn btnBrandBlue">Click me</button>
+            <input class="btn btnBackgroundBlack" type="button" value="Click me">
+            <button class="btn btnBlueGray">Click me</button>
+            <input class="btn btnOverBlueGray" type="button" value="Click me">
+            <button class="btn btnAlternativeGray">Click me</button>
+
+            <input class="btn btnLetterGray" type="button" value="Click me">
+            <button class="btn btnBackground">Click me</button>
+            <input class="btn btnOverYellow" type="button" value="Click me">
+            <button class="btn btnAlternativeBlue">Click me</button>
+            <input class="btn btnOnlineGreen" type="button" value="Click me">
+            <button class="btn btnOverGray">Click me</button>
+        </div>
+
         <!-- TEXT -->
         <div class="SubTitle">Titulo de 5 componentes</div>
         <div class="row">
@@ -296,6 +313,7 @@
             </div>
 
         </div>
+
 
 
 

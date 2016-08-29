@@ -42,7 +42,9 @@ tr:nth-child(even) {
     background-color:#fbfbfb;
 }
 
-input[type=button] {
+
+
+.btn {
     border: 0;
     padding: 4px 8px 8px 8px;
     font-size: 10pt;
@@ -51,15 +53,114 @@ input[type=button] {
     margin: 0 0 4px 0;
 }
 
-.buttonBrandBlue {
-    background-color: #1766A1;
+.btnOverBlue {
+    background-color: #00b8fe;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #00346F;
+    box-shadow: inset 0 -6px 0 #0080b3;
+}
+.btnOverBlue:hover {
+    background-color: #0080b3;
 }
 
-.buttonBrandBlue:hover {
-    background-color: #00346F;
+.btnBrandBlue {
+    background-color: #1766A1;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #0d3859;
 }
+.btnBrandBlue:hover {
+    background-color: #0d3859;
+}
+
+.btnBackgroundBlack {
+    background-color: #050409;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #323544;
+}
+.btnBackgroundBlack:hover {
+    background-color: #323544;
+}
+
+.btnBlueGray {
+    background-color: #323544;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #0b0b0f;
+}
+.btnBlueGray:hover {
+    background-color: #0b0b0f;
+}
+
+.btnOverBlueGray {
+    background-color: #1e202c;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #000000;
+}
+.btnOverBlueGray:hover {
+    background-color: #000000;
+}
+
+.btnAlternativeGray {
+    background-color: #d8d8d8;
+    color: #000000;
+    box-shadow: inset 0 -6px 0 #b3b3b3;
+}
+.btnAlternativeGray:hover {
+    background-color: #b3b3b3;
+}
+
+.btnLetterGray {
+    background-color: #5c5c5c;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #333333;
+}
+.btnLetterGray:hover {
+    background-color: #333333;
+}
+
+.btnBackground {
+    background-color: #F1F1F1;
+    color: #000000;
+    box-shadow: inset 0 -6px 0 #cccccc;
+}
+.btnBackground:hover {
+    background-color: #cccccc;
+}
+
+.btnOverYellow {
+    background-color: #FFC000;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #b38600;
+}
+.btnOverYellow:hover {
+    background-color: #b38600;
+}
+
+.btnAlternativeBlue {
+    background-color: #6285ad;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #466486;
+}
+.btnAlternativeBlue:hover {
+    background-color: #466486;
+}
+
+.btnOnlineGreen {
+    background-color: #55B844;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #3d8230;
+}
+.btnOnlineGreen:hover {
+    background-color: #3d8230;
+}
+
+.btnOverGray {
+    background-color: #D2CFD8;
+    color: #000000;
+    box-shadow: inset 0 -6px 0 #b0abba;
+}
+.btnOverGray:hover {
+    background-color: #b0abba;
+}
+
 
 
 
