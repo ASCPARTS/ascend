@@ -50,7 +50,7 @@
 <div class="MainTitle">Cotizaciones</div>
 <div class="MainContainer">
     <div class="SubTitle">Cotizaciones Pendientes</div>
-    <div class="row">
+    <div class="tblContainer">
         <table border="1px soli gray" width="100%">
             <tr style="text-align: center">
                 <td><h3>Folio</h3></td>
