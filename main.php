@@ -38,7 +38,9 @@
 <script>
     handleTab('1','Formulario','modules/test/form.php');
     handleTab('2','Reportes','modules/report/report.php');
-    handleTab('3','Cotizacion','modules/order/quotationOrder.php');
+    handleTab('3','Nueva Cotizacion','modules/order/quotationorder.php');
+    handleTab('4','Responder Cotizacion','modules/order/resolvedquote.php');
+
 </script>
 </body>
 </html>
