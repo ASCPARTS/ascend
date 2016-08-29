@@ -6,11 +6,12 @@
 <body>
 	<div class="MainTitle">CREAR PEDIMENTO</div>
 	<div class="MainContainer">
+        <div class="SubTitle">Datos Generales</div>
 		<div class="row">
             <div class="col-md-4">
                 <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">Folio pedimento</label>
+                    <input type="text" id="idFolio" value="3600-6002208">
+                    <label for="idFolio">Folio pedimento</label>
                 </div>
             </div>
             <div class="col-md-4"> 
@@ -19,57 +20,65 @@
             </div>
             <div class="col-md-4">
                 <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">Fecha</label>
+                    <input type="text" id="idFecha">
+                    <label for="idFecha">Fecha</label>
                 </div>
             </div>
         </div>
+    <div class="SubTitle">Pedimento 1</div>
         <div class="row">
-            <div class="col-lg-3 col-md-3">
-                <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">Proveedor</label>
+            <div class="col-md-4">
+                <div class="divSelect">
+                    <select id="idProveedor">
+                        <option>IMPACT</option>
+                        <option>CHINA ETERNAL CET</option>
+                        <option>LASER PROS</option>
+                        <option>ASC USA</option>
+                        <option>FEDCO BATTERIES</option>
+                        <option>SIGNAL AND POWER</option>
+                    </select>
+                    <label for="idProveedor">Proveedor</label>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">Folio Factura</label>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">Guía</label>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-5 col-md-5">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">DTA</label>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5">
+        </div>
+        <div class="row">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">CNT</label>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">PREV</label>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">IVA</label>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5">
+            <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
                     <label for="text1">Advalorem</label>
@@ -84,7 +93,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="divInputText">
+                <div class="divInputTextAuto">
                     <input type="text" id="text1">
                     <label for="text1">IVA</label>
                 </div>
@@ -96,7 +105,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="divInputText">
+                <div class="divInputTextAuto">
                     <input type="text" id="text1">
                     <label for="text1">IVA</label>
                 </div>
@@ -110,7 +119,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="divInputText">
+                <div class="divInputTextAuto">
                     <input type="text" id="text1">
                     <label for="text1">IVA</label>
                 </div>
@@ -122,13 +131,25 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="divInputText">
+                <div class="divInputTextAuto">
                     <input type="text" id="text1">
                     <label for="text1">A.A AMERICANA MX</label>
                 </div>
             </div>
         </div>
         <div class="row">
+            <div class="col-md-4">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">V. FACTURA USD</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">% VALOR TOTAL FACTURAS vs  VALOR FACTURA</label>
+                </div>
+            </div>
             <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
@@ -141,6 +162,8 @@
                     <label for="text1">VALOR A.A+PED  MX</label>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
@@ -153,8 +176,6 @@
                     <label for="text1">Flete (usd) PEDIMENTO</label>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-4">
                 <div class="divInputText">
                     <input type="text" id="text1">
@@ -167,13 +188,8 @@
                     <label for="text1">STATUS F.F/ VF</label>
                 </div>
             </div>
-            <div class="col-md-4">
-               
-            </div>
-            <div class="col-md-4">
-               
-            </div>
         </div>
+        
         <div class="row">
             <div class="col-md-4">
                 <div class="divInputText">
