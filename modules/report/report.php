@@ -48,7 +48,6 @@
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-
             </div>
 
 
