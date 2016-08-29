@@ -2,6 +2,19 @@
 <html lang="en">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
+    <style>
+        span{
+            font-size: medium;
+            color: #1E202C;
+
+        }
+        tr:nth-child(odd) {
+            background-color:#f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color:#fbfbfb;
+        }
+    </style>
 </head>
 <body>
 <div class="MainTitle">Orden de Cotización</div>
@@ -24,7 +37,7 @@
 
         <div class="col-lg-4 col-md-4 col-sm-2 col-xs-1">
             <div class="divInputText">
-                <input type="text" id="text1">
+                <input type="date" id="text1">
                 <label for="text1">fecha</label>
             </div>
         </div>
@@ -37,22 +50,38 @@
 
     </div>
 
-    <div id='oculto' style='display:none; border: solid 1px #F1F1F1' >
-        <h2>Datos Fiscales del Contacto</h2>
-        <h3>VICKY MONSERRAT SANTANA GARFIAS</h3>
-        <label>Clave del cliente: 19-475</label><br>
-        <label>RFC: SAGV-890501-R26</label><br>
-        <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
-        <label>Iguala de la Indepegro</label><br>
-        <h2>Domicilios de Embarque y Sucursales</h2>
-        <h3>Clave del destino: 19-475-01</h3>
-        <label>VICKY MONSERRAT SANTANA GARFIAS</label><br>
-        <label>Domicilio: Av. Vicente Guerrero no.35 Col. Centro C.P: 4000</label><br>
-        <label>Iguala de la Indepegro</label>
-        <h3>Cuentas de correo electronico</h3>
-        <label>ventas@accecomp.com.mx</label>
-        <h4>Compras Web del Mes:  2</h4>
-        <h4>Ultima Compra Web: 17 Agosto 2016</h4>
+    <div id="oculto" style="display:none;" >
+
+        <table width="97.3%" style="border: solid 1px #1766A1; margin-left: 15px; ">
+            <tr>
+                <td colspan="2"><div class="SubTitle">Informacion del cliente</div></td>
+            </tr>
+            <tr>
+                <td><span>Nombre del cliente: Gael Manzanares</span></td>
+                <td><span>Domicilio: Pino 4567 Col. Fresno</span></td>
+            </tr>
+            <tr>
+                <td><span>condicion de pago: Contado</span></td>
+                <td><span><span>RFC: GAGV-890501-R26</span></td>
+            </tr>
+            <tr>
+                <td><span><span>Telefono: 33 33 56 78 98</span></td>
+                <td><span><span>E-mail: gael@gmail.com</span></td>
+            </tr>
+            <tr>
+                <td><span>condicion de pago: Contado</span></td>
+                <td><span><span>RFC: GAGV-890501-R26</span></td>
+            </tr>
+            <tr>
+                <td><span><span>Telefono: 33 33 56 78 98</span></td>
+                <td><span><span>E-mail: gael@gmail.com</span></td>
+            </tr>
+            <tr>
+                <td><span>Nombre del cliente: Gael Manzanares</span></td>
+                <td><span>Domicilio: Pino 4567 Col. Fresno</span></td>
+            </tr>
+        </table>
+
     </div>
 
     <div class="row">
@@ -216,7 +245,7 @@
 
         <div  class="col-lg-4 col-md-4 col-sm-3 col-xs-1">
             <div class="divInputText">
-                <input type="text" id="text1">
+                <input type="date" id="text1">
                 <label for="text1">fecha promesa</label>
             </div>
         </div>
