@@ -2,65 +2,27 @@
 <html lang="en">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-    <style>
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-        }
 
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            margin-bottom: 100px;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        h3{
-            color: #0086cc;
-        }
-    </style>
 </head>
 <body>
 <div class="MainTitle">Cotizaciones</div>
 <div class="MainContainer">
     <div class="SubTitle">Cotizaciones Pendientes</div>
-    <div class="tblContainer">
-        <table border="1px soli gray" width="100%">
-            <tr style="text-align: center">
-                <td><h3>Folio</h3></td>
-                <td><h3>SKU</h3></td>
-                <td><h3>Cantidad</h3></td>
-                <td><h3>Existencia</h3></td>
-                <td><h3>Faltantes</h3></td>
-                <td><h3>Estado</h3></td>
-                <td><h3>Cotizar</h3></td>
+    <div class="row">
+    <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 tblContainer">
+        <table>
+            <thead>
+            <tr>
+                <th>Folio</th>
+                <th>SKU</th>
+                <th>Cantidad</th>
+                <th>Existencia</th>
+                <th>Faltantes</th>
+                <th>Estado</th>
+                <th>Cotiza</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>1467</td>
                 <td>34567</td>
@@ -169,7 +131,9 @@
                 <td>Pendiente</td>
                 <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
             </tr>
+            </tbody>
         </table>
+    </div>
     </div>
 
     <div id="myModal" class="modal">
@@ -300,6 +264,14 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-lg-1-1 col-md-1-1 col-sm-1-1">
+                        <div class="divInputTextArea">
+                            <label for="textarea1">Comentarios</label>
+                            <textarea id="textarea1"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="ButtonContainer">
                     <input type="button" class="btnOnlineGreen btn" value="Aceptar">

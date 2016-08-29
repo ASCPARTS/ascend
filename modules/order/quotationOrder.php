@@ -2,14 +2,7 @@
 <html lang="en">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-    <style>
-        span{
-            font-size: medium;
-            color: #1E202C;
 
-        }
-
-    </style>
 </head>
 <body>
 <div class="MainTitle">Orden de Cotización</div>
@@ -46,12 +39,17 @@
 
     </div>
     <div class="row">
-        <div id="oculto" style="" >
+
+        <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 tblContainer">
 
             <table>
+                <thead>
                 <tr>
-                    <td colspan="2"><div class="SubTitle">Informacion del cliente</div></td>
+                    <th>Informacion del cliente</th>
+                    <th></th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td><span>Nombre del cliente: Gael Manzanares</span></td>
                     <td><span>Domicilio: Pino 4567 Col. Fresno</span></td>
@@ -76,6 +74,7 @@
                     <td><span>Nombre del cliente: Gael Manzanares</span></td>
                     <td><span>Domicilio: Pino 4567 Col. Fresno</span></td>
                 </tr>
+                </tbody>
             </table>
 
         </div>
