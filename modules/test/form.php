@@ -17,6 +17,37 @@
     <div class="MainTitle">Diseño formulario</div>
     <div class="MainContainer">
 
+        <!-- Offset -->
+        <div class="SubTitle">Titulo de 2 componentes</div>
+        <div class="row">
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-offset-2-4 col-lg-1-4 col-md-offset-2-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text2">
+                    <label for="text2">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-offset-1-2 col-lg-1-2 col-md-offset-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-offset-3-4 col-lg-1-4 col-md-offset-3-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text2">
+                    <label for="text2">ejemplo 1</label>
+                </div>
+            </div>
+
+        </div>
+
         <!-- Table -->
         <div class="SubTitle">Titulo de tabla</div>
         <div class="row">
@@ -25,7 +56,7 @@
                 <table>
                     <caption>This is my caption</caption>
                     <thead>
-                    
+
                     <tr>
                         <th>Enc 1</th>
                         <th>Enc 2</th>
