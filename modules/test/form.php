@@ -89,6 +89,7 @@
 
         <!-- Buttons -->
         <div class="ButtonContainer">
+            <button class="btn btnBrandRed">Click me</button>
             <input class="btn btnOverBlue" type="button" value="Click me">
             <button class="btn btnBrandBlue">Click me</button>
             <input class="btn btnBackgroundBlack" type="button" value="Click me">
