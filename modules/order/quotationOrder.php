@@ -48,7 +48,7 @@
     <div class="row">
         <div id="oculto" style="" >
 
-            <table width="97.3%" style="border: solid 1px #1766A1; margin-left: 15px; ">
+            <table>
                 <tr>
                     <td colspan="2"><div class="SubTitle">Informacion del cliente</div></td>
                 </tr>
@@ -223,12 +223,8 @@
     </div>
 
 </div>
-    <div class="row">
-        <div class="col-lg-1-1 col-md-1-1">
-            <div >
-                <input type="button" value="Enviar" class="colorgreen"  style="text-align: right">
-            </div>
-        </div>
+    <div class="ButtonContainer">
+        <input type="button" class="btnOnlineGreen btn" value="Aceptar">
     </div>
 
     <br style="clear: both;" />

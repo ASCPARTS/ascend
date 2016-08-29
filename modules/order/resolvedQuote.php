@@ -88,6 +88,87 @@
                 <td>Pendiente</td>
                 <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
             </tr>
+            <tr>
+                <td>1467</td>
+                <td>34567</td>
+                <td>10</td>
+                <td>2</td>
+                <td>8</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1689</td>
+                <td>59826</td>
+                <td>9</td>
+                <td>0</td>
+                <td>9</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1698</td>
+                <td>15037</td>
+                <td>13</td>
+                <td>1</td>
+                <td>12</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1467</td>
+                <td>34567</td>
+                <td>10</td>
+                <td>2</td>
+                <td>8</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1689</td>
+                <td>59826</td>
+                <td>9</td>
+                <td>0</td>
+                <td>9</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1698</td>
+                <td>15037</td>
+                <td>13</td>
+                <td>1</td>
+                <td>12</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1467</td>
+                <td>34567</td>
+                <td>10</td>
+                <td>2</td>
+                <td>8</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1689</td>
+                <td>59826</td>
+                <td>9</td>
+                <td>0</td>
+                <td>9</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
+            <tr>
+                <td>1698</td>
+                <td>15037</td>
+                <td>13</td>
+                <td>1</td>
+                <td>12</td>
+                <td>Pendiente</td>
+                <td style="text-align: center"><input type="button" value="Cotizar" id="myBtn" class="btnOnlineGreen btn"></td>
+            </tr>
         </table>
     </div>
 
