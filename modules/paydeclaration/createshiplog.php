@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-    <link rel="stylesheet" type="text/css" href="../../css/pagos_y_pedimentos.css">
 </head>
 <body>
     <div class="MainTitle">RECEPCIÓN DE MATERIAL</div>
