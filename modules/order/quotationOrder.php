@@ -231,12 +231,5 @@
     <br style="clear: both;" />
 </div>
 
-
-
-<script type="text/javascript" src="../../js/reportes.js"></script>
-<script type="text/javascript">
-    function mostrar(){
-        document.getElementById('oculto').style.display = 'block';}
-</script>
 </body>
 </html>

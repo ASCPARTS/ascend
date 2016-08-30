@@ -1,7 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Brenn
- * Date: 30/08/2016
- * Time: 11:34 AM
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php require_once("../../inc/sheet.inc");?>
+
+</head>
+<body>
+
+</body>
+</html>

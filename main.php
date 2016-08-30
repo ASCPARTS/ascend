@@ -42,6 +42,7 @@
     handleTab('4','Responder Cotizacion','modules/order/resolvedquote.php');
     handleTab('5','Orden de Venta','modules/order/saleorder.php');
     handleTab('6','Orden de Compra','modules/order/purchaseorder.php');
+    handleTab('7','RMA Cliente','modules/rma/customer.php');
 
 
 </script>
