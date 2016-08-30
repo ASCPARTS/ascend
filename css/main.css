@@ -22,7 +22,7 @@ html, body {
 
 .divMenuLevel0 {
     height: 100%;
-    width: 20%;
+    width: 15%;
     background-color: #1766A1;
     float: left;
     display: block;
@@ -45,6 +45,18 @@ html, body {
     float: left;
     display: block;
     overflow-x: hidden;
+}
+
+.divMenuPadding{
+    height: 10%;
+    background-color: #1E202C;
+}
+
+.divMenuLogo{
+    background-image: url('../img/logo_h_a_256.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 80%;
 }
 
 .divMenuClear{
