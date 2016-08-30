@@ -26,7 +26,7 @@
                     <input type="text" placeholder="Cliente" class="buscar"><br>
                     <input type="date" placeholder="Fecha" class="fecha"><br>
                     <div style="margin-left: 5%">
-                        <button type="button" value="Aceptar" id="myBtn"  class="colorGreen">Aceptar</button>
+                        <button type="button" value="Aceptar" onclick="getModal('myModal','closeEditar')"  class="colorGreen">Aceptar</button>
                         <input type="button" value="Cancelar" onclick="" class="colorRed">
                     </div>
                     <br>
@@ -52,7 +52,7 @@
 
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close">×</span>
+                <span class="close" id="closeEditar">×</span>
 
 
                 <table width="100%">
