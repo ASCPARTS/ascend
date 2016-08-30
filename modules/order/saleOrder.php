@@ -14,6 +14,9 @@
                 <label for="x">Buscar folio de cotizacion</label>
             </div>
         </div>
+        <div class="ButtonContainer">
+            <input type="button" class="btnOnlineGreen btn" value="Agregar Partida">
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">
@@ -110,7 +113,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-1-4 col-md-1-4 col-sm-1-3 col-ofset-lg-2-4">
+        <div class="col-lg-offset-1-2 col-md-offset-1-2 col-lg-1-4 col-md-1-4 col-sm-1-3">
             <div class="divInputText">
                 <input id="x" type="text">
                 <label for="x">Descuento</label>
@@ -125,7 +128,7 @@
 
     </div>
     <div class="row">
-        <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
+        <div class="col-lg-offset-2-4 col-md-offset-2-4 col-lg-1-4 col-md-1-4 col-sm-1-3">
             <div class="divInputText">
                 <input id="x" type="text">
                 <label for="x">iva</label>
@@ -138,6 +141,10 @@
             </div>
         </div>
 
+    </div>
+    <div class="ButtonContainer">
+        <input type="button" class="btnOnlineGreen btn" value="Aceptar">
+        <input type="button" class="btnBrandRed btn" value="Cancelar">
     </div>
 
     <br style="clear: both;" />

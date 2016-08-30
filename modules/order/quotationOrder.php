@@ -81,7 +81,7 @@
     </div>
     <div class="SubTitle">Informacion de SKU</div>
     <div class="row">
-    <div class="col-xs-1-1 col-sm-2-2 col-md-4-5 col-lg-4-5">
+
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
             <div class="divInputText">
                 <input type="text" id="text1">
@@ -181,6 +181,8 @@
                 <label for="cbo1">modelo</label>
             </div>
         </div>
+    </div>
+        <div class="row">
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
             <div class="divInputText">
@@ -209,21 +211,21 @@
                 <label for="text1">fecha promesa</label>
             </div>
         </div>
-    </div>
-    <div class="col-xs-1-1 col-md-1-1 col-md-1-5 col-md-1-5">
-        <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
+        </div>
 
+        <div class="row">
+        <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
             <div class="divInputTextArea">
                 <label for="textarea1">Descripcion de sku</label>
                 <textarea id="textarea1"></textarea>
             </div>
 
         </div>
-    </div>
+        </div>
 
-</div>
     <div class="ButtonContainer">
         <input type="button" class="btnOnlineGreen btn" value="Aceptar">
+        <input type="button" class="btnBrandRed btn" value="Cancelar">
     </div>
 
     <br style="clear: both;" />

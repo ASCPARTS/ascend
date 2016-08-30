@@ -41,6 +41,7 @@
     handleTab('3','Nueva Cotizacion','modules/order/quotationorder.php');
     handleTab('4','Responder Cotizacion','modules/order/resolvedquote.php');
     handleTab('5','Orden de Venta','modules/order/saleorder.php');
+    handleTab('6','Orden de Compra','modules/order/purchaseorder.php');
 
 
 </script>
