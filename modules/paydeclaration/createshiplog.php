@@ -5,14 +5,14 @@
     <link rel="stylesheet" type="text/css" href="../../css/pagos_y_pedimentos.css">
 </head>
 <body>
-	<div class="MainTitle">CREAR PEDIMENTO</div>
-	<div class="MainContainer">
-    <div class="SubTitle">Ship Log</div>
+    <div class="MainTitle">RECEPCIÓN DE MATERIAL</div>
+    <div class="MainContainer">
+    <div class="SubTitle">Seguimiento de material</div>
         <div class="ButtonContainer">  
             <button class="btn btnOnlineGreen" type="button" id="myBtn" onclick="getModal('myModal','closeModal')">Nuevo</button> 
         </div>
-    	<div class="row">
-    		<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">
+        <div class="row">
+            <div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">
                 <table>
                     <thead>
                         <tr>
@@ -34,7 +34,7 @@
                           <th>% FLETE SOBRE VALOR MERCANCIA</th>
                           <th>META</th>
                           <th>Editar</th>
-                          <th>Eliminar</th>
+                          <th>Cancelar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,7 +82,7 @@
                             <td>8%</td>
                             <td>10%</td>
                             <td>
-                                <button class="btn btnOverYellow">Editar</button>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
                             </td>
                             <td>
                                 <button class="btn btnBrandRed">Cancelar</button>
@@ -107,7 +107,7 @@
                             <td>8%</td>
                             <td>10%</td>
                             <td>
-                                <button class="btn btnOverYellow">Editar</button>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
                             </td>
                             <td>
                                 <button class="btn btnBrandRed">Cancelar</button>
@@ -132,7 +132,7 @@
                             <td>8%</td>
                             <td>10%</td>
                             <td>
-                                <button class="btn btnOverYellow">Editar</button>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
                             </td>
                             <td>
                                 <button class="btn btnBrandRed">Cancelar</button>
@@ -141,189 +141,18 @@
                     </tbody>
                 </table>
             </div>
-    	</div>
+        </div>
      
 
         <!--ROW DEL MODAL [INICIO]-->
-    	<div class="row">
-    	
-			<div id="myModal" class="modal">
-
-    			<!-- Modal content -->
-                <div class="modal-content">
-                    <span id="closeModal" class="close">×</span>
-                    <div class="MainTitle">Nuevo Pedimento</div>
-                    <div class="MainContainer" id="nuevoPedimento">
-                        <div class="row">
-                            <div class="col-md-1-3">
-                                <div class="divSelect">
-                                    <select id="idProveedor">
-                                        <option>BAMTOP</option>
-                                        <option>Hongkong XH Co., Limited</option>
-                                        <option>BIGBLUE</option>
-                                        <option>CIRCUIT MKT</option>
-                                        <option>ITEM INC</option>
-                                        <option>CET</option>
-                                        <option>ASC USA</option>
-                                        <option>FEDCO</option>
-                                        <option>LASER PROS</option>
-                                        <option>SSIT HUB</option>
-                                    </select>
-                                    <label for="idProveedor">Proveedor</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divInputText">
-                                    <input type="text" id="text1">
-                                    <label for="text1">P.O. NUMERO</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divInputText">
-                                    <input type="text" id="text1">
-                                    <label for="text1">Número Factura</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1-3">
-                                <div class="divInputText">
-                                    <input type="text" id="text1">
-                                    <label for="text1">USD$</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divSelect">
-                                    <select id="idProveedor">
-                                        <option>CONWAY</option>
-                                        <option>UPS</option>
-                                        <option>FEDEX</option>
-                                        <option>DHL</option>
-                                        <option>ROAD RUNNER</option>
-                                        <option>SAIA</option>
-                                        <option>SOUTFREIGHT</option>
-                                        <option>RADIANT</option>
-                                        <option>ESTES EXPRESS</option>
-                                        <option>VARIOS</option>
-                                    </select>
-                                    <label for="idProveedor">COMPAÑIA</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divInputText">
-                                    <input type="text" id="text1">
-                                    <label for="text1">GUÍA</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1-3">
-                                <div class="divInputText">
-                                    <input type="text" id="text1">
-                                    <label for="text1">NÚMERO DE BULTOS</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">RECEPCION DE DOCUMENTOS</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divSelect">
-                                    <select id="idProveedor">
-                                        <option>DESPACHO</option>
-                                        <option>RETORNO</option>
-                                        <option>TRANSITO</option>
-                                    </select>
-                                    <label for="idProveedor">ESTADO</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1-3">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">FECHA LLEGO A A.A.</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divSelect">
-                                    <select id="idProveedor">
-                                        <option>BRENNAN</option>
-                                        <option>UPS</option>
-                                        <option>CODEX</option>
-                                        <option>HDL</option>
-                                        <option>AMERICA</option>
-                                    </select>
-                                    <label for="idProveedor">ESTADO</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-3">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">FECHA CRUCE ADUANA</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1-4">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">DIAS DE TRÁNSITO</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-4">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">META</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-4">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">PORCENTAJE FLETE</label>
-                                </div>
-                            </div>
-                            <div class="col-md-1-4">
-                                <div class="divInputDate">
-                                    <input type="date" id="text1">
-                                    <label for="text1">META</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1-1">
-                                <div class="divInputTextArea">
-                                    <label for="textarea1">OBSERVACIONES</label>
-                                    <textarea id="textarea1"></textarea>
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="ButtonContainer">  
-                            <input class="btn btnOnlineGreen" type="button" value="Agregar"> 
-                        </div>
-                        
-                        <br style="clear: both;" />
-                    </div>
-
-                </div>
-
-			</div>
-    	</div>
-        <!--ROW DEL MODAL [FIN]-->
-
-        <!--ROW DEL MODAL EDITAR[INICIO]-->
         <div class="row">
         
-            <div id="modalEditar" class="modal">
+            <div id="myModal" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span id="closeEditar" class="close">×</span>
-                    <div class="MainTitle">Nuevo Pedimento</div>
+                    <span id="closeModal" class="close">×</span>
+                    <div class="MainTitle">Nuevo registro</div>
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                             <div class="col-md-1-3">
@@ -343,13 +172,13 @@
                                     <label for="idProveedor">Proveedor</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
                                     <label for="text1">P.O. NUMERO</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
                                     <label for="text1">Número Factura</label>
@@ -357,13 +186,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
                                     <label for="text1">USD$</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
                                     <select id="idProveedor">
                                         <option>CONWAY</option>
@@ -380,7 +209,7 @@
                                     <label for="idProveedor">COMPAÑIA</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
                                     <label for="text1">GUÍA</label>
@@ -388,19 +217,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
                                     <label for="text1">NÚMERO DE BULTOS</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">RECEPCION DE DOCUMENTOS</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
                                     <select id="idProveedor">
                                         <option>DESPACHO</option>
@@ -412,13 +241,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">FECHA LLEGO A A.A.</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
                                     <select id="idProveedor">
                                         <option>BRENNAN</option>
@@ -430,7 +259,7 @@
                                     <label for="idProveedor">ESTADO</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-3">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">FECHA CRUCE ADUANA</label>
@@ -438,25 +267,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1-4">
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">DIAS DE TRÁNSITO</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-4">
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">META</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-4">
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">PORCENTAJE FLETE</label>
                                 </div>
                             </div>
-                            <div class="col-md-1-4">
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
                                     <label for="text1">META</label>
@@ -464,7 +293,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1-1">
+                            <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
                                 <div class="divInputTextArea">
                                     <label for="textarea1">OBSERVACIONES</label>
                                     <textarea id="textarea1"></textarea>
@@ -474,7 +303,7 @@
                         </div>
 
                         <div class="ButtonContainer">  
-                            <input class="btn btnOnlineGreen" type="button" value="Agregar"> 
+                            <input class="btn btnOnlineGreen" type="button" value="Guardar"> 
                         </div>
                         
                         <br style="clear: both;" />
@@ -485,8 +314,179 @@
             </div>
         </div>
         <!--ROW DEL MODAL [FIN]-->
-    	<br style="clear: both;" />
-	</div>
+
+        <!--ROW DEL MODAL EDITAR[INICIO]-->
+        <div class="row">
+        
+            <div id="modalEditar" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="closeEditar" class="close">×</span>
+                    <div class="MainTitle">Editar registro</div>
+                    <div class="MainContainer" id="nuevoPedimento">
+                        <div class="row">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="idProveedor">
+                                        <option>BAMTOP</option>
+                                        <option>Hongkong XH Co., Limited</option>
+                                        <option>BIGBLUE</option>
+                                        <option>CIRCUIT MKT</option>
+                                        <option>ITEM INC</option>
+                                        <option>CET</option>
+                                        <option>ASC USA</option>
+                                        <option>FEDCO</option>
+                                        <option>LASER PROS</option>
+                                        <option>SSIT HUB</option>
+                                    </select>
+                                    <label for="idProveedor">Proveedor</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="9462">
+                                    <label for="text1">P.O. NUMERO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="BTJ2015012901">
+                                    <label for="text1">Número Factura</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="1289.97">
+                                    <label for="text1">USD$</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="idProveedor">
+                                        <option>CONWAY</option>
+                                        <option>UPS</option>
+                                        <option>FEDEX</option>
+                                        <option selected>DHL</option>
+                                        <option>ROAD RUNNER</option>
+                                        <option>SAIA</option>
+                                        <option>SOUTFREIGHT</option>
+                                        <option>RADIANT</option>
+                                        <option>ESTES EXPRESS</option>
+                                        <option>VARIOS</option>
+                                    </select>
+                                    <label for="idProveedor">COMPAÑIA</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="3836581011">
+                                    <label for="text1">GUÍA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="1">
+                                    <label for="text1">NÚMERO DE BULTOS</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputDate">
+                                    <input type="date" id="text1" value="2015-02-04">
+                                    <label for="text1">RECEPCION DE DOCUMENTOS</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="idProveedor">
+                                        <option>DESPACHO</option>
+                                        <option>RETORNO</option>
+                                        <option>TRANSITO</option>
+                                    </select>
+                                    <label for="idProveedor">ESTADO</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputDate">
+                                    <input type="date" id="text1" value="2015-01-08">
+                                    <label for="text1">FECHA LLEGO A A.A.</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="idProveedor">
+                                        <option>BRENNAN</option>
+                                        <option>UPS</option>
+                                        <option>CODEX</option>
+                                        <option>HDL</option>
+                                        <option>AMERICA</option>
+                                    </select>
+                                    <label for="idProveedor">ESTADO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputDate">
+                                    <input type="date" id="text1" value="2015-02-11">
+                                    <label for="text1">FECHA CRUCE ADUANA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="5">
+                                    <label for="text1">DIAS DE TRÁNSITO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="8">
+                                    <label for="text1">META</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="8%">
+                                    <label for="text1">PORCENTAJE FLETE</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="10%">
+                                    <label for="text1">META</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1-1 col-md-1-1 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputTextArea">
+                                    <label for="textarea1">OBSERVACIONES</label>
+                                    <textarea id="textarea1">DESPACHO 13/02/2015 PED 3038 5000844</textarea>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="ButtonContainer">  
+                            <input class="btn btnOnlineGreen" type="button" value="Guardar"> 
+                        </div>
+                        
+                        <br style="clear: both;" />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--ROW DEL MODAL [FIN]-->
+        <br style="clear: both;" />
+    </div>
 
 </body>
 <script type="text/javascript" src="../../js/modal.js"></script>
