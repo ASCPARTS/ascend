@@ -14,6 +14,16 @@
                 <label for="x">Buscar folio de pedido</label>
             </div>
         </div>
+        <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-lg-offset-2-4 col-md-offset-2-4">
+            <div class="divSelect">
+                <select>
+                    <option>Enviar a Proveedor</option>
+                    <option>Descargar</option>
+                    <option>Guardar en Drive</option>
+                </select>
+                <label for="x">Accion a realizar</label>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">
