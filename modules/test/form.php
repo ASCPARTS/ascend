@@ -33,6 +33,30 @@
                     <label for="text2">ejemplo 1</label>
                 </div>
             </div>
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">ejemplo 1</label>
+                </div>
+            </div>
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText">
+                    <input type="text" id="text1">
+                    <label for="text1">ejemplo 1</label>
+                </div>
+            </div>
             <div class="col-lg-offset-1-2 col-lg-1-2 col-md-offset-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
                 <div class="divInputText">
                     <input type="text" id="text1">
