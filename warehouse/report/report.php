@@ -11,23 +11,31 @@
 <body>
 <div class="MainTitle">Reportes</div>
         <div class="MainContainer" >
-            <div>
-                <input type="text" placeholder="Buscar Reporte" class="buscar" align="center">
+            <div class="row">
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
+                <div class="divInputText">
+                    <input type="text" id="x">
+                <label for="x">Buscar reporte</label>
+                </div>
             </div>
-
-            <div style="height: 15px;"></div>
-
-
+                </div>
+<div class="row">
             <div class="reportePrincipal">
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div id="nivel1" class="nombreReporte"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
                 <div id="nivel2" class="filtros">
-                    Filtrar por:<br>
-                    <input type="text" placeholder="Cliente" class="buscar"><br>
-                    <input type="date" placeholder="Fecha" class="fecha"><br>
-                    <div style="margin-left: 5%">
+                    <div class="row">
+                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
+                            Filtrar por:<br>
+                            <div class="divInputText">
+                                <input type="text" id="x">
+                                <label for="x">cliente</label>
+                            </div>
+                        </div>
+                    <div class="ButtonContainer">
                         <button type="button" value="Aceptar" onclick="getModal('myModal','closeEditar')"  class="colorGreen">Aceptar</button>
                         <input type="button" value="Cancelar" onclick="" class="colorRed">
+                    </div>
                     </div>
                     <br>
                 </div>
@@ -44,9 +52,10 @@
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
             </div>
+    </div>
 
 
-        </div>
+
 
         <div id="myModal" class="modal">
 
@@ -578,6 +587,7 @@
 
 
             </div>
+            <br style="clear: both;" />
         </div>
 
 

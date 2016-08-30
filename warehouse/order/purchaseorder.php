@@ -147,103 +147,29 @@
     </div>
     <div class="SubTitle">Facturacion y embarque</div>
     <div class="row">
-        <div class="row">
-            <div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Facturar A:</th>
-                        <th>Embarcar A:</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Chile</label>
-                                </div>
-                            </div></td>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Chile</label>
-                                </div>
-                            </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Argentina</label>
-                                </div>
-                            </div></td>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Argentina</label>
-                                </div>
-                            </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Peru</label>
-                                </div>
-                            </div></td>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Peru</label>
-                                </div>
-                            </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Cd. MExico</label>
-                                </div>
-                            </div></td>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC cd. mexico</label>
-                                </div>
-                            </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC Monterrey</label>
-                                </div>
-                            </div></td>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC monterrey</label>
-                                </div>
-                            </div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC guadalajara</label>
-                                </div>
-                            </div></td>
-                        <td><div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                                <div class="divInputCheck">
-                                    <input type="checkbox" id="che">
-                                    <label for="che">ASC guadalajara</label>
-                                </div>
-                            </div></td>
-                    </tr>
-                    </tbody>
-                </table>
+        <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
+            <div class="divSelect">
+                <select>
+                    <option>ASC chile</option>
+                    <option>asc peru</option>
+                    <option>asc argentina</option>
+                    <option>asc guadalajara</option>
+                    <option>asc miami</option>
+                </select>
+                <label>Facturar a</label>
             </div>
+            </div>
+            <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
+                <div class="divSelect">
+                    <select>
+                        <option>ASC chile</option>
+                        <option>asc peru</option>
+                        <option>asc argentina</option>
+                        <option>asc guadalajara</option>
+                        <option>asc miami</option>
+                    </select>
+                    <label>Emabarcar a</label>
+                </div>
         </div>
     </div>
     <div class="row">
@@ -262,6 +188,8 @@
 
     <br style="clear: both;" />
 
+</div>
+    <br style="clear: both;"
 </div>
 </body>
 </html>
