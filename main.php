@@ -44,6 +44,7 @@
     handleTab('6','Orden de Compra','modules/order/purchaseorder.php');
     handleTab('7','RMA','modules/rma/rma.php');
     handleTab('8','Surtir Pedido','modules/warehouse/order.php');
+    handleTab('9','Facturar','modules/warehouse/bill.php');
 
 
 </script>
