@@ -43,7 +43,7 @@
     handleTab('5','Orden de Venta','modules/order/saleorder.php');
     handleTab('6','Orden de Compra','modules/order/purchaseorder.php');
     handleTab('7','RMA','modules/rma/rma.php');
-    handleTab('8','Surtir Pedido','modules/warehouse/order.php');
+    handleTab('8','Surtir Pedido','modules/order/warehouseorder.php');
     handleTab('10','Clientes','modules/catalogs/customer.php');
     handleTab('11','Proveedores','modules/catalogs/provider.php');
     handleTab('12','Pedimento','modules/paydeclaration/createpaydeclaration.php');
