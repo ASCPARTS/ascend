@@ -421,16 +421,6 @@
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
                                     <select id="select1">
-                                        <option>PRECIO 1</option>
-                                        <option>PRECIO 2</option>
-                                        <option>PRECIO 3</option>
-                                    </select>
-                                    <label for="select1">LISTA DE PRECIOS</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
-                                    <select id="select1">
                                         <option>DOLAR</option>
                                         <option>EURO</option>
                                         <option>PESO</option>
@@ -439,67 +429,31 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
-                                    <input type="text" id="text1">
-                                    <label for="text1">CONDICION DE PAGO</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
                                     <select id="select1">
-                                        <option>SUR</option>
-                                        <option>CENTRO</option>
-                                        <option>NORTE</option>
+                                        <option>CONTADO</option>
+                                        <option>CREDITO</option>
+                                        <option>PAPEL</option>
                                     </select>
-                                    <label for="select1">ZONA DE VENTA</label>
+                                    <label for="select1">CONDICION DE PAGO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text2">
-                                    <label for="text2">CONTACTO</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
-                                    <select id="select1">
-                                        <option>UPS</option>
-                                        <option>HDL</option>
-                                        <option>FEDEX</option>
-                                    </select>
-                                    <label for="select1">MEDIO DE EMBARQUE</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
-                                    <select id="select1">
-                                        <option>AVIÓN</option>
-                                        <option>BARCO</option>
-                                        <option>CAMIÓN</option>
-                                    </select>
-                                    <label for="select1">VÍA DE EMBARQUE</label>
+                                    <label for="text2">DÍAS DE CREDITO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text2">
-                                    <label for="text2">DÍAS REVISIÓN FACTURA</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
-                                    <select id="select1">
-                                        <option>9:00 - 12:00</option>
-                                        <option>12:00 - 14:00</option>
-                                        <option>14:00 - 16:00</option>
-                                    </select>
-                                    <label for="select1">HORARIO DE PAGO FACTURA</label>
+                                    <label for="text2">DÍAS DE PRONTO PAGO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text2">
-                                    <label for="text2">DÍAS DE RECEPCIÓN MERCANCIA</label>
+                                    <label for="text2">DESCUENTO DE PRONTO PAGO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
@@ -509,53 +463,35 @@
                                         <option>CHEQUE</option>
                                         <option>TRASFERENCIA</option>
                                     </select>
-                                    <label for="select1">MÉTODO DE PAGO</label>
+                                    <label for="select1">TIPO DE PAGO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text2">
-                                    <label for="text2">REFERENCIA</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
-                                    <input type="date" id="date1">
-                                    <label for="date1">VENCIMIENTO DE PAGARE</label>
+                                    <label for="text2">CUENTA BANCARIA (PESOS)</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text2">
-                                    <label for="text2">LIMITE DE CREDITO</label>
+                                    <label for="text2">CUENTA BANCARIA (DLS)</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
                                     <select id="select1">
-                                        <option>RECOMENDACIÓN</option>
-                                        <option>INTERNET</option>
-                                        <option>ASESOR DE VENTAS</option>
+                                        <option>BANORTE</option>
+                                        <option>BANCOMER</option>
+                                        <option>SANTANDER</option>
                                     </select>
-                                    <label for="select1">ORIGEN DEL CLIENTE</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
-                                    <input type="date" id="date1">
-                                    <label for="date1">FECHA ULTIMA COMPRA</label>
+                                    <label for="select1">BANCO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text2">
-                                    <label for="text2">DOMICILIO DE EMBARQUE</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
-                                    <input type="text" id="text2">
-                                    <label for="text2">COLONIA DE EMBARQUE</label>
+                                    <label for="text2">BENEFICIARIO</label>
                                 </div>
                             </div>
                         </div>
@@ -571,6 +507,265 @@
             </div>
         </div>
         <!--ROW DEL MODAL CREAR [FIN]-->
+
+        <!--ROW DEL MODAL EDITAR [INICIO]-->
+        <div class="row">
+        
+            <div id="modalEditar" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="closeEditar" class="close">×</span>
+                    <div class="MainTitle">EDITAR PROVEEDOR</div>
+                    <div class="MainContainer" id="nuevoPedimento">
+                    <div class="SubTitle">Datos Personales</div>
+                        <div class="row">
+                        	<div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="Hewlett-Packard">
+                                    <label for="text1">RAZÓN SOCIAL</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="HP">
+                                    <label for="text2">RAZÓN COMERCIAL</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="HP52454RG22">
+                                    <label for="text1">RFC</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="GX7445235VSDGS">
+                                    <label for="text1">CURP</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="ENRIQUE MORENA">
+                                    <label for="text2">CALLE</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="434">
+                                    <label for="text2">NÚMERO EXT</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="N/A">
+                                    <label for="text2">NÚMERO INT</label>
+                                </div>
+                            </div>
+							<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+	                            <div class="divSelect">
+	                                <select id="select1">
+	                                    <option>MÉXICO</option>
+	                                    <option>USA</option>
+	                                    <option>COLOMBIA</option>
+	                                    <option>CHILE</option>
+	                                    <option>ARGENTINA</option>
+	                                    <option>ITALIA</option>
+	                                </select>
+	                                <label for="select1">PAÍS</label>
+	                            </div>
+	                        </div>
+	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+	                            <div class="divSelect">
+	                                <select id="select1">
+	                                    <option>AGUASCALIENTES</option>
+	                                    <option>JALISCO</option>
+	                                    <option>NUEVO LEÓN</option>
+	                                    <option>VERACRUZ</option>
+	                                    <option>MERIDA</option>
+	                                    <option>ZACATECAS</option>
+	                                </select>
+	                                <label for="select1">ESTADO</label>
+	                            </div>
+		                    </div>
+		                    <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+	                            <div class="divSelect">
+	                                <select id="select1">
+	                                    <option>TEUL</option>
+	                                    <option>PINOS</option>
+	                                    <option>RIO GRANDE</option>
+	                                    <option>MAZAPIL</option>
+	                                    <option>JUAN ALDAMA</option>
+	                                    <option>LUIS MOYA</option>
+	                                </select>
+	                                <label for="select1">MUNICIPIO</label>
+	                            </div>
+	                        </div>
+	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+	                            <div class="divSelect">
+	                                <select id="select1">
+	                                    <option>ZAPOPAN</option>
+	                                    <option>GUADALAJARA</option>
+	                                    <option>TONALA</option>
+	                                    <option>TLAQUEPAQUE</option>
+	                                    <option>LAS ROSAS</option>
+	                                </select>
+	                                <label for="select1">CIUDAD</label>
+	                            </div>
+		                    </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="5514896378">
+                                    <label for="text2">TELÉFONO 1</label>
+                                </div>
+                            </div>
+	                        
+                           	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="5578946125">
+                                    <label for="text1">TELÉFONO 2</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text1" value="CONTACTO@HP.COM">
+                                    <label for="text1">CORREO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>ROLANDO LOPEZ</option>
+                                        <option>LORENA MARTINEZ</option>
+                                        <option>JORGE RAMIREZ</option>
+                                    </select>
+                                    <label for="select1">COMPRADOR</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>BATERIAS</option>
+                                        <option>IMPRESORAS</option>
+                                        <option>COPIADORAS</option>
+                                    </select>
+                                    <label for="select1">FAMILIA</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>ORIGINAL</option>
+                                        <option>GENERICO</option>
+                                        <option>REFACCIÓN</option>
+                                    </select>
+                                    <label for="select1">TIPO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>REFACCIONES</option>
+                                        <option>PLOTTERS</option>
+                                        <option>MOTORES</option>
+                                    </select>
+                                    <label for="select1">GRUPO</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="SubTitle">Datos de credito </div>
+
+                        <div class="row">
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>DOLAR</option>
+                                        <option>EURO</option>
+                                        <option>PESO</option>
+                                    </select>
+                                    <label for="select1">MONEDA</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>CONTADO</option>
+                                        <option>CREDITO</option>
+                                        <option>PAPEL</option>
+                                    </select>
+                                    <label for="select1">CONDICION DE PAGO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="30">
+                                    <label for="text2">DÍAS DE CREDITO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="10">
+                                    <label for="text2">DÍAS DE PRONTO PAGO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="8%">
+                                    <label for="text2">DESCUENTO DE PRONTO PAGO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>TRASFERENCIA</option>
+                                        <option>CHEQUE</option>
+                                        <option>EFECTIVO</option>
+                                    </select>
+                                    <label for="select1">TIPO DE PAGO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="657465516584351468">
+                                    <label for="text2">CUENTA BANCARIA (PESOS)</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="654651688435168421">
+                                    <label for="text2">CUENTA BANCARIA (DLS)</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divSelect">
+                                    <select id="select1">
+                                        <option>BANORTE</option>
+                                        <option>BANCOMER</option>
+                                        <option selected>SANTANDER</option>
+                                    </select>
+                                    <label for="select1">BANCO</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="text2" value="MINH YAN LIN">
+                                    <label for="text2">BENEFICIARIO</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ButtonContainer">  
+                            <input class="btn btnOnlineGreen" type="button" value="Guardar"> 
+                        </div>
+                        <br style="clear: both;" />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--ROW DEL MODAL EDITAR [FIN]-->
         <br style="clear: both;" />
     </div>
 

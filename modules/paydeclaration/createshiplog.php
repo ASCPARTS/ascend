@@ -15,6 +15,8 @@
                 <table>
                     <thead>
                         <tr>
+                          <th>EDITAR</th>
+                          <th>CANCELAR</th>
                           <th>PROVEEDOR</th>
                           <th>P.O. NUMERO</th>
                           <th># Factura</th>
@@ -32,62 +34,16 @@
                           <th>META</th>
                           <th>% FLETE SOBRE VALOR MERCANCIA</th>
                           <th>META</th>
-                          <th>Editar</th>
-                          <th>Cancelar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>BAMTOP</td>
-                            <td>9462</td>
-                            <td>BTJ2015012901</td>
-                            <td>1289.97</td>
-                            <td>DHL</td>
-                            <td>3836581011</td>
-                            <td>1</td>
-                            <td>04/02/2015</td>
-                            <td>DESPACHO</td>
-                            <td>11/02/2015</td>
-                            <td>BRENNAN</td>
-                            <td>11/02/2015</td>
-                            <td>DESPACHO 13/02/2015 PED 3038 5000844</td>
-                            <td>5</td>
-                            <td>7</td>
-                            <td>8%</td>
-                            <td>10%</td>
-                            <td>
-                                <button class="btn btnOverYellow" id="btnEditar1" onclick="getModal('modalEditar','closeEditar')">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btnBrandRed">Cancelar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>BAMTOP</td>
-                            <td>9462</td>
-                            <td>BTJ2015012901</td>
-                            <td>1289.97</td>
-                            <td>DHL</td>
-                            <td>3836581011</td>
-                            <td>1</td>
-                            <td>04/02/2015</td>
-                            <td>DESPACHO</td>
-                            <td>11/02/2015</td>
-                            <td>BRENNAN</td>
-                            <td>11/02/2015</td>
-                            <td>DESPACHO 13/02/2015 PED 3038 5000844</td>
-                            <td>5</td>
-                            <td>7</td>
-                            <td>8%</td>
-                            <td>10%</td>
                             <td>
                                 <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
                             </td>
                             <td>
                                 <button class="btn btnBrandRed">Cancelar</button>
                             </td>
-                        </tr>
-                        <tr>
                             <td>BAMTOP</td>
                             <td>9462</td>
                             <td>BTJ2015012901</td>
@@ -105,14 +61,14 @@
                             <td>7</td>
                             <td>8%</td>
                             <td>10%</td>
+                        </tr>
+                        <tr>
                             <td>
                                 <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
                             </td>
                             <td>
                                 <button class="btn btnBrandRed">Cancelar</button>
                             </td>
-                        </tr>
-                        <tr>
                             <td>BAMTOP</td>
                             <td>9462</td>
                             <td>BTJ2015012901</td>
@@ -130,12 +86,56 @@
                             <td>7</td>
                             <td>8%</td>
                             <td>10%</td>
+                        </tr>
+                        <tr>
                             <td>
                                 <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
                             </td>
                             <td>
                                 <button class="btn btnBrandRed">Cancelar</button>
                             </td>
+                            <td>BAMTOP</td>
+                            <td>9462</td>
+                            <td>BTJ2015012901</td>
+                            <td>1289.97</td>
+                            <td>DHL</td>
+                            <td>3836581011</td>
+                            <td>1</td>
+                            <td>04/02/2015</td>
+                            <td>DESPACHO</td>
+                            <td>11/02/2015</td>
+                            <td>BRENNAN</td>
+                            <td>11/02/2015</td>
+                            <td>DESPACHO 13/02/2015 PED 3038 5000844</td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td>8%</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btnBrandRed">Cancelar</button>
+                            </td>
+                            <td>BAMTOP</td>
+                            <td>9462</td>
+                            <td>BTJ2015012901</td>
+                            <td>1289.97</td>
+                            <td>DHL</td>
+                            <td>3836581011</td>
+                            <td>1</td>
+                            <td>04/02/2015</td>
+                            <td>DESPACHO</td>
+                            <td>11/02/2015</td>
+                            <td>BRENNAN</td>
+                            <td>11/02/2015</td>
+                            <td>DESPACHO 13/02/2015 PED 3038 5000844</td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td>8%</td>
+                            <td>10%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -183,8 +183,7 @@
                                     <label for="text1">Número Factura</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
@@ -214,8 +213,7 @@
                                     <label for="text1">GUÍA</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputText">
                                     <input type="text" id="text1">
@@ -238,8 +236,7 @@
                                     <label for="idProveedor">ESTADO</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
@@ -264,8 +261,7 @@
                                     <label for="text1">FECHA CRUCE ADUANA</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
                                 <div class="divInputDate">
                                     <input type="date" id="text1">
@@ -290,15 +286,13 @@
                                     <label for="text1">META</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
                                 <div class="divInputTextArea">
                                     <label for="textarea1">OBSERVACIONES</label>
                                     <textarea id="textarea1"></textarea>
                                 </div>
                             </div>
-                            
                         </div>
 
                         <div class="ButtonContainer">  

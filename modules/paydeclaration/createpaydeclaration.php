@@ -25,6 +25,8 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>EDITAR</th>
+                            <th>CANCELAR</th>
                             <th>PROVEEDOR</th>
                             <th>FACTURA</th>
                             <th>FECHA PEDIMENTO</th>
@@ -59,12 +61,16 @@
                             <th>Impuestos</th>
                             <th>ref flet</th>
                             <th>Fletes Importacion</th>
-                            <th>Editar</th>
-                            <th>Cancelar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btnBrandRed">Cancelar</button>
+                            </td>
                             <td>ASC USA</td>
                             <td>2702</td>
                             <td>01/03/2016</td>
@@ -99,14 +105,14 @@
                             <td>CGO9142/CGO9143</td>
                             <td>2702-1</td>
                             <td>CGO9145</td>
-                            <td>
-                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btnBrandRed">Cancelar</button>
-                            </td>
                         </tr>
                         <tr>
+                            <td>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btnBrandRed">Cancelar</button>
+                            </td>
                             <td>ASC USA</td>
                             <td>2702</td>
                             <td>01/03/2016</td>
@@ -141,15 +147,14 @@
                             <td>CGO9142/CGO9143</td>
                             <td>2702-1</td>
                             <td>CGO9145</td>
-                
-                            <td>
-                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btnBrandRed">Cancelar</button>
-                            </td>
                         </tr>
                         <tr>
+                            <td>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btnBrandRed">Cancelar</button>
+                            </td>
                             <td>ASC USA</td>
                             <td>2702</td>
                             <td>01/03/2016</td>
@@ -184,15 +189,14 @@
                             <td>CGO9142/CGO9143</td>
                             <td>2702-1</td>
                             <td>CGO9145</td>
-
-                            <td>
-                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btnBrandRed">Cancelar</button>
-                            </td>
                         </tr>
                         <tr>
+                            <td>
+                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btnBrandRed">Cancelar</button>
+                            </td>
                             <td>ASC USA</td>
                             <td>2702</td>
                             <td>01/03/2016</td>
@@ -227,13 +231,6 @@
                             <td>CGO9142/CGO9143</td>
                             <td>2702-1</td>
                             <td>CGO9145</td>
-
-                            <td>
-                                <button class="btn btnOverYellow" onclick="getModal('modalEditar','closeEditar')">Editar</button>
-                            </td>
-                            <td>
-                                <button class="btn btnBrandRed">Cancelar</button>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
