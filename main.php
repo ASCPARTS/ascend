@@ -48,6 +48,7 @@
     handleTab('11','Proveedores','modules/catalogs/provider.php');
     handleTab('12','Pedimento','modules/paydeclaration/createpaydeclaration.php');
     handleTab('13','Recepción','modules/paydeclaration/createshiplog.php');
+    handleTab('15','Productos','modules/catalogs/product.php');
 
 
 

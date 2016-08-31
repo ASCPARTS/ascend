@@ -21,49 +21,30 @@
                 </div>
 <div class="row">
             <div class="reportePrincipal">
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div id="nivel1" class="nombreReporte"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
-                <div id="nivel2" class="filtros">
-                    <div class="row">
-                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                            Filtrar por:<br>
-                            <div class="divInputText">
-                                <input type="text" id="x">
-                                <label for="x">cliente</label>
-                            </div>
-                        </div>
-                    <div class="ButtonContainer">
-                        <button type="button" value="Aceptar" onclick="getModal('myModal','closeEditar')"  class="colorGreen">Aceptar</button>
-                        <input type="button" value="Cancelar" onclick="" class="colorRed">
-                    </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Ficha de Cliente</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('reporte','cerrar')"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Ficha de Cliente</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
             </div>
     </div>
 
 
-
-
-        <div id="myModal" class="modal">
+        <div id="reporte" class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close" id="closeEditar">×</span>
-
-
+                <span id="cerrar" class="close" id="closeEditar">×</span>
+                <div class="MainContainer">
                 <table width="100%">
 
                     <tr>
@@ -579,15 +560,12 @@
                                     </tr>
                                 </table>
                 </table>
+                    <br style="clear: both;" />
+                </div>
             </div>
-                        </td>
-                    </tr>
-
-                </table>
+            
 
 
-            </div>
-            <br style="clear: both;" />
         </div>
 
 
