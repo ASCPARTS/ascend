@@ -45,6 +45,11 @@
     handleTab('7','RMA','modules/rma/rma.php');
     handleTab('8','Surtir Pedido','modules/warehouse/order.php');
     handleTab('9','Facturar','modules/warehouse/bill.php');
+    handleTab('10','Clientes','modules/catalogs/customer.php');
+    handleTab('11','Proveedores','modules/catalogs/provider.php');
+    handleTab('12','Pedimento','modules/paydeclaration/createpaydeclaration.php');
+    handleTab('13','Proveedores','modules/paydeclaration/createshiplog.php');
+
 
 
 </script>
