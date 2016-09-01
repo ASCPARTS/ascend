@@ -18,6 +18,48 @@
     <div class="MainContainer">
 
         <!-- Offset -->
+        <div class="SubTitle">Paginacion</div>
+        <div class="row">
+            <div class="col-md-1-1">
+                <div class="pagination">
+                    <ul>
+                        <li> <a href="#"> 1 </a> </li>
+                        <li> <a href="#"> 2 </a> </li>
+                        <li> <a href="#"> 3 </a> </li>
+                        <li> <a href="#"> 4 </a> </li>
+                        <li> <a href="#"> ... </a> </li>
+                        <li> <a href="#"> 10 </a> </li>
+                        <li> <a href="#"> 1 </a> </li>
+                        <li> <a href="#"> 2 </a> </li>
+                        <li> <a href="#"> 3 </a> </li>
+                        <li> <a href="#"> 4 </a> </li>
+                        <li> <a href="#"> ... </a> </li>
+                        <li> <a href="#"> 10 </a> </li>
+                        <li> <a href="#"> 1 </a> </li>
+                        <li> <a href="#"> 2 </a> </li>
+                        <li> <a href="#"> 3 </a> </li>
+                        <li> <a href="#"> 4 </a> </li>
+                        <li> <a href="#"> ... </a> </li>
+                        <li> <a href="#"> 10 </a> </li>
+                        <li> <a href="#"> 1 </a> </li>
+                        <li> <a href="#"> 2 </a> </li>
+                        <li> <a href="#"> 3 </a> </li>
+                        <li> <a href="#"> 4 </a> </li>
+                        <li> <a href="#"> ... </a> </li>
+                        <li> <a href="#"> 10 </a> </li>
+                        <li> <a href="#"> 1 </a> </li>
+                        <li> <a href="#"> 2 </a> </li>
+                        <li> <a href="#"> 3 </a> </li>
+                        <li> <a href="#"> 4 </a> </li>
+                        <li> <a href="#"> ... </a> </li>
+                        <li> <a href="#"> 10 </a> </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Offset -->
         <div class="SubTitle">Titulo de 2 componentes</div>
         <div class="row">
 
