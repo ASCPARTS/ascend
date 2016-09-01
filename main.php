@@ -38,24 +38,8 @@
 <script>
     handleTab('1','Formulario','modules/test/form.php');
     handleTab('2','Reportes','modules/report/report.php');
-    handleTab('3','Nueva Cotizacion','modules/order/quotationorder.php');
-    handleTab('4','Responder Cotizacion','modules/order/resolvedquote.php');
-    handleTab('5','Orden de Venta','modules/order/saleorder.php');
-    handleTab('6','Orden de Compra','modules/order/purchaseorder.php');
-    handleTab('7','RMA','modules/rma/rma.php');
-    handleTab('8','Surtir Pedido','modules/order/warehouseorder.php');
-    handleTab('10','Clientes','modules/catalogs/customer.php');
-    handleTab('11','Proveedores','modules/catalogs/provider.php');
-    handleTab('12','Pedimento','modules/paydeclaration/paydeclaration.php');
-    handleTab('13','Recepción','modules/paydeclaration/reception.php');
-    handleTab('15','Productos','modules/catalogs/product.php');
-    handleTab('16','Bancos','modules/catalogs/bank.php');
-    handleTab('17','Almacenes','modules/catalogs/warehouse.php');
-    handleTab('18','Aduana','modules/catalogs/customs.php');
-    handleTab('19','Impuesto','modules/catalogs/tax.php');
-    handleTab('20','Familia','modules/catalogs/family.php');
-    handleTab('21','Marca','modules/catalogs/brand.php');
-    handleTab('22','Grupo','modules/catalogs/group.php');
+    handleTab('3','Nota de Credito','modules/cxc/creditnote.php');
+
 
 
 
