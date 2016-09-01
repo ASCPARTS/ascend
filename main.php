@@ -49,6 +49,13 @@
     handleTab('12','Pedimento','modules/paydeclaration/createpaydeclaration.php');
     handleTab('13','Recepción','modules/paydeclaration/createshiplog.php');
     handleTab('15','Productos','modules/catalogs/product.php');
+    handleTab('16','Bancos','modules/catalogs/bank.php');
+    handleTab('17','Almacenes','modules/catalogs/warehouse.php');
+    handleTab('18','Aduana','modules/catalogs/customs.php');
+    handleTab('19','Impuesto','modules/catalogs/tax.php');
+    handleTab('20','Familia','modules/catalogs/family.php');
+    handleTab('21','Marca','modules/catalogs/brand.php');
+    handleTab('22','Grupo','modules/catalogs/group.php');
 
 
 
