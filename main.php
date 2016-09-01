@@ -46,8 +46,8 @@
     handleTab('8','Surtir Pedido','modules/order/warehouseorder.php');
     handleTab('10','Clientes','modules/catalogs/customer.php');
     handleTab('11','Proveedores','modules/catalogs/provider.php');
-    handleTab('12','Pedimento','modules/paydeclaration/createpaydeclaration.php');
-    handleTab('13','Recepción','modules/paydeclaration/createshiplog.php');
+    handleTab('12','Pedimento','modules/paydeclaration/paydeclaration.php');
+    handleTab('13','Recepción','modules/paydeclaration/reception.php');
     handleTab('15','Productos','modules/catalogs/product.php');
     handleTab('16','Bancos','modules/catalogs/bank.php');
     handleTab('17','Almacenes','modules/catalogs/warehouse.php');
