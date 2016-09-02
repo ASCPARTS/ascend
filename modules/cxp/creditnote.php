@@ -16,9 +16,9 @@
                 <thead>
                 <th>Folio Nota de Credito</th>
                 <th>Factura</th>
-                <th>Número Cliente</th>
+                <th>Número Proveedor</th>
                 <th>Fecha</th>
-                <th>Vendedor</th>
+                <th>Comprador</th>
                 <th>Concepto</th>
                 <th>Observaciones</th>
                 <th>Saldo a Favor</th>
@@ -82,7 +82,7 @@
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
                     <div class="divInputText">
                         <input type="text" >
-                        <label>Cliente</label>
+                        <label>Proveedor</label>
                     </div>
                 </div>
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
