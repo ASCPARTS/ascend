@@ -1030,3 +1030,33 @@ tr:nth-child(even) {
 {
     background-color: #b38600;
 }
+
+/*CSS PARA ALERTS [INICIO]*/
+.alert-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    margin-bottom: 100px;
+}
+/*CSS PARA ALERTS [FIN]*/
+
+/*Alineacion de textos [INICIO]*/
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/*Alineacion de textos [FIN]*/
