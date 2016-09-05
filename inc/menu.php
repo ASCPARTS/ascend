@@ -134,7 +134,7 @@ echo $strDivs2;
         <div id="divMenuOption_15" onclick="handleTab('15','Retiros','modules/banks/withdrawal.php');" class="divMenuOption"><div class="divMenuLabel">Retiros</div></div>
         <div id="divMenuOption_16" onclick="handleTab('16','Cheques','modules/banks/check.php');" class="divMenuOption"><div class="divMenuLabel">Cheques</div></div>
         <!--div id="divMenuOption_17" onclick="handleTab('17','Estados de Cuenta','modules/bank/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
-        <div id="divMenuOption_18" onclick="handleTab('18','Cierre Mensual','modules/banks/monthlyclosure');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_18" onclick="handleTab('18','Cierre Mensual','modules/banks/monthlyclosure.php');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
         <div id="divMenuOption_19" onclick="handleTab('19','Conciliación Bancaria','modules/banks/conciliation.php');" class="divMenuOption"><div class="divMenuLabel">Conciliación Bancaria</div></div>
     </div>
     <div id="divMenuMain_20" class="divMenuLevel2">
@@ -146,7 +146,7 @@ echo $strDivs2;
         <div id="divMenuOption_25" onclick="handleTab('25','Facturas','modules/order/bill.php');" class="divMenuOption"><div class="divMenuLabel">Facturas</div></div>
         <div id="divMenuOption_26" onclick="handleTab('26','Pedidos','modules/order/authorizeorder.php');" class="divMenuOption"><div class="divMenuLabel">Pedidos</div></div>
         <!--div id="divMenuOption_27" onclick="handleTab('27','Estados de Cuenta','modules/cxc/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
-        <div id="divMenuOption_28" onclick="handleTab('28','Cierre Mensual','modules/cxc/');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_28" onclick="handleTab('28','Cierre Mensual','modules/banks/monthlyclosure.php');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
     </div>
     <div id="divMenuMain_29" class="divMenuLevel2">
         <div class="divMenuPadding"></div>
@@ -156,7 +156,7 @@ echo $strDivs2;
         <!--div id="divMenuOption_33" onclick="handleTab('33','Aplicación de Anticipos','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Aplicación de Anticipos</div></div-->
         <div id="divMenuOption_34" onclick="handleTab('34','Programación de Pagos','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Programación de Pagos</div></div>
         <!--div id="divMenuOption_35" onclick="handleTab('35','Estados de Cuenta','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
-        <div id="divMenuOption_36" onclick="handleTab('36','Cierre Mensual','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_36" onclick="handleTab('36','Cierre Mensual','modules/banks/monthlyclosure.php');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
     </div>
 <!-- #### MENU HARDCODE ##### -->
     <div id="divcleanmenu" class="divMenuClear" onclick="closeMenuMain();">
