@@ -96,7 +96,7 @@ echo $strDivs2;
     </div>
     <div id="divMenuMain_42" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_43" onclick="handleTab('43','Responder','modules/order/resolvedquotation.php');" class="divMenuOption"><div class="divMenuLabel">Responder</div></div>
+        <div id="divMenuOption_43" onclick="handleTab('43','Responder','modules/order/resolvedquote.php');" class="divMenuOption"><div class="divMenuLabel">Responder</div></div>
         <div id="divMenuOption_44" onclick="handleTab('44','Elaborar Orden','modules/order/purchaseorder.php');" class="divMenuOption"><div class="divMenuLabel">Elaborar Orden</div></div>
         <div id="divMenuOption_45" onclick="handleTab('45','Registrar','');" class="divMenuOption"><div class="divMenuLabel">Registrar</div></div>
         <div id="divMenuOption_46" onclick="handleTab('46','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
@@ -111,15 +111,15 @@ echo $strDivs2;
         <div id="divMenuOption_51" onclick="handleTab('51','Recepción de Productos','modules/paydeclaration/reception.php');" class="divMenuOption"><div class="divMenuLabel">Recepción de Productos</div></div>
         <div id="divMenuOption_52" onclick="handleTab('52','Organización de Productos','');" class="divMenuOption"><div class="divMenuLabel">Organización de Productos</div></div>
         <div id="divMenuOption_53" onclick="handleTab('53','Surtido de Pedidos','modules/order/warehouseorder.php');" class="divMenuOption"><div class="divMenuLabel">Surtido de Pedidos</div></div>
-        <div id="divMenuOption_54" onclick="handleTab('54','Facturar','modules/order/warehouseorder.php');" class="divMenuOption"><div class="divMenuLabel">Facturar</div></div>
+        <div id="divMenuOption_54" onclick="handleTab('54','Facturar','modules/order/bill.php');" class="divMenuOption"><div class="divMenuLabel">Facturar</div></div>
         <div id="divMenuOption_55" onclick="handleTab('55','Traspaso de Productos','');" class="divMenuOption"><div class="divMenuLabel">Traspaso de Productos</div></div>
         <div id="divMenuOption_56" onclick="handleTab('56','Producción','');" class="divMenuOption"><div class="divMenuLabel">Producción</div></div>
         <div id="divMenuOption_57" onclick="handleTab('57','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_58" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_59" onclick="handleTab('59','RMA Cliente','modules/rma/rma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Cliente</div></div>
-        <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor','RMA Cliente','modules/rma/rma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
+        <div id="divMenuOption_59" onclick="handleTab('59','RMA Cliente','modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Cliente</div></div>
+        <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor','RMA Cliente','modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
         <div id="divMenuOption_61" onclick="handleTab('61','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_62" class="divMenuLevel1">
@@ -131,32 +131,32 @@ echo $strDivs2;
     <div id="divMenuMain_13" class="divMenuLevel2">
         <div class="divMenuPadding"></div>
         <!--div id="divMenuOption_14" onclick="handleTab('14','Bancos','');" class="divMenuOption"><div class="divMenuLabel">Bancos</div></--div-->
-        <div id="divMenuOption_15" onclick="handleTab('15','Retiros','modules/bank/withdrawal.php');" class="divMenuOption"><div class="divMenuLabel">Retiros</div></div>
-        <div id="divMenuOption_16" onclick="handleTab('16','Cheques','modules/bank/check.php');" class="divMenuOption"><div class="divMenuLabel">Cheques</div></div>
+        <div id="divMenuOption_15" onclick="handleTab('15','Retiros','modules/banks/withdrawal.php');" class="divMenuOption"><div class="divMenuLabel">Retiros</div></div>
+        <div id="divMenuOption_16" onclick="handleTab('16','Cheques','modules/banks/check.php');" class="divMenuOption"><div class="divMenuLabel">Cheques</div></div>
         <!--div id="divMenuOption_17" onclick="handleTab('17','Estados de Cuenta','modules/bank/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
-        <div id="divMenuOption_18" onclick="handleTab('18','Cierre Mensual','modules/bank/monthlyclosure');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
-        <div id="divMenuOption_19" onclick="handleTab('19','Conciliación Bancaria','modules/bank/conciliation.php');" class="divMenuOption"><div class="divMenuLabel">Conciliación Bancaria</div></div>
+        <div id="divMenuOption_18" onclick="handleTab('18','Cierre Mensual','modules/banks/monthlyclosure');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_19" onclick="handleTab('19','Conciliación Bancaria','modules/banks/conciliation.php');" class="divMenuOption"><div class="divMenuLabel">Conciliación Bancaria</div></div>
     </div>
     <div id="divMenuMain_20" class="divMenuLevel2">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_21" onclick="handleTab('21','Notas de Crédito','');" class="divMenuOption"><div class="divMenuLabel">Notas de Crédito</div></div>
-        <div id="divMenuOption_22" onclick="handleTab('22','Cobros','');" class="divMenuOption"><div class="divMenuLabel">Cobros</div></div>
-        <div id="divMenuOption_23" onclick="handleTab('23','Anticipos','');" class="divMenuOption"><div class="divMenuLabel">Anticipos</div></div>
-        <div id="divMenuOption_24" onclick="handleTab('24','Aplicación de Anticipos','');" class="divMenuOption"><div class="divMenuLabel">Aplicación de Anticipos</div></div>
-        <div id="divMenuOption_25" onclick="handleTab('25','Facturas','');" class="divMenuOption"><div class="divMenuLabel">Facturas</div></div>
-        <div id="divMenuOption_26" onclick="handleTab('26','Pedidos','');" class="divMenuOption"><div class="divMenuLabel">Pedidos</div></div>
-        <div id="divMenuOption_27" onclick="handleTab('27','Estados de Cuenta','');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div>
-        <div id="divMenuOption_28" onclick="handleTab('28','Cierre Mensual','');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_21" onclick="handleTab('21','Notas de Crédito','modules/cxc/creditnote.php');" class="divMenuOption"><div class="divMenuLabel">Notas de Crédito</div></div>
+        <div id="divMenuOption_22" onclick="handleTab('22','Cobros','modules/cxc/payment.php');" class="divMenuOption"><div class="divMenuLabel">Cobros</div></div>
+        <div id="divMenuOption_23" onclick="handleTab('23','Anticipos','modules/cxc/advance.php');" class="divMenuOption"><div class="divMenuLabel">Anticipos</div></div>
+        <!--div id="divMenuOption_24" onclick="handleTab('24','Aplicación de Anticipos','modules/cxc/');" class="divMenuOption"><div class="divMenuLabel">Aplicación de Anticipos</div></--div-->
+        <div id="divMenuOption_25" onclick="handleTab('25','Facturas','modules/order/bill.php');" class="divMenuOption"><div class="divMenuLabel">Facturas</div></div>
+        <div id="divMenuOption_26" onclick="handleTab('26','Pedidos','modules/order/authorizeorder.php');" class="divMenuOption"><div class="divMenuLabel">Pedidos</div></div>
+        <!--div id="divMenuOption_27" onclick="handleTab('27','Estados de Cuenta','modules/cxc/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
+        <div id="divMenuOption_28" onclick="handleTab('28','Cierre Mensual','modules/cxc/');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
     </div>
     <div id="divMenuMain_29" class="divMenuLevel2">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_30" onclick="handleTab('30','Notas de Cargo','');" class="divMenuOption"><div class="divMenuLabel">Notas de Cargo</div></div>
-        <div id="divMenuOption_31" onclick="handleTab('31','Pagos','');" class="divMenuOption"><div class="divMenuLabel">Pagos</div></div>
-        <div id="divMenuOption_32" onclick="handleTab('32','Anticipos','');" class="divMenuOption"><div class="divMenuLabel">Anticipos</div></div>
-        <div id="divMenuOption_33" onclick="handleTab('33','Aplicación de Anticipos','');" class="divMenuOption"><div class="divMenuLabel">Aplicación de Anticipos</div></div>
-        <div id="divMenuOption_34" onclick="handleTab('34','Programación de Pagos','');" class="divMenuOption"><div class="divMenuLabel">Programación de Pagos</div></div>
-        <div id="divMenuOption_35" onclick="handleTab('35','Estados de Cuenta','');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div>
-        <div id="divMenuOption_36" onclick="handleTab('36','Cierre Mensual','');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_30" onclick="handleTab('30','Notas de Cargo','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Notas de Cargo</div></div>
+        <div id="divMenuOption_31" onclick="handleTab('31','Pagos','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Pagos</div></div>
+        <div id="divMenuOption_32" onclick="handleTab('32','Anticipos','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Anticipos</div></div>
+        <!--div id="divMenuOption_33" onclick="handleTab('33','Aplicación de Anticipos','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Aplicación de Anticipos</div></div-->
+        <div id="divMenuOption_34" onclick="handleTab('34','Programación de Pagos','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Programación de Pagos</div></div>
+        <!--div id="divMenuOption_35" onclick="handleTab('35','Estados de Cuenta','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
+        <div id="divMenuOption_36" onclick="handleTab('36','Cierre Mensual','modules/cxp/');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
     </div>
 <!-- #### MENU HARDCODE ##### -->
     <div id="divcleanmenu" class="divMenuClear" onclick="closeMenuMain();">

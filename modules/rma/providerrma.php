@@ -5,7 +5,7 @@
 
 </head>
 <body>
-<div class="MainTitle">RMA Cliente</div>
+<div class="MainTitle">RMA Proveedor</div>
 <div class="MainContainer">
     <div class="SubTitle">RMA(S) pendientes</div>
 
@@ -18,7 +18,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Número de Cliente</th>
+                    <th>Número de Proveedor</th>
                     <th>Folio de Factura</th>
                     <th>folio de RMA</th>
                     <th>numero de parte</th>
