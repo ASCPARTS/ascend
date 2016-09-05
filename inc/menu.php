@@ -112,7 +112,7 @@ echo $strDivs2;
         <div id="divMenuOption_52" onclick="handleTab('52','Organización de Productos','');" class="divMenuOption"><div class="divMenuLabel">Organización de Productos</div></div>
         <div id="divMenuOption_53" onclick="handleTab('53','Surtido de Pedidos','modules/order/warehouseorder.php');" class="divMenuOption"><div class="divMenuLabel">Surtido de Pedidos</div></div>
         <div id="divMenuOption_54" onclick="handleTab('54','Facturar','modules/order/bill.php');" class="divMenuOption"><div class="divMenuLabel">Facturar</div></div>
-        <div id="divMenuOption_55" onclick="handleTab('55','Traspaso de Productos','');" class="divMenuOption"><div class="divMenuLabel">Traspaso de Productos</div></div>
+        <div id="divMenuOption_55" onclick="handleTab('55','Traspaso de Productos','modules/paydeclaration/transfer.php');" class="divMenuOption"><div class="divMenuLabel">Traspaso de Productos</div></div>
         <div id="divMenuOption_56" onclick="handleTab('56','Producción','modules/production/kit.php');" class="divMenuOption"><div class="divMenuLabel">Producción</div></div>
         <div id="divMenuOption_57" onclick="handleTab('57','Reportes','modules/report/report.php');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
