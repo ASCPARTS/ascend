@@ -15,11 +15,11 @@
         <div class="tblContainer">
             <table>
                 <thead>
-                <th>Numero de Cliente</th>
+                <th>Numero de Proveedor</th>
                 <th>Folio de Deposito</th>
                 <th>Monto del Deposito</th>
                 <th>Fecha de Deposito</th>
-                <th>Banco Destino</th>
+                <th>Banco</th>
                 <th>Cuenta Destino</th>
                 <th>Aplicado a</th>
                 <th>Folio a Afectar</th>
@@ -92,7 +92,7 @@
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
                     <div class="divInputText">
                         <input type="text">
-                        <label>Número de Cliente</label>
+                        <label>Número de Proveedor</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
