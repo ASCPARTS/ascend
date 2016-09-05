@@ -86,20 +86,20 @@ echo $strDivs2;
         <div id="divMenuSubCategory_13" onclick="openMenu(3,13);" class="divMenuSubCategory"><div class="divMenuLabel">Bancos</div></div>
         <div id="divMenuSubCategory_20" onclick="openMenu(3,20);" class="divMenuSubCategory"><div class="divMenuLabel">CXC</div></div>
         <div id="divMenuSubCategory_29" onclick="openMenu(3,29);" class="divMenuSubCategory"><div class="divMenuLabel">CXP</div></div>
-        <div id="divMenuOption_37" onclick="handleTab('37','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
+        <div id="divMenuOption_37" onclick="handleTab('37','Reportes','modules/report/report.php');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_38" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
         <div id="divMenuOption_39" onclick="handleTab('39','Cotizar Producto','modules/order/quotationorder.php');" class="divMenuOption"><div class="divMenuLabel">Cotizar Producto</div></div>
         <div id="divMenuOption_40" onclick="handleTab('40','Realizar Pedido','modules/order/saleorder.php');" class="divMenuOption"><div class="divMenuLabel">Realizar Pedido</div></div>
-        <div id="divMenuOption_41" onclick="handleTab('41','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
+        <div id="divMenuOption_41" onclick="handleTab('41','Reportes','modules/report/report.php');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_42" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
         <div id="divMenuOption_43" onclick="handleTab('43','Responder','modules/order/resolvedquote.php');" class="divMenuOption"><div class="divMenuLabel">Responder</div></div>
         <div id="divMenuOption_44" onclick="handleTab('44','Elaborar Orden','modules/order/purchaseorder.php');" class="divMenuOption"><div class="divMenuLabel">Elaborar Orden</div></div>
         <div id="divMenuOption_45" onclick="handleTab('45','Registrar','');" class="divMenuOption"><div class="divMenuLabel">Registrar</div></div>
-        <div id="divMenuOption_46" onclick="handleTab('46','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
+        <div id="divMenuOption_46" onclick="handleTab('46','Reportes','modules/report/report.php');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_47" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
@@ -114,13 +114,13 @@ echo $strDivs2;
         <div id="divMenuOption_54" onclick="handleTab('54','Facturar','modules/order/bill.php');" class="divMenuOption"><div class="divMenuLabel">Facturar</div></div>
         <div id="divMenuOption_55" onclick="handleTab('55','Traspaso de Productos','');" class="divMenuOption"><div class="divMenuLabel">Traspaso de Productos</div></div>
         <div id="divMenuOption_56" onclick="handleTab('56','Producción','modules/production/kit.php');" class="divMenuOption"><div class="divMenuLabel">Producción</div></div>
-        <div id="divMenuOption_57" onclick="handleTab('57','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
+        <div id="divMenuOption_57" onclick="handleTab('57','Reportes','modules/report/report.php');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_58" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
         <div id="divMenuOption_59" onclick="handleTab('59','RMA Cliente','modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Cliente</div></div>
         <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor', 'modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
-        <div id="divMenuOption_61" onclick="handleTab('61','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
+        <div id="divMenuOption_61" onclick="handleTab('61','Reportes','modules/report/report.php');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_62" class="divMenuLevel1">
         <div class="divMenuPadding"></div>

@@ -36,10 +36,6 @@
 <script type="text/javascript" src="js/notification.js"></script>
 <script type="text/javascript" src="js/añadirFormulario.js"></script>
 <script>
-    handleTab('2','aqui','modules/production/kit.php')
-
-
-
 
 </script>
 </body>

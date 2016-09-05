@@ -22,7 +22,7 @@
 <div class="row">
             <div class="reportePrincipal">
                 <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
-                <div class="nombreReporte" onclick="getModal('reporte','cerrar')"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
+                <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Ficha de Seguimiento de Cliente</div>
                 <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
                 <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
@@ -37,19 +37,41 @@
                 <div class="nombreReporte" onclick="getModal('filtro','cerrar')"><label>&#9656;</label>Catálogo de clientes con vencimiento de pagaré</div>
             </div>
     </div>
+            <br style="clear: both;" />
+        </div>
+<div id="filtro" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-filtro">
+        <span id="cerrar" class="close">×</span>
+        <div class="MainTitle">Filtrar por</div>
+        <div class="MainContainer">
+            <div class="row">
+                <div class="col-lg-1-1 col-md-1-1 col-sm-1-1">
+                    <div class="divInputText">
+                        <input type="text">
+                        <label>Cliente</label>
+                    </div>
+                </div>
+            </div>
+            <div class="ButtonContainer">
+                <input type="button" class="btn btnOnlineGreen" value="Aceptar" onclick="getModal('reporte','close')">
+            </div>
+            <br style="clear: both;" />
+        </div>
 
 
-        <div id="reporte" class="modal">
+    </div>
+
+</div>
+ <div id="reporte" class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
-                <span id="cerrar" class="close" id="closeEditar">×</span>
+                <span id="close" class="close" id="closeEditar">×</span>
+                <div class="MainTitle">Ficha de Seguimiento de Cliente</div>
                 <div class="MainContainer">
                 <table width="100%">
-
-                    <tr>
-                        <td colspan="2"><div class="lineaDivisoraTitulo">Ficha de Seguimiento de Cliente</div></td>
-                    </tr>
                     <tr>
                         <td style="border: 1px dimgray solid">
                             <label>Fecha de Visita:</label> 1/Sep/2016<br>
@@ -567,6 +589,7 @@
 
 
         </div>
+
 
 
 </body>
