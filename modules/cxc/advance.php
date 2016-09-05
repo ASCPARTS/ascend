@@ -11,13 +11,82 @@
             <input type="button" class="btn btnOnlineGreen" value="Nuevo" onclick="getModal('nuevo','cerrar')">
         </div>
     </div>
+    <div class="row">
+        <div class="tblContainer">
+            <table>
+                <thead>
+                <th>Numero de Cliente</th>
+                <th>Folio de Deposito</th>
+                <th>Monto del Deposito</th>
+                <th>Fecha de Deposito</th>
+                <th>Banco Destino</th>
+                <th>Cuenta Destino</th>
+                <th>Aplicado a</th>
+                <th>Folio a Afectar</th>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>23-907</td>
+                    <td>67894</td>
+                    <td>$1, 987.00</td>
+                    <td>3/04/20016</td>
+                    <td>Banamex</td>
+                    <td>Cuenta Pesos</td>
+                    <td>Factura</td>
+                    <td>678145</td>
+                </tr>
+                <tr>
+                    <td>23-907</td>
+                    <td>67894</td>
+                    <td>$1, 987.00</td>
+                    <td>3/04/20016</td>
+                    <td>Banamex</td>
+                    <td>Cuenta Pesos</td>
+                    <td>Factura</td>
+                    <td>678145</td>
+                </tr>
+                <tr>
+                    <td>23-907</td>
+                    <td>67894</td>
+                    <td>$1, 987.00</td>
+                    <td>3/04/20016</td>
+                    <td>Banamex</td>
+                    <td>Cuenta Pesos</td>
+                    <td>Factura</td>
+                    <td>678145</td>
+                </tr>
+                <tr>
+                    <td>23-907</td>
+                    <td>67894</td>
+                    <td>$1, 987.00</td>
+                    <td>3/04/20016</td>
+                    <td>Banamex</td>
+                    <td>Cuenta Pesos</td>
+                    <td>Factura</td>
+                    <td>678145</td>
+                </tr>
+                <tr>
+                    <td>23-907</td>
+                    <td>67894</td>
+                    <td>$1, 987.00</td>
+                    <td>3/04/20016</td>
+                    <td>Banamex</td>
+                    <td>Cuenta Pesos</td>
+                    <td>Factura</td>
+                    <td>678145</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <br style="clear: both;" />
 </div>
 <div id="nuevo" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-        <span id="close" class="close">×</span>
-        <div class="MainTitle">Nuevo Cobro</div>
+        <span id="cerrar" class="close">×</span>
+        <div class="MainTitle">Nuevo Anticipo</div>
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-5 col-md-1-5 col-sm-1-3">
