@@ -119,7 +119,7 @@ echo $strDivs2;
     <div id="divMenuMain_58" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
         <div id="divMenuOption_59" onclick="handleTab('59','RMA Cliente','modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Cliente</div></div>
-        <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor','RMA Cliente','modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
+        <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor', 'modules/rma/customerrma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
         <div id="divMenuOption_61" onclick="handleTab('61','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_62" class="divMenuLevel1">
