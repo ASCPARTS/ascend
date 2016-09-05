@@ -70,16 +70,16 @@ echo $strDivs2;
     </div>
     <div id="divMenuMain_1" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_2" onclick="handleTab('2','Clientes','');" class="divMenuOption"><div class="divMenuLabel">Clientes</div></div>
-        <div id="divMenuOption_3" onclick="handleTab('3','Proveedores','');" class="divMenuOption"><div class="divMenuLabel">Proveedores</div></div>
-        <div id="divMenuOption_4" onclick="handleTab('4','Productos','modules/order/quotationOrder.php');" class="divMenuOption"><div class="divMenuLabel">Productos</div></div>
-        <div id="divMenuOption_5" onclick="handleTab('5','Bancos','');" class="divMenuOption"><div class="divMenuLabel">Bancos</div></div>
-        <div id="divMenuOption_6" onclick="handleTab('6','Almacenes','');" class="divMenuOption"><div class="divMenuLabel">Almacenes</div></div>
-        <div id="divMenuOption_7" onclick="handleTab('7','Aduanas','');" class="divMenuOption"><div class="divMenuLabel">Aduanas</div></div>
-        <div id="divMenuOption_8" onclick="handleTab('8','Impuestos','');" class="divMenuOption"><div class="divMenuLabel">Impuestos</div></div>
-        <div id="divMenuOption_9" onclick="handleTab('9','Familias','');" class="divMenuOption"><div class="divMenuLabel">Familias</div></div>
-        <div id="divMenuOption_10" onclick="handleTab('10','Marcas','');" class="divMenuOption"><div class="divMenuLabel">Marcas</div></div>
-        <div id="divMenuOption_11" onclick="handleTab('11','Modelos','');" class="divMenuOption"><div class="divMenuLabel">Modelos</div></div>
+        <div id="divMenuOption_2" onclick="handleTab('2','Clientes','modules/catalogs/customer.php');" class="divMenuOption"><div class="divMenuLabel">Clientes</div></div>
+        <div id="divMenuOption_3" onclick="handleTab('3','Proveedores','modules/catalogs/provider.php');" class="divMenuOption"><div class="divMenuLabel">Proveedores</div></div>
+        <div id="divMenuOption_4" onclick="handleTab('4','Productos','modules/catalogs/product.php');" class="divMenuOption"><div class="divMenuLabel">Productos</div></div>
+        <div id="divMenuOption_5" onclick="handleTab('5','Bancos','modules/catalogs/bank.php');" class="divMenuOption"><div class="divMenuLabel">Bancos</div></div>
+        <div id="divMenuOption_6" onclick="handleTab('6','Almacenes','modules/catalogs/warehouse.php');" class="divMenuOption"><div class="divMenuLabel">Almacenes</div></div>
+        <div id="divMenuOption_7" onclick="handleTab('7','Aduanas','modules/catalogs/customs.php');" class="divMenuOption"><div class="divMenuLabel">Aduanas</div></div>
+        <div id="divMenuOption_8" onclick="handleTab('8','Impuestos','modules/catalogs/tax.php');" class="divMenuOption"><div class="divMenuLabel">Impuestos</div></div>
+        <div id="divMenuOption_9" onclick="handleTab('9','Familias','modules/catalogs/family.php');" class="divMenuOption"><div class="divMenuLabel">Familias</div></div>
+        <div id="divMenuOption_10" onclick="handleTab('10','Marcas','modules/catalogs/brand.php');" class="divMenuOption"><div class="divMenuLabel">Marcas</div></div>
+        <div id="divMenuOption_11" onclick="handleTab('11','Modelos','modules/catalogs/group.php');" class="divMenuOption"><div class="divMenuLabel">Grupo</div></div>
     </div>
     <div id="divMenuMain_12" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
@@ -90,36 +90,36 @@ echo $strDivs2;
     </div>
     <div id="divMenuMain_38" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_39" onclick="handleTab('39','Cotizar Producto','');" class="divMenuOption"><div class="divMenuLabel">Cotizar Producto</div></div>
-        <div id="divMenuOption_40" onclick="handleTab('40','Realizar Pedido','');" class="divMenuOption"><div class="divMenuLabel">Realizar Pedido</div></div>
+        <div id="divMenuOption_39" onclick="handleTab('39','Cotizar Producto','modules/order/quotationorder.php');" class="divMenuOption"><div class="divMenuLabel">Cotizar Producto</div></div>
+        <div id="divMenuOption_40" onclick="handleTab('40','Realizar Pedido','modules/order/saleorder.php');" class="divMenuOption"><div class="divMenuLabel">Realizar Pedido</div></div>
         <div id="divMenuOption_41" onclick="handleTab('41','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_42" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_43" onclick="handleTab('43','Responder','');" class="divMenuOption"><div class="divMenuLabel">Responder</div></div>
-        <div id="divMenuOption_44" onclick="handleTab('44','Elaborar Orden','');" class="divMenuOption"><div class="divMenuLabel">Elaborar Orden</div></div>
+        <div id="divMenuOption_43" onclick="handleTab('43','Responder','modules/order/resolvedquotation.php');" class="divMenuOption"><div class="divMenuLabel">Responder</div></div>
+        <div id="divMenuOption_44" onclick="handleTab('44','Elaborar Orden','modules/order/purchaseorder.php');" class="divMenuOption"><div class="divMenuLabel">Elaborar Orden</div></div>
         <div id="divMenuOption_45" onclick="handleTab('45','Registrar','');" class="divMenuOption"><div class="divMenuLabel">Registrar</div></div>
         <div id="divMenuOption_46" onclick="handleTab('46','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_47" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_48" onclick="handleTab('48','Recepción de Productos','');" class="divMenuOption"><div class="divMenuLabel">Recepción de Productos</div></div>
-        <div id="divMenuOption_49" onclick="handleTab('49','Pagos y Pedimentos','');" class="divMenuOption"><div class="divMenuLabel">Pagos y Pedimentos</div></div>
+        <div id="divMenuOption_48" onclick="handleTab('48','Recepción de Productos','modules/paydeclaration/reception.php');" class="divMenuOption"><div class="divMenuLabel">Recepción de Productos</div></div>
+        <div id="divMenuOption_49" onclick="handleTab('49','Pagos y Pedimentos','modules/paydeclaration//paydeclaration.php');" class="divMenuOption"><div class="divMenuLabel">Pagos y Pedimentos</div></div>
     </div>
     <div id="divMenuMain_50" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_51" onclick="handleTab('51','Recepción de Productos','');" class="divMenuOption"><div class="divMenuLabel">Recepción de Productos</div></div>
+        <div id="divMenuOption_51" onclick="handleTab('51','Recepción de Productos','modules/paydeclaration/reception.php');" class="divMenuOption"><div class="divMenuLabel">Recepción de Productos</div></div>
         <div id="divMenuOption_52" onclick="handleTab('52','Organización de Productos','');" class="divMenuOption"><div class="divMenuLabel">Organización de Productos</div></div>
-        <div id="divMenuOption_53" onclick="handleTab('53','Surtido de Pedidos','');" class="divMenuOption"><div class="divMenuLabel">Surtido de Pedidos</div></div>
-        <div id="divMenuOption_54" onclick="handleTab('54','Facturar','');" class="divMenuOption"><div class="divMenuLabel">Facturar</div></div>
+        <div id="divMenuOption_53" onclick="handleTab('53','Surtido de Pedidos','modules/order/warehouseorder.php');" class="divMenuOption"><div class="divMenuLabel">Surtido de Pedidos</div></div>
+        <div id="divMenuOption_54" onclick="handleTab('54','Facturar','modules/order/warehouseorder.php');" class="divMenuOption"><div class="divMenuLabel">Facturar</div></div>
         <div id="divMenuOption_55" onclick="handleTab('55','Traspaso de Productos','');" class="divMenuOption"><div class="divMenuLabel">Traspaso de Productos</div></div>
         <div id="divMenuOption_56" onclick="handleTab('56','Producción','');" class="divMenuOption"><div class="divMenuLabel">Producción</div></div>
         <div id="divMenuOption_57" onclick="handleTab('57','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_58" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_59" onclick="handleTab('59','RMA Cliente','');" class="divMenuOption"><div class="divMenuLabel">RMA Cliente</div></div>
-        <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor','');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
+        <div id="divMenuOption_59" onclick="handleTab('59','RMA Cliente','modules/rma/rma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Cliente</div></div>
+        <div id="divMenuOption_60" onclick="handleTab('60','RMA Proveedor','RMA Cliente','modules/rma/rma.php');" class="divMenuOption"><div class="divMenuLabel">RMA Proveedor</div></div>
         <div id="divMenuOption_61" onclick="handleTab('61','Reportes','');" class="divMenuOption"><div class="divMenuLabel">Reportes</div></div>
     </div>
     <div id="divMenuMain_62" class="divMenuLevel1">
@@ -130,12 +130,12 @@ echo $strDivs2;
     </div>
     <div id="divMenuMain_13" class="divMenuLevel2">
         <div class="divMenuPadding"></div>
-        <div id="divMenuOption_14" onclick="handleTab('14','Bancos','');" class="divMenuOption"><div class="divMenuLabel">Bancos</div></div>
-        <div id="divMenuOption_15" onclick="handleTab('15','Retiros','');" class="divMenuOption"><div class="divMenuLabel">Retiros</div></div>
-        <div id="divMenuOption_16" onclick="handleTab('16','Cheques','');" class="divMenuOption"><div class="divMenuLabel">Cheques</div></div>
-        <div id="divMenuOption_17" onclick="handleTab('17','Estados de Cuenta','');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div>
-        <div id="divMenuOption_18" onclick="handleTab('18','Cierre Mensual','');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
-        <div id="divMenuOption_19" onclick="handleTab('19','Conciliación Bancaria','');" class="divMenuOption"><div class="divMenuLabel">Conciliación Bancaria</div></div>
+        <!--div id="divMenuOption_14" onclick="handleTab('14','Bancos','');" class="divMenuOption"><div class="divMenuLabel">Bancos</div></--div-->
+        <div id="divMenuOption_15" onclick="handleTab('15','Retiros','modules/bank/withdrawal.php');" class="divMenuOption"><div class="divMenuLabel">Retiros</div></div>
+        <div id="divMenuOption_16" onclick="handleTab('16','Cheques','modules/bank/check.php');" class="divMenuOption"><div class="divMenuLabel">Cheques</div></div>
+        <!--div id="divMenuOption_17" onclick="handleTab('17','Estados de Cuenta','modules/bank/');" class="divMenuOption"><div class="divMenuLabel">Estados de Cuenta</div></div-->
+        <div id="divMenuOption_18" onclick="handleTab('18','Cierre Mensual','modules/bank/monthlyclosure');" class="divMenuOption"><div class="divMenuLabel">Cierre Mensual</div></div>
+        <div id="divMenuOption_19" onclick="handleTab('19','Conciliación Bancaria','modules/bank/conciliation.php');" class="divMenuOption"><div class="divMenuLabel">Conciliación Bancaria</div></div>
     </div>
     <div id="divMenuMain_20" class="divMenuLevel2">
         <div class="divMenuPadding"></div>

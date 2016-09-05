@@ -36,9 +36,7 @@
 <script type="text/javascript" src="js/notification.js"></script>
 <script type="text/javascript" src="js/añadirFormulario.js"></script>
 <script>
-    handleTab('1','Formulario','modules/test/form.php');
-    handleTab('2','Reportes','modules/report/report.php');
-    handleTab('3','Conciliacion','modules/cxp/advance.php');
+
 
 
 
