@@ -22,11 +22,12 @@ html, body {
 
 .divMenuLevel0 {
     height: 100%;
-    width: 15%;
+    width: calc(15% - 1px);
     background-color: #1766A1;
     float: left;
     display: block;
     overflow-x: hidden;
+    border-right: 1px #1E202C solid;
 }
 
 .divMenuLevel1 {
