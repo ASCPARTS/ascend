@@ -37,7 +37,7 @@
 <script type="text/javascript" src="js/añadirFormulario.js"></script>
 <script>
 
-handleTab(4, 'formulario', 'modules/test/form.php');
+
 
 
 
