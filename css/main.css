@@ -77,7 +77,7 @@ html, body {
 
 .divMenuCategory {
     margin: 2px 2px 0px 2px;
-    font-size: 1.3em;
+    font-size: 1.5em;
     padding: 0 0 0 8px;
     background-color: #D8D8D8;
     border: 1px #1E202C solid;
@@ -94,7 +94,7 @@ html, body {
 
 .divMenuSubCategory {
     margin: 2px 2px 0px 2px;
-    font-size: 1.3em;
+    font-size: 1.5em;
     padding: 0 0 0 8px;
     background-color: #D8D8D8;
     border: 1px #1E202C solid;
@@ -111,7 +111,7 @@ html, body {
 
 .divMenuOption {
     margin: 2px 2px 0px 2px;
-    font-size: 1.3em;
+    font-size: 1.5em;
     padding: 0 0 0 8px;
     background-color: #D8D8D8;
     border: 1px #1E202C solid;
@@ -124,7 +124,10 @@ html, body {
 
 .divMenuLabel{
     background-color: #FFFFFF;
-    padding: 2px 2px 2px 2px;
+    padding: 8px 2px 8px 36px;
+    background-repeat: no-repeat;
+    background-position: 1px center;
+    background-size: auto 85%;
 }
 
 #divMenuHeader {

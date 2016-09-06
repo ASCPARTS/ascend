@@ -58,15 +58,14 @@ echo $strDivs2;
     <!-- #### MENU HARDCODE ##### -->
     <div id="divMenuCategory_0" class="divMenuLevel0">
         <div class="divMenuPadding divMenuLogo"></div>
-        <div id="divMenuCategory_1" onclick="openMenu(2,1);" class="divMenuCategory"><div class="divMenuLabel">Catálogos</div></div>
-        <div id="divMenuCategory_12" onclick="openMenu(2,12);" class="divMenuCategory"><div class="divMenuLabel">Administración</div></div>
-        <div id="divMenuCategory_38" onclick="openMenu(2,38);" class="divMenuCategory"><div class="divMenuLabel">Ventas</div></div>
-        <div id="divMenuCategory_42" onclick="openMenu(2,42);" class="divMenuCategory"><div class="divMenuLabel">Compras</div></div>
-        <div id="divMenuCategory_47" onclick="openMenu(2,47);" class="divMenuCategory"><div class="divMenuLabel">Tráfico</div></div>
-        <div id="divMenuCategory_50" onclick="openMenu(2,50);" class="divMenuCategory"><div class="divMenuLabel">Almacén</div></div>
-        <div id="divMenuCategory_58" onclick="openMenu(2,58);" class="divMenuCategory"><div class="divMenuLabel">Garantías</div></div>
-        <div id="divMenuCategory_62" onclick="openMenu(2,62);" class="divMenuCategory"><div class="divMenuLabel">Marketing</div></div>
-        <div id="divMenuOption_66" onclick="handleTab('66','Opción sin Categoria','');" class="divMenuOption"><div class="divMenuLabel">Opción sin Categoria</div></div>
+        <div id="divMenuCategory_1" onclick="openMenu(2,1);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/interface.png');">Catálogos</div></div>
+        <div id="divMenuCategory_12" onclick="openMenu(2,12);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/file.png');">Administración</div></div>
+        <div id="divMenuCategory_38" onclick="openMenu(2,38);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/tool.png');">Ventas</div></div>
+        <div id="divMenuCategory_42" onclick="openMenu(2,42);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/market.png');">Compras</div></div>
+        <div id="divMenuCategory_47" onclick="openMenu(2,47);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/route.png');">Tráfico</div></div>
+        <div id="divMenuCategory_50" onclick="openMenu(2,50);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/box.png');">Almacén</div></div>
+        <div id="divMenuCategory_58" onclick="openMenu(2,58);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/coins.png');">Garantías</div></div>
+        <div id="divMenuCategory_62" onclick="openMenu(2,62);" class="divMenuCategory"><div class="divMenuLabel" style="background-image: url('img/menu/pie-chart.png');">Marketing</div></div>
     </div>
     <div id="divMenuMain_1" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
@@ -79,7 +78,7 @@ echo $strDivs2;
         <div id="divMenuOption_8" onclick="handleTab('8','Impuestos','modules/catalogs/tax.php');" class="divMenuOption"><div class="divMenuLabel">Impuestos</div></div>
         <div id="divMenuOption_9" onclick="handleTab('9','Familias','modules/catalogs/family.php');" class="divMenuOption"><div class="divMenuLabel">Familias</div></div>
         <div id="divMenuOption_10" onclick="handleTab('10','Marcas','modules/catalogs/brand.php');" class="divMenuOption"><div class="divMenuLabel">Marcas</div></div>
-        <div id="divMenuOption_11" onclick="handleTab('11','Modelos','modules/catalogs/group.php');" class="divMenuOption"><div class="divMenuLabel">Grupo</div></div>
+        <div id="divMenuOption_11" onclick="handleTab('11','Grupos','modules/catalogs/group.php');" class="divMenuOption"><div class="divMenuLabel">Grupos</div></div>
     </div>
     <div id="divMenuMain_12" class="divMenuLevel1">
         <div class="divMenuPadding"></div>
