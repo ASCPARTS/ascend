@@ -1,9 +1,9 @@
 <div class="divTopMenuLogo"></div>
-<div class="divTopMenu divTopMenuLeft" onclick="openMenuMain();" style="background-image: url('img/menu32.png'); background-repeat: no-repeat; background-position: center center"></div>
-<div class="divTopMenu divTopMenuLeft" title="Indicadores" onclick="handleTab('200','Indicadores','modules/kpi/');" style="background-image: url('img/business-bars-graphic.png'); background-repeat: no-repeat; background-position: center center"></div>
-<div class="divTopMenu divTopMenuLeft" title="Cámaras" onclick="handleTab('201','Cámaras','modules/cams/');" style="background-image: url('img/video-camera.png'); background-repeat: no-repeat; background-position: center center"></div>
-<div class="divTopMenu divTopMenuLeft" title="HP Parts Store" onclick="handleTab('202','HP Parts Store','http://partsurfer.hp.com/search.aspx');" style="background-image: url('img/hp32.png'); background-repeat: no-repeat; background-position: center center;"></div>
-<div class="divTopMenu divTopMenuLeft" title="Impact" onclick="handleTab('203','Impact','https://www.impactcomputers.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif'); background-repeat: no-repeat; background-position: center center; background-size: 90% auto"></div>
+<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuMenu" onclick="openMenuMain();"></div>
+<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuKpi" title="Indicadores" onclick="handleTab('200','Indicadores','modules/kpi/');"></div>
+<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuCamera" title="Cámaras" onclick="handleTab('201','Cámaras','modules/cams/');"></div>
+<div class="divTopMenu divTopMenuLeft imageTopMenu" title="HP Parts Store" onclick="handleTab('202','HP Parts Store','http://partsurfer.hp.com/search.aspx');" style="background-image: url('img/hp32.png');"></div>
+<div class="divTopMenu divTopMenuLeft imageTopMenu" title="Impact" onclick="handleTab('203','Impact','https://www.impactcomputers.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif');"></div>
 <div class="divTopMenuUser" style="background-image: url('img/luis_quintero.jpg')" onclick="openUserMenu();">Luis Quintero</div>
 <div id="divTopMenuUserMain">
     <table id="tableTopMenuUserMain">

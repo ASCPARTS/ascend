@@ -230,6 +230,24 @@ html, body {
     background-color: #F1F1F1;
 }
 
+.imageTopMenu{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 75% 75%;
+}
+
+.imageTopMenuMenu{
+    background-image: url('../img/topmenu/menu.png');
+}
+
+.imageTopMenuKpi{
+    background-image: url('../img/topmenu/kpi.png');
+}
+
+.imageTopMenuCamera{
+    background-image: url('../img/topmenu/cameras.png');
+}
+
 /*### END: Top Menu ###*/
 
 /*### BEGIN: Tab and Workingsheet ###*/
