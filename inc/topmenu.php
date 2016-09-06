@@ -2,7 +2,7 @@
 <div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuMenu" onclick="openMenuMain();"></div>
 <div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuKpi" title="Indicadores" onclick="handleTab('200','Indicadores','modules/kpi/');"></div>
 <div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuCamera" title="Cámaras" onclick="handleTab('201','Cámaras','modules/cams/');"></div>
-<div class="divTopMenu divTopMenuLeft imageTopMenu" title="HP Parts Store" onclick="handleTab('202','HP Parts Store','http://partsurfer.hp.com/search.aspx');" style="background-image: url('img/hp32.png');"></div>
+<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuHP" title="HP Parts Store" onclick="handleTab('202','HP Parts Store','http://partsurfer.hp.com/search.aspx');""></div>
 <div class="divTopMenu divTopMenuLeft imageTopMenu" title="Impact" onclick="handleTab('203','Impact','https://www.impactcomputers.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif');"></div>
 <div class="divTopMenuUser" style="background-image: url('img/luis_quintero.jpg')" onclick="openUserMenu();">Luis Quintero</div>
 <div id="divTopMenuUserMain">

@@ -28,6 +28,8 @@ html, body {
     display: block;
     overflow-x: hidden;
     border-right: 1px #1E202C solid;
+    color: #050409;
+    text-shadow: 0 1px 0 #D8D8D8;
 }
 
 .divMenuLevel1 {
@@ -37,6 +39,8 @@ html, body {
     float: left;
     display: block;
     overflow-x: hidden;
+    color: #050409;
+    text-shadow: 0 1px 0 #D8D8D8;
 }
 
 .divMenuLevel2 {
@@ -46,6 +50,8 @@ html, body {
     float: left;
     display: block;
     overflow-x: hidden;
+    color: #050409;
+    text-shadow: 0 1px 0 #D8D8D8;
 }
 
 .divMenuPadding{
@@ -57,7 +63,7 @@ html, body {
     background-image: url('../img/logo_h_a_256.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: auto 80%;
+    background-size: 80% auto;
 }
 
 .divMenuClear{
@@ -246,6 +252,10 @@ html, body {
 
 .imageTopMenuCamera{
     background-image: url('../img/topmenu/cameras.png');
+}
+
+.imageTopMenuHP{
+    background-image: url('../img/topmenu/hp.png');
 }
 
 /*### END: Top Menu ###*/
