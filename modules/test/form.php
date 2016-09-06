@@ -20,41 +20,56 @@
         <!-- Offset -->
         <div class="SubTitle">Paginacion</div>
         <div class="row">
-            <div class="col-md-1-1">
-                <div class="pagination">
-                    <ul>
-                        <li> <a href="#"> 1 </a> </li>
-                        <li> <a href="#"> 2 </a> </li>
-                        <li> <a href="#"> 3 </a> </li>
-                        <li> <a href="#"> 4 </a> </li>
-                        <li> <a href="#"> ... </a> </li>
-                        <li> <a href="#"> 10 </a> </li>
-                        <li> <a href="#"> 1 </a> </li>
-                        <li> <a href="#"> 2 </a> </li>
-                        <li> <a href="#"> 3 </a> </li>
-                        <li> <a href="#"> 4 </a> </li>
-                        <li> <a href="#"> ... </a> </li>
-                        <li> <a href="#"> 10 </a> </li>
-                        <li> <a href="#"> 1 </a> </li>
-                        <li> <a href="#"> 2 </a> </li>
-                        <li> <a href="#"> 3 </a> </li>
-                        <li> <a href="#"> 4 </a> </li>
-                        <li> <a href="#"> ... </a> </li>
-                        <li> <a href="#"> 10 </a> </li>
-                        <li> <a href="#"> 1 </a> </li>
-                        <li> <a href="#"> 2 </a> </li>
-                        <li> <a href="#"> 3 </a> </li>
-                        <li> <a href="#"> 4 </a> </li>
-                        <li> <a href="#"> ... </a> </li>
-                        <li> <a href="#"> 10 </a> </li>
-                        <li> <a href="#"> 1 </a> </li>
-                        <li> <a href="#"> 2 </a> </li>
-                        <li> <a href="#"> 3 </a> </li>
-                        <li> <a href="#"> 4 </a> </li>
-                        <li> <a href="#"> ... </a> </li>
-                        <li> <a href="#"> 10 </a> </li>
-                    </ul>
+            <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
+
+
+
+                <div class="divPagination">
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(1)" title="Inicio">&#8920;</label>
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(3)" title="Anterior">&#8810</label>
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Inicio">&#8920;</label-->
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Anterior">&#8810</label-->
+
+
+                    <div class="divPagesScroll">
+                        <label class="labelPagination" onclick="gridPagination(1)">1</label>
+                        <label class="labelPagination" onclick="gridPagination(2)">2</label>
+                        <label class="labelPagination" onclick="gridPagination(3)">3</label>
+                        <label class="labelPagination labelPaginationCurrent">4</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">5</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">6</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">7</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">8</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">9</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">10</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">11</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">12</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">13</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">14</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">15</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">16</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">17</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">18</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">19</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">20</label>
+
+                    </div>
+
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(5)" title="Siguiente">&#8811</label>
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(7)" title="Final">&#8921</label>
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Siguiente">&#8811</label-->
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Final">&#8921</label-->
                 </div>
+                    
+
+                <b> 500 </b> Registros - <b>7</b> Páginas -
+
+                <select onchange="gridRecords(this.value);">
+                    <option value="25">25</option>
+                    <option value="50" selected="selected">50</option>
+                    <option value="75">75</option>
+                </select>
+                Registros por página
 
             </div>
         </div>

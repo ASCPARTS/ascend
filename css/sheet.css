@@ -980,56 +980,81 @@ tr:nth-child(even) {
     background-color:#fbfbfb;
 }*/
 
-.pagination
+.divPagination
 {
-    float:left;
-    text-align: center;
-    width: 100%;
-    height: 30px;
-    margin: 6px 0px 4px 0px;
-    overflow-y: hidden;
-    overflow-x:  auto;
+    margin-bottom: 2px; vertical-align: top;
 }
 
-.pagination ul
+.divPagesScroll
 {
-    float: left;
-    text-align: left;
-    width: 100%;
-    height: 30px;
-    padding:  0px;
+    display: inline-block; width: calc(100% - 152px); height: 1%; white-space: nowrap; overflow-x: auto; overflow-y: hidden; text-align: center;
 }
 
-.pagination ul li
-{
-    list-style-type: none;
-    float: left;
-    text-align: center;
+.divPagination select {
+    border: 1px #282828 solid;
+    vertical-align: bottom;
+    height: 22px;
+    font-size: 9pt;
+    padding: 0 5px 0 5px;
+
+}
+
+.labelPagination {
+    display: inline-block;
+    background-color: #C8C8C8;
+    padding: 2px 5px 2px 5px;
+    border-bottom: 3px #FFC000 solid;
+    font-size: 8pt;
+    font-weight: bold;
+    margin: 0 2px 0 2px;
+    cursor: pointer;
+    color: #282828;
+    vertical-align: top;
     width: auto;
-    height: 30px;
-    margin: 0px 5px 0px 5px;
-    background-color: #FFC000;
-}
-
-.pagination ul li a
-{
-    float: left;
     text-align: center;
-    width: 18px;
-    height: 18px;
-    padding: 6px 6px 6px 6px;
-    color: #00346F;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bolder;
-    background-color: #FFC000;
-    box-shadow: inset 0 -6px 0 #b38600;
+
 }
 
-.pagination ul li a:hover
+.labelPaginationArrow
 {
-    background-color: #b38600;
+    width: 20px;
 }
+
+.labelPagination:hover
+{
+    background-color: #FFC000;
+}
+
+.labelPaginationCurrent {
+    background-color: #FFC000;
+    border-color: #FFC000;
+    cursor: auto;
+    cursor: default;
+}
+
+.labelPaginationCurrent:hover
+{
+    background-color: #FFC000;
+}
+
+.labelPaginationDisabled {
+    background-color: #686868;
+    cursor: auto;
+    border-color: #1e202c;
+    cursor: not-allowed;
+}
+
+.labelPaginationDisabled:hover
+{
+    background-color: #686868;
+}
+
+
+
+
+
+
+
 
 /*CSS PARA ALERTS [INICIO]*/
 .alert-content {
