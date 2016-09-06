@@ -17,113 +17,242 @@
     <div class="MainTitle">Diseño formulario</div>
     <div class="MainContainer">
 
-        <!-- Offset -->
-        <div class="SubTitle">Paginacion</div>
-        <div class="row">
-            <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
 
-
-
-                <div class="divPagination">
-                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(1)" title="Inicio">&#8920;</label>
-                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(3)" title="Anterior">&#8810</label>
-                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Inicio">&#8920;</label-->
-                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Anterior">&#8810</label-->
-
-
-                    <div class="divPagesScroll">
-                        <label class="labelPagination" onclick="gridPagination(1)">1</label>
-                        <label class="labelPagination" onclick="gridPagination(2)">2</label>
-                        <label class="labelPagination" onclick="gridPagination(3)">3</label>
-                        <label class="labelPagination labelPaginationCurrent">4</label>
-                        <label class="labelPagination" onclick="gridPagination(5)">5</label>
-                        <label class="labelPagination" onclick="gridPagination(6)">6</label>
-                        <label class="labelPagination" onclick="gridPagination(7)">7</label>
-                        <label class="labelPagination" onclick="gridPagination(5)">8</label>
-                        <label class="labelPagination" onclick="gridPagination(6)">9</label>
-                        <label class="labelPagination" onclick="gridPagination(7)">10</label>
-                        <label class="labelPagination" onclick="gridPagination(5)">11</label>
-                        <label class="labelPagination" onclick="gridPagination(6)">12</label>
-                        <label class="labelPagination" onclick="gridPagination(7)">13</label>
-                        <label class="labelPagination" onclick="gridPagination(5)">14</label>
-                        <label class="labelPagination" onclick="gridPagination(6)">15</label>
-                        <label class="labelPagination" onclick="gridPagination(7)">16</label>
-                        <label class="labelPagination" onclick="gridPagination(5)">17</label>
-                        <label class="labelPagination" onclick="gridPagination(6)">18</label>
-                        <label class="labelPagination" onclick="gridPagination(7)">19</label>
-                        <label class="labelPagination" onclick="gridPagination(7)">20</label>
-
-                    </div>
-
-                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(5)" title="Siguiente">&#8811</label>
-                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(7)" title="Final">&#8921</label>
-                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Siguiente">&#8811</label-->
-                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Final">&#8921</label-->
-                </div>
-                    
-
-                <b> 500 </b> Registros - <b>7</b> Páginas -
-
-                <select onchange="gridRecords(this.value);">
-                    <option value="25">25</option>
-                    <option value="50" selected="selected">50</option>
-                    <option value="75">75</option>
-                </select>
-                Registros por página
-
-            </div>
-        </div>
-
-        <!-- Offset -->
-        <div class="SubTitle">Titulo de 2 componentes</div>
+        <div class="SubTitle">Componentes</div>
         <div class="row">
 
+            <!-- Default -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
+                <div class="divInputText userYellow">
                     <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
+                    <label for="text1">texto</label>
                 </div>
             </div>
-            <div class="col-lg-offset-2-4 col-lg-1-4 col-md-offset-2-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
-                    <input type="text" id="text2">
-                    <label for="text2">ejemplo 1</label>
-                </div>
-            </div>
+
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
+                <div class="divInputDate userGray">
+                    <input type="date" id="text1">
+                    <label for="text1">fecha</label>
                 </div>
             </div>
+
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
+                <div class="divSelect userGray">
+                    <select>
+                        <option>Opcion 1 </option>
+                        <option>Opcion 2 </option>
+                    </select>
+                    <label for="text1">fecha</label>
                 </div>
             </div>
+
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
+                <div class="divInputCheck">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
                 </div>
             </div>
+
+            <div class="col-lg-1-1 col-md-1-1">
+                <div class="divInputTextArea">
+                    <label for="textarea10">Este es mi text area</label>
+                    <textarea id="textarea10">hola mundo.</textarea>
+                </div>
+            </div>
+
+
+            <!-- BrandBlue -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
+                <div class="divInputText divBrandBlue userYellow">
                     <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
+                    <label for="text1">texto</label>
                 </div>
             </div>
-            <div class="col-lg-offset-1-2 col-lg-1-2 col-md-offset-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
-                    <input type="text" id="text1">
-                    <label for="text1">ejemplo 1</label>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputDate divBrandBlue userGray">
+                    <input type="date" id="text1">
+                    <label for="text1">fecha</label>
                 </div>
             </div>
-            <div class="col-lg-offset-3-4 col-lg-1-4 col-md-offset-3-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
-                    <input type="text" id="text2">
-                    <label for="text2">ejemplo 1</label>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divSelect divBrandBlue userGray">
+                    <select>
+                        <option>Opcion 1 </option>
+                        <option>Opcion 2 </option>
+                    </select>
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputCheck divBrandBlue">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-1 col-md-1-1">
+                <div class="divInputTextArea divBrandBlue">
+                    <label for="textarea10">Este es mi text area</label>
+                    <textarea id="textarea10">hola mundo.</textarea>
+                </div>
+            </div>
+
+            <!-- Green -->
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divGreen userYellow">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputDate divGreen userGray">
+                    <input type="date" id="text1">
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divSelect divGreen userGray">
+                    <select>
+                        <option>Opcion 1 </option>
+                        <option>Opcion 2 </option>
+                    </select>
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputCheck divGreen">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-1 col-md-1-1">
+                <div class="divInputTextArea divGreen">
+                    <label for="textarea10">Este es mi text area</label>
+                    <textarea id="textarea10">hola mundo.</textarea>
+                </div>
+            </div>
+
+            <!-- divOverBlue -->
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divOverBlue userYellow">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputDate divOverBlue userGray">
+                    <input type="date" id="text1">
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divSelect divOverBlue userGray">
+                    <select>
+                        <option>Opcion 1 </option>
+                        <option>Opcion 2 </option>
+                    </select>
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputCheck divOverBlue">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-1 col-md-1-1">
+                <div class="divInputTextArea divOverBlue">
+                    <label for="textarea10">Este es mi text area</label>
+                    <textarea id="textarea10">hola mundo.</textarea>
+                </div>
+            </div>
+
+            <!-- Red -->
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divRed userYellow">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputDate divRed userGray">
+                    <input type="date" id="text1">
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divSelect divRed userGray">
+                    <select>
+                        <option>Opcion 1 </option>
+                        <option>Opcion 2 </option>
+                    </select>
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputCheck divRed">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-1 col-md-1-1">
+                <div class="divInputTextArea divRed">
+                    <label for="textarea10">Este es mi text area</label>
+                    <textarea id="textarea10">hola mundo.</textarea>
+                </div>
+            </div>
+
+            <!-- divYellow -->
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divYellow userYellow">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputDate divYellow userGray">
+                    <input type="date" id="text1">
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divSelect divYellow userGray">
+                    <select>
+                        <option>Opcion 1 </option>
+                        <option>Opcion 2 </option>
+                    </select>
+                    <label for="text1">fecha</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputCheck divYellow">
+                    <input type="checkbox" id="che">
+                    <label for="che">ejemplo 1</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-1 col-md-1-1">
+                <div class="divInputTextArea divYellow">
+                    <label for="textarea10">Este es mi text area</label>
+                    <textarea id="textarea10">hola mundo.</textarea>
                 </div>
             </div>
 
@@ -227,6 +356,53 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="divPagination">
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(1)" title="Inicio">&#8920;</label>
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(3)" title="Anterior">&#8810</label>
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Inicio">&#8920;</label-->
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Anterior">&#8810</label-->
+
+
+                    <div class="divPagesScroll">
+                        <label class="labelPagination" onclick="gridPagination(1)">1</label>
+                        <label class="labelPagination" onclick="gridPagination(2)">2</label>
+                        <label class="labelPagination" onclick="gridPagination(3)">3</label>
+                        <label class="labelPagination labelPaginationCurrent">4</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">5</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">6</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">7</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">8</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">9</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">10</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">11</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">12</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">13</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">14</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">15</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">16</label>
+                        <label class="labelPagination" onclick="gridPagination(5)">17</label>
+                        <label class="labelPagination" onclick="gridPagination(6)">18</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">19</label>
+                        <label class="labelPagination" onclick="gridPagination(7)">20</label>
+
+                    </div>
+
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(5)" title="Siguiente">&#8811</label>
+                    <label class="labelPagination labelPaginationArrow" onclick="gridPagination(7)" title="Final">&#8921</label>
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Siguiente">&#8811</label-->
+                    <!--label class="labelPagination labelPaginationArrow labelPaginationDisabled" title="Final">&#8921</label-->
+
+                    <div class="paginationInfo">
+                        <b> 500 </b> Registros - <b>7</b> Páginas -
+
+                        <select onchange="gridRecords(this.value);">
+                            <option value="25">25</option>
+                            <option value="50" selected="selected">50</option>
+                            <option value="75">75</option>
+                        </select>
+                        Registros por página
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -455,78 +631,7 @@
 
         </div>
 
-        <!-- BRENDA -->
-        <div class="SubTitle">New Grid</div>
-        <div class="row">
-            <div class="col-xs-1-1 col-sm-2-2 col-md-4-5 col-lg-4-5">
-                <div class="col-lg-1-4 col-md-1-4">
-                    <div class="divInputDate">
-                        <input type="date" id="dte1">
-                        <label for="dte1">ejemplo 1</label>
-                    </div>
-                </div>
 
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                    <div class="divInputText">
-                        <input type="text" id="text1">
-                        <label for="text1">ejemplo 1</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-1-1 col-md-1-1 col-md-1-5 col-md-1-5">
-                <div class="col-xs-1-1 col-sm-1-1 col-md-1-1 col-lg-1-1">
-
-                    <div class="divInputTextArea">
-                        <label for="textarea1">Este es mi text area</label>
-                        <textarea id="textarea1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
 
 
 

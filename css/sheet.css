@@ -1,4 +1,5 @@
-html, body {
+html, body
+{
     font-family: Arial;
     font-size: 10pt;
     background-color: #F1F1F1;
@@ -277,17 +278,15 @@ html, body {
 
 
 
+/* -- GRYD SYSTEM -- */
 
 
-.row
-{
+.row {
     float: left;
     width: 100%;
     height: auto;
     margin-bottom: 6px;
 }
-
-
 
 
 .col-xs-1-1, .col-xs-1-2, 	.col-xs-2-2, .col-xs-1-3, 	.col-xs-2-3, 	.col-xs-3-3, .col-xs-1-4, 	.col-xs-2-4, 	.col-xs-3-4, 	.col-xs-4-4, .col-xs-1-5, 	.col-xs-2-5, 	.col-xs-3-5, 	.col-xs-4-5, 	.col-xs-5-5, .col-xs-1-6, 	.col-xs-2-6, 	.col-xs-3-6, 	.col-xs-4-6, 	.col-xs-5-6, 	.col-xs-6-6, .col-xs-1-7, 	.col-xs-2-7, 	.col-xs-3-7, 	.col-xs-4-7, 	.col-xs-5-7, 	.col-xs-6-7, 	.col-xs-7-7, .col-xs-1-8, 	.col-xs-2-8, 	.col-xs-3-8, 	.col-xs-4-8, 	.col-xs-5-8, 	.col-xs-6-8, 	.col-xs-7-8, 	.col-xs-8-8, .col-xs-1-9, 	.col-xs-2-9, 	.col-xs-3-9, 	.col-xs-4-9, 	.col-xs-5-9, 	.col-xs-6-9, 	.col-xs-7-9, 	.col-xs-8-9, 	.col-xs-9-9, .col-xs-1-10, 	.col-xs-2-10, 	.col-xs-3-10, 	.col-xs-4-10, 	.col-xs-5-10, 	.col-xs-6-10, 	.col-xs-7-10, 	.col-xs-8-10, 	.col-xs-9-10, 	.col-xs-10-10,
@@ -327,9 +326,7 @@ html, body {
 .col-xs-offset-1-10 {   margin-left: calc( 10%  + 15px );  }  .col-xs-offset-2-10 {   margin-left: calc( 20%  + 15px );  }  .col-xs-offset-3-10 {   margin-left: calc( 30%  + 15px );  }  .col-xs-offset-4-10 {   margin-left: calc( 40%  + 15px );  }  .col-xs-offset-5-10 {   margin-left: calc( 50%  + 15px );  }  .col-xs-offset-6-10 {   margin-left: calc( 60%  + 15px );  }  .col-xs-offset-7-10 {   margin-left: calc( 70%  + 15px );  }  .col-xs-offset-8-10 {   margin-left: calc( 80%  + 15px );  }  .col-xs-offset-9-10 {   margin-left: calc( 90%  + 15px );  }
 
 
-
-
-/* SIZE COL SM*/
+/* size col-sm*/
 @media (min-width: 768px)
 {
     .col-sm-1-1 {   width: calc( 100% - 30px );  }
@@ -355,10 +352,7 @@ html, body {
 }
 
 
-
-
-
-/* SIZE COL MD*/
+/* size col-md*/
 @media (min-width: 992px)
 {
     .col-md-1-1 {   width: calc( 100% - 30px );  }
@@ -384,10 +378,7 @@ html, body {
 }
 
 
-
-
-
-/* SIZE COL LG*/
+/* size col-lg*/
 @media (min-width: 1200px)
 {
     .col-lg-1-1 {   width: calc( 100% - 30px );  }
@@ -416,13 +407,19 @@ html, body {
 
 
 
-.divInputText{
-    background-color: #1766A1;
-    border: solid #1766A1 1px;
+
+
+
+/* -- divINPUTS -- */
+
+/* input text */
+.divInputText {
+    background-color: #5c5c5c;
+    border: solid #5c5c5c 1px;
     height: 35px;
     text-align: right;
     vertical-align: top;
-    color: #00346F;
+    color: #ffffff;
     font-size: 0.8em;
     align-items: flex-end;
     text-transform: capitalize;
@@ -450,21 +447,21 @@ html, body {
     outline:  solid #ffffff 0px;
     border: solid #FFFFFF 0px;
     margin: 0;
-    background-color: #1766A1;
+    background-color: #5c5c5c;
     height: 13px;
     padding: 0px 5px 0px 0px;
     color: #FFFFFF;
 }
 
 
-
+/* input date */
 .divInputDate{
-    background-color: #1766A1;
-    border: solid #1766A1 1px;
+    background-color: #5c5c5c;
+    border: solid #5c5c5c 1px;
     height: 35px;
     text-align: right;
     vertical-align: top;
-    color: #00346F;
+    color: #ffffff;
     font-size: 0.8em;
     align-items: flex-end;
     text-transform: capitalize;
@@ -492,27 +489,21 @@ html, body {
     outline:  solid #ffffff 0px;
     border: solid #FFFFFF 0px;
     margin: 0;
-    background-color: #1766A1;
+    background-color: #5c5c5c;
     height: 13px;
     padding: 0px 5px 0px 0px;
     color: #FFFFFF;
 }
 
 
-
-
-
-
-
-
-
+/* select */
 .divSelect{
-    background-color: #1766A1;
-    border: solid #1766A1 1px;
+    background-color: #5c5c5c;
+    border: solid #5c5c5c 1px;
     height: 35px;
     text-align: right;
     vertical-align: top;
-    color: #00346F;
+    color: #ffffff;
     font-size: 8pt;
     align-items: flex-end;
     text-transform: uppercase;
@@ -541,42 +532,25 @@ html, body {
     outline:  solid #ffffff 0px;
     border: solid #FFFFFF 0px;
     margin: 0;
-    background-color: #1766A1;
+    background-color: #5c5c5c;
     height: 13px;
     padding: 0px 5px 0px 0px;
     color: #FFFFFF;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* textarea */
 .divInputTextArea{
     /*background-color: #1766A1;*/
-    background-color: #FF2828;
+    background-color: #5c5c5c;
     background-repeat: repeat-y,  no-repeat;
     background-position: 32px, 0;
     background-size: auto, 32px 35px;
-    border: solid #1766A1 1px;
+    border: solid #5c5c5c 1px;
     height: 77px;
     text-align: left;
     vertical-align: top;
-    color: #00346F;
+    color: #ffffff;
     font-size: 0.8em;
     align-items: flex-end;
     text-transform: capitalize;
@@ -606,12 +580,208 @@ html, body {
     outline:  solid #ffffff 0px;
     border: solid #FFFFFF 0px;
     margin: 0;
-    background-color: #1766A1;
+    background-color: #5c5c5c;
     height: 13px;
     padding: 0px 5px 0px 0px;
     color: #FFFFFF;
     text-align: center;
 }
+
+
+/* checboxes y radios*/
+.divInputRadio, .divInputCheck {
+    background-color: #5c5c5c;
+    border: solid #5c5c5c 1px;
+    height: 35px;
+    text-align: left;
+    vertical-align: middle;
+    color: #ffffff;
+    font-size: 0.8em;
+    align-items: flex-end;
+    text-transform: capitalize;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.divInputRadio input[type=radio], .divInputCheck input[type=checkbox] {
+    display:inline-block;
+    height: 14px;
+    width: 14px;
+    margin: 11px 11px 10px 10px;
+    border: solid #FFFFFF 0px;
+    width: 14px;
+    text-indent: 10px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    float: left;
+}
+
+.divInputRadio label, .divInputCheck label
+{
+    display:inline-block;
+    height: 19px;
+    font-size: 14px;
+    background-color:  #FFFFFF;
+    text-transform: uppercase;
+    width: calc(100% - 50px);
+    cursor: pointer;
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    margin: 0;
+    padding: 8px 5px 8px 10px;
+    color: #1e202c;
+    float: left;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+
+
+
+
+
+/* -- DIV COLORS -- */
+
+/* divBrandBlue */
+.divBrandBlue
+{
+    background-color: #1766A1;
+    border: solid #1766A1 1px;
+    color: #00346F;
+}
+
+.divBrandBlue input[type=text], .divBrandBlue input[type=date]{
+    border: solid #FFFFFF 0px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+}
+
+.divBrandBlue label
+{
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    background-color: #1766A1;
+    color: #FFFFFF;
+}
+
+/* divOverBlue */
+.divOverBlue
+{
+    background-color: #00B8FE;
+    border: solid #00B8FE 1px;
+    color: #00346F;
+}
+
+.divOverBlue input[type=text], .divBrandBlue input[type=date]{
+    border: solid #FFFFFF 0px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+}
+
+.divOverBlue label
+{
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    background-color: #00B8FE;
+    color: #FFFFFF;
+}
+
+/* divGreen */
+.divGreen
+{
+    background-color: #55b844;
+    border: solid #55b844 1px;
+    color: #00346F;
+}
+
+.divGreen input[type=text], .divBrandBlue input[type=date]{
+    border: solid #FFFFFF 0px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+}
+
+.divGreen label
+{
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    background-color: #55b844;
+    color: #FFFFFF;
+}
+
+/* divRed */
+.divRed
+{
+    background-color: #ff3754;
+    border: solid #ff3754 1px;
+    color: #00346F;
+}
+
+.divRed input[type=text], .divBrandBlue input[type=date]{
+    border: solid #FFFFFF 0px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+}
+
+.divRed label
+{
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    background-color: #ff3754;
+    color: #FFFFFF;
+}
+
+/* divYellow */
+.divYellow
+{
+    background-color: #FFC000;
+    border: solid #FFC000 1px;
+    color: #00346F;
+}
+
+.divYellow input[type=text], .divBrandBlue input[type=date]{
+    border: solid #FFFFFF 0px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+}
+
+.divYellow label
+{
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    background-color: #FFC000;
+    color: #FFFFFF;
+}
+
+
+
+/* -- GLYPHS */
+
+/* yellow icon */
+.userYellow
+{
+    background-image: url('../img/glyph/user24Yellow.png');
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    background-size: 24px 24px;
+}
+
+.userGray
+{
+    background-image: url('../img/glyph/user24Gray.png');
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    background-size: 24px 24px;
+}
+
+
+
 
 
 
@@ -664,58 +834,6 @@ html, body {
 
 
 
-.divInputRadio, .divInputCheck {
-    background-color: #1766A1;
-    border: solid #1766A1 1px;
-    height: 35px;
-    text-align: left;
-    vertical-align: middle;
-    color: #00346F;
-    font-size: 0.8em;
-    align-items: flex-end;
-    text-transform: capitalize;
-    padding: 0px 0px 0px 0px;
-    width: 100%;
-}
-
-.divInputRadio input[type=radio], .divInputCheck input[type=checkbox] {
-    display:inline-block;
-    height: 14px;
-    width: 14px;
-    margin: 11px 11px 10px 10px;
-    border: solid #FFFFFF 0px;
-    width: 14px;
-    text-indent: 10px;
-    color: #444444;
-    outline:  solid #ffffff 0px;
-    text-transform: uppercase;
-    font-size: 10pt;
-    float: left;
-}
-
-.divInputRadio label, .divInputCheck label
-{
-    display:inline-block;
-    height: 19px;
-    font-size: 14px;
-    background-color:  #FFFFFF;
-    text-transform: uppercase;
-    width: calc(100% - 50px);
-    cursor: pointer;
-    outline:  solid #ffffff 0px;
-    border: solid #FFFFFF 0px;
-    margin: 0;
-    padding: 8px 5px 8px 10px;
-    color: #1e202c;
-    float: left;
-
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;
-}
 
 
 
@@ -1006,7 +1124,7 @@ tr:nth-child(even) {
     border-bottom: 3px #FFC000 solid;
     font-size: 8pt;
     font-weight: bold;
-    margin: 0 2px 0 2px;
+    margin: 0 2px 10px 2px;
     cursor: pointer;
     color: #282828;
     vertical-align: top;
@@ -1049,7 +1167,12 @@ tr:nth-child(even) {
     background-color: #686868;
 }
 
-
+.paginationInfo
+{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
 
 
 
@@ -1085,3 +1208,10 @@ tr:nth-child(even) {
 }
 
 /*Alineacion de textos [FIN]*/
+
+
+
+
+
+
+
