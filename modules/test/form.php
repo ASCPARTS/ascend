@@ -23,21 +23,21 @@
 
             <!-- Default -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText userYellow">
+                <div class="divInputText addGray">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputDate userGray">
+                <div class="divInputDate alertGray">
                     <input type="date" id="text1">
                     <label for="text1">fecha</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect userGray">
+                <div class="divSelect appYellow">
                     <select>
                         <option>Opcion 1 </option>
                         <option>Opcion 2 </option>
@@ -63,21 +63,21 @@
 
             <!-- BrandBlue -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText divBrandBlue userYellow">
+                <div class="divInputText divBrandBlue attachmentYellow">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputDate divBrandBlue userGray">
+                <div class="divInputDate divBrandBlue barCodeGray">
                     <input type="date" id="text1">
                     <label for="text1">fecha</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect divBrandBlue userGray">
+                <div class="divSelect divBrandBlue businessCardYellow">
                     <select>
                         <option>Opcion 1 </option>
                         <option>Opcion 2 </option>
@@ -102,21 +102,21 @@
 
             <!-- Green -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText divGreen userYellow">
+                <div class="divInputText divGreen calendarGray">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputDate divGreen userGray">
+                <div class="divInputDate divGreen checkYellow">
                     <input type="date" id="text1">
                     <label for="text1">fecha</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect divGreen userGray">
+                <div class="divSelect divGreen clockGray">
                     <select>
                         <option>Opcion 1 </option>
                         <option>Opcion 2 </option>
@@ -141,21 +141,21 @@
 
             <!-- divOverBlue -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText divOverBlue userYellow">
+                <div class="divInputText divOverBlue coinYellow">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputDate divOverBlue userGray">
+                <div class="divInputDate divOverBlue costGray">
                     <input type="date" id="text1">
                     <label for="text1">fecha</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect divOverBlue userGray">
+                <div class="divSelect divOverBlue deleteYellow">
                     <select>
                         <option>Opcion 1 </option>
                         <option>Opcion 2 </option>
@@ -180,21 +180,21 @@
 
             <!-- Red -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText divRed userYellow">
+                <div class="divInputText divRed directionYellow">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputDate divRed userGray">
+                <div class="divInputDate divRed editGray">
                     <input type="date" id="text1">
                     <label for="text1">fecha</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect divRed userGray">
+                <div class="divSelect divRed errorYellow">
                     <select>
                         <option>Opcion 1 </option>
                         <option>Opcion 2 </option>
@@ -219,21 +219,21 @@
 
             <!-- divYellow -->
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText divYellow userYellow">
+                <div class="divInputText divYellow moneyGray">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputDate divYellow userGray">
+                <div class="divInputDate divYellow priceGray">
                     <input type="date" id="text1">
                     <label for="text1">fecha</label>
                 </div>
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect divYellow userGray">
+                <div class="divSelect divYellow providerGray">
                     <select>
                         <option>Opcion 1 </option>
                         <option>Opcion 2 </option>
@@ -253,6 +253,28 @@
                 <div class="divInputTextArea divYellow">
                     <label for="textarea10">Este es mi text area</label>
                     <textarea id="textarea10">hola mundo.</textarea>
+                </div>
+            </div>
+
+            <!-- More -->
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divBrandBlue searchGray">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divBrandBlue shopYellow">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
+                </div>
+            </div>
+
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
+                <div class="divInputText divBrandBlue userGray">
+                    <input type="text" id="text1">
+                    <label for="text1">texto</label>
                 </div>
             </div>
 
