@@ -226,22 +226,22 @@
                 <!-- Modal content -->
                 <div class="alert-content">
                     <span id="closeAlert" class="close">×</span>
-                    <div class="MainTitle">Alerta</div>
+                    <div class="MainTitle">Finalización</div>
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row text-center">
-                            <h3>¿Estás seguro que deseas finalizar el traspaso?</h4>
+                            <h3>Ingrese el número de guía para finalizar</h4>
+                            <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
+                                <div class="divInputText">
+                                    <input type="text" id="buscar" value="A1357">
+                                    <label for="buscar">NÚMERO GUÍA</label>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-lg-offset-1-5 col-lg-1-5 col-md-offset-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">
-                             
-                                <button class="btn btnOnlineGreen" type="button">Aceptar</button>
-                            
+                        <div class="col-lg-offset-1-4 col-lg-1-4 col-md-offset-1-4 col-md-1-4 col-sm-offset-1-4 col-sm-1-4 col-xs-1-1">                             
+                                <button class="btn btnOnlineGreen" type="button">Finalizar</button>
                         </div>
-                        <div class="col-lg-offset-1-5 col-lg-1-5 col-md-offset-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">
-                             
-                                <button class="btn btnBrandRed" type="button">Cancelar</button>
-                            
-                        </div>
+                        
                         <br style="clear: both;" />
                     </div>
 

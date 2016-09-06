@@ -153,15 +153,7 @@
                         </div>
 
                         <div class="col-lg-offset-1-5 col-lg-1-5 col-md-offset-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">
-			                 
-					            <button class="btn btnOnlineGreen" type="button">Aceptar</button>
-					        
-		            	</div>
-		            	<div class="col-lg-offset-1-5 col-lg-1-5 col-md-offset-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">
-			                 
-					            <button class="btn btnBrandRed" type="button">Cancelar</button>
-					        
-		            	</div>
+                    
                         <br style="clear: both;" />
                     </div>
 
