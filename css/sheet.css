@@ -1383,11 +1383,25 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/error24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.groupYellow {
+    background-image: url('../img/glyph/group24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.groupGray   {
+    background-image: url('../img/glyph/group24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .moneyYellow {
     background-image: url('../img/glyph/money24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .moneyGray   {
     background-image: url('../img/glyph/money24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.keyWordYellow {
+    background-image: url('../img/glyph/keyWord24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.keyWordGray   {
+    background-image: url('../img/glyph/keyWord24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .packageYellow {

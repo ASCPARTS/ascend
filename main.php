@@ -38,7 +38,7 @@
 <script>
 
 
-handleTab(4, "formulario", 'modules/test/form.php')
+
 
 
 </script>
