@@ -68,19 +68,19 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>Numero de orden de compra</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>numero de factura</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText barCodeYellow">
                         <input type="text">
                         <label>numero guia</label>
                     </div>

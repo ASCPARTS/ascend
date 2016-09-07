@@ -114,12 +114,12 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect creditcarYellow">
+                    <div class="divSelect creditCardYellow">
                         <select>
                             <option>Contado</option>
                             <option>Credito</option>
                         </select>
-                        <label>Condicion de Pago</label>
+                        <label>Metodo de Pago</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
@@ -171,9 +171,9 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divInputText creditcarYellow">
+                    <div class="divInputText creditCardYellow">
                         <input type="text">
-                        <label>metodo de pago</label>
+                        <label>condicion de pago</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
@@ -257,43 +257,43 @@
 
             </div>
             <div class="row">
-                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText moneyYellow">
-                        <input type="text">
+                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-2-4 col-lg-offset-2-4">
+                    <div class="divInfo">
+                        <span type="text"></span>
                         <label>Sub-total</label>
                     </div>
                 </div>
-                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText discountGray">
-                        <input type="text">
+                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 ">
+                    <div class="divInfo">
+                        <span type="text"></span>
                         <label>total descuento</label>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText moneyYellow">
-                        <input type="text">
+                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-2-4 col-lg-offset-2-4">
+                    <div class="divInfo">
+                        <span type="text"></span>
                         <label>Sub-total</label>
                     </div>
                 </div>
-                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText taxYellow">
-                        <input type="text">
+                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 ">
+                    <div class="divInfo">
+                        <span type="text"></span>
                         <label>total impuestos</label>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText taxYellow">
-                        <input type="text">
+                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-2-4 col-lg-offset-2-4">
+                    <div class="divInfo">
+                        <span type="text"></span>
                         <label>total retencion</label>
                     </div>
                 </div>
-                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText divYellow moneyGray">
-                        <input type="text">
+                <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 ">
+                    <div class="divInfo">
+                        <span type="text"></span>
                         <label>gran total</label>
                     </div>
                 </div>
