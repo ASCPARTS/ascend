@@ -9,7 +9,7 @@
 <div class="MainContainer">
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText searchGray">
                 <input type="text">
                 <label>Buscar</label>
             </div>
@@ -84,19 +84,19 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>Clave de pago</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText referenceYellow">
                         <input type="text">
                         <label>servicio</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-                    <div class="divInputDate">
+                    <div class="divInputDate  calendarYellow">
                         <input type="date">
                         <label>dia de pago</label>
                     </div>
@@ -104,13 +104,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>cantidad a pagar</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-                    <div class="divSelect">
+                    <div class="divSelect storeYellow">
                         <select>
                             <option>ASC Chile</option>
                             <option>ASC Cd.Mexico</option>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-                    <div class="divSelect">
+                    <div class="divSelect billYellow">
                         <select>
                             <option>Fijo</option>
                             <option>Variable</option>
@@ -147,19 +147,19 @@
             <div class="SubTitle">Datos del Servicio</div>
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>Saldo</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText storeYellow">
                         <input type="text">
                         <label>Banco</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText creditCardYellow">
                         <input type="text">
                         <label>Cuenta Bancaria</label>
                     </div>
@@ -169,19 +169,19 @@
             <div class="SubTitle">Datos de Pago ASC</div>
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText storeYellow">
                         <input type="text">
                         <label>Banco</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText creditCardYellow">
                         <input type="text">
                         <label>Cuenta</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText calculatorYellow">
                         <input type="text">
                         <label>Cantidad</label>
                     </div>

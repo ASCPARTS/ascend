@@ -9,7 +9,7 @@
     <div class="SubTitle"></div>
         <div class="row">
             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect">
+                <div class="divSelect storeYellow">
                     <select id="select1">
                         <option>GUADALAJARA</option>
                         <option>MONTERREY</option>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect">
+                <div class="divSelect storeYellow">
                     <select id="select1">
                         <option>LEÓN</option>
                         <option>GUADALAJARA</option>
@@ -138,7 +138,7 @@
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText searchGray">
                                     <input type="text" id="buscar" value="A1357">
                                     <label for="buscar">BUSCAR</label>
                                 </div>
@@ -229,9 +229,9 @@
                     <div class="MainTitle">Finalización</div>
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row text-center">
-                            <h3>Ingrese el número de guía para finalizar</h4>
+                            <h3>Ingrese el número de guía para finalizar</h3>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="buscar" value="A1357">
                                     <label for="buscar">NÚMERO GUÍA</label>
                                 </div>

@@ -7,6 +7,14 @@
 <body>
 <div class="MainTitle">Notas de Credito</div>
 <div class="MainContainer">
+    <div class="row">
+        <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
+            <div class="divInputText searchGray">
+                <input type="text" id="x">
+                <label for="x">Buscar </label>
+            </div>
+        </div>
+        </div>
     <div class="ButtonContainer">
                 <input type="button" value="Nueva" class="btn btnOnlineGreen" onclick="getModal('nueva','cerrar')">
     </div>
@@ -80,13 +88,13 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
-                    <div class="divInputText">
+                    <div class="divInputText providerYellow">
                         <input type="text" >
                         <label>Proveedor</label>
                     </div>
                 </div>
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
-                    <div class="divSelect">
+                    <div class="divSelect coinYellow">
                         <select>
                             <option>Dolares</option>
                             <option>Pesos</option>
@@ -97,7 +105,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
-                    <div class="divSelect">
+                    <div class="divSelect referenceYellow">
                         <select>
                             <option>concepto 1</option>
                             <option>concepto 2</option>
@@ -107,7 +115,7 @@
                     </div>
                 </div>
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-1">
-                    <div class="divInputText">
+                    <div class="divInputText referenceYellow">
                         <input type="text" >
                         <label>Detalle de concepto</label>
                     </div>
@@ -123,7 +131,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-lg-offset-3-4 col-md-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Sub-total</label>
                     </div>
@@ -131,7 +139,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-lg-offset-3-4 col-md-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText taxYellow">
                         <input type="text">
                         <label>iva</label>
                     </div>
@@ -139,7 +147,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-lg-offset-3-4 col-md-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Saldo a favor</label>
                     </div>
