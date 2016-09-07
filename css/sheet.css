@@ -1257,6 +1257,13 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/app24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.atYellow {
+    background-image: url('../img/glyph/at24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.atGray   {
+    background-image: url('../img/glyph/at24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .attachmentYellow {
     background-image: url('../img/glyph/attachment24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
@@ -1320,6 +1327,20 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/check24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.clabeYellow {
+    background-image: url('../img/glyph/clabe24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.clabeGray   {
+    background-image: url('../img/glyph/clabe24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.classYellow {
+    background-image: url('../img/glyph/class24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.classGray   {
+    background-image: url('../img/glyph/class24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .clockYellow {
     background-image: url('../img/glyph/clock24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
@@ -1346,6 +1367,13 @@ table > tbody > tr.yellow:hover > th {
 }
 .creditCardGray   {
     background-image: url('../img/glyph/creditCard24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.customsYellow {
+    background-image: url('../img/glyph/customs24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.customsGray   {
+    background-image: url('../img/glyph/customs24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .deleteYellow {
@@ -1376,6 +1404,13 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/edit24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.emailYellow {
+    background-image: url('../img/glyph/email24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.emailGray   {
+    background-image: url('../img/glyph/email24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .errorYellow {
     background-image: url('../img/glyph/error24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
@@ -1390,13 +1425,6 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/group24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
-.moneyYellow {
-    background-image: url('../img/glyph/money24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
-}
-.moneyGray   {
-    background-image: url('../img/glyph/money24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
-}
-
 .keyWordYellow {
     background-image: url('../img/glyph/keyWord24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
@@ -1404,11 +1432,32 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/keyWord24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.moneyYellow {
+    background-image: url('../img/glyph/money24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.moneyGray   {
+    background-image: url('../img/glyph/money24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.numberYellow {
+    background-image: url('../img/glyph/number24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.numberWordGray   {
+    background-image: url('../img/glyph/number24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .packageYellow {
     background-image: url('../img/glyph/package24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .packageGray   {
     background-image: url('../img/glyph/package24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.phoneYellow {
+    background-image: url('../img/glyph/phone24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.phoneGray   {
+    background-image: url('../img/glyph/phone24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .priceYellow {
@@ -1432,8 +1481,15 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/reference24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.reductionYellow {
+    background-image: url('../img/glyph/reference24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.reductionGray   {
+    background-image: url('../img/glyph/reduction24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .searchYellow {
-    background-image: url('../img/glyph/search24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+    background-image: url('../img/glyph/reduction24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .searchGray   {
     background-image: url('../img/glyph/search24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
@@ -1460,11 +1516,32 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/store24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.streetYellow {
+    background-image: url('../img/glyph/street24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.streetGray   {
+    background-image: url('../img/glyph/street24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.switchYellow {
+    background-image: url('../img/glyph/switch24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.switchGray   {
+    background-image: url('../img/glyph/switch24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .taxYellow {
     background-image: url('../img/glyph/tax24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .taxGray   {
     background-image: url('../img/glyph/tax24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.timeYellow {
+    background-image: url('../img/glyph/time24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.timeGray   {
+    background-image: url('../img/glyph/time24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .typeYellow {
