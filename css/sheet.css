@@ -1179,6 +1179,13 @@ table > tbody > tr.yellow:hover > th {
 /* -- GLYPHS */
 
 
+.actionYellow {
+    background-image: url('../img/glyph/action24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.actionGray   {
+    background-image: url('../img/glyph/action24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .addYellow {
     background-image: url('../img/glyph/add24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
@@ -1207,11 +1214,32 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/attachment24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.bankYellow {
+    background-image: url('../img/glyph/bank24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.bankGray   {
+    background-image: url('../img/glyph/bank24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .barCodeYellow {
     background-image: url('../img/glyph/barCode24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .barCodeGray   {
     background-image: url('../img/glyph/barCode24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.billYellow {
+    background-image: url('../img/glyph/bill24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.billGray   {
+    background-image: url('../img/glyph/bill24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.boxYellow {
+    background-image: url('../img/glyph/box24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.boxGray   {
+    background-image: url('../img/glyph/box24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .businessCardYellow {
@@ -1226,6 +1254,13 @@ table > tbody > tr.yellow:hover > th {
 }
 .calendarGray   {
     background-image: url('../img/glyph/calendar24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.calculatorYellow {
+    background-image: url('../img/glyph/calculator24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.calculatorGray   {
+    background-image: url('../img/glyph/calculator24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .checkYellow {
@@ -1256,17 +1291,32 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/cost24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.creditCardYellow {
+    background-image: url('../img/glyph/creditCard24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.creditCardGray   {
+    background-image: url('../img/glyph/creditCard24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .deleteYellow {
     background-image: url('../img/glyph/delete24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .deleteGray   {
     background-image: url('../img/glyph/delete24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
+
 .directionYellow {
     background-image: url('../img/glyph/direction24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .directionGray   {
     background-image: url('../img/glyph/direction24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.discountYellow {
+    background-image: url('../img/glyph/discount24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.discountGray   {
+    background-image: url('../img/glyph/discount24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .editYellow {
@@ -1290,6 +1340,13 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/money24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.packageYellow {
+    background-image: url('../img/glyph/package24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.packageGray   {
+    background-image: url('../img/glyph/package24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .priceYellow {
     background-image: url('../img/glyph/price24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
@@ -1311,11 +1368,39 @@ table > tbody > tr.yellow:hover > th {
     background-image: url('../img/glyph/search24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
+.shipmentYellow {
+    background-image: url('../img/glyph/shipment24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.shipmentGray   {
+    background-image: url('../img/glyph/shipment24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
 .shopYellow {
     background-image: url('../img/glyph/shop24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 .shopGray   {
     background-image: url('../img/glyph/shop24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.storeYellow {
+    background-image: url('../img/glyph/store24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.storeGray   {
+    background-image: url('../img/glyph/store24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.taxYellow {
+    background-image: url('../img/glyph/tax24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.taxGray   {
+    background-image: url('../img/glyph/tax24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.typeYellow {
+    background-image: url('../img/glyph/type24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.typeGray   {
+    background-image: url('../img/glyph/type24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .userYellow {
