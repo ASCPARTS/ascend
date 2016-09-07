@@ -327,7 +327,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText clockYellow">
+                                <div class="divInputText timeYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">Honorarios</label>
                                 </div>

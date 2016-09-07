@@ -155,7 +155,7 @@
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect providerYellow">
                                     <select id="idProveedor">
                                         <option>BAMTOP</option>
                                         <option>Hongkong XH Co., Limited</option>
@@ -172,26 +172,26 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText numberYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">P.O. NUMERO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">Número Factura</label>
                                 </div>
                             </div>
                         
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText coinYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">USD$</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect companyYellow">
                                     <select id="idProveedor">
                                         <option>CONWAY</option>
                                         <option>UPS</option>
@@ -208,26 +208,26 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">GUÍA</label>
                                 </div>
                             </div>
                         
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText weightYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">NÚMERO DE BULTOS</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">RECEPCION DE DOCUMENTOS</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect directionYellow">
                                     <select id="idProveedor">
                                         <option>DESPACHO</option>
                                         <option>RETORNO</option>
@@ -238,50 +238,50 @@
                             </div>
                         
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">FECHA LLEGO A A.A.</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
                                 <div class="divSelect">
-                                    <select id="idProveedor">
+                                    <select id="idProveedor shipmentYellow">
                                         <option>BRENNAN</option>
                                         <option>UPS</option>
                                         <option>CODEX</option>
                                         <option>HDL</option>
                                         <option>AMERICA</option>
                                     </select>
-                                    <label for="idProveedor">ESTADO</label>
+                                    <label for="idProveedor">MEDIO DE EMBARQUE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">FECHA CRUCE ADUANA</label>
                                 </div>
                             </div>
                         
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">DIAS DE TRÁNSITO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate flagYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">META</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate porcentYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">PORCENTAJE FLETE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate flagYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">META</label>
                                 </div>
@@ -337,13 +337,13 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText ">
+                                <div class="divInputText numberYellow">
                                     <input type="text" id="text1" value="9462">
-                                    <label for="text1">P.O. NúMERO</label>
+                                    <label for="text1">P.O. NÚMERO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text1" value="BTJ2015012901">
                                     <label for="text1">Número Factura</label>
                                 </div>
@@ -351,13 +351,13 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText coinYellow">
                                     <input type="text" id="text1" value="1289.97">
                                     <label for="text1">USD$</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect companyYellow">
                                     <select id="idProveedor">
                                         <option>CONWAY</option>
                                         <option>UPS</option>
@@ -374,7 +374,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text1" value="3836581011">
                                     <label for="text1">GUÍA</label>
                                 </div>
@@ -382,19 +382,19 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText weightYellow">
                                     <input type="text" id="text1" value="1">
                                     <label for="text1">NÚMERO DE BULTOS</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1" value="2015-02-04">
                                     <label for="text1">RECEPCION DE DOCUMENTOS</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect directionYellow">
                                     <select id="idProveedor">
                                         <option>DESPACHO</option>
                                         <option>RETORNO</option>
@@ -406,13 +406,13 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1" value="2015-01-08">
                                     <label for="text1">FECHA LLEGO A A.A.</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect shipmentYellow">
                                     <select id="idProveedor">
                                         <option>BRENNAN</option>
                                         <option>UPS</option>
@@ -420,11 +420,11 @@
                                         <option>HDL</option>
                                         <option>AMERICA</option>
                                     </select>
-                                    <label for="idProveedor">ESTADO</label>
+                                    <label for="idProveedor">MEDIO DE EMBARQUE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1" value="2015-02-11">
                                     <label for="text1">FECHA CRUCE ADUANA</label>
                                 </div>
@@ -432,25 +432,25 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText calendarYellow">
                                     <input type="text" id="text1" value="5">
                                     <label for="text1">DIAS DE TRÁNSITO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText flagYellow">
                                     <input type="text" id="text1" value="8">
                                     <label for="text1">META</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText porcentYellow">
                                     <input type="text" id="text1" value="8%">
                                     <label for="text1">PORCENTAJE FLETE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText flagYellow">
                                     <input type="text" id="text1" value="10%">
                                     <label for="text1">META</label>
                                 </div>
