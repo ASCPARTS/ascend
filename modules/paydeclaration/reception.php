@@ -320,7 +320,7 @@
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect providerYellow">
                                     <select id="idProveedor">
                                         <option>BAMTOP</option>
                                         <option>Hongkong XH Co., Limited</option>
@@ -337,9 +337,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText ">
                                     <input type="text" id="text1" value="9462">
-                                    <label for="text1">P.O. NUMERO</label>
+                                    <label for="text1">P.O. NúMERO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">

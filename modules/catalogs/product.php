@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect classYellow">
                                     <select id="select1">
                                         <option>A</option>
                                         <option>B</option>
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect typeYellow">
                                     <select id="select1">
                                         <option>ORIGINAL</option>
                                         <option>GENERICO</option>
@@ -202,25 +202,25 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText costYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">COSTO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText costYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">PRECIO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText discountYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">IVA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>DOLAR</option>
                                         <option>EURO</option>
@@ -230,7 +230,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>DOLAR</option>
                                         <option>EURO</option>
@@ -270,19 +270,19 @@
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                         	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text1" value="6543645">
                                     <label for="text1">SKU</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text2" value="A1357">
                                     <label for="text2">NÚMERO DE PARTE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect groupYellow">
                                     <select id="select1">
                                         <option>MOVILES</option>
                                         <option>IMPRESORAS</option>
@@ -292,7 +292,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect groupYellow">
                                     <select id="select1">
                                         <option>HP</option>
                                         <option selected>APPLE</option>
@@ -302,7 +302,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect groupYellow">
                                     <select id="select1">
                                         <option>DISPLAY</option>
                                         <option>POWER SUPPLY</option>
@@ -312,7 +312,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect switchYellow">
                                     <select id="select1">
                                         <option>ACTIVO</option>
                                         <option>DESACTIVO</option>
@@ -321,7 +321,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect classYellow">
                                     <select id="select1">
                                         <option>A</option>
                                         <option>B</option>
@@ -331,7 +331,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect typeYellow">
                                     <select id="select1">
                                         <option>ORIGINAL</option>
                                         <option>GENERICO</option>
@@ -341,25 +341,25 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText costYellow">
                                     <input type="text" id="text1" value="3.40">
                                     <label for="text1">COSTO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText costYellow">
                                     <input type="text" id="text1" value="9.20">
                                     <label for="text1">PRECIO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText discountYellow">
                                     <input type="text" id="text1" value="1.47">
                                     <label for="text1">IVA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>DOLAR</option>
                                         <option>EURO</option>
@@ -369,7 +369,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>DOLAR</option>
                                         <option>EURO</option>
