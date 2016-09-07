@@ -4,39 +4,38 @@
     <?php require_once("../../inc/sheet.inc");?>
 </head>
 <body>
-    <div class="MainTitle">Cámaras</div>
-    <div class="MainContainer" style="text-align: center;">
-        <input id="btn3001" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Recepción" onclick="loadCam(3001);">
-        <input id="btn3002" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, TI-Marketing" onclick="loadCam(3002);">
-        <input id="btn3003" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Administración" onclick="loadCam(3003);">
-        <input id="btn3004" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Ventas 1" onclick="loadCam(3004);">
-        <input id="btn3005" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Ventas 2" onclick="loadCam(3005);">
-        <input id="btn3006" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Ventas 3" onclick="loadCam(3006);">
-        <input id="btn3007" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Compras" onclick="loadCam(3007);">
-        <input id="btn3008" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Rampa" onclick="loadCam(3008);">
-        <input id="btn3009" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Almacén 1" onclick="loadCam(3009);">
-        <input id="btn3010" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Pino, Almacén 2" onclick="loadCam(3010);">
-        <input id="btn3011" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Fresno, Recepción" onclick="loadCam(3011);">
-        <input id="btn3012" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Fresno, Soporte" onclick="loadCam(3012);">
-        <input id="btn3013" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Fresno, Calidad" onclick="loadCam(3013);">
-        <input id="btn3014" type="button" class="buttonBrandBlue" style="width: 220px;" value="Guadalajara, Fresno, Almacén" onclick="loadCam(3014);">
-        <input id="btn3015" type="button" class="buttonBrandBlue" style="width: 220px;" value="Monterrey, Recepcion" onclick="loadCam(3015);">
-        <input id="btn3016" type="button" class="buttonBrandBlue" style="width: 220px;" value="Monterrey, Recepcion 2" onclick="loadCam(3016);">
-        <input id="btn3017" type="button" class="buttonBrandBlue" style="width: 220px;" value="Monterrey, Almacen" onclick="loadCam(3017);">
-        <input id="btn3018" type="button" class="buttonBrandBlue" style="width: 220px;" value="México, Ejecutivos" onclick="loadCam(3018);">
-        <input id="btn3019" type="button" class="buttonBrandBlue" style="width: 220px;" value="México, Asesores" onclick="loadCam(3019);">
-        <input id="btn3020" type="button" class="buttonBrandBlue" style="width: 220px;" value="México, Almacén" onclick="loadCam(3020);">
-        <input id="btn3021" type="button" class="buttonBrandBlue" style="width: 220px;" value="Colombia, Recepcion" onclick="loadCam(3021);">
-        <input id="btn3022" type="button" class="buttonBrandBlue" style="width: 220px;" value="Colombia, Administracion" onclick="loadCam(3022);">
-        <input id="btn3023" type="button" class="buttonBrandBlue" style="width: 220px;" value="Colombia, Almacén" onclick="loadCam(3023);">
+<div class="MainTitle">Cámaras</div>
+<div class="MainContainer" style="text-align: center; height: calc(100vh - 62px); display: block;">
+    <input id="btn3001" type="button" class="btn btnBrandBlue" value="1 x 1" onclick="loadDivision(1);">
+    <input id="btn3001" type="button" class="btn btnBrandBlue" value="2 x 2" onclick="loadDivision(2);">
+    <input id="btn3001" type="button" class="btn btnBrandBlue" value="3 x 3" onclick="loadDivision(3);">
+    <div style="width: 100%; height: 1px; background-color: #F1F1F1; margin: 6px; "></div>
+    <div style="width: 100%; height: calc(100vh - 108px);">
+        <table id="tblCams" style="width: 100%; height: 100%; border-spacing: 0; border-collapse: collapse; margin: 0 0 0 0; padding: 0 0 0 0;">
+        </table>
     </div>
-    <iframe id="frmCam" src="empty.php" style="width: 100%; border: 0; height: 600px; background-color: #FF2828"></iframe>
-    <script>
-        function loadCam($intCam){
-            if($intCurrent!=$intCam) {
-                $('#frmCam').attr('src', 'http://201.163.99.82:' + $intCam);
+</div>
+<script>
+    function loadDivision($intOption){
+
+        //http://201.163.99.82:3001/axis-cgi/mjpg/video.cgi?resolution=320x240
+
+        $strTrToAppend = '';
+        $('#tblCams').fadeOut('fast',function(){
+            $('#tblCams tr').remove();
+            for($intTr=1;$intTr<=$intOption;$intTr++){
+                $strTrToAppend += '<tr>';
+                for($intTd=1;$intTd<=$intOption;$intTd++) {
+                    $strTrToAppend += '<td style="border:1px #050409 solid; width: calc(100% / ' + $intOption + '); height: calc(100% / ' + $intOption + ');">';
+                    $strTrToAppend += '<iframe frameborder="no" scrolling="no" style="border: 0; width: 100%; height: 100%; margin: 0 0 0 0; padding: 0 0 0 0"></iframe>';
+                    $strTrToAppend += '</td>';
+                }
+                $strTrToAppend += '</tr>';
             }
-        }
-    </script>
+            $('#tblCams').append($strTrToAppend);
+            $('#tblCams').fadeIn('fast');
+        });
+    }
+</script>
 </body>
 </html>
