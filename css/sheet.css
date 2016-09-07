@@ -1409,3 +1409,10 @@ table > tbody > tr.yellow:hover > th {
 .userGray   {
     background-image: url('../img/glyph/user24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
+
+.weightYellow {
+    background-image: url('../img/glyph/weight24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.weightGray   {
+    background-image: url('../img/glyph/weight24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
