@@ -117,14 +117,14 @@
     </div>
     <div class="row">
         <div class="col-lg-offset-1-2 col-md-offset-1-2 col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText moneyYellow">
-                <input id="x" type="text">
+            <div class="divInfo">
+                <span id="x" type="text"></span>
                 <label for="x">importe</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText taxYellow">
-                <input id="x" type="text">
+            <div class="divInfo">
+                <span id="x" type="text"></span>
                 <label for="x">impuestos</label>
             </div>
         </div>
@@ -132,14 +132,14 @@
     </div>
     <div class="row">
         <div class="col-lg-offset-1-2 col-md-offset-1-2 col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText taxYellow">
-                <input id="x" type="text">
+            <div class="divInfo">
+                <span id="x" type="text"></span>
                 <label for="x">%impuestos</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText moneyYellow">
-                <input id="x" type="text">
+            <div class="divInfo">
+                <span id="x" type="text"></span>
                 <label for="x">total</label>
             </div>
         </div>

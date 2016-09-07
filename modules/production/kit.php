@@ -9,7 +9,7 @@
 <div class="MainContainer">
     <div class="row">
         <div class="col-md-1-4 col-lg-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText searchGray">
                 <input type="text">
                 <label>buscar</label>
             </div>
@@ -48,13 +48,13 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText referenceYellow">
                         <input type="text">
                         <label>nombre del kit</label>
                     </div>
                 </div>
                 <div class="col-lg-1-2 col-md-1-2 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText calculatorYellow">
                         <input type="text">
                         <label>numero de elementos</label>
                     </div>

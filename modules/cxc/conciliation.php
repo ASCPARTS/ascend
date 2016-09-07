@@ -9,19 +9,19 @@
 <div class="MainContainer">
     <div class="row">
         <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-            <div class="divInputDate">
+            <div class="divInputDate calendarGray">
                 <input type="date">
                 <label>Fecha Inicio</label>
             </div>
         </div>
         <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-            <div class="divInputDate">
+            <div class="divInputDate calendarGray">
                 <input type="date">
                 <label>Fecha Fin</label>
             </div>
         </div>
         <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-            <div class="divSelect">
+            <div class="divSelect storeGray">
                 <select>
                     <option>Banamex USD</option>
                     <option>Banamex Pesos</option>

@@ -9,7 +9,7 @@
 <div class="MainContainer">
 <div class="row">
     <div class="col-lg-1-4 col-md-1-4 col-sm-1-2">
-        <div class="divInputText">
+        <div class="divInputText searchGray">
             <input type="text">
             <label>Buscar</label>
         </div>
@@ -83,25 +83,25 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText userYellow">
                         <input type="text">
                         <label>Número de Cliente</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>Número de Factura</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputDate">
+                    <div class="divInputDate calendarYellow">
                         <input type="date">
                         <label>Fecha Vencimiento</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Total Factura</label>
                     </div>
@@ -122,19 +122,19 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Saldo</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>Abono</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputDate">
+                    <div class="divInputDate calendarYellow">
                         <input type="date">
                         <label>Fecha</label>
                     </div>
@@ -143,19 +143,19 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText referenceYellow">
                         <input type="text">
                         <label>Tipo de Comprobante</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText referenceYellow">
                         <input type="text">
                         <label>Folio comprobante</label>
                     </div>
                 </div>
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-2">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Nuevo Saldo</label>
                     </div>

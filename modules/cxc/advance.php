@@ -7,6 +7,15 @@
 <div class="MainTitle">Anticipos</div>
 <div class="MainContainer">
     <div class="row">
+        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2">
+            <div class="divInputText searchGray">
+                <input type="text">
+                <label>Buscar</label>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
         <div class="ButtonContainer">
             <input type="button" class="btn btnOnlineGreen" value="Nuevo" onclick="getModal('nuevo','cerrar')">
         </div>
@@ -90,25 +99,25 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText userYellow">
                         <input type="text">
                         <label>Número de Cliente</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>Número de deposito</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>Monto</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputDate">
+                    <div class="divInputDate calendarYellow">
                         <input type="date">
                         <label>fecha de deposito</label>
                     </div>
@@ -117,19 +126,19 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>cantidad</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText creditCardYellow">
                         <input type="text">
                         <label>Banco</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3 ">
-                    <div class="divSelect">
+                    <div class="divSelect referenceYellow">
                         <select>
                             <option>Saldo</option>
                             <option>Factura</option>
@@ -138,7 +147,7 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-                    <div class="divInputText">
+                    <div class="divInputText billGray">
                         <input type="text">
                         <label>Numero de Factura</label>
                     </div>

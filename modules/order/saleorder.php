@@ -116,28 +116,28 @@
         <div class="col-lg-offset-1-2 col-md-offset-1-2 col-lg-1-4 col-md-1-4 col-sm-1-3">
             <div class="divInputText discountGray">
                 <input id="x" type="text">
-                <label for="x">Descuento</label>
+                <label>Descuento</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText moneyYellow">
-                <input id="x" type="text">
-                <label for="x">Sub-total</label>
+            <div class="divInfo">
+                <span id="x" type="text"></span>
+                <label>sub-total</label>
             </div>
         </div>
 
     </div>
     <div class="row">
         <div class="col-lg-offset-2-4 col-md-offset-2-4 col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText taxYellow">
-                <input id="x" type="text">
-                <label for="x">iva</label>
+            <div class="divInfo">
+                <span id="x" type="text"></span>
+                <label>iva</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText divYellow moneyGray">
-                <input id="x" type="text">
-                <label for="x">gran total</label>
+            <div class="divInfo">
+                <span id="x" type="text"></span>
+                <label>gran total</label>
             </div>
         </div>
 

@@ -88,7 +88,7 @@
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divSelect ">
+            <div class="divSelect groupYellow ">
                 <select id="cbo1">
                     <option>	MOBILES             	</option>
                     <option>	PROJECTORS          	</option>
@@ -104,7 +104,7 @@
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divSelect">
+            <div class="divSelect groupYellow">
                 <select id="cbo1">
                     <option>	CONCEPTRONIC	</option>
                     <option>	STP	</option>
@@ -139,7 +139,7 @@
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divSelect">
+            <div class="divSelect groupYellow">
                 <select id="cbo1">
                     <option>	HDD INT             	</option>
                     <option>	COMPUTER BAGS       	</option>
@@ -176,7 +176,7 @@
                     <option>	KEYBOARDS           	</option>
 
                 </select>
-                <label for="cbo1">modelo</label>
+                <label for="cbo1">grupo</label>
             </div>
         </div>
     </div>

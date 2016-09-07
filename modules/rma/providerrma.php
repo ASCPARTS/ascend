@@ -105,25 +105,25 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText providerYellow">
                         <input type="text">
                         <label>Numero de proveedor</label>
                     </div>
                 </div>
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>Numero de Factura</label>
                     </div>
                 </div>
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText calculatorYellow">
                         <input type="text">
                         <label>Partida</label>
                     </div>
                 </div>
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText calendarYellow">
                         <input type="text">
                         <label>cantidad</label>
                     </div>
@@ -131,25 +131,25 @@
             </div>
             <div class="row">
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText barCodeYellow">
                         <input type="text">
                         <label>Numero de Parte</label>
                     </div>
                 </div>
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText referenceYellow">
                         <input type="text">
                         <label>descripcion</label>
                     </div>
                 </div>
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText costYellow">
                         <input type="text">
                         <label>costo</label>
                     </div>
                 </div>
                 <div class="col-md-1-4 col-lg-1-4 col-sm-1-4">
-                    <div class="divInputDate">
+                    <div class="divInputDate calendarYellow">
                         <input type="date">
                         <label>fecha</label>
                     </div>
