@@ -1,9 +1,16 @@
 <div class="divTopMenuLogo"></div>
 <div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuMenu" onclick="openMenuMain();"></div>
-<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuKpi" title="Indicadores" onclick="handleTab('200','Indicadores','modules/kpi/');"></div>
-<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuCamera" title="Cámaras" onclick="handleTab('201','Cámaras','modules/cams/');"></div>
-<div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuHP" title="HP Parts Store" onclick="handleTab('202','HP Parts Store','http://partsurfer.hp.com/search.aspx');""></div>
-<div class="divTopMenu divTopMenuLeft imageTopMenu" title="Impact" onclick="handleTab('203','Impact','https://www.impactcomputers.com');" style="background-image: url('https://www.impactcomputers.com/image/data/logo.gif');"></div>
+<?php
+$strTopMenu = '';
+$strSql = "SELECT * FROM tblMenu WHERE intStatus = 1 AND strLocation = 'T' ORDER BY intOrder;";
+$rstTopMenu = $classAscend->dbQuery($strSql);
+foreach ($rstTopMenu as $arrTopMenu){
+    $strTopMenu .= '<div class="divTopMenu divTopMenuLeft imageTopMenu" style="background-image: url(\'' . $arrTopMenu['strIcon'] . '\');" title="' . $arrTopMenu['strName'] . '" onclick="handleTab(\'' . $arrTopMenu['intId'] . '\',\'' . $arrTopMenu['strName'] . '\',\'' . $arrTopMenu['strUrl'] . '\');"></div>' . "\r\n";
+}
+unset($arrTopMenu);
+unset($rstTopMenu);
+echo $strTopMenu;
+?>
 <div class="divTopMenuUser" style="background-image: url('img/luis_quintero.jpg')" onclick="openUserMenu();">Luis Quintero</div>
 <div id="divTopMenuUserMain">
     <table id="tableTopMenuUserMain">
@@ -13,17 +20,26 @@
         </tr>
         <tr>
             <td id="tdTopMenuUser" width="252" height="1">
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_search.png');" onclick="window.open('http://www.google.com','_blank'); closeUserMenu();">Google</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_mail.png');" onclick="window.open('http://mail.ascparts.com','_blank'); closeUserMenu();">Correo</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_drive.png');" onclick="window.open('http://drive.ascparts.com','_blank'); closeUserMenu();">Drive</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_calendar.png');" onclick="window.open('http://calendar.ascparts.com','_blank'); closeUserMenu();">Calendario</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_contacts.png');" onclick="window.open('http://contacts.google.com','_blank'); closeUserMenu();">Contactos</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_hangouts.png');" onclick="window.open('http://hangouts.google.com','_blank'); closeUserMenu();">Hangouts</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_sheets.png');" onclick="window.open('http://docs.google.com/spreadsheets/','_blank'); closeUserMenu();">Hójas de Cálculo</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_docs.png');" onclick="window.open('http://docs.google.com/document/','_blank'); closeUserMenu();">Documentos</div>
-                <div class="divTopMenuUserOption" style="background-image: url('img/google_slides.png');" onclick="window.open('http://docs.google.com/presentation/','_blank'); closeUserMenu();">Presentaciones</div>
+                <?php
+                $strUserMenu = '';
+                $strSql = "SELECT * FROM tblMenu WHERE intStatus = 1 AND strLocation = 'U' ORDER BY intOrder;";
+                $rstUserMenu = $classAscend->dbQuery($strSql);
+                foreach ($rstUserMenu as $arrUserMenu){
+                    //$strUserMenu .= '<div class="divTopMenu divTopMenuLeft imageTopMenu" style="background-image: url(\'' . $arrTopMenu['strIcon'] . '\');" title="' . $arrTopMenu['strName'] . '" onclick="handleTab(\'' . $arrTopMenu['intId'] . '\',\'' . $arrTopMenu['strName'] . '\',\'' . $arrTopMenu['strUrl'] . '\');"></div>' . "\r\n";
+                    $strUserMenu .= '<div class="divTopMenuUserOption" style="background-image: url(\'' . USER_MENU_ICON_PATH . $arrUserMenu['strIcon'] . '\');" onclick="';
+                    if($arrUserMenu['intEmbedded']==1){
+                        $strUserMenu .= 'handleTab(\'' . $arrUserMenu['intId'] . '\',\'' . $arrUserMenu['strName'] . '\',\'' . $arrUserMenu['strUrl'] . '\');';
+                    }else{
+                        $strUserMenu .= 'window.open(\'' . $arrUserMenu['strUrl'] . '\',\'_blank\'); closeUserMenu();';
+                    }
+                    $strUserMenu .= '">' . $arrUserMenu['strName'] . '</div>' . "\r\n";
+                }
+                unset($arrUserMenu);
+                unset($rstUserMenu);
+                echo $strUserMenu;
+                ?>
                 <br />
-                <div class="divTopMenuUserOption" style="background-image: url('img/logout.png');" onclick="window.location = 'index.php';">Cerrar Sesión</div>
+                <div class="divTopMenuUserOption" style="background-image: url('img/usermenu/logout.png');" onclick="window.location = 'index.php';">Cerrar Sesión</div>
             </td>
         </tr>
         <tr><td width="204" height="*" onclick="closeUserMenu();"></td></tr>

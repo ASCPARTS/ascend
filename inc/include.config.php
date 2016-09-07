@@ -16,6 +16,7 @@ mb_internal_encoding("UTF-8");
 if(!defined('CSS_PATH'))            define('CSS_PATH','css/');
 if(!defined('IMAGE_PATH'))          define('IMAGE_PATH','img/');
 if(!defined('MENU_ICON_PATH'))      define('MENU_ICON_PATH',IMAGE_PATH . 'menu/');
+if(!defined('USER_MENU_ICON_PATH')) define('USER_MENU_ICON_PATH',IMAGE_PATH . 'usermenu/');
 if(!defined('INCLUDE_PATH'))        define('INCLUDE_PATH','inc/');
 if(!defined('JS_PATH'))             define('JS_PATH','js/');
 if(!defined('LIB_PATH'))            define('LIB_PATH','lib/');

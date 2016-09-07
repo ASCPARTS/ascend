@@ -1,12 +1,12 @@
 <div id="divMenuMain">
 <?php
-$strSql = "SELECT * FROM tblMenu WHERE intParent = 0 AND intStatus = 1 ORDER BY intOrder;";
+$strSql = "SELECT * FROM tblMenu WHERE intParent = 0 AND intStatus = 1 AND strLocation = 'M' ORDER BY intOrder;";
 $rstLevel0 = $classAscend->dbQuery($strSql);
 $strDivs0 = '<div id="divMenuCategory_0" class="divMenuLevel0">'  . "\r\n" . '<div class="divMenuPadding divMenuLogo"></div>' . "\r\n";
 $strDivs1 = '';
 $strDivs2 = '';
 foreach ($rstLevel0 as $arrLevel0){
-    $strSql = "SELECT * FROM tblMenu WHERE intParent = " . $arrLevel0['intId'] . " AND intStatus = 1 ORDER BY intOrder;";
+    $strSql = "SELECT * FROM tblMenu WHERE intParent = " . $arrLevel0['intId'] . " AND intStatus = 1 AND strLocation = 'M' ORDER BY intOrder;";
     $rstLevel1 = $classAscend->dbQuery($strSql);
     if(count($rstLevel1)!=0){
         $strDivs0 .= '<div id="divMenuCategory_' . $arrLevel0['intId'] . '" onclick="openMenu(2,' . $arrLevel0['intId'] . ');" class="divMenuCategory"><div class="divMenuLabel"';
@@ -23,7 +23,7 @@ foreach ($rstLevel0 as $arrLevel0){
         $strDivs0 .= '>' . $arrLevel0['strName'] . '</div></div>' . "\r\n";
     }
     foreach ($rstLevel1 as $arrLevel1){
-        $strSql = "SELECT * FROM tblMenu WHERE intParent = " . $arrLevel1['intId'] . " AND intStatus = 1 ORDER BY intOrder;";
+        $strSql = "SELECT * FROM tblMenu WHERE intParent = " . $arrLevel1['intId'] . " AND intStatus = 1 AND strLocation = 'M' ORDER BY intOrder;";
         $rstLevel2 = $classAscend->dbQuery($strSql);
         if(count($rstLevel2)!=0){
             $strDivs1 .= '<div id="divMenuSubCategory_' . $arrLevel1['intId'] . '" onclick="openMenu(3,' . $arrLevel1['intId'] . ');" class="divMenuSubCategory"><div class="divMenuLabel"';
@@ -61,9 +61,7 @@ foreach ($rstLevel0 as $arrLevel0){
 unset($arrLevel0);
 $strDivs0 .= "</div>" . "\r\n";
 unset($rstLevel0);
-echo $strDivs0;
-echo $strDivs1;
-echo $strDivs2;
+echo $strDivs0 . $strDivs1 . $strDivs2;
 ?>
     <div id="divcleanmenu" class="divMenuClear" onclick="closeMenuMain();">
 </div>

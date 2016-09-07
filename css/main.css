@@ -249,18 +249,6 @@ html, body {
     background-image: url('../img/topmenu/menu.png');
 }
 
-.imageTopMenuKpi{
-    background-image: url('../img/topmenu/kpi.png');
-}
-
-.imageTopMenuCamera{
-    background-image: url('../img/topmenu/cameras.png');
-}
-
-.imageTopMenuHP{
-    background-image: url('../img/topmenu/hp.png');
-}
-
 /*### END: Top Menu ###*/
 
 /*### BEGIN: Tab and Workingsheet ###*/
