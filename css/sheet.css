@@ -642,6 +642,56 @@ html, body
     user-select: none;
 }
 
+/* input text */
+.divInfo {
+    background-color: #5c5c5c;
+    border: solid #5c5c5c 1px;
+    height: 35px;
+    text-align: left;
+    vertical-align: top;
+    color: #ffffff;
+    font-size: 0.8em;
+    align-items: flex-end;
+    text-transform: capitalize;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.divInfo span{
+    height: 20px;
+    background-color: #f1f1f1;
+    border: solid #FFFFFF 0px;
+    width: calc(100%);
+    text-indent: 10px;
+    color: #444444;
+    outline:  solid #ffffff 0px;
+    text-transform: uppercase;
+    font-size: 10pt;
+    display:inline-block;
+    padding: 2px 0px 0px 0px;
+
+    cursor: not-allowed;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+}
+
+.divInfo label
+{
+    display:inline-block;
+    text-transform: uppercase;
+    width: calc(100% - 10px);
+    cursor: text;
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    margin: 0;
+    background-color: #5c5c5c;
+    height: 13px;
+    padding: 0px 5px 0px 5px;
+    color: #FFFFFF;
+}
+
 
 
 
@@ -1359,6 +1409,13 @@ table > tbody > tr.yellow:hover > th {
 }
 .providerGray   {
     background-image: url('../img/glyph/provider24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+
+.referenceYellow {
+    background-image: url('../img/glyph/reference24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
+}
+.referenceGray   {
+    background-image: url('../img/glyph/reference24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;
 }
 
 .searchYellow {
