@@ -88,13 +88,13 @@
     </div>
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText credircar24Yellow">
+            <div class="divInputText creditCardYellow">
                 <input id="x" type="text">
                 <label for="x">Metodo de pago</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText referenceGray">
                 <input id="x" type="text">
                 <label for="x">concepto</label>
             </div>

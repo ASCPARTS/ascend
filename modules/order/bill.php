@@ -151,13 +151,13 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect storeYellow">
+                    <div class="divInputText storeYellow">
                         <input type="text">
                         <label>sucursal</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect coinYellow">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>moneda</label>
                     </div>
@@ -165,7 +165,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText referenceGray">
                         <input type="text">
                         <label>referencia</label>
                     </div>
@@ -177,13 +177,13 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect coinYellow">
+                    <div class="divInputText coinYellow">
                         <input type="text">
                         <label>tipo de cambio</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect weightYellow">
+                    <div class="divInputText weightYellow">
                         <input type="text">
                         <label>peso volumetrico</label>
                     </div>

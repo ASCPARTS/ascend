@@ -109,7 +109,7 @@
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText ">
+            <div class="divInputText referenceGray">
                 <input id="x" type="text">
                 <label for="x">terminos de envio</label>
             </div>

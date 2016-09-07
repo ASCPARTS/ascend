@@ -197,7 +197,7 @@
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText boxYellow">
+            <div class="divInputText storeYellow">
                 <input type="text" id="text1">
                 <label for="text1">no. almacen</label>
             </div>
