@@ -9,7 +9,7 @@
     <div class="SubTitle">REGISTRO DE GRUPOS</div>
         <div class="row">
         	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
+                <div class="divInputText searchGray">
                     <input type="text" id="buscar">
                     <label for="buscar">BUSCAR</label>
                 </div>
@@ -91,13 +91,13 @@
                         <div class="row">
                         	
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText keyWordYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText groupYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">NOMBRE</label>
                                 </div>
@@ -128,13 +128,13 @@
                         <div class="row">
                         	
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText keyWordYellow">
                                     <input type="text" id="text2" value="G01">
                                     <label for="text2">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText groupYellow">
                                     <input type="text" id="text2" value="BATERIAS">
                                     <label for="text2">NOMBRE</label>
                                 </div>

@@ -91,13 +91,13 @@
                         <div class="row">
                         	
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText keyWordYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText groupYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">NOMBRE</label>
                                 </div>
@@ -128,13 +128,13 @@
                         <div class="row">
                         	
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText keyWordYellow">
                                     <input type="text" id="text2" value="M01">
                                     <label for="text2">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText groupYellow">
                                     <input type="text" id="text2" value="DELL">
                                     <label for="text2">NOMBRE</label>
                                 </div>
