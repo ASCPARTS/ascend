@@ -283,19 +283,19 @@
                     <div class="SubTitle">Datos Personales</div>
                         <div class="row">
                         	<div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText ">
                                     <input type="text" id="text1">
                                     <label for="text1">RAZÓN SOCIAL</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText ">
                                     <input type="text" id="text2">
                                     <label for="text2">RAZÓN COMERCIAL</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText ">
                                     <input type="text" id="text1">
                                     <label for="text1">RFC</label>
                                 </div>
@@ -331,7 +331,7 @@
                                 </div>
                             </div>
 	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>MÉXICO</option>
 	                                    <option>USA</option>
@@ -344,7 +344,7 @@
 	                            </div>
 	                        </div>
 	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>AGUASCALIENTES</option>
 	                                    <option>JALISCO</option>
@@ -357,7 +357,7 @@
 	                            </div>
 		                    </div>
 		                    <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>TEUL</option>
 	                                    <option>PINOS</option>
@@ -370,7 +370,7 @@
 	                            </div>
 	                        </div>
 	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect streetYellow">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>ZAPOPAN</option>
 	                                    <option>GUADALAJARA</option>
@@ -400,7 +400,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect referenceYellow">
                                     <select id="select1">
                                         <option>A</option>
                                         <option>B</option>
@@ -502,7 +502,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText calendraYellow">
+                                <div class="divInputText calendarYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">DÍAS DE RECEPCIÓN MERCANCIA</label>
                                 </div>
