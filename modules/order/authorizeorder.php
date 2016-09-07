@@ -220,8 +220,8 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-1 col-md-offset-3-4 col-lg-offset-3-4">
-                   <div class="divInputText moneyYellow">
-                    <input type="text" value="$2, 893.90" >
+                   <div class="divInfo">
+                    <span type="text" value="" >$2, 893.90</span>
                     <label>Gran Total</label>
                        </div>
                 </div>
