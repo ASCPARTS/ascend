@@ -9,7 +9,7 @@
     <div class="SubTitle">REGISTRO DE BANCOS</div>
         <div class="row">
         	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
+                <div class="divInputText searchGray">
                     <input type="text" id="buscar">
                     <label for="buscar">BUSCAR</label>
                 </div>
@@ -28,7 +28,6 @@
                     	<tr>
                 	  		<th>ESTADO</th>
                 	  		<th>EDITAR</th>
-
 	                      	<th>CLAVE</th>
 	                      	<th>NOMBRE</th>
 	                      	<th>NÚMERO DE CUENTA</th>
@@ -99,31 +98,31 @@
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                         	<div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText keyWordYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText bankYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">NOMBRE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText creditCardYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">NÚMERO DE CUENTA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText clabeYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">CLABE INTERBANCARIA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>PESOS</option>
                                         <option>DOLARES</option>
@@ -132,7 +131,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText storeYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">SUCURSAL</label>
                                 </div>
@@ -163,31 +162,31 @@
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                         	<div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText keyWordYellow">
                                     <input type="text" id="text1" value="03">
                                     <label for="text1">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText bankYellow">
                                     <input type="text" id="text2" value="BANCOMER">
                                     <label for="text2">NOMBRE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText creditCardYellow">
                                     <input type="text" id="text2" value="67345737453">
                                     <label for="text2">NÚMERO DE CUENTA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText clabeYellow">
                                     <input type="text" id="text2" value="5367435754745745">
                                     <label for="text2">CLABE INTERBANCARIA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>PESOS</option>
                                         <option>DOLARES</option>
@@ -196,7 +195,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-3 col-md-1-3 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText storeYellow">
                                     <input type="text" id="text2" value="LOPEZ MATEO #27">
                                     <label for="text2">SUCURSAL</label>
                                 </div>

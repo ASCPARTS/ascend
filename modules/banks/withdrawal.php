@@ -9,7 +9,7 @@
     <div class="SubTitle">REGISTRO DE RETIROS</div>
         <div class="row">
         	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
+                <div class="divInputText searchGray">
                     <input type="text" id="buscar">
                     <label for="buscar">BUSCAR</label>
                 </div>
@@ -112,19 +112,19 @@
                         <div class="row">
                         	
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText barCodeYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">CLAVE</label>
                                 </div>
                             </div>
                             <div class="col-lg-offset-2-4 col-lg-1-4 col-md-offset-2-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputDate">
+                                <div class="divInputDate calendarYellow">
                                     <input type="date" id="text1">
                                     <label for="text1">FECHA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect creditCardYellow">
                                     <select id="idProveedor">
                                         <option>BANAMEX PESOS</option>
                                         <option>BANORTE DOLAR</option>
@@ -134,19 +134,19 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText userYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">BENEFICIARIO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText businessCardYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">REFERENCIA</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="idProveedor">
                                         <option>PESO</option>
                                         <option>DOLAR</option>
@@ -156,7 +156,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText moneyYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">IMPORTE</label>
                                 </div>

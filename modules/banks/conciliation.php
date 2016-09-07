@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
-            <div class="divSelect BankYellow">
+            <div class="divSelect bankYellow">
                 <select>
                     <option>Banamex USD</option>
                     <option>Banamex Pesos</option>

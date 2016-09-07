@@ -9,7 +9,7 @@
     <div class="SubTitle"></div>
         <div class="row">
         	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divSelect">
+                <div class="divSelect calendarYellow">
                     <select id="select1">
                         <option>ENERO</option>
                         <option>FEBRERO</option>
