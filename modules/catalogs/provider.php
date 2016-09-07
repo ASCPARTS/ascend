@@ -9,7 +9,7 @@
     <div class="SubTitle">Registro de proveedores</div>
         <div class="row">
         	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText">
+                <div class="divInputText searchGray">
                     <input type="text" id="buscar">
                     <label for="buscar">BUSCAR</label>
                 </div>
@@ -286,25 +286,25 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText directionYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">CALLE</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText numberYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">NÚMERO EXT</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText numberYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">NÚMERO INT</label>
                                 </div>
                             </div>
 							<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>MÉXICO</option>
 	                                    <option>USA</option>
@@ -317,7 +317,7 @@
 	                            </div>
 	                        </div>
 	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>AGUASCALIENTES</option>
 	                                    <option>JALISCO</option>
@@ -330,7 +330,7 @@
 	                            </div>
 		                    </div>
 		                    <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>TEUL</option>
 	                                    <option>PINOS</option>
@@ -343,7 +343,7 @@
 	                            </div>
 	                        </div>
 	                        <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-	                            <div class="divSelect">
+	                            <div class="divSelect worldYellow">
 	                                <select id="select1">
 	                                    <option>ZAPOPAN</option>
 	                                    <option>GUADALAJARA</option>
@@ -355,26 +355,26 @@
 	                            </div>
 		                    </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText phoneYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">TELÉFONO 1</label>
                                 </div>
                             </div>
 	                        
                            	<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText phoneYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">TELÉFONO 2</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText emailYellow">
                                     <input type="text" id="text1">
                                     <label for="text1">CORREO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect userYellow">
                                     <select id="select1">
                                         <option>MARIANA LOPEZ</option>
                                         <option>LORENA MARTINEZ</option>
@@ -384,7 +384,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect groupYellow">
                                     <select id="select1">
                                         <option>MOVILES</option>
                                         <option>IMPRESORAS</option>
@@ -394,7 +394,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect classYellow">
                                     <select id="select1">
                                         <option>A</option>
                                         <option>B</option>
@@ -404,7 +404,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect groupYellow">
                                     <select id="select1">
                                         <option>CABLES</option>
                                         <option>PLOTTERS</option>
@@ -419,7 +419,7 @@
 
                         <div class="row">
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect coinYellow">
                                     <select id="select1">
                                         <option>DOLAR</option>
                                         <option>EURO</option>
@@ -429,7 +429,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divSelect">
+                                <div class="divSelect referenceYellow">
                                     <select id="select1">
                                         <option>CONTADO</option>
                                         <option>CREDITO</option>
@@ -439,13 +439,13 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText calendarYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">DÍAS DE CREDITO</label>
                                 </div>
                             </div>
                             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                                <div class="divInputText">
+                                <div class="divInputText calendarYellow">
                                     <input type="text" id="text2">
                                     <label for="text2">DÍAS DE PRONTO PAGO</label>
                                 </div>
