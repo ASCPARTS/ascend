@@ -146,28 +146,28 @@
                 <div class="SubTitle">Cotizacion A</div>
                 <div class="row">
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText providerYellow">
                             <input type="text" id="text1">
                             <label for="text1" >Proveedor</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputDate">
+                        <div class="divInputDate calendarYellow">
                             <input type="date" id="text1">
                             <label for="text1">fecha</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText clockYellow">
                             <input type="text" id="text1">
                             <label for="text1">tiempo de entrega</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText costYellow">
                             <input type="text" id="text1">
                             <label for="text1">costo</label>
                         </div>
@@ -176,28 +176,28 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText providerYellow">
                             <input type="text" id="text1">
                             <label for="text1">Precio 1</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceGray">
                             <input type="text" id="text1">
                             <label for="text1">precio 2</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceGray">
                             <input type="text" id="text1">
                             <label for="text1">precio 3</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceYellow">
                             <input type="text" id="text1">
                             <label for="text1">precio</label>
                         </div>
@@ -207,28 +207,28 @@
                 <div class="SubTitle">Cotizacion B</div>
                 <div class="row">
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText providerYellow">
                             <input type="text" id="text1">
                             <label for="text1" >Proveedor</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputDate">
+                        <div class="divInputDate calendarYellow">
                             <input type="date" id="text1">
                             <label for="text1">fecha</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText clockYellow">
                             <input type="text" id="text1">
                             <label for="text1">tiempo de entrega</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText costYellow">
                             <input type="text" id="text1">
                             <label for="text1">costo</label>
                         </div>
@@ -237,28 +237,28 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceYellow">
                             <input type="text" id="text1">
                             <label for="text1">Precio 1</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceGray">
                             <input type="text" id="text1">
                             <label for="text1">precio 2</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceGray">
                             <input type="text" id="text1">
                             <label for="text1">precio 3</label>
                         </div>
                     </div>
 
                     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-                        <div class="divInputText">
+                        <div class="divInputText priceYellow">
                             <input type="text" id="text1">
                             <label for="text1">precio</label>
                         </div>

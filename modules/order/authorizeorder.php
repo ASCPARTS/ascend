@@ -9,13 +9,13 @@
 <div class="MainContainer">
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-            <div class="divInputText">
+            <div class="divInputText searchGray">
                 <input type="text">
                 <label>Buscar Folio</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-2-4 col-lg-offset-2-4">
-            <div class="divSelect">
+            <div class="divSelect searchGray">
                 <select>
                     <option>Todos</option>
                     <option>Pendiente</option>
@@ -220,7 +220,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-1 col-md-offset-3-4 col-lg-offset-3-4">
-                   <div class="divInputText">
+                   <div class="divInputText moneyYellow">
                     <input type="text" value="$2, 893.90" >
                     <label>Gran Total</label>
                        </div>

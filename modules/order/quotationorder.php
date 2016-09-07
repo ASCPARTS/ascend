@@ -10,28 +10,28 @@
 
     <div class="row">
     <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-        <div class="divInputText">
+        <div class="divInputText userYellow">
             <input type="text" id="text1">
-            <label for="text1" onclick="mostrar()">Cliente</label>
+            <label for="text1">Cliente</label>
         </div>
     </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText providerYellow">
                 <input type="text" id="text1">
                 <label for="text1">grupo de cliente</label>
             </div>
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText priceGray">
                 <input type="text" id="text1">
                 <label for="text1">precio referencia</label>
             </div>
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText coinYellow">
                 <input type="text" id="text1">
                 <label for="text1">tipo de cambio</label>
             </div>
@@ -39,9 +39,7 @@
 
     </div>
     <div class="row">
-
-        <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 tblContainer">
-
+        <div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">
             <table>
                 <thead>
                 <tr>
@@ -83,14 +81,14 @@
     <div class="row">
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText barCodeYellow">
                 <input type="text" id="text1">
                 <label for="text1">sku</label>
             </div>
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divSelect">
+            <div class="divSelect ">
                 <select id="cbo1">
                     <option>	MOBILES             	</option>
                     <option>	PROJECTORS          	</option>
@@ -185,28 +183,28 @@
         <div class="row">
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText barCodeYellow">
                 <input type="text" id="text1">
                 <label for="text1">No. parte</label>
             </div>
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText calculatorYellow">
                 <input type="text" id="text1">
                 <label for="text1">cantidad</label>
             </div>
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputText">
+            <div class="divInputText boxYellow">
                 <input type="text" id="text1">
                 <label for="text1">no. almacen</label>
             </div>
         </div>
 
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4">
-            <div class="divInputDate">
+            <div class="divInputDate calendarYellow">
                 <input type="date" id="text1">
                 <label for="text1">fecha promesa</label>
             </div>

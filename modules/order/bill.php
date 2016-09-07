@@ -9,13 +9,13 @@
 <div class="MainContainer">
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-            <div class="divInputText">
+            <div class="divInputText searchGray">
                 <input type="text">
                 <label>Buscar Folio</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-2-4 col-lg-offset-2-4">
-            <div class="divSelect">
+            <div class="divSelect searchGray">
                 <select>
                     <option>Todos</option>
                     <option>Pendiente</option>
@@ -102,19 +102,19 @@
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText billYellow">
                         <input type="text">
                         <label>Folio</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText userYellow">
                         <input type="text">
                         <label>Cliente</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect creditcarYellow">
                         <select>
                             <option>Contado</option>
                             <option>Credito</option>
@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect shipmentYellow">
                         <select>
                             <option>Paqueteria</option>
                             <option>Vehiculo Propio</option>
@@ -135,7 +135,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect packageYellow">
                         <select>
                             <option>Estafeta</option>
                             <option>DHL</option>
@@ -145,19 +145,19 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText barCodeYellow">
                         <input type="text">
                         <label>Número guia</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect storeYellow">
                         <input type="text">
                         <label>sucursal</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect coinYellow">
                         <input type="text">
                         <label>moneda</label>
                     </div>
@@ -171,19 +171,19 @@
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divInputText">
+                    <div class="divInputText creditcarYellow">
                         <input type="text">
                         <label>metodo de pago</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect coinYellow">
                         <input type="text">
                         <label>tipo de cambio</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-                    <div class="divSelect">
+                    <div class="divSelect weightYellow">
                         <input type="text">
                         <label>peso volumetrico</label>
                     </div>
@@ -258,13 +258,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Sub-total</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText discountGray">
                         <input type="text">
                         <label>total descuento</label>
                     </div>
@@ -272,13 +272,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText moneyYellow">
                         <input type="text">
                         <label>Sub-total</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText taxYellow">
                         <input type="text">
                         <label>total impuestos</label>
                     </div>
@@ -286,13 +286,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText taxYellow">
                         <input type="text">
                         <label>total retencion</label>
                     </div>
                 </div>
                 <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-md-offset-3-4 col-lg-offset-3-4">
-                    <div class="divInputText">
+                    <div class="divInputText divYellow moneyGray">
                         <input type="text">
                         <label>gran total</label>
                     </div>

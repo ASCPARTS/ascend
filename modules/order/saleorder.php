@@ -9,7 +9,7 @@
     <div class="SubTitle">nueva orden de venta</div>
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-            <div class="divInputText">
+            <div class="divInputText searchGray">
                 <input id="x" type="text">
                 <label for="x">Buscar folio de cotizacion</label>
             </div>
@@ -62,25 +62,25 @@
     </div>
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText boxYellow">
                 <input id="x" type="text">
                 <label for="x">Almacen</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText shipmentYellow">
                 <input id="x" type="text">
                 <label for="x">Embarque</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText packageYellow">
                 <input id="x" type="text">
                 <label for="x">Paqueteria</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText storeYellow">
                 <input id="x" type="text">
                 <label for="x">Sucursal</label>
             </div>
@@ -88,7 +88,7 @@
     </div>
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText credircar24Yellow">
                 <input id="x" type="text">
                 <label for="x">Metodo de pago</label>
             </div>
@@ -100,13 +100,13 @@
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText coinYellow">
                 <input id="x" type="text">
                 <label for="x">Tipo de cambio</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText directionYellow">
                 <input id="x" type="text">
                 <label for="x">domicilio de envio</label>
             </div>
@@ -114,13 +114,13 @@
     </div>
     <div class="row">
         <div class="col-lg-offset-1-2 col-md-offset-1-2 col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText discountGray">
                 <input id="x" type="text">
                 <label for="x">Descuento</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText moneyYellow">
                 <input id="x" type="text">
                 <label for="x">Sub-total</label>
             </div>
@@ -129,13 +129,13 @@
     </div>
     <div class="row">
         <div class="col-lg-offset-2-4 col-md-offset-2-4 col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText taxYellow">
                 <input id="x" type="text">
                 <label for="x">iva</label>
             </div>
         </div>
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-3">
-            <div class="divInputText">
+            <div class="divInputText divYellow moneyGray">
                 <input id="x" type="text">
                 <label for="x">gran total</label>
             </div>
