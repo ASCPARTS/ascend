@@ -9,7 +9,7 @@
 <div class="MainContainer">
     <div class="row">
         <div class="col-lg-1-4 col-md-1-4 col-sm-1-4">
-            <div class="divInputText">
+            <div class="divInputText searchGray">
                 <input type="text">
                 <label>Buscar</label>
             </div>
