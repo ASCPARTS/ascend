@@ -25,7 +25,6 @@ echo $strTopMenu;
                 $strSql = "SELECT * FROM tblMenu WHERE intStatus = 1 AND strLocation = 'U' ORDER BY intOrder;";
                 $rstUserMenu = $classAscend->dbQuery($strSql);
                 foreach ($rstUserMenu as $arrUserMenu){
-                    //$strUserMenu .= '<div class="divTopMenu divTopMenuLeft imageTopMenu" style="background-image: url(\'' . $arrTopMenu['strIcon'] . '\');" title="' . $arrTopMenu['strName'] . '" onclick="handleTab(\'' . $arrTopMenu['intId'] . '\',\'' . $arrTopMenu['strName'] . '\',\'' . $arrTopMenu['strUrl'] . '\');"></div>' . "\r\n";
                     $strUserMenu .= '<div class="divTopMenuUserOption" style="background-image: url(\'' . USER_MENU_ICON_PATH . $arrUserMenu['strIcon'] . '\');" onclick="';
                     if($arrUserMenu['intEmbedded']==1){
                         $strUserMenu .= 'handleTab(\'' . $arrUserMenu['intId'] . '\',\'' . $arrUserMenu['strName'] . '\',\'' . $arrUserMenu['strUrl'] . '\');';
