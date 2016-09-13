@@ -1,0 +1,98 @@
+#catalogo {
+    width: 97%;
+    border: 1px solid gray;
+    margin: 0px 0px 0px 14px;
+}
+
+#filtros {
+    float: left;
+    max-width: 200px;
+    margin: 0;
+    padding: 1em;
+    background-color: #ccff99;
+}
+
+#contenido {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+    background-color: #ff9980;
+}
+
+.producto-tarjeta {
+    float: left;
+    width: 330px;
+    height: 170px;
+    margin: 5px;
+    background-color: #ffc000;
+}
+
+
+#imagenProducto
+{
+    float: left;
+    width: 120px;
+    margin: 0;
+    background-color: #ccff99;
+    height: 120px; 
+}
+
+#infoProducto
+{
+    overflow: hidden;
+    background-color: #b3d1ff;
+    height: 120px; 
+}
+
+#tituloProducto
+{
+    background-color: #b3b3ff;
+    height: 25px; 
+}
+#contenidoProducto
+{
+    background-color: #ffcc99;
+    height: 120px; 
+}
+#botonesProducto
+{
+    background-color: #ffb3ec;
+    height: 25px;
+}
+
+
+
+/*Lista predictiva*/
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffc000;
+}
