@@ -1,6 +1,6 @@
 <?php
 require_once('../../inc/include.config.php');
-require_once(  '../../' .LIB_PATH .  'class.ascend.php');
+require_once(  "../../" . LIB_PATH .  'class.ascend.php');
 $objAscend = new clsAscend();
 ?>
     <!DOCTYPE html>
@@ -11,6 +11,7 @@ $objAscend = new clsAscend();
     <body>
 
         <?php
+
         $result = $objAscend->dbQuery("SELECT * FROM tblProduct;");
         echo "<pre>";
         print_r($result);
