@@ -65,34 +65,57 @@
 
 /*Lista predictiva*/
 
+ul.autocomplete {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
 .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 3px 18px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-
+.dropdown-content a:hover {
+    background-color: #232c34;
+    color: #f1f1f1;
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ffc000;
+li.title_list a{
+    text-align: center;
+    color: #00b8fe;
+    background-color: #5c5c5c;
+    font-weight: bold;
+}
+li.item_list a{
+
+}
+
+#look_more{
+    text-align: right;
+}
+
+li.title_lists a ~ a {
+    background-color: yellow;
+    display: inline;
 }

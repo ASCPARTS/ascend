@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-    <link rel="stylesheet" type="text/css" href="../../css/finder.css">
+    <link rel="stylesheet" type="text/css" href="../../css/seeker.css">
 </head>
 <body>
     <div class="MainTitle">PRODUCTOS</div>
@@ -12,12 +12,21 @@
         	<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
                 <div class="divInputText searchGray dropdown">
                     <input type="text" id="buscar" class="dropbtn">
-                    <div class="dropdown-content">
-				      <ul>
-				        <li><a href="default.asp">Home</a></li>
-				        <li><a href="news.asp">News</a></li>
-				        <li><a href="contact.asp">Contact</a></li>
-				        <li><a href="about.asp">About</a></li>
+                    <div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
+				      <ul class="autocomplete">
+				        <li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li>
+				        	<li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li>
+				        <li class="title_list">
+				        	<a class="title_list" href="13">INTERNAL COMPONENTS</a>
+				        	<a id="look_more" href="13">VER MAS...</a>
+				        </li>
+				        	<li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li>
+				        	<li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li>
+				        	<li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li>
+				        	<li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li>
+				        <li class="title_list"><a href="13">GROUPS</a></li>
+				        	<li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li>
+				        	<li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li>
 				     </ul>
 				    </div>
                     <label for="buscar">BUSCAR</label>
