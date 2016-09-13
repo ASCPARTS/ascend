@@ -1,1 +1,5 @@
-finder.js
+function holi()
+{
+	alert("Holi");
+
+}
