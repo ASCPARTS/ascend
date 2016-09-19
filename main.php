@@ -40,7 +40,7 @@ $classAscend = new clsAscend();
 <script type="text/javascript" src="<?php echo JS_PATH; ?>tab.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH; ?>notification.js"></script>
 <script>
-    handleTab(4, "test", "modules/test/index.php")
+    handleTab(4, "test", "modules/test/seeker.php")
 </script>
 </body>
 </html>
