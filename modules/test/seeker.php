@@ -35,42 +35,624 @@
         </div>
         <div class="row">
         	<div id="catalogo">
+				
 				<div id="filtros">
-				  <ul>
-				    <li><a href="#">London</a></li>
-				    <li><a href="#">Paris</a></li>
-				    <li><a href="#">Tokyo</a></li>
-				  </ul>
-				  <div class="divInputText searchGray">
-                    <input type="text" id="buscar">
-                    <label for="buscar">BUSCAR</label>
-                </div>
+				  	<div class="SubTitle">Existencias</div>
+			        <div class="row">
+						<div class="divInputCheck">
+		                    <input type="checkbox" id="che">
+		                    <label for="che">Disponibles</label>
+		                </div>
+			        </div>
+			        <div class="SubTitle">Precios</div>
+			        <div class="row">
+			            <div class="divInputText divBrandBlue costGray">
+		                    <input type="text" id="text1">
+		                    <label for="text1">Desde</label>
+		                </div>
+		                <br>
+						<div class="divInputText divBrandBlue costGray">
+		                    <input type="text" id="text1">
+		                    <label for="text1">Hasta</label>
+		                </div>
+		                <br>
+		                <div class="btn-group-justified">
+							<div class="btn-group">
+		                		<button class="btn btnBrandBlue">FILTRAR</button>
+		                	</div>
+		                </div>
+		                
+	
+			        </div>
+			        <div class="SubTitle">Marcas</div>
+			        <div class="row">
+						<div class="divInputCheck divBrandBlue">
+		                    <input type="checkbox" id="che">
+		                    <label for="che">CONCEPTRONIC</label>
+		                </div>
+		                <div class="divInputCheck">
+		                    <input type="checkbox" id="che">
+		                    <label for="che">ST</label>
+		                </div>
+		                <div class="divInputCheck">
+		                    <input type="checkbox" id="che">
+		                    <label for="che"></label>
+		                </div>
+			        </div>
+			        <div class="SubTitle">Grupos</div>
+			        <div class="row">
+						<div class="divInputCheck">
+		                    <input type="checkbox" id="che">
+		                    <label for="che">Disponibles</label>
+		                </div>
+			        </div>
+				  	
 				</div>
 
 				<div id="contenido">
 					<div class="producto-tarjeta">
-						<div id="tituloProducto"></div>
-						<div id="contenidoProducto">
-							<div id="imagenProducto">
-								
-							</div>
-							<div id="infoProducto">informacion del producto</div>
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
 						</div>
-						<div id="botonesProducto">
-							<button class="btn btnBrandRed">Click me</button>
-							<button class="btn btnOverBlue">Click me</button>
-							<button class="btn btnBackgroundBlack">Click me</button>
-							<button class="btn btnAlternativeBlue">Click me</button>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="producto-tarjeta">Floating box</div>
-					<div class="producto-tarjeta">Floating box</div>
-					<div class="producto-tarjeta">Floating box</div>
-					<div class="producto-tarjeta">Floating box</div>
-					<div class="producto-tarjeta">Floating box</div>
-					<div class="producto-tarjeta">Floating box</div>
-					<div class="producto-tarjeta">Floating box</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="producto-tarjeta">
+						<div class="tituloProducto">
+							<b>NÚMERO DE PARTE:</b> IPH5DC/H
+						</div>
+						<div class="contenidoProducto">
+							<div class="imagenProducto">
+								<img src="../../img/product_2.jpg">
+							</div>
+							<div class="infoProducto">
+								<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+								<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+								<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+								<div class="precioProducto">$ 190,503.50</div>
+								<div class="btnComprar">
+									<button class="btnAddCart"></button>
+								</div>
+							</div>
+						</div>
+						<div class="botonesProducto">
+							<div class="btn-group-justified">
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">DETALLES</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">REMPLAZOS</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnBrandBlue">COMPATIBLE</button>
+								</div>
+								<div class="btn-group">
+									<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+
+				
 			</div>	
         </div>
         

@@ -1,5 +1,4 @@
 function holi()
 {
 	alert("Holi");
-
 }
