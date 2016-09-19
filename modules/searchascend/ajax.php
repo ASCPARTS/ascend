@@ -65,7 +65,9 @@ switch ($strProcess)
             ."$sqlWherePartNumber "
             ."$sqlWhereDescription "
             .")
+            
             and
+            
             ("
             ."$sqlBrand "
             ."$sqlGroup "
