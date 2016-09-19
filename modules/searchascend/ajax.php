@@ -10,7 +10,10 @@ switch ($strProcess)
 {
 
     case 'searchProduct':
-        $strBuscador = "laptop hp";
+        $strBrand =$_REQUEST['strBrand'];
+        $strGroup =$_REQUEST['strGroup'];
+        $strPartNumber =$_REQUEST['strPartNumber'];
+        $strBuscador =$_REQUEST['strBuscador'];
         $strBuscador = strtoupper(trim($_REQUEST['strBuscador']));
         $arrayBuscador = explode(" ", $strBuscador );
         $sqlWhereFamily = "( ";
@@ -20,6 +23,11 @@ switch ($strProcess)
         $sqlWherePartNumber = "( ";
         $sqlWhereDescription = "( ";
 
+        $sqlBrand = "( ";
+        $sqlGroup = "( ";
+
+
+
         foreach ($arrayBuscador as $strBuscadorSelected)
         {
             $sqlWhereFamily .= "F.strName LIKE '%$strBuscadorSelected%' OR ";
@@ -28,6 +36,9 @@ switch ($strProcess)
             $sqlWhereSKU .= "P.strSKU LIKE '%$strBuscadorSelected%' OR ";
             $sqlWherePartNumber .= "P.strPartNumber LIKE '%$strBuscadorSelected%' OR ";
             $sqlWhereDescription .= "P.strDescription LIKE '%$strBuscadorSelected%' OR ";
+
+            $sqlBrand .= "B.strName LIKE '%$strBrand%' OR ";
+            $sqlGroup .= "G.strName LIKE '%$strGroup%' OR ";
         }
 
         if( strlen($sqlWhereFamily) > 0 ){ $sqlWhereFamily = substr($sqlWhereFamily, 0, ( strlen($sqlWhereFamily) - 3 )) . " ) OR "; }
@@ -36,6 +47,8 @@ switch ($strProcess)
         if( strlen($sqlWhereSKU) > 0 ){ $sqlWhereSKU = substr($sqlWhereSKU, 0, ( strlen($sqlWhereSKU) - 3 )) . " ) OR "; }
         if( strlen($sqlWherePartNumber) > 0 ){ $sqlWherePartNumber = substr($sqlWherePartNumber, 0, ( strlen($sqlWherePartNumber) - 3 )) . " ) OR "; }
         if( strlen($sqlWhereDescription) > 0 ){ $sqlWhereDescription = substr($sqlWhereDescription, 0, ( strlen($sqlWhereDescription) - 3 )) . " ) "; }
+        if( strlen($sqlBrand) > 0 ){ $sqlBrand = substr($sqlBrand, 0, ( strlen($sqlBrand) - 3 )) . " ) " . ( strlen($sqlGroup) > 0 ? " OR " : "" ); }
+        if( strlen($sqlGroup) > 0 ){ $sqlGroup = substr($sqlGroup, 0, ( strlen($sqlGroup) - 3 )) . " ) "; }
 
         $sqlsearchProducts =
             "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup "
@@ -51,7 +64,12 @@ switch ($strProcess)
             ."$sqlWhereSKU "
             ."$sqlWherePartNumber "
             ."$sqlWhereDescription "
-            .");";
+            .")
+            and
+            ("
+            ."$sqlBrand "
+            ."$sqlGroup "
+            .")";
         echo $sqlsearchProducts;
         $jsnPhpScriptResponse;
         break;
