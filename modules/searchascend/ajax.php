@@ -67,7 +67,7 @@ switch ($strProcess)
             .")
             
             and
-            
+       
             ("
             ."$sqlBrand "
             ."$sqlGroup "
