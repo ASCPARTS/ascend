@@ -729,7 +729,7 @@ html, body
     color: #00346F;
 }
 
-.divOverBlue input[type=text], .divBrandBlue input[type=date]{
+.divOverBlue input[type=text], .divOverBlue input[type=date]{
     border: solid #FFFFFF 0px;
     color: #444444;
     outline:  solid #ffffff 0px;
@@ -751,7 +751,7 @@ html, body
     color: #00346F;
 }
 
-.divGreen input[type=text], .divBrandBlue input[type=date]{
+.divGreen input[type=text], .divGreen input[type=date]{
     border: solid #FFFFFF 0px;
     color: #444444;
     outline:  solid #ffffff 0px;
@@ -773,7 +773,7 @@ html, body
     color: #00346F;
 }
 
-.divRed input[type=text], .divBrandBlue input[type=date]{
+.divRed input[type=text], .divRed input[type=date]{
     border: solid #FFFFFF 0px;
     color: #444444;
     outline:  solid #ffffff 0px;
@@ -795,7 +795,7 @@ html, body
     color: #00346F;
 }
 
-.divYellow input[type=text], .divBrandBlue input[type=date]{
+.divYellow input[type=text], .divYellow input[type=date]{
     border: solid #FFFFFF 0px;
     color: #444444;
     outline:  solid #ffffff 0px;
@@ -812,7 +812,13 @@ html, body
 
 
 
-
+.divInputRadio label, .divInputCheck label
+{
+    background-color:  #FFFFFF;
+    outline:  solid #ffffff 0px;
+    border: solid #FFFFFF 0px;
+    color: #1e202c;
+}
 
 
 
