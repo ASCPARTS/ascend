@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require_once("../../inc/sheet.inc");?>
-    <link rel="stylesheet" type="text/css" href="../../css/seeker.css">
-    <script type="text/javascript" src="../../js/seeker.js"></script>
+<?php require_once("../../inc/sheet.inc");?>
+	<link rel="stylesheet" type="text/css" href="../../css/seeker.css">
+	<script type="text/javascript" src="../../js/seeker.js"></script>
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
     <div class="MainTitle">PRODUCTOS</div>
@@ -46,6 +50,9 @@
 			        </div>
 			        <div class="SubTitle">Precios</div>
 			        <div class="row">
+			        	<br>
+			        	<div id="slider-range"></div>
+			        	<br>
 			            <div class="divInputText divBrandBlue costGray">
 		                    <input type="text" id="text1">
 		                    <label for="text1">Desde</label>
