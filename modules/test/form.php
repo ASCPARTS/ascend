@@ -265,7 +265,7 @@
             </div>
 
             <div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">
-                <div class="divInputText divBrandBlue shopYellow">
+                <div class="divInputText divBrandBlue costGray">
                     <input type="text" id="text1">
                     <label for="text1">texto</label>
                 </div>
@@ -446,23 +446,29 @@
             </div>
         </div>
 
+        <div class="SubTitle">Botones</div>
         <!-- Buttons -->
         <div class="ButtonContainer">
-            <button class="btn btnBrandRed">Click me</button>
-            <input class="btn btnOverBlue" type="button" value="Click me">
-            <button class="btn btnBrandBlue">Click me</button>
-            <input class="btn btnBackgroundBlack" type="button" value="Click me">
-            <button class="btn btnBlueGray">Click me</button>
-            <input class="btn btnOverBlueGray" type="button" value="Click me">
-            <button class="btn btnAlternativeGray">Click me</button>
+            <button class="btn btnBrandRed">Click me 1</button>
+            <input class="btn btnOverBlue" type="button" value="Click me 2">
+            <button class="btn btnBrandBlue">Click me 3</button>
+            <input class="btn btnBackgroundBlack" type="button" value="Click me 4">
+            <button class="btn btnBlueGray">Click me 5</button>
+            <input class="btn btnOverBlueGray" type="button" value="Click me 6 ">
+            <button class="btn btnAlternativeGray">Click me 7 </button>
 
-            <input class="btn btnLetterGray" type="button" value="Click me">
-            <button class="btn btnBackground">Click me</button>
-            <input class="btn btnOverYellow" type="button" value="Click me">
-            <button class="btn btnAlternativeBlue">Click me</button>
-            <input class="btn btnOnlineGreen" type="button" value="Click me">
-            <button class="btn btnOverGray">Click me</button>
+            <input class="btn btnLetterGray" type="button" value="Click me 8 ">
+            <button class="btn btnBackground">Click me 9 </button>
+            <input class="btn btnOverYellow" type="button" value="Click me 10 ">
+            <button class="btn btnAlternativeBlue">Click me 11</button>
+            <input class="btn btnOnlineGreen" type="button" value="Click me 12">
+            <button class="btn btnOverGray">Click me 13</button>
         </div>
+        <div class="ButtonContainer">
+            <button class="btn btnBrandRed btnBuy"></button>
+        </div>
+
+
 
         <!-- TEXT -->
         <div class="SubTitle">Titulo de 5 componentes</div>

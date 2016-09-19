@@ -5,66 +5,152 @@
 }
 
 #filtros {
-    float: left;
+    float: right;
     max-width: 200px;
     margin: 0;
     padding: 1em;
-    background-color: #ccff99;
+    background-color: #f1f1f1;
 }
 
 #contenido {
-    margin-left: 170px;
-    border-left: 1px solid gray;
+    margin-right: 170px;
+    border-right: 1px solid gray;
     padding: 1em;
     overflow: hidden;
-    background-color: #ff9980;
+    background-color: #fff;
 }
 
 .producto-tarjeta {
     float: left;
     width: 330px;
-    height: 170px;
+    height: 180px;
     margin: 5px;
     background-color: #ffc000;
+    border: 1px solid #888;
+    border-bottom: none;
 }
 
+/* targeta producto [INICIO]*/
+.contenidoProducto
+{
+    background-color: #f1f1f1;
+    height: 130px; 
+}
 
-#imagenProducto
+.imagenProducto
 {
     float: left;
     width: 120px;
+    padding: 5px;
     margin: 0;
-    background-color: #ccff99;
-    height: 120px; 
+    background-color: #f1f1f1;
+    height: calc(130px - 10px); 
 }
 
-#infoProducto
+.infoProducto
 {
     overflow: hidden;
-    background-color: #b3d1ff;
-    height: 120px; 
+    background-color: #f1f1f1;
+    height: calc(130px - 10px);
+    width: calc(200px - 10px);
+    padding: 5px;
+    font-size: 8pt; 
 }
 
-#tituloProducto
+.tituloProducto
 {
-    background-color: #b3b3ff;
-    height: 25px; 
+    background-color: #00b8fe;
+    height: calc(25px - 8px);
+    padding: 4px; 
+    text-align: center;
+    font-stretch: expanded;
 }
-#contenidoProducto
+
+.botonesProducto
 {
-    background-color: #ffcc99;
-    height: 120px; 
-}
-#botonesProducto
-{
-    background-color: #ffb3ec;
+    background-color: #f1f1f1;
     height: 25px;
 }
 
+div.btn-group > button
+{
+    margin: 0px 0px 0px 0px;
+    font-size: 8pt;
+}
 
+div.imagenProducto img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.imagenArchivo
+{
+    width: 100%;
+    height: 100%;
+}
+/* targeta producto [FIN]*/
+
+/* Info targeta [INICIO]*/
+.descripcionProducto
+{
+    background-color: #f1f1f1;
+
+
+    float:left;
+    display: -webkit-box !important;
+    width: 100% !important;
+    height: 40% !important;
+    padding-bottom: auto;
+    font-size: 8pt !important;
+  
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+
+}
+
+.marcaProducto
+{
+    float: left;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 14%;
+}
+.tipoProducto
+{
+    float: left;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 14%;
+}
+.precioProducto
+{
+    float: left;
+    background-color: #f1f1f1;
+    width: 50%;
+    height: 32%;
+    color: red;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.btnComprar
+{
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: 50%;
+    height: 32%;
+    float: none;
+    text-align: right;
+}
+/* Info targeta [FIN]*/
 
 /*Lista predictiva*/
-
 ul.autocomplete {
     list-style-type: none;
     margin: -5px -16px 0px 0px;
@@ -124,3 +210,4 @@ li.title_lists a ~ a {
     background-color: yellow;
     display: inline;
 }
+
