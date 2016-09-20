@@ -56,13 +56,14 @@ switch ($strProcess)
 
 
         $sqlsearchProducts =
-            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup, W.intProduct"
+            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup, W.intProduct, W.intStock, C.strDescription"
             ."FROM tblProduct P "
             ."LEFT JOIN tblFamily F ON P.intFamily = F.intId "
             ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
             ."LEFT JOIN tblGroup G ON P.intGroup = G.intId "
             ."LEFT JOIN tblWarehouseStock W ON P.intId = W.intProduct"
-            ."WHERE "
+            ."LEFT JOIN catWarehouse C ON W.intWarehouse= C.intId"
+            ."WHERE (W.intProduct > 0) and "
             ."( "
             ."$sqlWhereFamily "
             ."$sqlWhereBrand "
