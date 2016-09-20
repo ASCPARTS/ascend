@@ -13,10 +13,16 @@
 #contenido {
     background-color: #ffffff;
     overflow: hidden;
+<<<<<<< HEAD
+=======
+    background-color: #FFFFFF;
+    text-align: center;
+>>>>>>> e47f3dd069fa05b2692806b2ceeaf322ba99c3bb
 }
 
 .producto-tarjeta {
-    float: left;
+    display: inline-block;
+    text-align: left;
     width: 330px;
     height: 180px;
     margin: 5px;
@@ -30,7 +36,7 @@
 {
     background-color: #f1f1f1;
     height: 130px;
-    border-top: 1px solid #888; 
+    border-top: 1px solid #888;
 }
 
 .imagenProducto
