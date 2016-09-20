@@ -445,6 +445,17 @@
                 </div>
             </div>
         </div>
+        <div class="SubTitle">Mini Checkboxes</div>
+        <div class="row">
+            <div class="col-lg-1-4 col-md-1-4 col-sm-1-4 col-xs-1-1">
+
+                <div class="divInputMiniCheck">
+                    <input type="checkbox" id="che">
+                    <label for="che">DISCO DURO DE ELECTRONES</label>
+                </div>
+
+            </div>
+        </div>
 
         <div class="SubTitle">Botones</div>
         <!-- Buttons -->

@@ -6,7 +6,7 @@
 
 #filtros {
     float: right;
-    max-width: 200px;
+    max-width: 204px;
     margin: 0;
     padding: 1em;
     background-color: #f1f1f1;
@@ -34,7 +34,8 @@
 .contenidoProducto
 {
     background-color: #f1f1f1;
-    height: 130px; 
+    height: 130px;
+    border-top: 1px solid #888; 
 }
 
 .imagenProducto
@@ -209,5 +210,21 @@ a div.look_more:hover{
 li.title_lists a ~ a {
     background-color: yellow;
     display: inline;
+}
+
+.tresPuntos
+{
+
+    float:left;
+    display: -webkit-box !important;
+    width: 100% !important;
+    height: 40% !important;
+    padding-bottom: auto;
+    font-size: 8pt !important;
+  
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
