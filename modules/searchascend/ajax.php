@@ -25,6 +25,7 @@ switch ($strProcess)
 
         $sqlBrand = "( ";
         $sqlGroup = "( ";
+        $sqlPartNumber = "( ";
 
 
 
@@ -39,6 +40,7 @@ switch ($strProcess)
 
             $sqlBrand .= "B.strName LIKE '%$strBrand%' OR ";
             $sqlGroup .= "G.strName LIKE '%$strGroup%' OR ";
+            $sqlPartNumber .= "P.strPartNumber LIKE '%$strPartNumber%' OR ";
         }
 
         if( strlen($sqlWhereFamily) > 0 ){ $sqlWhereFamily = substr($sqlWhereFamily, 0, ( strlen($sqlWhereFamily) - 3 )) . " ) OR "; }
@@ -47,15 +49,19 @@ switch ($strProcess)
         if( strlen($sqlWhereSKU) > 0 ){ $sqlWhereSKU = substr($sqlWhereSKU, 0, ( strlen($sqlWhereSKU) - 3 )) . " ) OR "; }
         if( strlen($sqlWherePartNumber) > 0 ){ $sqlWherePartNumber = substr($sqlWherePartNumber, 0, ( strlen($sqlWherePartNumber) - 3 )) . " ) OR "; }
         if( strlen($sqlWhereDescription) > 0 ){ $sqlWhereDescription = substr($sqlWhereDescription, 0, ( strlen($sqlWhereDescription) - 3 )) . " ) "; }
+
         if( strlen($sqlBrand) > 0 ){ $sqlBrand = substr($sqlBrand, 0, ( strlen($sqlBrand) - 3 )) . " ) " . ( strlen($sqlGroup) > 0 ? " OR " : "" ); }
-        if( strlen($sqlGroup) > 0 ){ $sqlGroup = substr($sqlGroup, 0, ( strlen($sqlGroup) - 3 )) . " ) "; }
+        if( strlen($sqlGroup) > 0 ){ $sqlGroup = substr($sqlGroup, 0, ( strlen($sqlGroup) - 3 )) . " ) " . ( strlen($sqlPartNumber) > 0 ? " OR " : "" ); }
+        if( strlen($sqlPartNumber) > 0 ){ $sqlPartNumber = substr($sqlPartNumber, 0, ( strlen($sqlPartNumber)  )) . " ) "; }
+
 
         $sqlsearchProducts =
-            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup "
+            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup, W.intProduct"
             ."FROM tblProduct P "
             ."LEFT JOIN tblFamily F ON P.intFamily = F.intId "
             ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
             ."LEFT JOIN tblGroup G ON P.intGroup = G.intId "
+            ."LEFT JOIN tblWarehouseStock W ON P.intId = W.intProduct"
             ."WHERE "
             ."( "
             ."$sqlWhereFamily "
@@ -65,12 +71,11 @@ switch ($strProcess)
             ."$sqlWherePartNumber "
             ."$sqlWhereDescription "
             .")
-            
             and
-       
             ("
             ."$sqlBrand "
             ."$sqlGroup "
+            ."$sqlPartNumber "
             .")";
         echo $sqlsearchProducts;
         $jsnPhpScriptResponse;
