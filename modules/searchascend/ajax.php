@@ -52,18 +52,18 @@ switch ($strProcess)
 
         if( strlen($sqlBrand) > 0 ){ $sqlBrand = substr($sqlBrand, 0, ( strlen($sqlBrand) - 3 )) . " ) " . ( strlen($sqlGroup) > 0 ? " OR " : "" ); }
         if( strlen($sqlGroup) > 0 ){ $sqlGroup = substr($sqlGroup, 0, ( strlen($sqlGroup) - 3 )) . " ) " . ( strlen($sqlPartNumber) > 0 ? " OR " : "" ); }
-        if( strlen($sqlPartNumber) > 0 ){ $sqlPartNumber = substr($sqlPartNumber, 0, ( strlen($sqlPartNumber)  )) . " ) "; }
+        if( strlen($sqlPartNumber) > 0 ){ $sqlPartNumber = substr($sqlPartNumber, 0, ( strlen($sqlPartNumber)  - 3)) . " ) "; }
 
 
         $sqlsearchProducts =
-            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup, W.intProduct, W.intStock, C.strDescription"
-            ."FROM tblProduct P "
-            ."LEFT JOIN tblFamily F ON P.intFamily = F.intId "
-            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-            ."LEFT JOIN tblGroup G ON P.intGroup = G.intId "
-            ."LEFT JOIN tblWarehouseStock W ON P.intId = W.intProduct"
-            ."LEFT JOIN catWarehouse C ON W.intWarehouse= C.intId"
-            ."WHERE (W.intProduct > 0) and "
+            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup, Ws.intProduct, Ws.intStock, W.strDescription"
+            ." FROM tblProduct P "
+            ." LEFT JOIN tblFamily F ON P.intFamily = F.intId "
+            ." LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+            ." LEFT JOIN tblGroup G ON P.intGroup = G.intId "
+            ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct"
+            ." LEFT JOIN catWarehouse W ON W.intWarehouse= W.intId"
+            ." WHERE (WS.intProduct > 0) and "
             ."( "
             ."$sqlWhereFamily "
             ."$sqlWhereBrand "
