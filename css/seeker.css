@@ -1,23 +1,18 @@
 #catalogo {
-    width: 97%;
+    width: 97.4%;
     border: 1px solid gray;
     margin: 0px 0px 0px 14px;
 }
 
 #filtros {
-    float: right;
-    max-width: 204px;
-    margin: 0;
-    padding: 1em;
     background-color: #f1f1f1;
+    width: calc(235px - 20px);
+    padding: 10px;
 }
 
 #contenido {
-    margin-right: 170px;
-    border-right: 1px solid gray;
-    padding: 1em;
+    background-color: #ffffff;
     overflow: hidden;
-    background-color: #fff;
 }
 
 .producto-tarjeta {
