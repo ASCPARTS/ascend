@@ -473,26 +473,14 @@
 				        </div>
 				        <div class="SubTitle">Precios</div>
 				        <div class="row">
-				        	<br>
-				        	<div id="slider-range"></div>
-				        	<br>
-				            <div class="divInputText divBrandBlue costGray">
-			                    <input type="text" id="text1">
-			                    <label for="text1">Desde</label>
-			                </div>
-			                <br>
-							<div class="divInputText divBrandBlue costGray">
-			                    <input type="text" id="text1">
-			                    <label for="text1">Hasta</label>
-			                </div>
-			                <br>
-			                <div class="btn-group-justified">
-								<div class="btn-group">
-			                		<button class="btn btnBrandBlue">FILTRAR</button>
-			                	</div>
-			                </div>
-			                
-		
+				        	<div class="divSelect divBrandBlue costGray">
+                    			<select id="cbo1">
+                    				<option>De $0  a $100</option>
+                    				<option>De $101 a $200</option>
+                    				<option>De $201 a $300</option>
+                    			</select>
+                    			<label for="cbo1">Rango de precios</label>
+                			</div>
 				        </div>
 				        <div class="SubTitle">Marcas</div>
 				        <div class="row">
