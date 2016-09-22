@@ -64,8 +64,15 @@ switch ($strProcess)
             ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct"
             ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
             ."LEFT JOIN catCondition C ON P.intCondition = C.intId"
-            ." WHERE (WS.intProduct > 0) and "
-            ."( "
+            ."LEFT JOIN tblProductRelationship PR ON P.intId = PR.intRelatedProduct"
+            ."LEFT JOIN tblProductRelationship PR ON P.intId = PR.intRelatedProduct"
+            ." WHERE 
+            .(WS.intProduct > 0)
+            and 
+            .(P.strSKU='$strSKU' and  PR.strRelationshipType = 'R' and PR.strStatus='A')
+            and
+            .(P.strSKU='$strSKU' and  PR.strRelationshipType = 'C' and PR.strStatus='A')
+            ( "
             ."$sqlWhereFamily "
             ."$sqlWhereBrand "
             ."$sqlWhereGroup "
