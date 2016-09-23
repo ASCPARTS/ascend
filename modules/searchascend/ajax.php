@@ -56,22 +56,13 @@ switch ($strProcess)
 
 
         $sqlsearchProducts =
-            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup,C.strName, P.decPrice, WS.intProduct, WS.intStock, W.strDescription"
+            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup,C.strName, P.decPrice"
             ." FROM tblProduct P "
             ." LEFT JOIN tblFamily F ON P.intFamily = F.intId "
             ." LEFT JOIN tblBrand B ON P.intBrand = B.intId "
             ." LEFT JOIN tblGroup G ON P.intGroup = G.intId "
-            ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct"
-            ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
             ."LEFT JOIN catCondition C ON P.intCondition = C.intId"
-            ."LEFT JOIN tblProductRelationship PR ON P.intId = PR.intRelatedProduct"
-            ."LEFT JOIN tblProductRelationship PR ON P.intId = PR.intRelatedProduct"
             ." WHERE 
-            .(WS.intProduct > 0)
-            and 
-            .(P.strSKU='$strSKU' and  PR.strRelationshipType = 'R' and PR.strStatus='A')
-            and
-            .(P.strSKU='$strSKU' and  PR.strRelationshipType = 'C' and PR.strStatus='A')
             ( "
             ."$sqlWhereFamily "
             ."$sqlWhereBrand "
@@ -89,7 +80,37 @@ switch ($strProcess)
         echo $sqlsearchProducts;
         $jsnPhpScriptResponse;
         break;
-
+    case 'infoProduct':
+        $strPartNumber =$_REQUEST['strPartNumber'];
+        $strSKU =$_REQUEST['strSKU'];
+        $sqlinfoProduct="select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock
+                         from tblProduct P
+                         LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct 
+                         LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId 
+                         where P.strSKU='$strSKU' and WS.intStock > 0;";
+        echo $sqlinfoProduct;
+        $jsnPhpScriptResponse;
+        break;
+    case 'Replacement':
+        $strPartNumber =$_REQUEST['strPartNumber'];
+        $strSKU =$_REQUEST['strSKU'];
+        $sqlReplacement="select P.strSKU
+                         from tblProductRelationship PR
+                         LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct
+                         where P.strSKU='$strSKU' and PR.strRelationshipType = 'R' and PR.strStatus='A';";
+        echo $sqlReplacement;
+        $jsnPhpScriptResponse;
+        break;
+    case 'Compatible':
+        $strPartNumber =$_REQUEST['strPartNumber'];
+        $strSKU =$_REQUEST['strSKU'];
+        $sqlCompatible="select P.strSKU
+                        from tblProductRelationship PR
+                        LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct
+                        where P.strSKU='$strSKU' and PR.strRelationshipType = 'C' and PR.strStatus='A';";
+        echo $sqlCompatible;
+        $jsnPhpScriptResponse;
+        break;
     case 'autocomplete':
 
         $strNeedle = strtoupper(trim($_REQUEST['strNeedle']));
