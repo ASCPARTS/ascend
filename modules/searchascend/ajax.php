@@ -94,20 +94,20 @@ switch ($strProcess)
         $strSKU =$_REQUEST['strSKU'];
         $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
         $sqlReplacement="select P.strSKU"
-                        ."from tblProductRelationship PR"
-                        ."LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-                        ."where PR.intProduct='$sqlintSKU' and PR.strRelationshipType = 'R' and PR.strStatus='A';";
+                        ." from tblProductRelationship PR"
+                        ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+                        ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';";
         echo $sqlReplacement;
         $jsnPhpScriptResponse;
         break;
     case 'compatible':
         $strSKU =$_REQUEST['strSKU'];
-        $sqlintSKU="SELECT intId FROM tblProduct Where strSKU = '$strSKU';";
+        $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
         $sqlReplacement="select P.strSKU"
-            ."from tblProductRelationship PR"
-            ."LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-            ."where PR.intProduct='$sqlintSKU' and PR.strRelationshipType = 'C' and PR.strStatus='A';";
-        echo $sqlCompatible;
+            ." from tblProductRelationship PR"
+            ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+            ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'C' and PR.strStatus='A';";
+        echo $sqlReplacement;
         $jsnPhpScriptResponse;
         break;
     case 'autocomplete':
