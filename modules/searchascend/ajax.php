@@ -81,7 +81,6 @@ switch ($strProcess)
         $jsnPhpScriptResponse;
         break;
     case 'infoProduct':
-        $strPartNumber =$_REQUEST['strPartNumber'];
         $strSKU =$_REQUEST['strSKU'];
         $sqlinfoProduct="select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock"
                          ." from tblProduct P"
@@ -91,23 +90,23 @@ switch ($strProcess)
         echo $sqlinfoProduct;
         $jsnPhpScriptResponse;
         break;
-    case 'Replacement':
-        $strPartNumber =$_REQUEST['strPartNumber'];
+    case 'replacement':
         $strSKU =$_REQUEST['strSKU'];
+        $sqlintSKU="SELECT intId FROM tblProduct Where strSKU = '$strSKU';";
         $sqlReplacement="select P.strSKU"
-                         ." from tblProductRelationship PR"
-                         ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-                         ." where P.strSKU='$strSKU' and PR.strRelationshipType = 'R' and PR.strStatus='A';";
+                        ."from tblProductRelationship PR"
+                        ."LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+                        ."where PR.intProduct='$sqlintSKU' and PR.strRelationshipType = 'R' and PR.strStatus='A';";
         echo $sqlReplacement;
         $jsnPhpScriptResponse;
         break;
-    case 'Compatible':
-        $strPartNumber =$_REQUEST['strPartNumber'];
+    case 'compatible':
         $strSKU =$_REQUEST['strSKU'];
-        $sqlCompatible="select P.strSKU"
-                        ." from tblProductRelationship PR"
-                        ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-                        ." where P.strSKU='$strSKU' and PR.strRelationshipType = 'C' and PR.strStatus='A';";
+        $sqlintSKU="SELECT intId FROM tblProduct Where strSKU = '$strSKU';";
+        $sqlReplacement="select P.strSKU"
+            ."from tblProductRelationship PR"
+            ."LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+            ."where PR.intProduct='$sqlintSKU' and PR.strRelationshipType = 'C' and PR.strStatus='A';";
         echo $sqlCompatible;
         $jsnPhpScriptResponse;
         break;
