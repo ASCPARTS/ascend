@@ -83,31 +83,31 @@ switch ($strProcess)
     case 'infoProduct':
         $strPartNumber =$_REQUEST['strPartNumber'];
         $strSKU =$_REQUEST['strSKU'];
-        $sqlinfoProduct="select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock
-                         from tblProduct P
-                         LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct 
-                         LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId 
-                         where P.strSKU='$strSKU' and WS.intStock > 0;";
+        $sqlinfoProduct="select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock"
+                         ." from tblProduct P"
+                         ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct "
+                         ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId "
+                         ." where P.strSKU='$strSKU' and WS.intStock > 0 and P.strStatus='A';";
         echo $sqlinfoProduct;
         $jsnPhpScriptResponse;
         break;
     case 'Replacement':
         $strPartNumber =$_REQUEST['strPartNumber'];
         $strSKU =$_REQUEST['strSKU'];
-        $sqlReplacement="select P.strSKU
-                         from tblProductRelationship PR
-                         LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct
-                         where P.strSKU='$strSKU' and PR.strRelationshipType = 'R' and PR.strStatus='A';";
+        $sqlReplacement="select P.strSKU"
+                         ." from tblProductRelationship PR"
+                         ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+                         ." where P.strSKU='$strSKU' and PR.strRelationshipType = 'R' and PR.strStatus='A';";
         echo $sqlReplacement;
         $jsnPhpScriptResponse;
         break;
     case 'Compatible':
         $strPartNumber =$_REQUEST['strPartNumber'];
         $strSKU =$_REQUEST['strSKU'];
-        $sqlCompatible="select P.strSKU
-                        from tblProductRelationship PR
-                        LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct
-                        where P.strSKU='$strSKU' and PR.strRelationshipType = 'C' and PR.strStatus='A';";
+        $sqlCompatible="select P.strSKU"
+                        ." from tblProductRelationship PR"
+                        ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+                        ." where P.strSKU='$strSKU' and PR.strRelationshipType = 'C' and PR.strStatus='A';";
         echo $sqlCompatible;
         $jsnPhpScriptResponse;
         break;
