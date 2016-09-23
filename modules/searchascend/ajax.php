@@ -92,7 +92,7 @@ switch ($strProcess)
         break;
     case 'replacement':
         $strSKU =$_REQUEST['strSKU'];
-        $sqlintSKU="SELECT intId FROM tblProduct Where strSKU = '$strSKU';";
+        $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
         $sqlReplacement="select P.strSKU"
                         ."from tblProductRelationship PR"
                         ."LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
@@ -222,7 +222,6 @@ switch ($strProcess)
         echo "</pre>";
         $jsnPhpScriptResponse['strResult'] = $arrayResponse;
     break;
-
 };
 unset($objAscend);
 echo json_encode($jsnPhpScriptResponse);
