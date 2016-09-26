@@ -1,6 +1,6 @@
 function holi()
 {
-	alert("Holi");
+	openCity(event, 'London');
 }
 
 $( function() {

@@ -3,709 +3,119 @@
 <head>
 <?php require_once("../../inc/sheet.inc");?>
 	<link rel="stylesheet" type="text/css" href="../../css/seeker2.css">
-	<link rel="stylesheet" type="text/css" href="../../css/seeker.css">
+	<script type="text/javascript" src="../../js/seeker2.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script>
+        $(document).ready(function()
+        {
 
-	<script type="text/javascript" src="../../js/seeker.js"></script>
+            document.getElementById("detalles").style.display = "block";
+            document.getElementById("tabDetalles").className += " active";
+			//tab.className += " active";
+            
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+        });
+    </script>
 
 </head>
-<body>
-    <div class="MainTitle">PRODUCTOS</div>
-    <div class="MainContainer">
-    
-        <div class="row">
-        	<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-                <div class="divInputText searchGray dropdown">
-                    <input type="text" id="buscar">
-                    <label for="buscar">BUSCAR</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        	
-				<table id="catalogo2" style="width:97.4%; margin: 0 auto 0 auto ">
-					<tr>
-					    <td id="contenido2" style="width: *">
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue" onclick="getModal('modalDetalles','closeDetalles')">DETALLES*</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue" onclick="getModal('modalRemplazos','closeRemplazos')">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue" onclick="getModal('modalCompatible','closeCompatible')">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue" onclick="getModal('modalExistencias','closeExistencias')">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="producto-tarjeta">
-								<div class="tituloProducto">
-									<b>NÚMERO DE PARTE:</b> IPH5DC/H
-								</div>
-								<div class="contenidoProducto">
-									<div class="imagenProducto">
-										<img src="../../img/product_2.jpg">
-									</div>
-									<div class="infoProducto">
-										<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-										<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-										<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-										<div class="precioProducto">$ 190,503.50</div>
-										<div class="btnComprar">
-											<button class="btnAddCart"></button>
-										</div>
-									</div>
-								</div>
-								<div class="botonesProducto">
-									<div class="btn-group-justified">
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">DETALLES</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">REMPLAZOS</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnBrandBlue">COMPATIBLE</button>
-										</div>
-										<div class="btn-group">
-											<button class="btn btnAlternativeBlue">EXISTENCIAS</button>
-										</div>
-									</div>
-								</div>
-							</div>
-					    </td>
-					    <td id="filtros2">
-						  	<div class="SubTitle">Existencias</div>
-					        <div class="row">
-								<div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">Disponibles</label>
-				                </div>
-					        </div>
-					        <div class="SubTitle">Precios</div>
-					        <div class="row">
-					        	<br>
-					        	<div id="slider-range"></div>
-					        	<br>
-					            <div class="divInputText divBrandBlue costGray">
-				                    <input type="text" id="text1">
-				                    <label for="text1">Desde</label>
-				                </div>
-				                <br>
-								<div class="divInputText divBrandBlue costGray">
-				                    <input type="text" id="text1">
-				                    <label for="text1">Hasta</label>
-				                </div>
-				                <br>
-				                <div class="btn-group-justified">
-									<div class="btn-group">
-				                		<button class="btn btnBrandBlue">FILTRAR</button>
-				                	</div>
-				                </div>
-				                
-			
-					        </div>
-					        <div class="SubTitle">Marcas</div>
-					        <div class="row">
-								<div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">CONCEPTRONIC</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">STP</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">ACER</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">APPLE</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">COMPAQ</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">DELL</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">FUJITSU</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">GATEWAY</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">MINOLTA</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">EPSON</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">NEC</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">MITAC</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">HP</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">IBM</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">LEXMARK</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PALM</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">TOSHIBA</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PANASONIC</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">OKIDATA</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">XEROX</label>
-				                </div>
-					        </div>
-					        <div class="SubTitle">Grupos</div>
-					        <div class="row">
-								<div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">DISCO DURO INTERNO</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">COMPUTER BAGS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">DISCO DURO EXTERNO</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">COMPONENTES ELECTRONICOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">IMPRESORAS COMPLETAS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PLOTTERS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">CABLES</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">MEMORY</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">POWER BANK</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">POWER SUPPLY</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">MARKETING</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">CUBIERTAS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">MOTHERBOARDS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">DIGITALIZADORES</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">TRANSFER</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">MOTOR</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PANTALLAS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">DUPLEX Y ACCESORIOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">COMPONENTES EXTERNOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">COMPONENTES INTERNOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">VENTILADORES</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">RODILLOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PARTES PARA CARTUCHOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">BANDEJAS Y ACCESORIOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">ADAPTADORES</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">BATERIAS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">CARTUCHOS</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">FUSORES</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">KITS DE MANTENIMIENTO</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PARTES EN GENERAL</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PARTES PARA KIT</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">PARTES PARA FUSOR</label>
-				                </div>
-				                <div class="divInputMiniCheck divBrandBlue">
-				                    <input type="checkbox" id="che">
-				                    <label for="che">TECLADOS</label>
-				                </div>
-					        </div>
-					    </td>
-					</tr>
-				</table>
-        </div>
-        <br style="clear: both;" />
+<body onload="openCity(event, 'detalles')">
+	
+	<p>Click on the links inside the tabbed menu:</p>
+	<div id="modalTest">
+		<ul class="tab">
+		  <li><a href="#" id="tabDetalles" class="tablinks" onclick="openCity(event, 'detalles')">Detalles</a></li>
+		  <li><a href="#" id="tabRemplazos" class="tablinks" onclick="openCity(event, 'replazos')">Remplazos</a></li>
+		  <li><a href="#" id="tabCompatible" class="tablinks" onclick="openCity(event, 'compatible')">Compatible</a></li>
+		  <li><a href="#" id="tabExistencia" class="tablinks" onclick="openCity(event, 'existencias')">Existencias</a></li>
+		</ul>
 
+		<div id="detalles" class="tabcontent">
+		  	<table id="tablaBase">
+		  		<tr>
+			  		<td id="imagenBase">
+			  			<img src="../../img/product_2.jpg">
+			  		</td>
+			  		<td id="infoBase" style="width: *">
+			  			<div class="MainTitle">DETALLES </div>
+			  			<div id=descripcionBase>
+			  				802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE
+			  			</div>
+			  		</td>
+		  		</tr>
+		  	</table>
+		  	<div id="ca-container" class="ca-container">
+				<div class="ca-wrapper">
+					<div class="ca-item ca-item-1">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-2">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-3">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-4">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+						</div>
+					</div>
+					<div class="ca-item ca-item-5">
+						<div class="ca-item-main">
+							<div class="ca-icon"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+		    	<ul class="col3">
+		    		<li><p><b>SKU:</b> 6030031</p></li>
+					<li><p><b>NÚMERO DE PARTE:</b> CO1512</p></li>
+					<li><p><b>GRUPO:</b> AC ADAPTERS</p></li>
+					<li><p><b>CONDICION:</b >REPLACEMENT</p></li>
+					<li><p><b>Voltaje:</b> 18.5V</p></li>
+					<li><p><b>Amper:</b>3.5A</p></li>
+					<li><p><b>Watts:</b> 65W</p></li>
+					<li><p><b>Punta:</b> 4.8mm*1.7mm</p></li>
+					<li><p><b>Contacto:</b> Barrel Type</p></li>
+					<li><p><b>Garantia:</b> 1 Año</p></li>
+					<li><p><b>Marca:</b> HP</p></li>
+		    	</ul>
+		    </div>
+
+		</div>
+
+		<div id="replazos" class="tabcontent">
+		  <h3>Paris</h3>
+		  <p>Paris is the capital of France.</p>
+		</div>
+
+		<div id="compatible" class="tabcontent">
+		  <h3>Tokyo</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>
+		<div id="existencias" class="tabcontent">
+		  <h3>existencias</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>     
+    </div>
+    
+<br style="clear: both;" />
+<!--JAVASCRIPT DEL CARRUCEL INICIO-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
+	<!-- the jScrollPane script -->
+	<script type="text/javascript" src="../../js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="../../js/jquery.contentcarousel.js"></script>
+	<script type="text/javascript">
+		$('#ca-container').contentcarousel();
+	</script>
+<!--JAVASCRIPT DEL CARRUCEL FIN-->
 </body>
 <script type="text/javascript" src="../../js/modal.js"></script>
 </html>

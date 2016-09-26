@@ -1,19 +1,119 @@
-#catalogo2 {
-    width: 97.4%;
-    border: 1px solid gray;
-    margin: 0px 0px 0px 14px;
+
+
+/*TABS*/
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
 }
 
-#filtros2 {
-	background-color: #f1f1f1;
-	width: calc(235px - 20px);
-	padding: 10px;
-	height: 100px;
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
 }
 
-#contenido2 {
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #f1f1f1;
+    overflow-x: auto;
+    height: 85%;
+}
+
+/*DIV TEST MODAL*/
+
+#modalTest
+{
+	height: 500px;
+	padding: 20px;
+}
+
+/*TAB DETALLES */
+
+#tablaBase
+{
+	max-height: 277px;
+	padding: 0px;
+	margin: 0px;
+	border-collapse: collapse;
+	border: none;
+}
+
+#imagenBase
+{
 	background-color: #ffffff;
-	height: 100px;
-	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
 
+#infoBase
+{
+	background-color: #f1f1f1;
+	border: none;
+	padding: 10px;
+	margin: 0px;
+
+}
+
+#imagenBase img 
+{
+	border: 1px solid #f1f1f1;
+	height: 200px;
+	width: 200px;
+	margin: 10px;
+
+}
+
+#descripcionBase
+{
+	padding: 10px;
+	overflow-x: auto;
+	font-size: 20px;
+	height:auto;
+	width: auto;
+}
+
+/* LISTA DE ESPECIFICACIONES */
+ul.col3
+{
+	padding: auto;
+	float: left;
+	margin: 15px 0px;
+	width: 100%
+	list-style-type: none;
+}
+
+ul.col3 li
+{
+	padding: 2px;
+	display: inline;
+	float: left;
+	width: 32%;
 }
