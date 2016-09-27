@@ -1,5 +1,6 @@
 body, html{
     font-family: Arial;
+    font-size: 10pt;
     background-color: #050409;
     margin: 0 0 0 0;
     width: 100%;
@@ -50,17 +51,17 @@ body, html{
     width: 25%;
     height: 12%;
     padding: 0 0 0 0;
-    -webkit-box-reflect: below 11px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.2)));
+    -webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.2)));
 }
 
 #txtUser{
     display: block;
     border: 0;
     outline: none;
-    width: 80%;
-    height: 50%;
+    width: calc(80% - 8px);
+    height: calc(50% - 1px);
     border-bottom: 1px #050409 solid;
-    padding: 2px 2px 2px 2px;
+    padding: 0 4px 0 4px;
     color: #050409;
     background-color: #F1F1F1;
     font-weight: normal;
@@ -72,9 +73,9 @@ body, html{
     position: absolute;
     border: 0;
     outline: none;
-    width: 80%;
+    width: calc(80% - 8px);
     height: 50%;
-    padding: 2px 2px 2px 2px;
+    padding: 0 4px 0 4px;
     color: #050409;
     background-color: #F1F1F1;
     font-weight: normal;
@@ -86,7 +87,7 @@ body, html{
     position: absolute;
     top: 0;
     right: 0;
-    height: calc(100% + 9px);
+    height: 100%;
     width: 20%;
     background-color: #00B8FE;
     border: 0;
@@ -99,6 +100,27 @@ body, html{
     background-size: 90% auto;
     border-left: 1px #050409 solid;
     cursor: pointer;
+}
+
+#divUnsupportedContainer {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto auto auto;
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    padding: 0 0 0 0;
+    color: #F1F1F1;
+    font-size: 100%;
+}
+
+#divUnsupportedContainer img {
+    position: relative;
+    height: 30%;
 }
 
 #divIndexFooter{
