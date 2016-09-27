@@ -43,14 +43,14 @@ ul.tab li a:focus, .active {
     border-top: none;
     background-color: #f1f1f1;
     overflow-x: auto;
-    height: 85%;
+    max-height: 93%;
 }
 
 /*DIV TEST MODAL*/
 
 #modalTest
 {
-	height: 500px;
+	height: 720px;
 	padding: 20px;
 }
 
@@ -92,7 +92,7 @@ ul.tab li a:focus, .active {
 }
 
 #descripcionBase
-{
+{+
 	padding: 10px;
 	overflow-x: auto;
 	font-size: 20px;

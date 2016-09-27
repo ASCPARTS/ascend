@@ -4,10 +4,7 @@
 <?php require_once("../../inc/sheet.inc");?>
 	<link rel="stylesheet" type="text/css" href="../../css/seeker.css">
 	<script type="text/javascript" src="../../js/seeker.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="../../css/seeker2.css">
-	<script type="text/javascript" src="../../js/seeker2.js"></script>
-	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/carousel.css" />
 </head>
 <body>
     <div class="MainTitle">PRODUCTOS</div>
@@ -701,6 +698,31 @@
 										<div class="ca-icon"></div>
 									</div>
 								</div>
+								<div class="ca-item ca-item-1">
+									<div class="ca-item-main">
+										<div class="ca-icon"></div>
+									</div>
+								</div>
+								<div class="ca-item ca-item-2">
+									<div class="ca-item-main">
+										<div class="ca-icon"></div>
+									</div>
+								</div>
+								<div class="ca-item ca-item-3">
+									<div class="ca-item-main">
+										<div class="ca-icon"></div>
+									</div>
+								</div>
+								<div class="ca-item ca-item-4">
+									<div class="ca-item-main">
+										<div class="ca-icon"></div>
+									</div>
+								</div>
+								<div class="ca-item ca-item-5">
+									<div class="ca-item-main">
+										<div class="ca-icon"></div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="MainTitle">ESPECIFICACIONES</div>
@@ -840,7 +862,870 @@
 			                        <td>XEROX</td>
 			                        <td>REMANUFACTURADO</td>
 			                    </tr>
-			                    
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
+			                    <tr>
+			                        <td>RE-3425623</td>
+			                        <td>DE1908, ORIGINAL AC ADAPTER, DELL LATITUDE/ INSPIRON, 19.5V 4.62A, TIP 7.4X5.0</td>
+			                        <td>XEROX</td>
+			                        <td>REMANUFACTURADO</td>
+			                    </tr>
 		                    </tbody>
 	                	</table>
 					</div>
@@ -875,11 +1760,11 @@
 
 
         <!--JAVASCRIPT DEL CARRUCEL INICIO-->
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-			<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
+			<script type="text/javascript" src="../../lib/jquery-1.6.2.min.js"></script>
+			<script type="text/javascript" src="../../lib/jquery.easing.1.3.js"></script>
 			<!-- the jScrollPane script -->
-			<script type="text/javascript" src="../../js/jquery.mousewheel.js"></script>
-			<script type="text/javascript" src="../../js/jquery.contentcarousel.js"></script>
+			<script type="text/javascript" src="../../lib/jquery.mousewheel.js"></script>
+			<script type="text/javascript" src="../../lib/jquery.contentcarousel.js"></script>
 			<script type="text/javascript">
 				$('#ca-container').contentcarousel();
 			</script>
