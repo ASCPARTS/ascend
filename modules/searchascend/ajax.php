@@ -55,7 +55,7 @@ switch ($strProcess)
         if( strlen($sqlPartNumber) > 0 ){ $sqlPartNumber = substr($sqlPartNumber, 0, ( strlen($sqlPartNumber)  - 3)) . " ) "; }
 
 
-        $sqlsearchProducts =
+        $rstsearchProducts =$objAscend->dbQuery(
             "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup,C.strName, P.decPrice"
             ." FROM tblProduct P "
             ." LEFT JOIN tblFamily F ON P.intFamily = F.intId "
@@ -76,39 +76,39 @@ switch ($strProcess)
             ."$sqlBrand "
             ."$sqlGroup "
             ."$sqlPartNumber "
-            .")";
-        echo $sqlsearchProducts;
-        $jsnPhpScriptResponse;
+            .")");
+        $jsnPhpScriptResponse=$rstsearchProducts;
         break;
     case 'infoProduct':
         $strSKU =$_REQUEST['strSKU'];
-        $sqlinfoProduct="select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock"
+        $rstInfoProduct= $objAscend->dbQuery("select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock"
                          ." from tblProduct P"
                          ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct "
                          ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId "
-                         ." where P.strSKU='$strSKU' and WS.intStock > 0 and P.strStatus='A';";
-        echo $sqlinfoProduct;
-        $jsnPhpScriptResponse;
+                         ." where P.strSKU='$strSKU' and WS.intStock > 0 and P.strStatus='A'");
+        echo $objAscend-> strTransactionErrorMessage;
+        echo "<pre>";
+        print_r($rstInfoProduct);
+        echo "</pre>";
+        $jsnPhpScriptResponse=$rstInfoProduct;
         break;
     case 'replacement':
         $strSKU =$_REQUEST['strSKU'];
         $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
-        $sqlReplacement="select P.strSKU"
+        $rstReplacement=$objAscend->dbQuery("select P.strSKU"
                         ." from tblProductRelationship PR"
                         ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-                        ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';";
-        echo $sqlReplacement;
-        $jsnPhpScriptResponse;
+                        ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';");
+        $jsnPhpScriptResponse=$rstReplacement;
         break;
     case 'compatible':
         $strSKU =$_REQUEST['strSKU'];
         $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
-        $sqlReplacement="select P.strSKU"
+        $rstCompatible=$objAscend->dbQuery("select P.strSKU"
             ." from tblProductRelationship PR"
             ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-            ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'C' and PR.strStatus='A';";
-        echo $sqlReplacement;
-        $jsnPhpScriptResponse;
+            ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'C' and PR.strStatus='A';");
+        $jsnPhpScriptResponse=$rstCompatible;
         break;
     case 'autocomplete':
 
