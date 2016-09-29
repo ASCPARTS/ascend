@@ -20,11 +20,13 @@ switch ($strProcess)
         $objAscend->intGridSqlPage = $_REQUEST['intSqlPage'];
         $objAscend->intGridSqlLimit = $_REQUEST['intSqlLimit'];
         $objAscend->intScrollPosition = $_REQUEST['intScrollPosition'];
+        $objAscend->strGridOption = $_REQUEST['strGridOption'];
         $objAscend->updateGrid();
         $jsnPhpScriptResponse['grid'] = $objAscend->strGrid;
         $jsnPhpScriptResponse['pagination'] = $objAscend->strGridPagination;
         $jsnPhpScriptResponse['intSqlNumberOfRecords'] = $objAscend->intGridNumberOfRecords;
         $jsnPhpScriptResponse['intScrollPosition'] = $objAscend->intScrollPosition;
+        $jsnPhpScriptResponse['strGridOption'] = $objAscend->strGridOption;
         break;
     case 'processRecord':
         $jsnPhpScriptResponse = array('blnGo' => true, 'strError' => '', 'strField' => '');

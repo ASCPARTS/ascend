@@ -12,7 +12,8 @@ $jsnGridData = {
     "arrFormField":"",
     "arrTableRelation":"",
     "intScrollPosition":0,
-    "arrRelation":""
+    "arrRelation":"",
+    "strGridOption":""
 };
 
 function gridPagination($intPage){
@@ -86,6 +87,7 @@ function gridBuildQueryString() {
     $strQueryString += "&intSqlPage=" + $jsnGridData.intSqlPage;
     $strQueryString += "&intSqlLimit=" + $jsnGridData.intSqlLimit;
     $strQueryString += "&intScrollPosition=" + $jsnGridData.intScrollPosition;
+    $strQueryString += "&strGridOption=" + $jsnGridData.strGridOption;
     return $strQueryString;
 }
 

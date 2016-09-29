@@ -113,6 +113,7 @@ $objAscend->getTableData();
             $jsnGridData.intSqlNumberOfColumns = "<?php echo $objAscend->intGridNumberOfColumns; ?>";
             $jsnGridData.arrFormField = <?php echo $objAscend->arrFormField; ?>;
             $jsnGridData.arrTableRelation = <?php echo $objAscend->arrTableRelation; ?>;
+            $jsnGridData.strGridOption = "<?php echo $objAscend->strGridOption; ?>";
             gridUpdate();
         })
     </script>
