@@ -3,8 +3,9 @@ html, body
     font-family: Arial;
     font-size: 10pt;
     background-color: #F1F1F1;
-    margin: 2px 2px 2px 2px;
+    margin: 0px;
     vertical-align: top;
+    overflow: visible;
 }
 
 .MainTitle {

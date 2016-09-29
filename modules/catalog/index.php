@@ -15,11 +15,11 @@ $objAscend->getTableData();
 
     <div class="divTitles">Catálogo de <?php echo $objAscend->strGridTitle; ?></div>
     <div class="divActions">
-        <input id="btnInsertRecord" type="button" class="buttons button_orange" value="insertar" onclick="showModal(0);">
+        <input id="btnInsertRecord" type="button" class="btn btnBrandBlue" value="insertar" onclick="showModal(0);">
         <?php //if($objAscend->intTableId!=19 && $objAscend->intTableId!=20)
-        {?><input id="btnInsertRecord" type="button" class="buttons button_excel" value="importar registros" onclick="showImport();"><?php } ?>
+        {?><input id="btnInsertRecord" type="button" class="btn btnOnlineGreen" value="importar registros" onclick="showImport();"><?php } ?>
         <?php //if($objAscend->intTableId==18 || $objAscend->intTableId==21)
-        {?><input id="btnImportImages" type="button" class="buttons button_blue" value="importar imágenes" onclick="showImagesImport();"><?php } ?>
+        {?><input id="btnImportImages" type="button" class="btn btnBrandBlue" value="importar imágenes" onclick="showImagesImport();"><?php } ?>
     </div>
     <div class="divGrid" id="divGrid" style="height: calc( 100% - 200px )">
         <table class="tblGrid">
@@ -37,8 +37,8 @@ $objAscend->getTableData();
             <!-- ##### END: FORMULARIO A APLICAR ##### -->
             <div id="divModalError"></div>
             <div id="divModalButtons">
-                <input id="btnModalSubmitRecord" type="button" value="" onclick="submitRecord();" class="buttons button_green">
-                <input type="button" value="cancelar" onclick="closeModal();" class="buttons button_red">
+                <input id="btnModalSubmitRecord" type="button" value="" onclick="submitRecord();" class="btn btnOnlineGreen">
+                <input type="button" value="cancelar" onclick="closeModal();" class="btn btnBrandRed">
             </div>
             <div id="divModalWorking">
                 <img src="../../img/catalog/wait_48.gif" />
@@ -56,7 +56,7 @@ $objAscend->getTableData();
             </div>
             <div id="divImportResults"></div>
             <div id="divImportButtons">
-                <input type="button" value="cancelar" onclick="closeImport();" class="buttons button_red">
+                <input type="button" value="cancelar" onclick="closeImport();" class="btn btnBrandRed">
             </div>
             <div id="divImportWorking">
                 <img src="../../img/catalog/wait_48.gif" />
@@ -74,14 +74,17 @@ $objAscend->getTableData();
             </div>
             <div id="divImagesImportResults" class="divImagesImportResults"></div>
             <div id="divImagesImportButtons" class="divImagesImportButtons">
-                <input id="btnImagesImportCancel" type="button" value="cancelar" onclick="closeImagesImport();" class="buttons button_red">
+                <input id="btnImagesImportCancel" type="button" value="cancelar" onclick="closeImagesImport();" class="btn btnBrandRed">
+            </div>
+            <div id="divImagesImportWorking">
+                <img src="../../img/catalog/wait_48.gif" />
             </div>
         </div>
     </div>
     <?php require_once('../../' .INCLUDE_PATH . 'include.working.php') ?>
     <?php require_once('../../' .INCLUDE_PATH . 'sheet.inc') ?>
-
-    <script type="text/javascript" src="<?php echo '../../' . LIB_PATH; ?>jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo 'stylesheet.css' ?>">
+    
     <?php
     if($objAscend->strIncludeJS!=''){
         ?>

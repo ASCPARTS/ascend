@@ -1,10 +1,10 @@
 <?php
 require_once('../../inc/include.config.php');
-require_once( '../../' . LIB_PATH . 'class.ascend.php');
-$objAScend = new clsAscend();
-$objAScend->intTableId = $_REQUEST['intTableId'];
-if($objAScend->intTableId!=0){
-    $objAScend->getTableData();
+require_once( '../../' . LIB_PATH . 'class.ascendX.php');
+$objAscend = new clsAscend();
+$objAscend->intTableId = $_REQUEST['intTableId'];
+if($objAscend->intTableId!=0){
+    $objAscend->getTableData();
 }
 $strProcess = $_REQUEST['strProcess'];
 switch ($strProcess)
@@ -12,32 +12,32 @@ switch ($strProcess)
     case 'getWSUserData':
         $jsnPhpScriptResponse = array();
         $strPersonalNumber = $_REQUEST['strPersonalNumber'];
-        $jsnPhpScriptResponse = $objAScend->getWSUserData($strPersonalNumber);
+        $jsnPhpScriptResponse = $objAscend->getWSUserData($strPersonalNumber);
         break;
     case 'updateGrid':
         $jsnPhpScriptResponse = array('grid' => '', 'pagination' => '', 'intSqlNumberOfRecords' => 0,'intScrollPosition'=>0);
-        $objAScend->strGridSqlOrder = $_REQUEST['strSqlOrder'];
-        $objAScend->intGridSqlPage = $_REQUEST['intSqlPage'];
-        $objAScend->intGridSqlLimit = $_REQUEST['intSqlLimit'];
-        $objAScend->intScrollPosition = $_REQUEST['intScrollPosition'];
-        $objAScend->updateGrid();
-        $jsnPhpScriptResponse['grid'] = $objAScend->strGrid;
-        $jsnPhpScriptResponse['pagination'] = $objAScend->strGridPagination;
-        $jsnPhpScriptResponse['intSqlNumberOfRecords'] = $objAScend->intGridNumberOfRecords;
-        $jsnPhpScriptResponse['intScrollPosition'] = $objAScend->intScrollPosition;
+        $objAscend->strGridSqlOrder = $_REQUEST['strSqlOrder'];
+        $objAscend->intGridSqlPage = $_REQUEST['intSqlPage'];
+        $objAscend->intGridSqlLimit = $_REQUEST['intSqlLimit'];
+        $objAscend->intScrollPosition = $_REQUEST['intScrollPosition'];
+        $objAscend->updateGrid();
+        $jsnPhpScriptResponse['grid'] = $objAscend->strGrid;
+        $jsnPhpScriptResponse['pagination'] = $objAscend->strGridPagination;
+        $jsnPhpScriptResponse['intSqlNumberOfRecords'] = $objAscend->intGridNumberOfRecords;
+        $jsnPhpScriptResponse['intScrollPosition'] = $objAscend->intScrollPosition;
         break;
     case 'processRecord':
         $jsnPhpScriptResponse = array('blnGo' => true, 'strError' => '', 'strField' => '');
-        $jsnForm = json_decode($objAScend->arrFormField, true);
+        $jsnForm = json_decode($objAscend->arrFormField, true);
         for ($intIndex = 0; $intIndex < count($jsnForm); $intIndex++) {
             if ($jsnForm[$intIndex]['intDuplicate'] == 0) {
-                $strSql = "SELECT COUNT(*) AS COUNT FROM " . $objAScend->strTableName;
+                $strSql = "SELECT COUNT(*) AS COUNT FROM " . $objAscend->strTableName;
                 $strSql .= " WHERE " . $jsnForm[$intIndex]['strField'] . " = '" . $_REQUEST[$jsnForm[$intIndex]['strField']] . "'";
                 if ($_REQUEST['intRecordId'] != 0) {
-                    $strSql .= " AND " . $objAScend->strTableIdField . " <> '" . $_REQUEST['intRecordId'] . "'";
+                    $strSql .= " AND " . $objAscend->strTableIdField . " <> '" . $_REQUEST['intRecordId'] . "'";
                 }
-                $rstRecordCount = $objAScend->dbQuery($strSql);
-                if ($objAScend->getProperty('strDBError') == '') {
+                $rstRecordCount = $objAscend->dbQuery($strSql);
+                if ($objAscend->getProperty('strDBError') == '') {
                     if ($rstRecordCount[0]['COUNT'] != 0) {
                         $jsnPhpScriptResponse['blnGo'] = false;
                         $jsnPhpScriptResponse['strError'] = $jsnForm[$intIndex]['strName'] . " <b>" . $_REQUEST[$jsnForm[$intIndex]['strField']] . "</b> ya existe";
@@ -46,7 +46,7 @@ switch ($strProcess)
                     }
                 } else {
                     $jsnPhpScriptResponse['blnGo'] = false;
-                    $jsnPhpScriptResponse['strError'] = $objAScend->getProperty('strDBError');
+                    $jsnPhpScriptResponse['strError'] = $objAscend->getProperty('strDBError');
                     $intIndex = count($jsnForm);
                 }
                 unset($rstRecordCount);
@@ -54,36 +54,36 @@ switch ($strProcess)
         }
         if ($jsnPhpScriptResponse['blnGo']) {
             if ($_REQUEST['intRecordId'] == 0) {
-                $strSql = "INSERT INTO " . $objAScend->strTableName . "(";
-                $strInsertFields =  $objAScend->strTableIdField . ',';
-                $strInsertValues = '(SELECT NVL(MAX(' . $objAScend->strTableIdField . '),0) + 1 FROM ' . $objAScend->strTableName . '),';
+                $strSql = "INSERT INTO " . $objAscend->strTableName . "(";
+                $strInsertFields =  $objAscend->strTableIdField . ',';
+                $strInsertValues = '(SELECT NVL(MAX(' . $objAscend->strTableIdField . '),0) + 1 FROM ' . $objAscend->strTableName . '),';
                 for ($intIndex = 0; $intIndex < count($jsnForm); $intIndex++) {
                     $strInsertFields .= $jsnForm[$intIndex]['strField'] . ",";
                     $strInsertValues .= "'" . $_REQUEST[$jsnForm[$intIndex]['strField']] . "',";
                 }
-                $strSql .= substr($strInsertFields, 0, strlen($strInsertFields) - 1) . ") VALUES(" . substr($strInsertValues, 0, strlen($strInsertValues) - 1) . ") RETURNING " . $objAScend->strTableIdField . " INTO :intInsertedID";
-                $objAScend->dbInsert($strSql);
-                $intRecordId = $objAScend->getProperty('intLastInsertId');
+                $strSql .= substr($strInsertFields, 0, strlen($strInsertFields) - 1) . ") VALUES(" . substr($strInsertValues, 0, strlen($strInsertValues) - 1) . ") RETURNING " . $objAscend->strTableIdField . " INTO :intInsertedID";
+                $objAscend->dbInsert($strSql);
+                $intRecordId = $objAscend->getProperty('intLastInsertId');
             } else {
                 $intRecordId = $_REQUEST['intRecordId'];
-                $strSql = "UPDATE " . $objAScend->strTableName . " SET ";
+                $strSql = "UPDATE " . $objAscend->strTableName . " SET ";
                 for ($intIndex = 0; $intIndex < count($jsnForm); $intIndex++) {
                     $strSql .= $jsnForm[$intIndex]['strField'] . " = '" . $_REQUEST[$jsnForm[$intIndex]['strField']] . "', ";
                 }
-                $strSql = substr($strSql, 0, strlen($strSql) - 2) . " WHERE " . $objAScend->strTableIdField . " = " . $intRecordId;
-                $objAScend->dbUpdate($strSql);
+                $strSql = substr($strSql, 0, strlen($strSql) - 2) . " WHERE " . $objAscend->strTableIdField . " = " . $intRecordId;
+                $objAscend->dbUpdate($strSql);
             };
-            $jsnRelation = json_decode($objAScend->arrTableRelation, true);
+            $jsnRelation = json_decode($objAscend->arrTableRelation, true);
             foreach($jsnRelation as $intRelationIndex=>$objRelation){
                 $strSql = relationTable($objRelation['strName'],"UPDATE ||strTable|| SET ||strField_Status|| = 0 WHERE ||strField_0|| = " . $intRecordId);
-                $objAScend->dbUpdate($strSql);
+                $objAscend->dbUpdate($strSql);
                 $arrRelationIds = explode("|",$_REQUEST[$objRelation['strName']]);
                 array_splice($arrRelationIds, count($arrRelationIds) - 1);
                 foreach($arrRelationIds as $objRelationIds){
                     $strSql = relationTable($objRelation['strName'],"INSERT INTO ||strTable||(||strField_Id||,||strField_0||,||strField_1||) VALUES((SELECT NVL(MAX(||strField_Id||),0) + 1 FROM ||strTable||)," . $intRecordId . "," . $objRelationIds . ")");
-                    $objAScend->dbInsert($strSql);
+                    $objAscend->dbInsert($strSql);
                     $strSql = relationTable($objRelation['strName'],"UPDATE ||strTable|| SET ||strField_Status|| = 1 WHERE ||strField_0|| = " . $intRecordId . " AND ||strField_1|| = " . $objRelationIds);
-                    $objAScend->dbUpdate($strSql);
+                    $objAscend->dbUpdate($strSql);
                 }
                 unset($objRelationIds);
             }
@@ -94,11 +94,11 @@ switch ($strProcess)
         break;
     case 'deactivateRecord':
         $jsnPhpScriptResponse = array('blnGo' => 'true', 'strError' => '');
-        $strSql = "UPDATE " . $objAScend->strTableName . " SET " . $objAScend->strTableStatusField . " = " . $_REQUEST['intStatus'] . " WHERE " . $objAScend->strTableIdField . " = " . $_REQUEST['intRecordId'];
-        $objAScend->dbUpdate($strSql);
-        if ($objAScend->getProperty('strDBError') != '') {
+        $strSql = "UPDATE " . $objAscend->strTableName . " SET " . $objAscend->strTableStatusField . " = " . $_REQUEST['intStatus'] . " WHERE " . $objAscend->strTableIdField . " = " . $_REQUEST['intRecordId'];
+        $objAscend->dbUpdate($strSql);
+        if ($objAscend->getProperty('strDBError') != '') {
             $jsnPhpScriptResponse['blnGo'] = false;
-            $jsnPhpScriptResponse['strError'] = $objAScend->getProperty('strDBError');
+            $jsnPhpScriptResponse['strError'] = $objAscend->getProperty('strDBError');
         }
         break;
     case 'generateImportTemplate':
@@ -106,12 +106,12 @@ switch ($strProcess)
         $jsnPhpScriptResponse = array('strTemplateFile'=>'');
         require_once('../../lib/PHPExcel.php');
         $objPHPExcel = new PHPExcel();
-        $strFileName = 'template/Scrap_' . stripAccents($objAScend->strGridTitle) . '.xlsx';
+        $strFileName = 'template/Scrap_' . stripAccents($objAscend->strGridTitle) . '.xlsx';
         $arrStyle = array('font'=>array('bold'=>true));
         if(file_exists($strFileName)){
             unlink($strFileName);
         }
-        $arrFields = json_decode($objAScend->arrFormField,true);
+        $arrFields = json_decode($objAscend->arrFormField,true);
         foreach($arrFields as $intFieldIndex=>$objField){
             $objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow($intFieldIndex,1, $objField['strName']);
         }
@@ -119,8 +119,8 @@ switch ($strProcess)
         $intFieldIndex = $intFieldIndex;
         unset($objField);
         unset($arrFields);
-        $objPHPExcel->getActiveSheet()->setTitle($objAScend->strGridTitle);
-        $arrRelation = json_decode($objAScend->arrTableRelation, true);
+        $objPHPExcel->getActiveSheet()->setTitle($objAscend->strGridTitle);
+        $arrRelation = json_decode($objAscend->arrTableRelation, true);
         if(count($arrRelation)>0){
             foreach($arrRelation as $intRelationIndex=>$objRelation){
                 $intFieldIndex = $intFieldIndex + 1;
@@ -196,8 +196,8 @@ switch ($strProcess)
                         $strRelationSql = "SELECT SCD_SCRAPCODE.SCD_ID AS FIELD_ID, SCD_SCRAPCODE.SCD_CODE||' - '||SCD_SCRAPCODE.SCD_NAME AS FIELD_NAME FROM SCD_SCRAPCODE WHERE SCD_STATUS = 1";
                         break;
                 }
-                $rstRelationData = $objAScend->dbQuery($strRelationSql);
-                $intNumRows = $objAScend->intMySqlAffectedRows;
+                $rstRelationData = $objAscend->dbQuery($strRelationSql);
+                $intNumRows = $objAscend->intMySqlAffectedRows;
                 if($intNumRows!=0){
                     foreach($rstRelationData as $intRelationDataIndex=>$objRelationData){
                         $objPHPExcel->setActiveSheetIndex($intRelationIndex + 1)->setCellValueByColumnAndRow(0,$intRelationDataIndex + 2, $objRelationData['FIELD_NAME']);
@@ -227,7 +227,7 @@ switch ($strProcess)
     case 'getRelation':
         $jsnPhpScriptResponse = array();
         $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TABLE = " . $_REQUEST['intTableId'] . " ORDER BY TBL_ORDER";
-        $rstRelation = $objAScend->dbQuery($strSql);
+        $rstRelation = $objAscend->dbQuery($strSql);
         foreach ($rstRelation as $intRelationIndex=>$objRelation) {
             $jsnPhpScriptResponse[$intRelationIndex]=array('strRelationName'=>$objRelation['TBL_NAME'],'arrRelationIds'=>array(),'arrRelationRows'=>array());
             switch($objRelation['TBL_NAME']){
@@ -449,8 +449,8 @@ switch ($strProcess)
                     break;
             }
 
-            $rstRelationData = $objAScend->dbQuery($strRelationSql);
-            $intNumRows = $objAScend->intMySqlAffectedRows;
+            $rstRelationData = $objAscend->dbQuery($strRelationSql);
+            $intNumRows = $objAscend->intMySqlAffectedRows;
             if($intNumRows!=0){
                 foreach($rstRelationData as $intRelationDataIndex=>$objRelationData){
                     $jsnPhpScriptResponse[$intRelationIndex]['arrRelationIds'][$intRelationDataIndex]=$objRelationData['FIELD_ID'];
@@ -508,8 +508,8 @@ switch ($strProcess)
                     $jsnPhpScriptResponse['strError'] = '<span style="color: #FF2828;">&#10006 archivo vacio</span>';
                     unlink($strTempFileName);
                 }else{
-                    $arrFormField = json_decode($objAScend->arrFormField, true);
-                    $arrTableRelation = json_decode($objAScend->arrTableRelation, true);
+                    $arrFormField = json_decode($objAscend->arrFormField, true);
+                    $arrTableRelation = json_decode($objAscend->arrTableRelation, true);
                     $intNumberOfColumns = count($arrFormField) + count($arrTableRelation);
                     $arrRecord = array();
                     $intErrorCount = 0;
@@ -535,9 +535,9 @@ switch ($strProcess)
                                 foreach($objRow as $intColIndex=>$objCell){
                                     if($intColIndex<$intNumberOfColumns){
                                         $varValue = trim(strtoupper($objCell));
-                                        if ($arrFormField[$intColIndex]['TBL_TYPE']=='N'){
+                                        if ($arrFormField[$intColIndex]['strType']=='N'){
                                             if(!is_numeric($varValue)){
-                                                $strCellName .= $arrFormField[$intColIndex]['TBL_NAME'] . ", ";
+                                                $strCellName .= $arrFormField[$intColIndex]['strName'] . ", ";
                                                 $blnCellValueError = true;
                                             }
                                         }
@@ -552,10 +552,10 @@ switch ($strProcess)
                                     foreach($objRow as $intColIndex=>$objCell) {
                                         $varValue = trim(strtoupper($objCell));
                                         if ($intColIndex < count($arrFormField)) {
-                                            if($arrFormField[$intColIndex]['TBL_DUPLICATE']==0){
-                                                $strCountSql = "SELECT " . $objAScend->strTableIdField . " FROM " . $objAScend->strTableName . " WHERE " . $arrFormField[$intColIndex]['TBL_FIELD'] . " = '" . $varValue . "' AND " . $objAScend->strTableStatusField . " IN (0,1)";
-                                                $rstCount = $objAScend->dbQuery($strCountSql);
-                                                if($objAScend->intMySqlAffectedRows!=0){
+                                            if($arrFormField[$intColIndex]['intDuplicate']==0){
+                                                $strCountSql = "SELECT " . $objAscend->strTableIdField . " FROM " . $objAscend->strTableName . " WHERE " . $arrFormField[$intColIndex]['strField'] . " = '" . $varValue . "' AND " . $objAscend->strTableStatusField . " IN (0,1)";
+                                                $rstCount = $objAscend->dbQuery($strCountSql);
+                                                if($objAscend->intMySqlAffectedRows!=0){
                                                     if(count($arrFormField)<2){
                                                         $intErrorCount++;
                                                         $jsnPhpScriptResponse['arrResult'] .= '<b><span style="color: #FF2828;">&#10006</span> Registro ' . intval($intRowIndex + 1) . ' </b>ya existe, será ignorado<br />';
@@ -632,7 +632,7 @@ switch ($strProcess)
                                                         $strRelationSql = "SELECT COUNT(SCD_SCRAPCODE.SCD_ID) AS COUNT FROM SCD_SCRAPCODE WHERE SCD_STATUS = 1 AND SCD_CODE||' - '||SCD_NAME = '" . $varValue . "'";
                                                         break;
                                                 }
-                                                $rstExcelRelation = $objAScend->dbQuery($strRelationSql);
+                                                $rstExcelRelation = $objAscend->dbQuery($strRelationSql);
                                                 if($rstExcelRelation[0]['COUNT']==0){
                                                     $intErrorCount++;
                                                     $jsnPhpScriptResponse['arrResult'] .= '<b><span style="color: #FF2828;">&#10006</span> Registro ' . intval($intRowIndex + 1) . ' </b>el valor <b>' . $varValue . '</b> para la relación <b>' . $arrTableRelation[$intColIndex - count($arrFormField)]['TBL_DISPLAY'] . '</b> no existe, verificar<br />';
@@ -689,8 +689,8 @@ switch ($strProcess)
         $objPHPExcelReader->setActiveSheetIndex(0);
         $arrExcelRows = $objPHPExcelReader->getActiveSheet()->toArray(null,true,true,false);
         if(count($arrExcelRows)>=2){
-            $arrFormField = json_decode($objAScend->arrFormField, true);
-            $arrTableRelation = json_decode($objAScend->arrTableRelation, true);
+            $arrFormField = json_decode($objAscend->arrFormField, true);
+            $arrTableRelation = json_decode($objAscend->arrTableRelation, true);
             $intNumberOfColumns = count($arrFormField) + count($arrTableRelation);
             $arrRecord = array();
             foreach($arrExcelRows as $intRowIndex=>$objRow){
@@ -740,11 +740,11 @@ switch ($strProcess)
                                         $strUpdateValues = $arrFormField[$intColIndex]['TBL_FIELD'] . " = '" . $varValue . "',";
                                     }
                                 }else{
-                                    $strSqlInsertRecord = "INSERT INTO " . $objAScend->strTableName . "(" . $objAScend->strTableIdField . "," . substr($strInsertRecordFields,0,strlen($strInsertRecordFields) - 1) . ") VALUES((SELECT NVL(MAX(" . $objAScend->strTableIdField . "),0) + 1 FROM " . $objAScend->strTableName . ")," . substr($strInsertRecordValues,0,strlen($strInsertRecordValues) - 1) . ")";
-                                    $objAScend->dbInsert($strSqlInsertRecord);
+                                    $strSqlInsertRecord = "INSERT INTO " . $objAscend->strTableName . "(" . $objAscend->strTableIdField . "," . substr($strInsertRecordFields,0,strlen($strInsertRecordFields) - 1) . ") VALUES((SELECT NVL(MAX(" . $objAscend->strTableIdField . "),0) + 1 FROM " . $objAscend->strTableName . ")," . substr($strInsertRecordValues,0,strlen($strInsertRecordValues) - 1) . ")";
+                                    $objAscend->dbInsert($strSqlInsertRecord);
                                     if(count($arrFormField)>1){
-                                        $strSqlUpdateRecord = "UPDATE " . $objAScend->strTableName . " SET " . substr($strUpdateValues,0,strlen($strUpdateValues) - 1) . " WHERE " . $strUpdateNeedle;
-                                        $objAScend->dbUpdate($strSqlUpdateRecord);
+                                        $strSqlUpdateRecord = "UPDATE " . $objAscend->strTableName . " SET " . substr($strUpdateValues,0,strlen($strUpdateValues) - 1) . " WHERE " . $strUpdateNeedle;
+                                        $objAscend->dbUpdate($strSqlUpdateRecord);
                                         $jsnPhpScriptResponse['arrResult'] .= '<b>Registro ' . $intRowIndex . ' </b> ' . $strSqlUpdateRecord . '<br />';
                                     }
                                     if($intColIndex<$intNumberOfColumns){
@@ -817,18 +817,18 @@ switch ($strProcess)
                                                 break;
                                         }
                                         $intRelationID = 0;
-                                        $rstExcelRelation = $objAScend->dbQuery($strRelationSql);
-                                        if($objAScend->intMySqlAffectedRows!=0){
+                                        $rstExcelRelation = $objAscend->dbQuery($strRelationSql);
+                                        if($objAscend->intMySqlAffectedRows!=0){
                                             $intRelationID = $rstExcelRelation[0]['RELATIONID'];
                                         }
                                         unset($rstExcelRelation);
                                         if($intRelationID!=0){
-                                            $strSqlRecordId = "SELECT " . $objAScend->strTableIdField . " AS FIELDID FROM " . $objAScend->strTableName . " WHERE " . $strUpdateNeedle;
-                                            $rstRecordId = $objAScend->dbQuery($strSqlRecordId);
+                                            $strSqlRecordId = "SELECT " . $objAscend->strTableIdField . " AS FIELDID FROM " . $objAscend->strTableName . " WHERE " . $strUpdateNeedle;
+                                            $rstRecordId = $objAscend->dbQuery($strSqlRecordId);
                                             $intRecordId = $rstRecordId[0]['FIELDID'];
                                             unset($rstRecordId);
                                             $strSqlInsertRelation = relationTable($arrTableRelation[$intColIndex - count($arrFormField)]['TBL_NAME'],"INSERT INTO ||strTable||(||strField_Id||,||strField_0||,||strField_1||) VALUES((SELECT NVL(MAX(||strField_Id||),0) + 1 FROM ||strTable||)," . $intRecordId . "," . $intRelationID . ")");
-                                            $objAScend->dbInsert($strSqlInsertRelation);
+                                            $objAscend->dbInsert($strSqlInsertRelation);
                                         }
                                     }else{
                                         break;
@@ -871,7 +871,7 @@ switch ($strProcess)
                             $jsnPhpScriptResponse['strResult'] .= '# ' . $objFiles . ' ... formato de imágen inválido<br />';
                         }else{
                             $strFile = str_replace('.JPEG','',str_replace('.JPG','',strtoupper($objFiles)));
-                            switch($objAScend->intTableId){
+                            switch($objAscend->intTableId){
                                 case 18:
                                     $strSql = "SELECT COUNT(*) AS COUNT FROM PRT_PART WHERE PRT_NUMBER = '" . $strFile . "'";
                                     break;
@@ -879,7 +879,7 @@ switch ($strProcess)
                                     $strSql = "SELECT COUNT(*) AS COUNT FROM ASM_ASSEMBLY WHERE ASM_NAME = '" . $strFile . "'";
                                     break;
                             }
-                            $rstCount = $objAScend->dbQuery($strSql);
+                            $rstCount = $objAscend->dbQuery($strSql);
                             if($rstCount[0]['COUNT']!=0){
                                 $jsnPhpScriptResponse['strResult'] .= '# ' . $objFiles . ' ... no registrado<br />';
                             }else{
@@ -915,7 +915,7 @@ switch ($strProcess)
         }
         break;
 };
-unset($objAScend);
+unset($objAscend);
 echo json_encode($jsnPhpScriptResponse);
 
 function relationTable($strRelation,$strSql)

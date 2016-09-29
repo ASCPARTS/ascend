@@ -134,13 +134,13 @@ class clsAscend
         $strSortCell = '';
         $strSortCell .= '<th class="thGrid">';
         if($intSort==1){
-            $strSortCell .= '<table style="border:0; border-collapse: collapse; border-spacing: 0; width: 100%; ">';
+            $strSortCell .= '<table style="border:0; border-collapse: collapse; border-spacing: 0; width: 100%; " class="tblSort">';
             $strSortCell .= '<tr style="height: 14px">';
             $strSortCell .= '<td rowspan="2" style="text-align: left; padding: 0 4px 0 0; margin: 0 0 0 0;">' . $strName . '</td>';
-            $strSortCell .= '<td style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' ASC" onclick="gridSort(\'' . $strField . ' ASC\')">&#9650;</td>';
+            $strSortCell .= '<td class="arrow" style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' ASC" onclick="gridSort(\'' . $strField . ' ASC\')">&#9650;</td>';
             $strSortCell .= '</tr>';
             $strSortCell .= '<tr style="height: 14px">';
-            $strSortCell .= '<td style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' DESC" onclick="gridSort(\'' . $strField . ' DESC\')">&#9660;</td>';
+            $strSortCell .= '<td class="arrow" style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' DESC" onclick="gridSort(\'' . $strField . ' DESC\')">&#9660;</td>';
             $strSortCell .= '</tr>';
             $strSortCell .= '</table>';
         }else{
@@ -259,12 +259,12 @@ class clsAscend
         $strTableSqlSelect = substr($strTableSqlSelect, 0, strlen($strTableSqlSelect) - 2);
         $strTableSqlWhere .= " IN ('B','A') ";
         $this->strGridSql = $strTableSqlSelect . $strTableSqlFrom . $strTableSqlWhere;
-        $this->strGridSqlOrder = " ORDER BY " . $strTableSqlOrder . " ASC";
+        $this->strGridSqlOrder = $strTableSqlOrder . " ASC";
     }
 
     function updateGrid(){
-
-        $rstData = $this->dbQuery($this->strGridSql . $this->strGridSqlOrder);
+        //echo $this->strGridSql . $this->strGridSqlOrder;
+        $rstData = $this->dbQuery($this->strGridSql . " ORDER BY " .  $this->strGridSqlOrder);
 
         $this->intGridNumberOfRecords = $this->intMySqlAffectedRows;
         if ($this->intGridNumberOfRecords != 0) {
@@ -413,6 +413,18 @@ class clsAscend
             default: $strDate = $intDateTime; break;
         }
         return $strDate;
+    }
+
+    function getProperty($strProperty)
+    {
+        return $this->$strProperty;
+    }
+
+    private function cleanProperties()
+    {
+        $this->intAffectedRows = 0;
+        $this->intLastInsertId = 0;
+        $this->strDBError = "";
     }
 }
 
