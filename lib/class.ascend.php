@@ -26,6 +26,7 @@ class clsAscend
     public $intGridNumberOfRecords;
     public $strGridHeader;
     public $strGridForm;
+    public $strGridOption;
     public $strTableIdField;
     public $strTableStatusField;
     public $arrFormField = array();
@@ -134,13 +135,13 @@ class clsAscend
         $strSortCell = '';
         $strSortCell .= '<th class="thGrid">';
         if($intSort==1){
-            $strSortCell .= '<table style="border:0; border-collapse: collapse; border-spacing: 0; width: 100%; ">';
+            $strSortCell .= '<table style="border:0; border-collapse: collapse; border-spacing: 0; width: 100%; " class="tblSort">';
             $strSortCell .= '<tr style="height: 14px">';
             $strSortCell .= '<td rowspan="2" style="text-align: left; padding: 0 4px 0 0; margin: 0 0 0 0;">' . $strName . '</td>';
-            $strSortCell .= '<td style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' ASC" onclick="gridSort(\'' . $strField . ' ASC\')">&#9650;</td>';
+            $strSortCell .= '<td class="arrow" style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' ASC" onclick="gridSort(\'' . $strField . ' ASC\')">&#9650;</td>';
             $strSortCell .= '</tr>';
             $strSortCell .= '<tr style="height: 14px">';
-            $strSortCell .= '<td style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' DESC" onclick="gridSort(\'' . $strField . ' DESC\')">&#9660;</td>';
+            $strSortCell .= '<td class="arrow" style="cursor:pointer; font-size: 7pt;vertical-align: middle; padding: 0 0 0 0; margin: 0 0 0 0;" title="' . $strName . ' DESC" onclick="gridSort(\'' . $strField . ' DESC\')">&#9660;</td>';
             $strSortCell .= '</tr>';
             $strSortCell .= '</table>';
         }else{
@@ -229,27 +230,7 @@ class clsAscend
         unset($objField);
         unset($rstField);
         /*
-        $strSql = 'SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TABLE = ' . $this->intTableId . ' ORDER BY TBL_ORDER';
-        $rstRelation = $this->dbQuery($strSql);
-        if ($this->intMySqlAffectedRows != 0) {
-            foreach ($rstRelation as $objRelation) {
-                array_push($this->arrTableRelation, array(
-                    'TBL_ID' => $objRelation['TBL_ID'],
-                    'TBL_NAME' => $objRelation['TBL_NAME'],
-                    'TBL_TABLE' => $objRelation['TBL_TABLE'],
-                    'TBL_DISPLAY' => $objRelation['TBL_DISPLAY'],
-                    'TBL_ORDER' => $objRelation['TBL_ORDER']
-                ));
-                $this->strGridForm .= '<tr>';
-                $this->strGridForm .= '<td class="form_main_td_title"><label class="form_label">' . $objRelation['TBL_DISPLAY'] . '</label></td>';
-                $this->strGridForm .= '<td id="tdRelationContainer_' . $objRelation['TBL_NAME'] . '" class="form_main_td_data">';
-                $this->strGridForm .= '<table id="tblRelation_' . $objRelation['TBL_NAME'] . '" class="form_table_relation"></tr></table>';
-                $this->strGridForm .= '</td>';
-                $this->strGridForm .= '</tr>';
-            }
-            unset($objRelation);
-        }
-        unset($rstRelation);
+        ##### Rlations Routine #####
         */
         $this->arrFormField = json_encode($this->arrFormField);
         $this->arrTableRelation = json_encode($this->arrTableRelation);
@@ -259,121 +240,130 @@ class clsAscend
         $strTableSqlSelect = substr($strTableSqlSelect, 0, strlen($strTableSqlSelect) - 2);
         $strTableSqlWhere .= " IN ('B','A') ";
         $this->strGridSql = $strTableSqlSelect . $strTableSqlFrom . $strTableSqlWhere;
-        $this->strGridSqlOrder = " ORDER BY " . $strTableSqlOrder . " ASC";
+        $this->strGridSqlOrder = $strTableSqlOrder . " ASC";
+        $this->strGridOption = "default";
     }
 
     function updateGrid(){
+        //echo $this->strGridSql . $this->strGridSqlOrder;
+        switch ($this->strGridOption){
+            case 'finder':
 
-        $rstData = $this->dbQuery($this->strGridSql . $this->strGridSqlOrder);
+                break;
 
-        $this->intGridNumberOfRecords = $this->intMySqlAffectedRows;
-        if ($this->intGridNumberOfRecords != 0) {
-            $intPages = ceil($this->intGridNumberOfRecords / $this->intGridSqlLimit);
-        } else {
-            $intPages = 1;
-        }
+            case 'default':
+                $rstData = $this->dbQuery($this->strGridSql . " ORDER BY " .  $this->strGridSqlOrder);
 
-        $intFirstRecord = ($this->intGridSqlLimit * $this->intGridSqlPage) - $this->intGridSqlLimit;
-        $intLastRecord = $intFirstRecord + $this->intGridSqlLimit - 1;
-        $this->strGrid = '';
-        if ($this->intGridNumberOfRecords != 0)
-        {
-            for ($intIndex = $intFirstRecord; $intIndex <= $intLastRecord; $intIndex++) {
-                $this->strGrid .= '<tr id="trGrid_' . $rstData[$intIndex][$this->strTableIdField] . '">';
-                for ($intArrayIndex = 0; $intArrayIndex < count($this->arrTableField); $intArrayIndex++) {
-                    switch ($this->arrTableField[$intArrayIndex]['strType']) {
-                        case 'N':
-                            $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">' . number_format($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']], $this->arrTableField[$intArrayIndex]['intLength'], '.', ',') . '</td>';
-                            break;
-                        case 'T':
-                            $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] . '</td>';
-                            break;
-                        case 'S':
-                            if($this->arrTableField[$intArrayIndex]['strField'] == $this->strTableStatusField){
-                                $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">';
-                                if ($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] == 1) {
-                                    $this->strGrid .= '<label id="lblDeactivate_' . $rstData[$intIndex][$this->strTableIdField] . '" currentValue="' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] . '" onclick="deactivateRecord(' . $rstData[$intIndex][$this->strTableIdField] . ');" class="labelActions labelActionsGreen">&#10004;</label>';
-                                } else {
-                                    $this->strGrid .= '<label id="lblDeactivate_' . $rstData[$intIndex][$this->strTableIdField] . '" currentValue="' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] . '" onclick="deactivateRecord(' . $rstData[$intIndex][$this->strTableIdField] . ');" class="labelActions labelActionsRed">&#10006;</label>';
-                                }
-                                $this->strGrid .= '</td>';
-                            }else{
-                                $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">';
-                                if ($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] == 1) {
-                                    $this->strGrid .= '&#10004;';
-                                } else {
-                                    $this->strGrid .= '&#10006;';
-                                }
-                                $this->strGrid .= '</td>';
+                $this->intGridNumberOfRecords = $this->intMySqlAffectedRows;
+                if ($this->intGridNumberOfRecords != 0) {
+                    $intPages = ceil($this->intGridNumberOfRecords / $this->intGridSqlLimit);
+                } else {
+                    $intPages = 1;
+                }
+
+                $intFirstRecord = ($this->intGridSqlLimit * $this->intGridSqlPage) - $this->intGridSqlLimit;
+                $intLastRecord = $intFirstRecord + $this->intGridSqlLimit - 1;
+                $this->strGrid = '';
+                if ($this->intGridNumberOfRecords != 0)
+                {
+                    for ($intIndex = $intFirstRecord; $intIndex <= $intLastRecord; $intIndex++) {
+                        $this->strGrid .= '<tr id="trGrid_' . $rstData[$intIndex][$this->strTableIdField] . '">';
+                        for ($intArrayIndex = 0; $intArrayIndex < count($this->arrTableField); $intArrayIndex++) {
+                            switch ($this->arrTableField[$intArrayIndex]['strType']) {
+                                case 'N':
+                                    $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">' . number_format($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']], $this->arrTableField[$intArrayIndex]['intLength'], '.', ',') . '</td>';
+                                    break;
+                                case 'T':
+                                    $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] . '</td>';
+                                    break;
+                                case 'S':
+                                    if($this->arrTableField[$intArrayIndex]['strField'] == $this->strTableStatusField){
+                                        $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">';
+                                        if ($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] == 1) {
+                                            $this->strGrid .= '<label id="lblDeactivate_' . $rstData[$intIndex][$this->strTableIdField] . '" currentValue="' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] . '" onclick="deactivateRecord(' . $rstData[$intIndex][$this->strTableIdField] . ');" class="labelActions labelActionsGreen">&#10004;</label>';
+                                        } else {
+                                            $this->strGrid .= '<label id="lblDeactivate_' . $rstData[$intIndex][$this->strTableIdField] . '" currentValue="' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] . '" onclick="deactivateRecord(' . $rstData[$intIndex][$this->strTableIdField] . ');" class="labelActions labelActionsRed">&#10006;</label>';
+                                        }
+                                        $this->strGrid .= '</td>';
+                                    }else{
+                                        $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">';
+                                        if ($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['strField']] == 1) {
+                                            $this->strGrid .= '&#10004;';
+                                        } else {
+                                            $this->strGrid .= '&#10006;';
+                                        }
+                                        $this->strGrid .= '</td>';
+                                    }
+                                    break;
                             }
+                        }
+                        $this->strGrid .= '<td class="tdGrid" style="text-align: center;">';
+
+                        $this->strGrid .= '<label id="lblEdit_' . $rstData[$intIndex][$this->strTableIdField] . '" onclick="showModal(' . $rstData[$intIndex][$this->strTableIdField] . ');" class="labelActions labelActionsOrange">&#9998;</label>';
+                        $this->strGrid .= '</td>';
+                        $this->strGrid .= '</tr>';
+                        if ($intIndex == ($this->intGridNumberOfRecords - 1)) {
                             break;
+                        }
+                    };
+                }
+                else {
+                    $this->strGrid .= '<tr><td class="tdGrid" style="text-align: center" colspan="' . $this->intGridNumberOfColumns . '">No existen registros</td></tr>';
+                }
+                $this->strGridPagination = '<div style="margin-bottom: 2px; vertical-align: top;">';
+                if ($this->intGridSqlPage != 1) {
+                    $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(1)" title="Inicio">&#8920;</label>';
+                    $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . ($this->intGridSqlPage - 1) . ')" title="Anterior">&#8810</label>';
+                } else {
+                    $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Inicio">&#8920;</label>';
+                    $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Anterior">&#8810</label>';
+                }
+                $this->strGridPagination .= '<div id="divPagesScroll" style="display: inline-block; width: 545px; height: 42px; white-space: nowrap; overflow-x: auto; overflow-y: hidden">';
+                for ($intPage = 1; $intPage <= $intPages; $intPage++) {
+                    if ($intPage == $this->intGridSqlPage) {
+                        $this->strGridPagination .= '<label class="labelPagination labelPaginationCurrent">' . $intPage . '</label>';
+                    } else {
+                        $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . $intPage . ')">' . $intPage . '</label>';
                     }
                 }
-                $this->strGrid .= '<td class="tdGrid" style="text-align: center;">';
-
-                $this->strGrid .= '<label id="lblEdit_' . $rstData[$intIndex][$this->strTableIdField] . '" onclick="showModal(' . $rstData[$intIndex][$this->strTableIdField] . ');" class="labelActions labelActionsOrange">&#9998;</label>';
-                $this->strGrid .= '</td>';
-                $this->strGrid .= '</tr>';
-                if ($intIndex == ($this->intGridNumberOfRecords - 1)) {
-                    break;
+                $this->strGridPagination .= '</div>';
+                if ($this->intGridSqlPage != $intPages) {
+                    $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . ($this->intGridSqlPage + 1) . ')" title="Siguiente">&#8811</label>';
+                    $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . $intPages . ')" title="Final">&#8921</label>';
+                } else {
+                    $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Siguiente">&#8811</label>';
+                    $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Final">&#8921</label>';
                 }
-            };
-        }
-        else {
-            $this->strGrid .= '<tr><td class="tdGrid" style="text-align: center" colspan="' . $this->intGridNumberOfColumns . '">No existen registros</td></tr>';
-        }
-        $this->strGridPagination = '<div style="margin-bottom: 2px; vertical-align: top;">';
-        if ($this->intGridSqlPage != 1) {
-            $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(1)" title="Inicio">&#8920;</label>';
-            $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . ($this->intGridSqlPage - 1) . ')" title="Anterior">&#8810</label>';
-        } else {
-            $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Inicio">&#8920;</label>';
-            $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Anterior">&#8810</label>';
-        }
-        $this->strGridPagination .= '<div id="divPagesScroll" style="display: inline-block; width: 545px; height: 42px; white-space: nowrap; overflow-x: auto; overflow-y: hidden">';
-        for ($intPage = 1; $intPage <= $intPages; $intPage++) {
-            if ($intPage == $this->intGridSqlPage) {
-                $this->strGridPagination .= '<label class="labelPagination labelPaginationCurrent">' . $intPage . '</label>';
-            } else {
-                $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . $intPage . ')">' . $intPage . '</label>';
-            }
-        }
-        $this->strGridPagination .= '</div>';
-        if ($this->intGridSqlPage != $intPages) {
-            $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . ($this->intGridSqlPage + 1) . ')" title="Siguiente">&#8811</label>';
-            $this->strGridPagination .= '<label class="labelPagination" onclick="gridPagination(' . $intPages . ')" title="Final">&#8921</label>';
-        } else {
-            $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Siguiente">&#8811</label>';
-            $this->strGridPagination .= '<label class="labelPagination labelPaginationDisabled" title="Final">&#8921</label>';
-        }
-        $this->strGridPagination .= '</div>';
-        $this->strGridPagination .= '<b>' . $this->intGridNumberOfRecords . '</b> Registro';
-        if ($this->intGridNumberOfRecords > 1) {
-            $this->strGridPagination .= 's';
-        }
-        $this->strGridPagination .= ' - ';
-        $this->strGridPagination .= '<b>' . $intPages . '</b> Página';
-        if ($intPages > 1) {
-            $this->strGridPagination .= 's';
-        }
-        $this->strGridPagination .= ' - ';
-        if ($this->intGridNumberOfRecords != 0) {
-            $this->strGridPagination .= '<select onchange="gridRecords(this.value);">';
-            for ($intPageCount = 25; $intPageCount <= 100; $intPageCount = $intPageCount + 25) {
-                $this->strGridPagination .= '<option value="' . $intPageCount . '"';
-                if ($this->intGridSqlLimit == $intPageCount) {
-                    $this->strGridPagination .= ' selected="selected"';
+                $this->strGridPagination .= '</div>';
+                $this->strGridPagination .= '<b>' . $this->intGridNumberOfRecords . '</b> Registro';
+                if ($this->intGridNumberOfRecords > 1) {
+                    $this->strGridPagination .= 's';
                 }
-                $this->strGridPagination .= '>' . $intPageCount . '</option>';
-            }
-            $this->strGridPagination .= '</select>';
-        } else {
-            $this->strGridPagination .= '<select>';
-            $this->strGridPagination .= '<option value="0">0</option>';
-            $this->strGridPagination .= '</select>';
+                $this->strGridPagination .= ' - ';
+                $this->strGridPagination .= '<b>' . $intPages . '</b> Página';
+                if ($intPages > 1) {
+                    $this->strGridPagination .= 's';
+                }
+                $this->strGridPagination .= ' - ';
+                if ($this->intGridNumberOfRecords != 0) {
+                    $this->strGridPagination .= '<select onchange="gridRecords(this.value);">';
+                    for ($intPageCount = 25; $intPageCount <= 100; $intPageCount = $intPageCount + 25) {
+                        $this->strGridPagination .= '<option value="' . $intPageCount . '"';
+                        if ($this->intGridSqlLimit == $intPageCount) {
+                            $this->strGridPagination .= ' selected="selected"';
+                        }
+                        $this->strGridPagination .= '>' . $intPageCount . '</option>';
+                    }
+                    $this->strGridPagination .= '</select>';
+                } else {
+                    $this->strGridPagination .= '<select>';
+                    $this->strGridPagination .= '<option value="0">0</option>';
+                    $this->strGridPagination .= '</select>';
+                }
+                $this->strGridPagination .= ' Registros por página';
+                unset($rstData);
+                break;
         }
-        $this->strGridPagination .= ' Registros por página';
-        unset($rstData);
     }
 
     //funciones pagineo
@@ -413,6 +403,18 @@ class clsAscend
             default: $strDate = $intDateTime; break;
         }
         return $strDate;
+    }
+
+    function getProperty($strProperty)
+    {
+        return $this->$strProperty;
+    }
+
+    private function cleanProperties()
+    {
+        $this->intAffectedRows = 0;
+        $this->intLastInsertId = 0;
+        $this->strDBError = "";
     }
 }
 
