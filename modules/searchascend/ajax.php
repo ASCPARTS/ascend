@@ -29,12 +29,12 @@ switch ($strProcess)
 
         foreach ($arrayBuscador as $strBuscadorSelected)
         {
-            $sqlWhereFamily .= "F.strName LIKE '%$strBuscadorSelected%' OR ";
-            $sqlWhereBrand .= "B.strName LIKE '%$strBuscadorSelected%' OR ";
-            $sqlWhereGroup .= "G.strName LIKE '%$strBuscadorSelected%' OR ";
-            $sqlWhereSKU .= "P.strSKU LIKE '%$strBuscadorSelected%' OR ";
-            $sqlWherePartNumber .= "P.strPartNumber LIKE '%$strBuscadorSelected%' OR ";
-            $sqlWhereDescription .= "P.strDescription LIKE '%$strBuscadorSelected%' OR ";
+            $sqlWhereFamily .= "F.strName LIKE '%$strBuscador%' OR ";
+            $sqlWhereBrand .= "B.strName LIKE '%$strBuscador%' OR ";
+            $sqlWhereGroup .= "G.strName LIKE '%$strBuscador%' OR ";
+            $sqlWhereSKU .= "P.strSKU LIKE '%$strBuscador%' OR ";
+            $sqlWherePartNumber .= "P.strPartNumber LIKE '%$strBuscador%' OR ";
+            $sqlWhereDescription .= "P.strDescription LIKE '%$strBuscador%' OR ";
 
             $sqlBrand .= "B.strName LIKE '%$strBrand%' OR ";
             $sqlGroup .= "G.strName LIKE '%$strGroup%' OR ";
@@ -79,8 +79,10 @@ switch ($strProcess)
         break;
     case 'infoProduct':
         $strSKU =$_REQUEST['strSKU'];
-        $rstInfoProduct= $objAscend->dbQuery("select P.strSKU, P.strPArtNumber, P.strDescription"
+        $rstInfoProduct= $objAscend->dbQuery("select P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName, C.strName"
                          ." from tblProduct P"
+                         ." LEFT JOIN tblBrand B ON P.intBrand = B.intBrand"
+                         ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
                          ." where P.strSKU='$strSKU' and P.strStatus='A'");
         $sqlGroup= $objAscend->dbQuery("select intGroup, intId from tblProduct where strSKU='$strSKU' and strStatus='A';");
         $rstEncabezado= $objAscend->dbQuery("select strDisplay from tblGroupField where intGroup= ".$sqlGroup[0]['intGroup']." and strStatus='A';");
