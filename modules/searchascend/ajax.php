@@ -81,18 +81,21 @@ switch ($strProcess)
         break;
     case 'infoProduct':
         $strSKU =$_REQUEST['strSKU'];
-        $rstInfoProduct= $objAscend->dbQuery("select P.strSKU, P.strPArtNumber, W.strDescription, WS.intStock"
+        $rstInfoProduct= $objAscend->dbQuery("select P.strSKU, P.strPArtNumber, P.strDescription"
                          ." from tblProduct P"
-                         ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct "
-                         ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId "
-                         ." where P.strSKU='$strSKU' and WS.intStock > 0 and P.strStatus='A'");
-        echo $objAscend-> strTransactionErrorMessage;
-        echo "<pre>";
-        print_r($rstInfoProduct);
-        echo "</pre>";
+                         ." where P.strSKU='$strSKU' and P.strStatus='A'");
+        $sqlGroup= $objAscend->dbQuery("select intGroup, intId from tblProduct where strSKU='$strSKU' and strStatus='A';");
+        $rstEncabezado= $objAscend->dbQuery("select strDisplay from tblGroupField where intGroup= ".$sqlGroup[0]['intGroup']." and strStatus='A';");
+        $rsrValoresEncabezado=$objAscend->dbQuery("select strDisplay from tblProductDetail where intProduct='".$sqlGroup[0]['intId']."' and strStatus='A';");
+
         $jsnPhpScriptResponse=$rstInfoProduct;
+        $jsnPhpScriptResponse=$rstEncabezado;
+        $jsnPhpScriptResponse=$rsrValoresEncabezado;
+
         break;
     case 'replacement':
+
+
         $strSKU =$_REQUEST['strSKU'];
         $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
         $rstReplacement=$objAscend->dbQuery("select P.strSKU"
@@ -109,6 +112,15 @@ switch ($strProcess)
             ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
             ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'C' and PR.strStatus='A';");
         $jsnPhpScriptResponse=$rstCompatible;
+        break;
+    case 'existencias':
+        $strSKU =$_REQUEST['strSKU'];
+        $sqlProduct=$objAscend->dbQuery("select intId from tblProduct where strSKU='6171374';");
+        $rstExistencias=$objAscend->dbQuery("select W.strDescription, WS.intStock"
+                                                ." from tblWarehouseStock WS"
+                                                ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
+                                                ." where WS.intProduct='".$sqlProduct[0]['intId']."' and WS.intStock > 0;");
+        $jsnPhpScriptResponse=$rstExistencias;
         break;
     case 'autocomplete':
 
