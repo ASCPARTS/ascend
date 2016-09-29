@@ -41,7 +41,7 @@ $classAscend = new clsAscend();
 <script type="text/javascript" src="<?php echo JS_PATH; ?>notification.js"></script>
 <script>
     
-
+    
 </script>
 </body>
 </html>
