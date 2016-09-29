@@ -1,3 +1,28 @@
+//
+
+function init()
+{
+    console.log("Seeker.js");
+    
+    $('#buscar').keyup( function() 
+    {
+        
+       console.log("presiona");
+       $('#resultado_busqueda').empty();
+       
+        if( this.value.length > 2 )
+        {
+
+            console.log("presiona mas de 2");
+            $('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#resultado_busqueda" );
+            
+        }
+
+    });
+
+    
+}
+
 
 function openTab(evt, cityName) 
 {
@@ -59,3 +84,4 @@ function getModalTab(idModal, idSpan, contentTab, tagTab)
     document.getElementById(contentTab).style.display = "block";
     document.getElementById(tagTab).className += " active";
 }
+

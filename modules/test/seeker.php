@@ -14,22 +14,9 @@
         	<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
                 <div class="divInputText searchGray dropdown">
                     <input type="text" id="buscar">
-                    <div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
-				      <ul class="autocomplete">
-				        <li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li>
-				        	<li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li>
-				        <li class="title_list">
-				        	<a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a>
-				        </li>
-				        	<li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li>
-				        	<li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li>
-				        	<li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li>
-				        	<li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li>
-				        <li class="title_list"><a href="13">GROUPS</a></li>
-				        	<li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li>
-				        	<li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li>
-				     </ul>
-				    </div>
+                    <div id="resultado_busqueda">
+                    	
+                    </div>
                     <label for="buscar">BUSCAR</label>
                 </div>
             </div>
@@ -1427,8 +1414,14 @@
 			<script type="text/javascript" src="../../lib/jquery.mousewheel.js"></script>
 			<script type="text/javascript" src="../../lib/jquery.contentcarousel.js"></script>
 			<script type="text/javascript">
+				jQuery(document).ready(function()
+		        {
+		            init();
+		        });
 				$('#ca-container').contentcarousel();
+
 			</script>
+
 		<!--JAVASCRIPT DEL CARRUCEL FIN-->
 
 </body>
