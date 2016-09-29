@@ -82,7 +82,7 @@ switch ($strProcess)
         $strSKU =$_REQUEST['strSKU'];
         $rstInfoProduct= $objAscend->dbQuery("select P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName, C.strName"
                          ." from tblProduct P"
-                         ." LEFT JOIN tblBrand B ON P.intBrand = B.intBrand"
+                         ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
                          ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
                          ." where P.strSKU='$strSKU' and P.strStatus='A'");
         $sqlGroup= $objAscend->dbQuery("select intGroup, intId from tblProduct where strSKU='$strSKU' and strStatus='A';");
@@ -93,8 +93,9 @@ switch ($strProcess)
         $jsnPhpScriptResponse1=$rstEncabezado;
         $jsnPhpScriptResponse2=$rsrValoresEncabezado;
 
+        echo $objAscend-> strTransactionErrorMessage;
         echo"<pre>";
-        print_r($jsnPhpScriptResponse2);
+        print_r($jsnPhpScriptResponse);
         echo"</pre>";
 
         break;
