@@ -65,29 +65,11 @@
 	height:200px;
 	position:relative;
 	margin:0 auto;
-	background:transparent url(../img/slide/toner1.jpg) no-repeat center center;
+	background: transparent;
+	background: no-repeat;
+	background: center;
 }
-.ca-item-2 .ca-icon{
-	background-image:url(../img/slide/toner2.jpg);
-}
-.ca-item-3 .ca-icon{
-	background-image:url(../img/slide/toner3.jpg);
-}
-.ca-item-4 .ca-icon{
-	background-image:url(../img/slide/toner4.jpg);
-}
-.ca-item-5 .ca-icon{
-	background-image:url(../img/slide/toner5.jpg);
-}
-.ca-item-6 .ca-icon{
-	background-image:url(../img/slide/animal6.png);
-}
-.ca-item-7 .ca-icon{
-	background-image:url(../img/slide/animal7.png);
-}
-.ca-item-8 .ca-icon{
-	background-image:url(../img/slide/animal8.png);
-}
+
 .ca-item h3{
 	font-family: 'Coustard', sans-serif;
 	text-transform:uppercase;
