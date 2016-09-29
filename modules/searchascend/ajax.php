@@ -27,8 +27,6 @@ switch ($strProcess)
         $sqlGroup = "( ";
         $sqlPartNumber = "( ";
 
-
-
         foreach ($arrayBuscador as $strBuscadorSelected)
         {
             $sqlWhereFamily .= "F.strName LIKE '%$strBuscadorSelected%' OR ";
@@ -89,8 +87,12 @@ switch ($strProcess)
         $rsrValoresEncabezado=$objAscend->dbQuery("select strDisplay from tblProductDetail where intProduct='".$sqlGroup[0]['intId']."' and strStatus='A';");
 
         $jsnPhpScriptResponse=$rstInfoProduct;
-        $jsnPhpScriptResponse=$rstEncabezado;
-        $jsnPhpScriptResponse=$rsrValoresEncabezado;
+        $jsnPhpScriptResponse1=$rstEncabezado;
+        $jsnPhpScriptResponse2=$rsrValoresEncabezado;
+
+        echo"<pre>";
+        print_r($jsnPhpScriptResponse2);
+        echo"</pre>";
 
         break;
     case 'replacement':
@@ -103,6 +105,9 @@ switch ($strProcess)
                         ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
                         ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';");
         $jsnPhpScriptResponse=$rstReplacement;
+        echo"<pre>";
+        print_r($jsnPhpScriptResponse);
+        echo"</pre>";
         break;
     case 'compatible':
         $strSKU =$_REQUEST['strSKU'];
@@ -112,15 +117,21 @@ switch ($strProcess)
             ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
             ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'C' and PR.strStatus='A';");
         $jsnPhpScriptResponse=$rstCompatible;
+        echo"<pre>";
+        print_r($jsnPhpScriptResponse);
+        echo"</pre>";
         break;
-    case 'existencias':
+    case 'stock':
         $strSKU =$_REQUEST['strSKU'];
         $sqlProduct=$objAscend->dbQuery("select intId from tblProduct where strSKU='6171374';");
-        $rstExistencias=$objAscend->dbQuery("select W.strDescription, WS.intStock"
+        $rstStock=$objAscend->dbQuery("select W.strDescription, WS.intStock"
                                                 ." from tblWarehouseStock WS"
                                                 ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
                                                 ." where WS.intProduct='".$sqlProduct[0]['intId']."' and WS.intStock > 0;");
-        $jsnPhpScriptResponse=$rstExistencias;
+        $jsnPhpScriptResponse=$rstStock;
+        echo"<pre>";
+        print_r($jsnPhpScriptResponse);
+        echo"</pre>";
         break;
     case 'autocomplete':
 
