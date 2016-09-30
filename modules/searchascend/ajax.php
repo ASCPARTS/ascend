@@ -9,13 +9,25 @@ $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 switch ($strProcess)
 {
-
+    case 'topSeller':
+        $rstTop= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName, C.strName, I.intSold"
+                                        ." FROM tblInvoice I"
+                                        ." LEFT JOIN tblProduct P ON P.intId= I.intPRoduct"
+                                        ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
+                                        ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
+                                        ." ORDER BY I.intSold DESC limit 100;");
+        $jsnPhpScriptResponse=$rstTop;
+        echo"<pre>";
+        print_r($jsnPhpScriptResponse);
+        echo"</pre>";
+        break;
     case 'searchProduct':
+        $strNeedle = strtoupper(trim($_REQUEST['strNeedle']));
+
         $strBrand =$_REQUEST['strBrand'];
         $strGroup =$_REQUEST['strGroup'];
         $strPartNumber =$_REQUEST['strPartNumber'];
-        $strBuscador =$_REQUEST['strBuscador'];
-        $strBuscador = strtoupper(trim($_REQUEST['strBuscador']));
+
         $arrayBuscador = explode(" ", $strBuscador );
         $sqlWhereFamily = "( ";
         $sqlWhereBrand = "( ";
@@ -30,12 +42,12 @@ switch ($strProcess)
 
         foreach ($arrayBuscador as $strBuscadorSelected)
         {
-            $sqlWhereFamily .= "F.strName LIKE '%$strBuscador%' OR ";
-            $sqlWhereBrand .= "B.strName LIKE '%$strBuscador%' OR ";
-            $sqlWhereGroup .= "G.strName LIKE '%$strBuscador%' OR ";
-            $sqlWhereSKU .= "P.strSKU LIKE '%$strBuscador%' OR ";
-            $sqlWherePartNumber .= "P.strPartNumber LIKE '%$strBuscador%' OR ";
-            $sqlWhereDescription .= "P.strDescription LIKE '%$strBuscador%' OR ";
+            $sqlWhereFamily .= "F.strName LIKE '%$strNeedle%' OR ";
+            $sqlWhereBrand .= "B.strName LIKE '%$strNeedle%' OR ";
+            $sqlWhereGroup .= "G.strName LIKE '%$strNeedle%' OR ";
+            $sqlWhereSKU .= "P.strSKU LIKE '%$strNeedle%' OR ";
+            $sqlWherePartNumber .= "P.strPartNumber LIKE '%$strNeedle%' OR ";
+            $sqlWhereDescription .= "P.strDescription LIKE '%$strNeedle%' OR ";
 
             $sqlBrand .= "B.strName LIKE '%$strBrand%' OR ";
             $sqlGroup .= "G.strName LIKE '%$strGroup%' OR ";
@@ -77,6 +89,9 @@ switch ($strProcess)
             ."$sqlPartNumber "
             .")");
         $jsnPhpScriptResponse=$rstsearchProducts;
+        echo"<pre>";
+        print_r($jsnPhpScriptResponse);
+        echo"</pre>";
         break;
     case 'infoProduct':
         $strSKU =$_REQUEST['strSKU'];
