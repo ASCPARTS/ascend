@@ -5,17 +5,33 @@ require_once('../../'.LIB_PATH .'class.ascend.php');
 
 $objAscend = new clsAscend();
 
-
 $strProcess = $_REQUEST['strProcess'];
+$objDate = array();
+$strError = "";
+
 switch ($strProcess)
 {
     case 'topSeller':
-        $rstTop= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName, C.strName, I.intSold"
-                                        ." FROM tblInvoice I"
-                                        ." LEFT JOIN tblProduct P ON P.intId= I.intPRoduct"
+        $rstPromotion= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName as tblBrand, C.strName as catCondition, I.intSold, PR.strRule"
+                                        ." FROM tblProduct P"
+                                        ." LEFT JOIN tblInvoice I ON P.intId= I.intProduct"
                                         ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
                                         ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
+                                        ." LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct"
+                                        ." where P.strStatus='A' and B.strStatus='A' and C.strStatus='A' and PR.strStatus='A'"
                                         ." ORDER BY I.intSold DESC limit 100;");
+
+        $rstTop= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName as tblBrand, C.strName as catCondition, I.intSold, PR.strRule"
+                                        ." FROM tblProduct P"
+                                        ." LEFT JOIN tblInvoice I ON P.intId= I.intProduct"
+                                        ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
+                                        ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
+                                        ." LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct"
+                                        ." where P.strStatus='A' and B.strStatus='A' and C.strStatus='A' and PR.strStatus='A'"
+                                        ." ORDER BY I.intSold DESC limit 100;");
+        
+
+        $jsnPhpScriptResponse=$rstPromotion;
         $jsnPhpScriptResponse=$rstTop;
         echo"<pre>";
         print_r($jsnPhpScriptResponse);
