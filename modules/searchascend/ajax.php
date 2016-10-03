@@ -29,7 +29,7 @@ switch ($strProcess)
                                         ." LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct"
                                         ." where P.strStatus='A' and B.strStatus='A' and C.strStatus='A' and PR.strStatus='A'"
                                         ." ORDER BY I.intSold DESC limit 100;");
-        
+
 
         $jsnPhpScriptResponse=$rstPromotion;
         $jsnPhpScriptResponse=$rstTop;
@@ -156,6 +156,7 @@ switch ($strProcess)
         print_r($jsnPhpScriptResponse);
         echo"</pre>";
         break;
+
     case 'stock':
         $strSKU =$_REQUEST['strSKU'];
         $sqlProduct=$objAscend->dbQuery("select intId from tblProduct where strSKU='6171374';");
