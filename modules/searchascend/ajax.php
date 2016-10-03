@@ -236,3 +236,117 @@ switch ($strProcess)
             . "ORDER BY strGroup, P.strDescription;";
         //echo $sqlProducts;
         $resultProducts = $objAscend->dbQuery($sqlProducts);
+        /*echo "<pre>";
+        print_r($resultProducts);
+        echo "</pre><br><br>";*/
+
+        $arrayGroups = array();
+        foreach ($resultProducts as $objProduct) {
+            $boolExistsInArray = false;
+            foreach ($arrayGroups as $objGroup) {
+                if ($objProduct["intGroup"] == $objGroup["intGroup"]) {
+                    $boolExistsInArray = true;
+                }
+            }
+            if (!$boolExistsInArray) {
+                $arrayGroups[] = array("intGroup" => $objProduct["intGroup"], "strGroup" => $objProduct["strGroup"]);
+            }
+        }
+
+        /*echo "<pre>";
+        print_r($arrayGroups);
+        echo "</pre>";*/
+
+        $arrayResponse = array("arrayList" => array(), "arrayGroups" => array(), "boolMore" => false, "strNeedle" => "");
+
+
+        $intLimit = count($arrayGroups);
+
+        if (count($arrayGroups) > 5) {
+            $intLimit = 5;
+
+            $arrayResponse["boolMore"] = true;
+        }
+        $arrayResponse["arrayGroups"] = $arrayGroups;
+        $arrayResponse["strNeedle"] = $strNeedle;
+
+        for( $g = 0; $g< $intLimit; $g++)
+        {
+            $intCounterGrouprow = 0;
+            $arrayTempGroup = array("intGroup" => $arrayGroups[$g]["intGroup"], "strGroup" => $arrayGroups[$g]["strGroup"], "arrayRows" => array() );
+            foreach ($resultProducts as $objProduct)
+            {
+                if( $intCounterGrouprow <= 5 )
+                    if( $objProduct["intGroup"] == $arrayGroups[$g]["intGroup"] )
+                    {
+                        $arrayTempGroup["arrayRows"][] = array("intId" => $objProduct["intId"], "strDescription" => $objProduct["strDescription"]);
+                        $intCounterGrouprow++;
+                    }
+            }
+            $arrayResponse["arrayList"][] = $arrayTempGroup;
+        }
+
+        echo "<pre>";
+        print_r($arrayResponse);
+        echo "</pre>";
+        $jsnPhpScriptResponse['strResult'] = $arrayResponse;
+        break;
+};
+
+#### pintar Response
+switch ($strProcess)
+{
+    case 'searchProduct':
+    case 'advancedSearch':
+    case 'initialSearch':
+        foreach($rstQuery as $product)
+        {
+            $htmlProduct = '';
+            $htmlProduct .= '<div class="producto-tarjeta">';
+            $htmlProduct .= '<div class="tituloProducto">';
+            $htmlProduct .= '<b>NÚMERO DE PARTE:</b> ' . $product["strPartNumber"];
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '<div class="contenidoProducto">';
+            $htmlProduct .= '<div class="imagenProducto">';
+            $htmlProduct .= '<img src="../../img/product_2.jpg">';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '<div class="infoProducto">';
+            $htmlProduct .= '<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>';
+            $htmlProduct .= '<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>';
+            $htmlProduct .= '<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>';
+            $htmlProduct .= '<div class="precioProducto">$ 190,503.50</div>';
+            $htmlProduct .= '<div class="btnComprar">';
+            $htmlProduct .= '<button class="btnAddCart"></button>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '</div>';
+
+            $htmlProduct .= '<div class="botonesProducto">';
+            $htmlProduct .= '<div class="btn-group-justified">';
+            $htmlProduct .= '<div class="btn-group">';
+            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoDetalles\', \'tabDetalles\')">DETALLES</button>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '<div class="btn-group">';
+            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoRemplazos\', \'tabRemplazos\')">REMPLAZOS</button>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '<div class="btn-group">';
+            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoCompatibles\', \'tabCompatibles\')">COMPATIBLE</button>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '<div class="btn-group">';
+            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoExistencias\', \'tabExistencias\')">EXISTENCIAS</button>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '</div>';
+            $htmlProduct .= '</div>';
+
+            $jsnPhpScriptResponse .= $htmlProduct;
+        }
+
+        /*echo"<pre>";
+        print_r($rstQuery);
+        echo"</pre>";*/
+        break;
+}
+unset($objAscend);
+echo ($jsnPhpScriptResponse);
+?>
