@@ -13,45 +13,17 @@ $jsnPhpScriptResponse = "";
 #### Preparado de datos
 switch ($strProcess)
 {
-<<<<<<< HEAD
-    case 'topSeller':
-        $rstPromotion= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName as tblBrand, C.strName as catCondition, I.intSold, PR.strRule"
-                                        ." FROM tblProduct P"
-                                        ." LEFT JOIN tblInvoice I ON P.intId= I.intProduct"
-                                        ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
-                                        ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
-                                        ." LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct"
-                                        ." where P.strStatus='A' and B.strStatus='A' and C.strStatus='A' and PR.strStatus='A'"
-                                        ." ORDER BY I.intSold DESC limit 100;");
-
-        $rstTop= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName as tblBrand, C.strName as catCondition, I.intSold, PR.strRule"
-                                        ." FROM tblProduct P"
-                                        ." LEFT JOIN tblInvoice I ON P.intId= I.intProduct"
-                                        ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
-                                        ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
-                                        ." LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct"
-                                        ." where P.strStatus='A' and B.strStatus='A' and C.strStatus='A' and PR.strStatus='A'"
-                                        ." ORDER BY I.intSold DESC limit 100;");
-
-
-        $jsnPhpScriptResponse=$rstPromotion;
-        $jsnPhpScriptResponse=$rstTop;
-        echo"<pre>";
-        print_r($jsnPhpScriptResponse);
-        echo"</pre>";
-        break;
-=======
     case 'initialSearch':
 
         $sqlPromotion =
-        "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
-        ."FROM tblProduct P "
-        ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
-        ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
-        ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-        ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-        ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
-        ."ORDER BY I.intSold DESC LIMIT 100;";
+            "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
+            ."FROM tblProduct P "
+            ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
+            ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
+            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+            ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
+            ."ORDER BY I.intSold DESC LIMIT 100;";
 
         $rstPromotion = $objAscend->dbQuery($sqlPromotion);
         if( count($rstPromotion) > 0 )
@@ -61,22 +33,21 @@ switch ($strProcess)
         else
         {
             $sqlTop =
-            "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
-            ."FROM tblProduct P "
-            ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
-            ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
-            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-            ."where P.strStatus='A' "
-            ."ORDER BY I.intSold DESC limit 100;";
+                "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
+                ."FROM tblProduct P "
+                ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
+                ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
+                ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+                ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+                ."where P.strStatus='A' "
+                ."ORDER BY I.intSold DESC limit 100;";
             $rstTop= $objAscend->dbQuery($sqlTop);
             $rstQuery = $rstTop;
             unset($rstTop);
         }
         unset($rstPromotion);
 
-    break;
->>>>>>> origin/dev
+        break;
     case 'searchProduct':
         $strNeedle = strtoupper(trim($_REQUEST['strNeedle']));
 
@@ -152,10 +123,10 @@ switch ($strProcess)
     case 'infoProduct':
         $strSKU =$_REQUEST['strSKU'];
         $rstInfoProduct= $objAscend->dbQuery("select P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName, C.strName"
-                         ." from tblProduct P"
-                         ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
-                         ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
-                         ." where P.strSKU='$strSKU' and P.strStatus='A'");
+            ." from tblProduct P"
+            ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
+            ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
+            ." where P.strSKU='$strSKU' and P.strStatus='A'");
         $sqlGroup= $objAscend->dbQuery("select intGroup, intId from tblProduct where strSKU='$strSKU' and strStatus='A';");
         $rstEncabezado= $objAscend->dbQuery("select strDisplay from tblGroupField where intGroup= ".$sqlGroup[0]['intGroup']." and strStatus='A';");
         $rsrValoresEncabezado=$objAscend->dbQuery("select strDisplay from tblProductDetail where intProduct='".$sqlGroup[0]['intId']."' and strStatus='A';");
@@ -176,9 +147,9 @@ switch ($strProcess)
         $strSKU =$_REQUEST['strSKU'];
         $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
         $rstReplacement=$objAscend->dbQuery("select P.strSKU"
-                        ." from tblProductRelationship PR"
-                        ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-                        ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';");
+            ." from tblProductRelationship PR"
+            ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
+            ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';");
         $jsnPhpScriptResponse=$rstReplacement;
         echo"<pre>";
         print_r($jsnPhpScriptResponse);
@@ -196,14 +167,13 @@ switch ($strProcess)
         print_r($jsnPhpScriptResponse);
         echo"</pre>";
         break;
-
     case 'stock':
         $strSKU =$_REQUEST['strSKU'];
         $sqlProduct=$objAscend->dbQuery("select intId from tblProduct where strSKU='6171374';");
         $rstStock=$objAscend->dbQuery("select W.strDescription, WS.intStock"
-                                                ." from tblWarehouseStock WS"
-                                                ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
-                                                ." where WS.intProduct='".$sqlProduct[0]['intId']."' and WS.intStock > 0;");
+            ." from tblWarehouseStock WS"
+            ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
+            ." where WS.intProduct='".$sqlProduct[0]['intId']."' and WS.intStock > 0;");
         $jsnPhpScriptResponse=$rstStock;
         echo"<pre>";
         print_r($jsnPhpScriptResponse);
@@ -266,117 +236,3 @@ switch ($strProcess)
             . "ORDER BY strGroup, P.strDescription;";
         //echo $sqlProducts;
         $resultProducts = $objAscend->dbQuery($sqlProducts);
-        /*echo "<pre>";
-        print_r($resultProducts);
-        echo "</pre><br><br>";*/
-
-        $arrayGroups = array();
-        foreach ($resultProducts as $objProduct) {
-            $boolExistsInArray = false;
-            foreach ($arrayGroups as $objGroup) {
-                if ($objProduct["intGroup"] == $objGroup["intGroup"]) {
-                    $boolExistsInArray = true;
-                }
-            }
-            if (!$boolExistsInArray) {
-                $arrayGroups[] = array("intGroup" => $objProduct["intGroup"], "strGroup" => $objProduct["strGroup"]);
-            }
-        }
-
-        /*echo "<pre>";
-        print_r($arrayGroups);
-        echo "</pre>";*/
-
-        $arrayResponse = array("arrayList" => array(), "arrayGroups" => array(), "boolMore" => false, "strNeedle" => "");
-
-
-        $intLimit = count($arrayGroups);
-
-        if (count($arrayGroups) > 5) {
-            $intLimit = 5;
-
-            $arrayResponse["boolMore"] = true;
-        }
-        $arrayResponse["arrayGroups"] = $arrayGroups;
-        $arrayResponse["strNeedle"] = $strNeedle;
-
-        for( $g = 0; $g< $intLimit; $g++)
-        {
-            $intCounterGrouprow = 0;
-            $arrayTempGroup = array("intGroup" => $arrayGroups[$g]["intGroup"], "strGroup" => $arrayGroups[$g]["strGroup"], "arrayRows" => array() );
-            foreach ($resultProducts as $objProduct)
-            {
-                if( $intCounterGrouprow <= 5 )
-                    if( $objProduct["intGroup"] == $arrayGroups[$g]["intGroup"] )
-                    {
-                        $arrayTempGroup["arrayRows"][] = array("intId" => $objProduct["intId"], "strDescription" => $objProduct["strDescription"]);
-                        $intCounterGrouprow++;
-                    }
-            }
-            $arrayResponse["arrayList"][] = $arrayTempGroup;
-        }
-
-        echo "<pre>";
-        print_r($arrayResponse);
-        echo "</pre>";
-        $jsnPhpScriptResponse['strResult'] = $arrayResponse;
-    break;
-};
-
-#### pintar Response
-switch ($strProcess)
-{
-    case 'searchProduct':
-    case 'advancedSearch':
-    case 'initialSearch':
-        foreach($rstQuery as $product)
-        {
-            $htmlProduct = '';
-            $htmlProduct .= '<div class="producto-tarjeta">';
-            $htmlProduct .= '<div class="tituloProducto">';
-            $htmlProduct .= '<b>NÚMERO DE PARTE:</b> ' . $product["strPartNumber"];
-							$htmlProduct .= '</div>';
-							$htmlProduct .= '<div class="contenidoProducto">';
-								$htmlProduct .= '<div class="imagenProducto">';
-									$htmlProduct .= '<img src="../../img/product_2.jpg">';
-								$htmlProduct .= '</div>';
-								$htmlProduct .= '<div class="infoProducto">';
-									$htmlProduct .= '<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>';
-									$htmlProduct .= '<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>';
-									$htmlProduct .= '<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>';
-									$htmlProduct .= '<div class="precioProducto">$ 190,503.50</div>';
-									$htmlProduct .= '<div class="btnComprar">';
-										$htmlProduct .= '<button class="btnAddCart"></button>';
-									$htmlProduct .= '</div>';
-								$htmlProduct .= '</div>';
-							$htmlProduct .= '</div>';
-
-							$htmlProduct .= '<div class="botonesProducto">';
-								$htmlProduct .= '<div class="btn-group-justified">';
-									$htmlProduct .= '<div class="btn-group">';
-										$htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoDetalles\', \'tabDetalles\')">DETALLES</button>';
-									$htmlProduct .= '</div>';
-									$htmlProduct .= '<div class="btn-group">';
-										$htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoRemplazos\', \'tabRemplazos\')">REMPLAZOS</button>';
-									$htmlProduct .= '</div>';
-									$htmlProduct .= '<div class="btn-group">';
-										$htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoCompatibles\', \'tabCompatibles\')">COMPATIBLE</button>';
-									$htmlProduct .= '</div>';
-									$htmlProduct .= '<div class="btn-group">';
-										$htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoExistencias\', \'tabExistencias\')">EXISTENCIAS</button>';
-									$htmlProduct .= '</div>';
-								$htmlProduct .= '</div>';
-							$htmlProduct .= '</div>';
-						$htmlProduct .= '</div>';
-
-            $jsnPhpScriptResponse .= $htmlProduct;
-        }
-
-        /*echo"<pre>";
-        print_r($rstQuery);
-        echo"</pre>";*/
-    break;
-}
-unset($objAscend);
-echo ($jsnPhpScriptResponse);
-?>
