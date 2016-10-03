@@ -31,14 +31,139 @@
 							</div>
 							<div class="contenidoProducto">
 								<div class="imagenProducto">
+									<div class="promocion_activa32">En descuento</div>
 									<img src="../../img/product_2.jpg">
 								</div>
 								<div class="infoProducto">
 									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
 									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
 									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-									<div class="precioProducto">$ 190,503.50</div>
+									<div class="precios">
+										<div class="precioPromocion">$ 19,503.50</div>
+										<div class="precioProducto">$ 119,503.50</div>	
+									</div>
 									<div class="btnComprar">
+										
+										<button class="btnAddCart"></button>
+									</div>
+								</div>
+							</div>
+							<div class="botonesProducto">
+								<div class="btn-group-justified">
+									<div class="btn-group">
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="producto-tarjeta">
+							<div class="tituloProducto">
+								<b>NÚMERO DE PARTE:</b> IPH5DC/H
+							</div>
+							<div class="contenidoProducto">
+								<div class="imagenProducto">
+									<div class="promocion_activa32">2x1</div>
+									<img src="../../img/product_2.jpg">
+								</div>
+								<div class="infoProducto">
+									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+									<div class="precios">
+										<div class="precioPromocion">$ 19,503.50</div>
+										<div class="precioProducto">$ 119,503.50</div>	
+									</div>
+									<div class="btnComprar">
+								
+										<button class="btnAddCart"></button>
+									</div>
+								</div>
+							</div>
+							<div class="botonesProducto">
+								<div class="btn-group-justified">
+									<div class="btn-group">
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="producto-tarjeta">
+							<div class="tituloProducto">
+								<b>NÚMERO DE PARTE:</b> IPH5DC/H
+							</div>
+							<div class="contenidoProducto">
+								<div class="imagenProducto">
+									<div class="promocion_activa32">-10%</div>
+									<img src="../../img/product_2.jpg">
+								</div>
+								<div class="infoProducto">
+									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+									<div class="precios">
+										<div class="precioPromocion">$ 19,503.50</div>
+										<div class="precioProducto">$ 119,503.50</div>	
+									</div>
+									<div class="btnComprar">
+								
+										<button class="btnAddCart"></button>
+									</div>
+								</div>
+							</div>
+							<div class="botonesProducto">
+								<div class="btn-group-justified">
+									<div class="btn-group">
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+									</div>
+									<div class="btn-group">
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="producto-tarjeta">
+							<div class="tituloProducto">
+								<b>NÚMERO DE PARTE:</b> IPH5DC/H
+							</div>
+							<div class="contenidoProducto">
+								<div class="imagenProducto">
+									<div class="promocion_activa32">Nuevo</div>
+									<img src="../../img/product_2.jpg">
+								</div>
+								<div class="infoProducto">
+									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
+									<div class="precios">
+										<div class="precioPromocion">$ 19,503.50</div>
+										<div class="precioProducto">$ 119,503.50</div>	
+									</div>
+									<div class="btnComprar">
+								
 										<button class="btnAddCart"></button>
 									</div>
 								</div>
