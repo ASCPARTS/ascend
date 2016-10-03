@@ -308,7 +308,7 @@ switch ($strProcess)
             $htmlProduct .= '<div class="titleProduct">';
             $htmlProduct .= '<b>NÚMERO DE PARTE:</b> ' . $product["strPartNumber"];
             $htmlProduct .= '</div>';
-            $htmlProduct .= '<div class="productContent">';
+            $htmlProduct .= '<div class="contectProduct">';
             $htmlProduct .= '<div class="imageProduct">';
             if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
             {
@@ -339,16 +339,16 @@ switch ($strProcess)
             $htmlProduct .= '<div class="btnsProduct">';
             $htmlProduct .= '<div class="btn-group-justified">';
             $htmlProduct .= '<div class="btn-group">';
-            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoDetalles\', \'tabDetalles\')">DETALLES</button>';
+            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectDetails\', \'tabDetails\')">DETALLES</button>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '<div class="btn-group">';
-            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoRemplazos\', \'tabRemplazos\')">REMPLAZOS</button>';
+            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectReplacements\', \'tabReplacements\')">REMPLAZOS</button>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '<div class="btn-group">';
-            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoCompatibles\', \'tabCompatibles\')">COMPATIBLE</button>';
+            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectCompatible\', \'tabCompatible\')">COMPATIBLE</button>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '<div class="btn-group">';
-            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoExistencias\', \'tabExistencias\')">EXISTENCIAS</button>';
+            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectStocks\', \'tabStocks\')">EXISTENCIAS</button>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '</div>';
