@@ -13,197 +13,193 @@
         <div class="row">
         	<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
                 <div class="divInputText searchGray dropdown">
-                    <input type="text" id="buscar">
-                    <div id="resultado_busqueda">
+                    <input type="text" id="search">
+                    <div id="searchResult">
                     	
                     </div>
-                    <label for="buscar">BUSCAR</label>
+                    <label for="search">BUSCAR</label>
                 </div>
             </div>
         </div>
         <div class="row">
-        	<table id="catalogo" style="width:97.4%; margin: 0 auto 0 auto ">
+        	<table id="catalog" style="width:97.4%; margin: 0 auto 0 auto ">
 				<tr>
-					<td id="contenido" style="width: *">
-						<div class="producto-tarjeta">
-							<div class="tituloProducto">
+					<td id="contect" style="width: *">
+						<div class="productCard">
+							<div class="titleProduct">
 								<b>NÚMERO DE PARTE:</b> IPH5DC/H
 							</div>
-							<div class="contenidoProducto">
-								<div class="imagenProducto">
-									<div class="promocion_activa32">En descuento</div>
+							<div class="contectProduct">
+								<div class="imageProduct">
+									<div class="activePromotion">En descuento</div>
 									<img src="../../img/product_2.jpg">
 								</div>
-								<div class="infoProducto">
-									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-									<div class="precios">
-										<div class="precioPromocion">$ 19,503.50</div>
-										<div class="precioProducto">$ 119,503.50</div>	
+								<div class="infoProduct">
+									<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="brandProduct"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="typeProduct"><b>TIPO:</b> REFURBISHED</div>
+									<div class="prices">
+										<div class="pricePromotion">$ 19,503.50</div>
+										<div class="priceProduct">$ 119,503.50</div>	
 									</div>
-									<div class="btnComprar">
-										
+									<div class="btnBuy">
 										<button class="btnAddCart"></button>
 									</div>
 								</div>
 							</div>
-							<div class="botonesProducto">
+							<div class="btnsProduct">
 								<div class="btn-group-justified">
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectDetails', 'tabDetails')">DETALLES</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectReplacements', 'tabReplacements')">REMPLAZOS</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectCompatible', 'tabCompatible')">COMPATIBLE</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectStocks', 'tabStocks')">EXISTENCIAS</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="producto-tarjeta">
-							<div class="tituloProducto">
+						<div class="productCard">
+							<div class="titleProduct">
 								<b>NÚMERO DE PARTE:</b> IPH5DC/H
 							</div>
-							<div class="contenidoProducto">
-								<div class="imagenProducto">
-									<div class="promocion_activa32">2x1</div>
+							<div class="contectProduct">
+								<div class="imageProduct">
+									<div class="activePromotion">En descuento</div>
 									<img src="../../img/product_2.jpg">
 								</div>
-								<div class="infoProducto">
-									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-									<div class="precios">
-										<div class="precioPromocion">$ 19,503.50</div>
-										<div class="precioProducto">$ 119,503.50</div>	
+								<div class="infoProduct">
+									<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="brandProduct"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="typeProduct"><b>TIPO:</b> REFURBISHED</div>
+									<div class="prices">
+										<div class="pricePromotion">$ 19,503.50</div>
+										<div class="priceProduct">$ 119,503.50</div>	
 									</div>
-									<div class="btnComprar">
-								
+									<div class="btnBuy">
 										<button class="btnAddCart"></button>
 									</div>
 								</div>
 							</div>
-							<div class="botonesProducto">
+							<div class="btnsProduct">
 								<div class="btn-group-justified">
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectDetails', 'tabDetails')">DETALLES</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectReplacements', 'tabReplacements')">REMPLAZOS</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectCompatible', 'tabCompatible')">COMPATIBLE</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectStocks', 'tabStocks')">EXISTENCIAS</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="producto-tarjeta">
-							<div class="tituloProducto">
+						<div class="productCard">
+							<div class="titleProduct">
 								<b>NÚMERO DE PARTE:</b> IPH5DC/H
 							</div>
-							<div class="contenidoProducto">
-								<div class="imagenProducto">
-									<div class="promocion_activa32">-10%</div>
+							<div class="contectProduct">
+								<div class="imageProduct">
+									<div class="activePromotion">En descuento</div>
 									<img src="../../img/product_2.jpg">
 								</div>
-								<div class="infoProducto">
-									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-									<div class="precios">
-										<div class="precioPromocion">$ 19,503.50</div>
-										<div class="precioProducto">$ 119,503.50</div>	
+								<div class="infoProduct">
+									<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="brandProduct"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="typeProduct"><b>TIPO:</b> REFURBISHED</div>
+									<div class="prices">
+										<div class="pricePromotion">$ 19,503.50</div>
+										<div class="priceProduct">$ 119,503.50</div>	
 									</div>
-									<div class="btnComprar">
-								
+									<div class="btnBuy">
 										<button class="btnAddCart"></button>
 									</div>
 								</div>
 							</div>
-							<div class="botonesProducto">
+							<div class="btnsProduct">
 								<div class="btn-group-justified">
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectDetails', 'tabDetails')">DETALLES</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectReplacements', 'tabReplacements')">REMPLAZOS</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectCompatible', 'tabCompatible')">COMPATIBLE</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectStocks', 'tabStocks')">EXISTENCIAS</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="producto-tarjeta">
-							<div class="tituloProducto">
+						<div class="productCard">
+							<div class="titleProduct">
 								<b>NÚMERO DE PARTE:</b> IPH5DC/H
 							</div>
-							<div class="contenidoProducto">
-								<div class="imagenProducto">
-									<div class="promocion_activa32">Nuevo</div>
+							<div class="contectProduct">
+								<div class="imageProduct">
+									<div class="activePromotion">En descuento</div>
 									<img src="../../img/product_2.jpg">
 								</div>
-								<div class="infoProducto">
-									<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-									<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>
-									<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>
-									<div class="precios">
-										<div class="precioPromocion">$ 19,503.50</div>
-										<div class="precioProducto">$ 119,503.50</div>	
+								<div class="infoProduct">
+									<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
+									<div class="brandProduct"><b>MARCA:</b> CONCEPTRONIC</div>
+									<div class="typeProduct"><b>TIPO:</b> REFURBISHED</div>
+									<div class="prices">
+										<div class="pricePromotion">$ 19,503.50</div>
+										<div class="priceProduct">$ 119,503.50</div>	
 									</div>
-									<div class="btnComprar">
-								
+									<div class="btnBuy">
 										<button class="btnAddCart"></button>
 									</div>
 								</div>
 							</div>
-							<div class="botonesProducto">
+							<div class="btnsProduct">
 								<div class="btn-group-justified">
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoDetalles', 'tabDetalles')">DETALLES</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectDetails', 'tabDetails')">DETALLES</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoRemplazos', 'tabRemplazos')">REMPLAZOS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectReplacements', 'tabReplacements')">REMPLAZOS</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoCompatibles', 'tabCompatibles')">COMPATIBLE</button>
+										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectCompatible', 'tabCompatible')">COMPATIBLE</button>
 									</div>
 									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalArticulo','closeArticulo', 'contenidoExistencias', 'tabExistencias')">EXISTENCIAS</button>
+										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectStocks', 'tabStocks')">EXISTENCIAS</button>
 									</div>
 								</div>
 							</div>
 						</div>
 					</td>
 
-					<td id="filtros">
+					<td id="filters">
 					  	<div class="SubTitle">Existencias</div>
 				        <div class="row">
 							<div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="existencias">
-			                    <label for="existencias">Disponibles</label>
+			                    <input type="checkbox" id="stocks">
+			                    <label for="stocks">Disponibles</label>
 			                </div>
 				        </div>
 				        <div class="SubTitle">Precios</div>
 				        <div class="row">
 				        	<div class="divSelect divBrandBlue costGray">
-                    			<select id="rango_precios">
+                    			<select id="priceRange">
                     				<option>De $0  a $100</option>
                     				<option>De $101 a $200</option>
                     				<option>De $201 a $300</option>
                     			</select>
-                    			<label for="rango_precios">Rango de precios</label>
+                    			<label for="priceRange">Rango de precios</label>
                 			</div>
 				        </div>
 				        <div class="SubTitle">Marcas</div>
@@ -440,28 +436,28 @@
         <!--ROW DEL MODAL COMPATIBLES [INICIO]-->
         <div class="row">
         
-            <div id="modalArticulo" class="modal">
+            <div id="modalProduct" class="modal">
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span id="closeArticulo" class="close">×</span>
+                    <span id="closeProduct" class="close">×</span>
                     <div id="modalTest">
 					<ul class="tab">
-					  <li><a href="#" id="tabDetalles" class="tablinks" onclick="openTab(event, 'contenidoDetalles')">Detalles</a></li>
-					  <li><a href="#" id="tabRemplazos" class="tablinks" onclick="openTab(event, 'contenidoRemplazos')">Remplazos</a></li>
-					  <li><a href="#" id="tabCompatibles" class="tablinks" onclick="openTab(event, 'contenidoCompatibles')">Compatible</a></li>
-					  <li><a href="#" id="tabExistencias" class="tablinks" onclick="openTab(event, 'contenidoExistencias')">Existencias</a></li>
+					  <li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, 'contectDetails')">Detalles</a></li>
+					  <li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, 'contectReplacements')">Remplazos</a></li>
+					  <li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, 'contectCompatible')">Compatible</a></li>
+					  <li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, 'contectStocks')">Existencias</a></li>
 					</ul>
 
-					<div id="contenidoDetalles" class="tabcontent">
-					  	<table id="tablaBase">
+					<div id="contectDetails" class="tabcontent">
+					  	<table id="tableBase">
 					  		<tr>
-						  		<td id="imagenBase">
+						  		<td id="imageBase">
 						  			<img src="../../img/product_2.jpg">
 						  		</td>
 						  		<td id="infoBase" style="width: *">
 						  			<div class="MainTitle">A1357</div>
-						  			<div id=descripcionBase>
+						  			<div id=descriptionBase>
 						  				802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE
 						  			</div>
 						  		</td>
@@ -517,7 +513,7 @@
 						</div>
 					</div>
 
-					<div id="contenidoRemplazos" class="tabcontent">
+					<div id="contectReplacements" class="tabcontent">
 					 	<table>
 		                    <thead>
 			                    <tr>
@@ -569,7 +565,7 @@
 	                	</table>
 					</div>
 
-					<div id="contenidoCompatibles" class="tabcontent">
+					<div id="contectCompatible" class="tabcontent">
 					  	<table>
 		                    <thead>
 			                    <tr>
@@ -1502,7 +1498,7 @@
 		                    </tbody>
 	                	</table>
 					</div>
-					<div id="contenidoExistencias" class="tabcontent">
+					<div id="contectStocks" class="tabcontent">
 						<div class="MainContainer">
 							<ul class="col3">
 								<li><p><b>Moterrey: </b>6</p></li>

@@ -1,22 +1,22 @@
-#catalogo {
+#catalog {  /* Catalogo */
     width: 97.4%;
     border: 1px solid gray;
     margin: 0px 0px 0px 14px;
 }
 
-#filtros {
+#filters { /* Filtros */
     background-color: #f1f1f1;
     width: calc(190px - 20px);
     padding: 10px;
 }
 
-#contenido {
+#contect { /* contenido */
     background-color: #ffffff;
     overflow: hidden;
     text-align: center;
 }
 
-.producto-tarjeta {
+.productCard { /* Producto tarjeta */
     display: inline-block;
     text-align: left;
     width: 330px;
@@ -27,14 +27,14 @@
 }
 
 /* targeta producto [INICIO]*/
-.contenidoProducto
+.contectProduct /* contenido Producto */
 {
     background-color: #f1f1f1;
     height: 130px;
     border-top: 1px solid #888;
 }
 
-.imagenProducto
+.imageProduct
 {
     float: left;
     width: 120px;
@@ -44,7 +44,7 @@
     height: calc(130px - 10px); 
 }
 
-.infoProducto
+.infoProduct
 {
     overflow: hidden;
     background-color: #f1f1f1;
@@ -54,7 +54,7 @@
     font-size: 8pt; 
 }
 
-.tituloProducto
+.titleProduct
 {
     background-color: #00b8fe;
     height: calc(25px - 8px);
@@ -63,7 +63,7 @@
     font-stretch: expanded;
 }
 
-.botonesProducto
+.btnsProducts
 {
     background-color: #f1f1f1;
     height: 25px;
@@ -75,13 +75,13 @@ div.btn-group > button
     font-size: 8pt;
 }
 
-div.imagenProducto img
+div.imageProduct img
 {
     width: 100%;
     height: 100%;
 }
 
-.imagenArchivo
+.imageFile /*.imagenArchivo */
 {
     width: 100%;
     height: 100%;
@@ -89,7 +89,7 @@ div.imagenProducto img
 /* targeta producto [FIN]*/
 
 /* Info targeta [INICIO]*/
-.descripcionProducto
+.descriptionProduct
 {
     background-color: #f1f1f1;
 
@@ -108,21 +108,21 @@ div.imagenProducto img
 
 }
 
-.marcaProducto
+.brandProduct
 {
     float: left;
     background-color: #f1f1f1;
     width: 100%;
     height: 14%;
 }
-.tipoProducto
+.typeProduct
 {
     float: left;
     background-color: #f1f1f1;
     width: 100%;
     height: 14%;
 }
-.precios
+.prices
 {
     float: left;
     background-color: #f1f1f1;
@@ -134,7 +134,7 @@ div.imagenProducto img
 
 }
 
-.precioPromocion
+.pricePromotion
 {
     color: black;
     font-size: 12px;
@@ -142,7 +142,7 @@ div.imagenProducto img
     text-decoration: line-through;
 }
 
-.precioProducto
+.priceProduct
 {
     color: red;
     font-size: 15px;
@@ -151,7 +151,7 @@ div.imagenProducto img
 }
 
 
-.btnComprar
+.btnBuy
 {
     overflow: hidden;
     background-color: #f1f1f1;
@@ -224,7 +224,7 @@ li.title_lists a ~ a {
     display: inline;
 }
 
-.tresPuntos
+.ellipsis /* tresPuntos */
 {
 
     float:left;
@@ -298,7 +298,7 @@ ul.tab li a:focus, .active {
 
 /*TAB DETALLES */
 
-#tablaBase
+#tableBase 
 {
     max-height: 277px;
     padding: 0px;
@@ -307,7 +307,7 @@ ul.tab li a:focus, .active {
     border: none;
 }
 
-#imagenBase
+#imageBase
 {
     background-color: #ffffff;
     padding: 0px;
@@ -324,7 +324,7 @@ ul.tab li a:focus, .active {
 
 }
 
-#imagenBase img 
+#imageBase img 
 {
     border: 1px solid #f1f1f1;
     height: 200px;
@@ -333,8 +333,8 @@ ul.tab li a:focus, .active {
 
 }
 
-#descripcionBase
-{+
+#descriptionBase
+{
     padding: 10px;
     overflow-x: auto;
     font-size: 20px;
@@ -360,15 +360,7 @@ ul.col3 li
     width: 32%;
 }
 
-
-.promocion_activa24 {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background:transparent url(../img/glyph/promotion24Green.png) no-repeat center center;
-}
-
-.promocion_activa32 {
+.activePromotion {
     font-family: arial;
     font-size: 1em;
     display: inline-block;
