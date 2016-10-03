@@ -416,6 +416,27 @@ class clsAscend
         $this->intLastInsertId = 0;
         $this->strDBError = "";
     }
+
+    //support functions
+    public function priceRuleCalculation($decPrice, $strRule)
+    {
+        $decResult = 0;
+        $strRuleDescription = "";
+        switch ($strRule)
+        {
+            case "-10%":    $decResult = $decPrice * 0.9;   $strRuleDescription = "-10%";   break;
+            case "-20%":    $decResult = $decPrice * 0.8;   $strRuleDescription = "-20%";   break;
+            case "-30%":    $decResult = $decPrice * 0.7;   $strRuleDescription = "-30%";   break;
+            case "-40%":    $decResult = $decPrice * 0.6;   $strRuleDescription = "-40%";   break;
+            case "-50%":    $decResult = $decPrice * 0.5;   $strRuleDescription = "-50%";   break;
+            case "-60%":    $decResult = $decPrice * 0.4;   $strRuleDescription = "-60%";   break;
+            case "-70%":    $decResult = $decPrice * 0.3;   $strRuleDescription = "-70%";   break;
+            case "-80%":    $decResult = $decPrice * 0.2;   $strRuleDescription = "-80%";   break;
+            case "-90%":    $decResult = $decPrice * 0.1;   $strRuleDescription = "-90%";   break;
+        }
+        return array("decPrice" => $decResult, "strRuleDescription" => $strRuleDescription );
+    }
 }
+
 
 ?>

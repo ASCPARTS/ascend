@@ -16,12 +16,13 @@ switch ($strProcess)
     case 'initialSearch':
 
         $sqlPromotion =
-            "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
+            "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
             ."FROM tblProduct P "
             ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
             ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
             ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
             ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+            ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
             ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
             ."ORDER BY I.intSold DESC LIMIT 100;";
 
@@ -33,12 +34,13 @@ switch ($strProcess)
         else
         {
             $sqlTop =
-                "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
+                "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
                 ."FROM tblProduct P "
                 ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
                 ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
                 ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
                 ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+                ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
                 ."where P.strStatus='A' "
                 ."ORDER BY I.intSold DESC limit 100;";
             $rstTop= $objAscend->dbQuery($sqlTop);
@@ -302,26 +304,39 @@ switch ($strProcess)
         foreach($rstQuery as $product)
         {
             $htmlProduct = '';
-            $htmlProduct .= '<div class="producto-tarjeta">';
-            $htmlProduct .= '<div class="tituloProducto">';
+            $htmlProduct .= '<div class="productCard">';
+            $htmlProduct .= '<div class="titleProduct">';
             $htmlProduct .= '<b>NÚMERO DE PARTE:</b> ' . $product["strPartNumber"];
             $htmlProduct .= '</div>';
-            $htmlProduct .= '<div class="contenidoProducto">';
-            $htmlProduct .= '<div class="imagenProducto">';
-            $htmlProduct .= '<img src="../../img/product_2.jpg">';
+            $htmlProduct .= '<div class="productContent">';
+            $htmlProduct .= '<div class="imageProduct">';
+            if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
+            {
+                $objPromotion = $objAscend->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
+                $htmlProduct .= '<div class="activePromotion">' . $objPromotion["strRuleDescription"] . '</div>';
+            }
+            $htmlProduct .= '<img src="../../img/' . $product["strImage"] .'">';
             $htmlProduct .= '</div>';
-            $htmlProduct .= '<div class="infoProducto">';
-            $htmlProduct .= '<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>';
-            $htmlProduct .= '<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>';
-            $htmlProduct .= '<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>';
-            $htmlProduct .= '<div class="precioProducto">$ 190,503.50</div>';
-            $htmlProduct .= '<div class="btnComprar">';
+            $htmlProduct .= '<div class="infoProduct">';
+            $htmlProduct .= '<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> ' . $product["strDescription"] . '</div>';
+            $htmlProduct .= '<div class="brandProduct"><b>MARCA:</b> ' . $product["strBrand"] . '</div>';
+            $htmlProduct .= '<div class="typeProduct"><b>TIPO:</b> ' . $product["strCondition"] . '</div>';
+
+            $htmlProduct .= '<div class="prices"></div>';
+            $htmlProduct .= '<div class="pricePromotion">$ ' . number_format($product["decPrice"], 2, ",", ".") . '</div>';
+            if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
+            {
+                $htmlProduct .= '<div class="priceProduct">$ ' . number_format($objPromotion["decPrice"], 2, ",", ".") . '</div>';
+            }
+            $htmlProduct .= '</div>';
+
+            $htmlProduct .= '<div class="btnBuy">';
             $htmlProduct .= '<button class="btnAddCart"></button>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '</div>';
             $htmlProduct .= '</div>';
 
-            $htmlProduct .= '<div class="botonesProducto">';
+            $htmlProduct .= '<div class="btnsProduct">';
             $htmlProduct .= '<div class="btn-group-justified">';
             $htmlProduct .= '<div class="btn-group">';
             $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoDetalles\', \'tabDetalles\')">DETALLES</button>';
