@@ -322,7 +322,7 @@ switch ($strProcess)
             $htmlProduct .= '<div class="brandProduct"><b>MARCA:</b> ' . $product["strBrand"] . '</div>';
             $htmlProduct .= '<div class="typeProduct"><b>TIPO:</b> ' . $product["strCondition"] . '</div>';
 
-            $htmlProduct .= '<div class="prices"></div>';
+            $htmlProduct .= '<div class="prices">';
             $htmlProduct .= '<div class="pricePromotion">$ ' . number_format($product["decPrice"], 2, ",", ".") . '</div>';
             if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
             {
