@@ -1,4 +1,3 @@
-
 <?php
 require_once('../../inc/include.config.php');
 require_once('../../'.LIB_PATH .'class.ascend.php');
@@ -6,11 +5,15 @@ require_once('../../'.LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
 
 $strProcess = $_REQUEST['strProcess'];
-$objDate = array();
+$rstQuery = array();
 $strError = "";
+$jsnPhpScriptResponse = "";
 
+
+#### Preparado de datos
 switch ($strProcess)
 {
+<<<<<<< HEAD
     case 'topSeller':
         $rstPromotion= $objAscend->dbQuery("SELECT P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName as tblBrand, C.strName as catCondition, I.intSold, PR.strRule"
                                         ." FROM tblProduct P"
@@ -37,6 +40,43 @@ switch ($strProcess)
         print_r($jsnPhpScriptResponse);
         echo"</pre>";
         break;
+=======
+    case 'initialSearch':
+
+        $sqlPromotion =
+        "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
+        ."FROM tblProduct P "
+        ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
+        ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
+        ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+        ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+        ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
+        ."ORDER BY I.intSold DESC LIMIT 100;";
+
+        $rstPromotion = $objAscend->dbQuery($sqlPromotion);
+        if( count($rstPromotion) > 0 )
+        {
+            $rstQuery = $rstPromotion;
+        }
+        else
+        {
+            $sqlTop =
+            "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule, PR.strStatus "
+            ."FROM tblProduct P "
+            ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
+            ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
+            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+            ."where P.strStatus='A' "
+            ."ORDER BY I.intSold DESC limit 100;";
+            $rstTop= $objAscend->dbQuery($sqlTop);
+            $rstQuery = $rstTop;
+            unset($rstTop);
+        }
+        unset($rstPromotion);
+
+    break;
+>>>>>>> origin/dev
     case 'searchProduct':
         $strNeedle = strtoupper(trim($_REQUEST['strNeedle']));
 
@@ -282,6 +322,61 @@ switch ($strProcess)
         $jsnPhpScriptResponse['strResult'] = $arrayResponse;
     break;
 };
+
+#### pintar Response
+switch ($strProcess)
+{
+    case 'searchProduct':
+    case 'advancedSearch':
+    case 'initialSearch':
+        foreach($rstQuery as $product)
+        {
+            $htmlProduct = '';
+            $htmlProduct .= '<div class="producto-tarjeta">';
+            $htmlProduct .= '<div class="tituloProducto">';
+            $htmlProduct .= '<b>NÚMERO DE PARTE:</b> ' . $product["strPartNumber"];
+							$htmlProduct .= '</div>';
+							$htmlProduct .= '<div class="contenidoProducto">';
+								$htmlProduct .= '<div class="imagenProducto">';
+									$htmlProduct .= '<img src="../../img/product_2.jpg">';
+								$htmlProduct .= '</div>';
+								$htmlProduct .= '<div class="infoProducto">';
+									$htmlProduct .= '<div class="descripcionProducto"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>';
+									$htmlProduct .= '<div class="marcaProducto"><b>MARCA:</b> CONCEPTRONIC</div>';
+									$htmlProduct .= '<div class="tipoProducto"><b>TIPO:</b> REFURBISHED</div>';
+									$htmlProduct .= '<div class="precioProducto">$ 190,503.50</div>';
+									$htmlProduct .= '<div class="btnComprar">';
+										$htmlProduct .= '<button class="btnAddCart"></button>';
+									$htmlProduct .= '</div>';
+								$htmlProduct .= '</div>';
+							$htmlProduct .= '</div>';
+
+							$htmlProduct .= '<div class="botonesProducto">';
+								$htmlProduct .= '<div class="btn-group-justified">';
+									$htmlProduct .= '<div class="btn-group">';
+										$htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoDetalles\', \'tabDetalles\')">DETALLES</button>';
+									$htmlProduct .= '</div>';
+									$htmlProduct .= '<div class="btn-group">';
+										$htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoRemplazos\', \'tabRemplazos\')">REMPLAZOS</button>';
+									$htmlProduct .= '</div>';
+									$htmlProduct .= '<div class="btn-group">';
+										$htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoCompatibles\', \'tabCompatibles\')">COMPATIBLE</button>';
+									$htmlProduct .= '</div>';
+									$htmlProduct .= '<div class="btn-group">';
+										$htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalArticulo\',\'closeArticulo\', \'contenidoExistencias\', \'tabExistencias\')">EXISTENCIAS</button>';
+									$htmlProduct .= '</div>';
+								$htmlProduct .= '</div>';
+							$htmlProduct .= '</div>';
+						$htmlProduct .= '</div>';
+
+            $jsnPhpScriptResponse .= $htmlProduct;
+        }
+
+        /*echo"<pre>";
+        print_r($rstQuery);
+        echo"</pre>";*/
+    break;
+}
 unset($objAscend);
-echo json_encode($jsnPhpScriptResponse);
+echo ($jsnPhpScriptResponse);
 ?>
