@@ -13,6 +13,7 @@ $jsnPhpScriptResponse = "";
 #### Preparado de datos
 switch ($strProcess)
 {
+    #funciones de busqueda
     case 'initialSearch':
 
         $sqlPromotion =
@@ -122,27 +123,84 @@ switch ($strProcess)
         print_r($jsnPhpScriptResponse);
         echo"</pre>";
         break;
-    case 'infoProduct':
-        $strSKU =$_REQUEST['strSKU'];
-        $rstInfoProduct= $objAscend->dbQuery("select P.intId, P.strSKU, P.strPArtNumber, P.strDescription, P.decPrice, B.strName, C.strName"
-            ." from tblProduct P"
-            ." LEFT JOIN tblBrand B ON P.intBrand = B.intId"
-            ." LEFT JOIN catCondition C ON C.intId = P.intCondition"
-            ." where P.strSKU='$strSKU' and P.strStatus='A'");
-        $sqlGroup= $objAscend->dbQuery("select intGroup, intId from tblProduct where strSKU='$strSKU' and strStatus='A';");
-        $rstEncabezado= $objAscend->dbQuery("select strDisplay from tblGroupField where intGroup= ".$sqlGroup[0]['intGroup']." and strStatus='A';");
-        $rsrValoresEncabezado=$objAscend->dbQuery("select strDisplay from tblProductDetail where intProduct='".$sqlGroup[0]['intId']."' and strStatus='A';");
 
-        $jsnPhpScriptResponse=$rstInfoProduct;
-        $jsnPhpScriptResponse1=$rstEncabezado;
-        $jsnPhpScriptResponse2=$rsrValoresEncabezado;
+    #detailed information of products
+    case 'productInfo':
+        $intId = $_REQUEST['intId'];
 
-        echo $objAscend-> strTransactionErrorMessage;
-        echo"<pre>";
-        print_r($jsnPhpScriptResponse);
-        echo"</pre>";
+        #Product
+        $sqlProduct =
+            "SELECT P.intId, P.strPartNumber, P.strDescription, P.strSKU, P.intGroup, G.strName AS strGroup, C.strName AS strCondition, B.strName AS strBrand, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
+            ."FROM tblProduct P "
+            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+            ."LEFT JOIN tblGroup G ON P.intBrand = G.intId "
+            ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
+            ."WHERE P.intId = $intId;";
+        $rstProduct = $objAscend->dbQuery($sqlProduct);
 
+        $intGroup = $rstProduct[0]["intGroup"];
+
+        #Gallery
+        $sqlGallery =
+            "SELECT intId, strUrl "
+            ."FROM tblProductImage "
+            ."WHERE intProduct = $intId AND strType <> 'default' AND strStatus <> 'B';";
+        $rstGallery = $objAscend->dbQuery($sqlGallery);
+
+        #DetailHeaders
+        $sqlDetailHeaders =
+            "SELECT intId, intOrder, strDisplay "
+            ."FROM tblGroupField "
+            ."WHERE intGroup = $intGroup AND strStatus <> 'B' "
+            ."ORDER BY intOrder;";
+        $rstDetailHeaders = $objAscend->dbQuery($sqlDetailHeaders);
+
+        #DetailValues
+        $sqlDetailValues =
+            "SELECT intId, intOrder, strDisplay "
+            ."FROM tblProductDetail "
+            ."WHERE intProduct = $intId AND strStatus <> 'B' "
+            ."ORDER BY intOrder;";
+        $rstDetailValues = $objAscend->dbQuery($sqlDetailValues);
+
+        #Replacements
+        $sqlReplacements =
+            "SELECT P.intId, P.strPartNumber, P.strDescription, B.strName AS strBrand, C.strName AS strCondition "
+            ."FROM tblProductRelationship PR "
+            ."LEFT JOIN tblProduct P ON PR.intRelatedProduct = P.intId "
+            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+            ."WHERE PR.intProduct = $intId AND  PR.strRelationshipType = 'R' AND  PR.strStatus <> 'B' AND P.strStatus <> 'B';";
+        $rstReplacements = $objAscend->dbQuery($sqlReplacements);
+
+        #Compatibility
+        $sqlCompatibility =
+            "SELECT P.intId, P.strPartNumber, P.strDescription, B.strName AS strBrand, C.strName AS strCondition "
+            ."FROM tblProductRelationship PR "
+            ."LEFT JOIN tblProduct P ON PR.intRelatedProduct = P.intId "
+            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+            ."WHERE PR.intProduct = $intId AND  PR.strRelationshipType = 'C' AND  PR.strStatus <> 'B' AND P.strStatus <> 'B';";
+        $rstCompatibility = $objAscend->dbQuery($sqlCompatibility);
+
+        #Stock
+        $sqlStock =
+            "SELECT WHS.intWarehouse as intId, WH.strCode, WH.strDescription, WHS.intStock "
+            ."FROM tblWarehouseStock WHS "
+            ."LEFT JOIN catWarehouse WH ON WHS.intWarehouse = WH.intId "
+            ."WHERE WHS.intProduct = $intId AND WHS.strStatus <> 'B' AND WH.strStatus <> 'B';";
+        $rstStock = $objAscend->dbQuery($sqlStock);
+
+        $rstQuery["product"] = $rstProduct[0];
+        $rstQuery["gallery"] = $rstGallery;
+        $rstQuery["detailHeaders"] = $rstDetailHeaders;
+        $rstQuery["detailValues"] = $rstDetailValues;
+        $rstQuery["replacements"] = $rstReplacements;
+        $rstQuery["compatibles"] = $rstCompatibility;
+        $rstQuery["stock"] = $rstStock;
         break;
+
     case 'replacement':
 
 
@@ -298,6 +356,7 @@ switch ($strProcess)
 #### pintar Response
 switch ($strProcess)
 {
+    #print the data of initialSearch(), searchProduct, advandecSearch()
     case 'searchProduct':
     case 'advancedSearch':
     case 'initialSearch':
@@ -315,6 +374,7 @@ switch ($strProcess)
                 $objPromotion = $objAscend->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
                 $htmlProduct .= '<div class="activePromotion">' . $objPromotion["strRuleDescription"] . '</div>';
             }
+            if(!file_exists("../../img/" . $product["strImage"])) { $product["strImage"] = "product/notfound.jpg";   }
             $htmlProduct .= '<img src="../../img/' . $product["strImage"] .'">';
             $htmlProduct .= '</div>';
             $htmlProduct .= '<div class="infoProduct">';
@@ -360,6 +420,141 @@ switch ($strProcess)
         /*echo"<pre>";
         print_r($rstQuery);
         echo"</pre>";*/
+        break;
+
+    #### DETAIL
+    case 'productInfo':
+        $jsnDetail = '';
+        //## Detail Top Zone
+        $jsnDetail .= '<div id="contenidoDetalles" class="tabcontent" style="display: block;"> ';
+        $jsnDetail .= '<table id="tablaBase"> ';
+        $jsnDetail .= '<tr> ';
+        $jsnDetail .= '<td id="imagenBase"> ';
+        if(!file_exists("../../img/" . $rstQuery["product"]["strImage"])) { $rstQuery["product"]["strImage"] = "product/notfound.jpg";   }
+        $jsnDetail .= '<img src="../../img/' . $rstQuery["product"]["strImage"] .'"> ';
+        $jsnDetail .= '</td> ';
+        $jsnDetail .= '<td id="infoBase" style="width: *"> ';
+        $jsnDetail .= '<div class="MainTitle">' . $rstQuery["product"]["strPartNumber"] .'</div> ';
+        $jsnDetail .= '<div id="descripcionBase">' . $rstQuery["product"]["strDescription"] .'</div> ';
+        $jsnDetail .= '</td> ';
+        $jsnDetail .= '</tr> ';
+        $jsnDetail .= '</table> ';
+
+        //## Detail Gallery
+        $jsnDetail .= '<div class="MainTitle">GALERIA</div> ';
+        if( count($rstQuery["gallery"]) > 0 )
+        {
+
+            $jsnDetail .= '<div id="ca-container" class="ca-container"><div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div> ';
+            $jsnDetail .= '<div class="ca-wrapper" style="overflow: hidden;"> ';
+            foreach( $rstQuery["gallery"] as $fileImage )
+            {
+                $jsnDetail .= '<div class="ca-item ca-item-1"> ';
+                $jsnDetail .= '<div class="ca-item-main">';
+                if(!file_exists("../../img/" . $fileImage["strUrl"])) { $fileImage["strUrl"] = "product/notfound.jpg";   }
+                $jsnDetail .= '<div class="ca-icon" style="background:transparent url(../../img/' . $fileImage["strUrl"] .') no-repeat center center; height: 500px; width: 500px;"></div>';
+                $jsnDetail .= '</div>';
+                $jsnDetail .= '</div>';
+            }
+            $jsnDetail .= '</div> ';
+            $jsnDetail .= '</div> ';
+        }
+        else
+        {
+            $jsnDetail .= '<div class="contentGallery"><h3>Galería vacía</h3></div> ';
+        }
+
+        //## Detail Especifications
+        $jsnDetail .= '<div class="MainTitle">ESPECIFICACIONES</div> ';
+        $jsnDetail .= '<div class="MainContainer"> ';
+        $jsnDetail .= '<ul class="col3"> ';
+        $jsnDetail .= '<li><p><b>SKU:</b> ' . $rstQuery["product"]["strSKU"] .'</p></li> ';
+        $jsnDetail .= '<li><p><b>NÚMERO DE PARTE:</b> ' . $rstQuery["product"]["strPartNumber"] .'</p></li> ';
+        $jsnDetail .= '<li><p><b>Marca:</b>' . $rstQuery["product"]["strBrand"] .'</p></li> ';
+        $jsnDetail .= '<li><p><b>GRUPO:</b>' . $rstQuery["product"]["strGroup"] .'</p></li> ';
+        $jsnDetail .= '<li><p><b>CONDICION:</b>' . $rstQuery["product"]["strCondition"] .'</p></li> ';
+        foreach( $rstQuery["detailHeaders"] as $detailHeader )
+        {
+            $jsnDetail .= '<li><p><b>' . $detailHeader["strDisplay"] . '</b>:';
+            foreach( $rstQuery["detailValues"] as $detailValue )
+            {
+                if( $detailHeader["intOrder"] == $detailValue["intOrder"] )
+                {
+                    $jsnDetail .= $detailValue["strDisplay"];
+                    break;
+                }
+            }
+            $jsnDetail .= '</p></li> ';
+        }
+        $jsnDetail .= '</ul> ';
+        $jsnDetail .= '<br style="clear: both;"> ';
+        $jsnDetail .= '</div> ';
+        $jsnDetail .= '</div>';
+
+        #### REPLACEMENT
+
+        $jsnReplacement = '';
+        $jsnReplacement .= '<div id="contenidoRemplazos" class="tabcontent" style="display: block;">';
+        $jsnReplacement .= '<table>';
+        $jsnReplacement .= '<thead> <tr> <th>Número Parte</th> <th>Descripción</th> <th>Marca</th> <th>Tipo</th> </tr> </thead>';
+        $jsnReplacement .= '<tbody>';
+        foreach($rstQuery["replacements"] as $replacement )
+        {
+            $jsnReplacement .= '<tr>';
+            $jsnReplacement .= '<td>' . $replacement["strPartNumber"] . '</td>';
+            $jsnReplacement .= '<td>' . $replacement["strDescription"] . '</td>';
+            $jsnReplacement .= '<td>' . $replacement["strBrand"] . '</td>';
+            $jsnReplacement .= '<td>' . $replacement["strCondition"] . '</td>';
+            $jsnReplacement .= '</tr>';
+        }
+        $jsnReplacement .= '</tbody>';
+        $jsnReplacement .= '</table>';
+        $jsnReplacement .= '</div>';
+
+        #### COMPATIBILITY
+
+        $jsnCompatibility = '';
+        $jsnCompatibility .= '<div id="contenidoRemplazos" class="tabcontent" style="display: block;">';
+        $jsnCompatibility .= '<table>';
+        $jsnCompatibility .= '<thead> <tr> <th>Número Parte</th> <th>Descripción</th> <th>Marca</th> <th>Tipo</th> </tr> </thead>';
+        $jsnCompatibility .= '<tbody>';
+        foreach($rstQuery["compatibles"] as $compatible )
+        {
+            $jsnCompatibility .= '<tr>';
+            $jsnCompatibility .= '<td>' . $compatible["strPartNumber"] . '</td>';
+            $jsnCompatibility .= '<td>' . $compatible["strDescription"] . '</td>';
+            $jsnCompatibility .= '<td>' . $compatible["strBrand"] . '</td>';
+            $jsnCompatibility .= '<td>' . $compatible["strCondition"] . '</td>';
+            $jsnCompatibility .= '</tr>';
+        }
+        $jsnCompatibility .= '</tbody>';
+        $jsnCompatibility .= '</table>';
+        $jsnCompatibility .= '</div>';
+
+        ####STOCK
+
+        $jsnStock = '';
+        $jsnStock .= '<div id="contenidoExistencias" class="tabcontent" style="display: block;">';
+	    $jsnStock .= '<div class="MainContainer">';
+		$jsnStock .= '<ul class="col3">';
+        foreach ($rstQuery["stock"] as $warehouse )
+        {
+            $jsnStock .= '<li><p><b>' . $warehouse["strDescription"] . ':</b> ' . $warehouse["intStock"] . '</p></li>';
+        }
+		$jsnStock .= '</ul>';
+		$jsnStock .= '<br style="clear: both;">';
+	    $jsnStock .= '</div>';
+    $jsnStock .= '</div>';
+
+        //echo $jsnDetail;
+        //echo $jsnReplacement;
+        //echo $jsnCompatibility;
+        //echo $jsnStock;
+        //echo "<pre>";
+        //print_r($rstQuery);
+        //echo "</pre>";
+
+        $jsnPhpScriptResponse .= $jsnDetail . $jsnReplacement . $jsnCompatibility . $jsnStock;
         break;
 }
 unset($objAscend);
