@@ -464,7 +464,11 @@
 					  		</tr>
 					  	</table>
 					  	<div class="MainTitle">GALERIA</div>
-					  	<div id="ca-container" class="ca-container">
+					  	<div class="contectGallery">
+					  		<h3>Galería Vacia</h3>
+					  	</div>
+
+					  	<!--div id="ca-container" class="ca-container">
 							<div class="ca-wrapper">
 								<div class="ca-item ca-item-1">
 									<div class="ca-item-main">
@@ -493,7 +497,9 @@
 								</div>
 								
 							</div>
-						</div>
+						</div-->
+
+
 						<div class="MainTitle">ESPECIFICACIONES</div>
 						<div class="MainContainer">
 							<ul class="col3">
@@ -1498,6 +1504,7 @@
 		                    </tbody>
 	                	</table>
 					</div>
+
 					<div id="contectStocks" class="tabcontent">
 						<div class="MainContainer">
 							<ul class="col3">
