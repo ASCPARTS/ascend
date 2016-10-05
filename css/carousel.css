@@ -70,6 +70,12 @@
 	background: center;
 }
 
+.ca-icon img{
+	width: 200px;
+	height: 200px;
+
+}
+
 .ca-item h3{
 	font-family: 'Coustard', sans-serif;
 	text-transform:uppercase;
