@@ -9,13 +9,64 @@ $rstQuery = array();
 $strError = "";
 $jsnPhpScriptResponse = "";
 
+#parametros para balanceador de busquedas
+$strType = "";
+$intPage = 1;
+$jsnParameters = array();
+$intRecordsPerPage = 10;
 
 #### Preparado de datos
 switch ($strProcess)
 {
+    #
+    case 'searchProduct':
+        $strType = $_REQUEST['strType'];
+        switch( $strType )
+        {
+            case 'initialSearch':
+                $sqlPromotion =
+                    "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
+                    ."FROM tblProduct P "
+                    ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
+                    ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
+                    ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+                    ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+                    ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
+                    ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
+                    ."ORDER BY I.intSold DESC LIMIT 100;";
+
+                $rstPromotion = $objAscend->dbQuery($sqlPromotion);
+                if( count($rstPromotion) > 0 )
+                {
+                    $rstQuery = $rstPromotion;
+                }
+                else
+                {
+                    $sqlTop =
+                        "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
+                        ."FROM tblProduct P "
+                        ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
+                        ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
+                        ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+                        ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
+                        ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
+                        ."where P.strStatus='A' "
+                        ."ORDER BY I.intSold DESC limit 100;";
+                    $rstTop= $objAscend->dbQuery($sqlTop);
+                    $rstQuery = $rstTop;
+                    unset($rstTop);
+                }
+                unset($rstPromotion);
+            break;
+            case 'customSearch':
+                break;
+            case 'advancedSearch':
+                break;
+        }
+        break;
+
     #funciones de busqueda
     case 'initialSearch':
-
         $sqlPromotion =
             "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
             ."FROM tblProduct P "
@@ -49,6 +100,7 @@ switch ($strProcess)
             unset($rstTop);
         }
         unset($rstPromotion);
+
 
         break;
     case 'searchProduct':
@@ -452,7 +504,9 @@ switch ($strProcess)
                 $jsnDetail .= '<div class="ca-item ca-item-1"> ';
                 $jsnDetail .= '<div class="ca-item-main">';
                 if(!file_exists("../../img/" . $fileImage["strUrl"])) { $fileImage["strUrl"] = "product/notfound.jpg";   }
-                $jsnDetail .= '<div class="ca-icon" style="background:transparent url(../../img/' . $fileImage["strUrl"] .') no-repeat center center;"></div>';
+                $jsnDetail .= '<div class="ca-icon">';
+                $jsnDetail .= '<img src="../../img/' . $fileImage["strUrl"] .'">';
+                $jsnDetail .= '</div>';
                 $jsnDetail .= '</div>';
                 $jsnDetail .= '</div>';
             }
