@@ -426,16 +426,16 @@ switch ($strProcess)
     case 'productInfo':
         $jsnDetail = '';
         //## Detail Top Zone
-        $jsnDetail .= '<div id="contenidoDetalles" class="tabcontent" style="display: block;"> ';
-        $jsnDetail .= '<table id="tablaBase"> ';
+        $jsnDetail .= '<div id="contectDetails" class="tabcontent" style="display: none;"> ';
+        $jsnDetail .= '<table id="tableBase"> ';
         $jsnDetail .= '<tr> ';
-        $jsnDetail .= '<td id="imagenBase"> ';
+        $jsnDetail .= '<td id="imageBase"> ';
         if(!file_exists("../../img/" . $rstQuery["product"]["strImage"])) { $rstQuery["product"]["strImage"] = "product/notfound.jpg";   }
         $jsnDetail .= '<img src="../../img/' . $rstQuery["product"]["strImage"] .'"> ';
         $jsnDetail .= '</td> ';
         $jsnDetail .= '<td id="infoBase" style="width: *"> ';
         $jsnDetail .= '<div class="MainTitle">' . $rstQuery["product"]["strPartNumber"] .'</div> ';
-        $jsnDetail .= '<div id="descripcionBase">' . $rstQuery["product"]["strDescription"] .'</div> ';
+        $jsnDetail .= '<div id="descriptionBase">' . $rstQuery["product"]["strDescription"] .'</div> ';
         $jsnDetail .= '</td> ';
         $jsnDetail .= '</tr> ';
         $jsnDetail .= '</table> ';
@@ -452,7 +452,7 @@ switch ($strProcess)
                 $jsnDetail .= '<div class="ca-item ca-item-1"> ';
                 $jsnDetail .= '<div class="ca-item-main">';
                 if(!file_exists("../../img/" . $fileImage["strUrl"])) { $fileImage["strUrl"] = "product/notfound.jpg";   }
-                $jsnDetail .= '<div class="ca-icon" style="background:transparent url(../../img/' . $fileImage["strUrl"] .') no-repeat center center; height: 500px; width: 500px;"></div>';
+                $jsnDetail .= '<div class="ca-icon" style="background:transparent url(../../img/' . $fileImage["strUrl"] .') no-repeat center center;"></div>';
                 $jsnDetail .= '</div>';
                 $jsnDetail .= '</div>';
             }
@@ -494,7 +494,7 @@ switch ($strProcess)
         #### REPLACEMENT
 
         $jsnReplacement = '';
-        $jsnReplacement .= '<div id="contenidoRemplazos" class="tabcontent" style="display: block;">';
+        $jsnReplacement .= '<div id="contectReplacements" class="tabcontent" style="display: none;">';
         $jsnReplacement .= '<table>';
         $jsnReplacement .= '<thead> <tr> <th>Número Parte</th> <th>Descripción</th> <th>Marca</th> <th>Tipo</th> </tr> </thead>';
         $jsnReplacement .= '<tbody>';
@@ -514,7 +514,7 @@ switch ($strProcess)
         #### COMPATIBILITY
 
         $jsnCompatibility = '';
-        $jsnCompatibility .= '<div id="contenidoRemplazos" class="tabcontent" style="display: block;">';
+        $jsnCompatibility .= '<div id="contectCompatible" class="tabcontent" style="display: none;">';
         $jsnCompatibility .= '<table>';
         $jsnCompatibility .= '<thead> <tr> <th>Número Parte</th> <th>Descripción</th> <th>Marca</th> <th>Tipo</th> </tr> </thead>';
         $jsnCompatibility .= '<tbody>';
@@ -534,7 +534,7 @@ switch ($strProcess)
         ####STOCK
 
         $jsnStock = '';
-        $jsnStock .= '<div id="contenidoExistencias" class="tabcontent" style="display: block;">';
+        $jsnStock .= '<div id="contectStocks" class="tabcontent" style="display: none;">';
 	    $jsnStock .= '<div class="MainContainer">';
 		$jsnStock .= '<ul class="col3">';
         foreach ($rstQuery["stock"] as $warehouse )
