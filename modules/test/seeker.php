@@ -386,15 +386,6 @@
 								  			</div>
 								  		</td>
 							  		</tr>
-							  		<!--tr>
-							         <td id="imageBase"> 
-							         	<img src="../../img/product_2.jpg"> 
-							         </td>
-							         <td id="infoBase" style="width: *">
-							            <div class="MainTitle">CQ893-67009</div>
-							            <div id="descriptionBase">CQ893-67009 HP SPINDLE HUBS</div>
-							         </td>
-							      	</tr-->
 							  	</table>
 							  	<div class="MainTitle">GALERIA</div>
 							  	<div id="ca-container" class="ca-container">
@@ -408,7 +399,7 @@
 										</div>
 										<div class="ca-item">
 											<div class="ca-item-main">
-												<div class="ca-icon" style="background:transparent url(../../img/product/1_g2.jpg) no-repeat center center"></div>
+												<img src="../../img/product_2.jpg">
 											</div>
 										</div>
 										<div class="ca-item">
@@ -592,7 +583,7 @@
 			<script type="text/javascript">
 				jQuery(document).ready(function()
 		        {
-		            //init();
+		            init();
 		        });
 				$('#ca-container').contentcarousel();
 
