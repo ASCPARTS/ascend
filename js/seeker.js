@@ -57,8 +57,25 @@ function openTab(evt, tabName)
     evt.currentTarget.className += " active";
 }
 
-function getModalTab(idModal, idSpan, contentTab, tagTab)
+function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
 {
+
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php?strProcess=productInfo&intId=1',
+        type: 'GET',
+        dataType: 'html',
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           $('#contectTabs').html(data);
+           //console.log(data);
+        }
+    });
+
     // Get the button that opens the modal
     //var btn = document.getElementById(idBtn);
 
