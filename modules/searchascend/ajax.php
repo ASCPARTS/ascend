@@ -287,6 +287,7 @@ switch ($strProcess)
 {
     #print the data of initialSearch(), searchProduct, advandecSearch()
     case 'searchProduct':
+        $jsnPhpScriptResponse["htmlProduct"] = "";
         foreach($rstQuery as $product)
         {
             $htmlProduct = '';
@@ -341,7 +342,7 @@ switch ($strProcess)
             $htmlProduct .= '</div>';
             $htmlProduct .= '</div>';
 
-            $jsnPhpScriptResponse["htmlProduct"] .= $htmlProduct;
+            $jsnPhpScriptResponse["htmlProduct"] .= ($htmlProduct);
         }
 
         /*echo"<pre>";
