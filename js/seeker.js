@@ -27,6 +27,7 @@ function init()
         beforeSend: function (data)
         {
             console.log("Antes de enviar");
+            $('#contect').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
         },
         success:function(data)
         {
@@ -67,15 +68,21 @@ function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
         beforeSend: function (data)
         {
             console.log("Antes de enviar");
-            $('#modalTest').empty();
+            $('#modalTest').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            
         },
         success:function(data)
         {
+           $('#modalTest').empty();
            console.log("Exito");
            //$('#contectTabs').html(data);
            $('<ul class="tab"><li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, \'contectDetails\')">Detalles</a></li><li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, \'contectReplacements\')">Remplazos</a></li><li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, \'contectCompatible\')">Compatible</a></li><li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, \'contectStocks\')">Existencias</a></li></ul>').appendTo("#modalTest");
 
            $(data).appendTo("#modalTest");
+
+           $('#ca-container').contentcarousel();
+
+
            //console.log(data);
 
             // Get the button that opens the modal
@@ -118,58 +125,37 @@ function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
             document.getElementById(contentTab).style.display = "block";
             document.getElementById(tagTab).className += " active";
 
+
         }
 
     }); 
     
-      
-    
-    
-        
+}
 
-        /*/ Get the button that opens the modal
-            //var btn = document.getElementById(idBtn);
+function testPost()
+{
+    console.log("testPost");
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'html',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : 'initialSearch',
+            'intPage' : 1,
+            'intRecordsPerPage' : 10
+        },
+        beforeSend: function (data)
+        {
+            console.log('waiting...');   
 
-            // Get the modal
-            var modal = document.getElementById(idModal);
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementById(idSpan);
-
-            // When the user clicks the button, open the modal
-            //btn.onclick = function() {
-                modal.style.display = "block";
-            //}
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-
-             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) 
-            {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) 
-            {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(contentTab).style.display = "block";
-            document.getElementById(tagTab).className += " active";
-    
-    /*/
-    
-
-    
+        },
+        success:function(data)
+        {
+            console.log('success');
+            console.log(data);
+        }
+    });
 }
 

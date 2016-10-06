@@ -375,3 +375,12 @@ ul.col3 li
     margin: 5px;
     padding: 6px 10px 6px 10px;
 }
+
+/*Loading GIF*/
+
+#loading_gif
+{
+    display: block;
+    margin: 0 auto;
+    padding-top: 3em;
+}

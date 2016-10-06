@@ -20,89 +20,12 @@
                     <label for="search">BUSCAR</label>
                 </div>
             </div>
+            <button class="btn btnBrandRed" onclick="testPost()">TEST</button>
         </div>
         <div class="row">
         	<table id="catalog" style="width:97.4%; margin: 0 auto 0 auto ">
 				<tr>
 					<td id="contect" style="width: *">
-						<div class="productCard">
-							<div class="titleProduct">
-								<b>NÚMERO DE PARTE:</b> IPH5DC/H
-							</div>
-							<div class="contectProduct">
-								<div class="imageProduct">
-									<div class="activePromotion">En descuento</div>
-									<img src="../../img/product_2.jpg">
-								</div>
-								<div class="infoProduct">
-									<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-									<div class="brandProduct"><b>MARCA:</b> CONCEPTRONIC</div>
-									<div class="typeProduct"><b>TIPO:</b> REFURBISHED</div>
-									<div class="prices">
-										<div class="pricePromotion">$ 19,503.50</div>
-										<div class="priceProduct">$ 119,503.50</div>	
-									</div>
-									<div class="btnBuy">
-										<button class="btnAddCart"></button>
-									</div>
-								</div>
-							</div>
-							<div class="btnsProduct">
-								<div class="btn-group-justified">
-									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectDetails', 'tabDetails', '1')">DETALLES</button>
-									</div>
-									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectReplacements', 'tabReplacements', '1')">REMPLAZOS</button>
-									</div>
-									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectCompatible', 'tabCompatible', '1')">COMPATIBLE</button>
-									</div>
-									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectStocks', 'tabStocks', '1')">EXISTENCIAS</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="productCard">
-							<div class="titleProduct">
-								<b>NÚMERO DE PARTE:</b> IPH5DC/H
-							</div>
-							<div class="contectProduct">
-								<div class="imageProduct">
-									<div class="activePromotion">En descuento</div>
-									<img src="../../img/product_2.jpg">
-								</div>
-								<div class="infoProduct">
-									<div class="descriptionProduct"><b>DESCRIPCIÓN:</b> 802511-601 HP-COMPAQ MOTHERBOARD INCLUDES AN INTEL CORE I5-4300U PROCESSOR 1.9GHZ, 3MB LEVEL-3 CACHE</div>
-									<div class="brandProduct"><b>MARCA:</b> CONCEPTRONIC</div>
-									<div class="typeProduct"><b>TIPO:</b> REFURBISHED</div>
-									<div class="prices">
-										<div class="pricePromotion">$ 19,503.50</div>
-										<div class="priceProduct">$ 119,503.50</div>	
-									</div>
-									<div class="btnBuy">
-										<button class="btnAddCart"></button>
-									</div>
-								</div>
-							</div>
-							<div class="btnsProduct">
-								<div class="btn-group-justified">
-									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectDetails', 'tabDetails', '2')">DETALLES</button>
-									</div>
-									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectReplacements', 'tabReplacements', '2')">REMPLAZOS</button>
-									</div>
-									<div class="btn-group">
-										<button class="btn btnBrandBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectCompatible', 'tabCompatible', '2')">COMPATIBLE</button>
-									</div>
-									<div class="btn-group">
-										<button class="btn btnAlternativeBlue" onclick="getModalTab('modalProduct','closeProduct', 'contectStocks', 'tabStocks', '2')">EXISTENCIAS</button>
-									</div>
-								</div>
-							</div>
-						</div>
 						
 					</td>
 
