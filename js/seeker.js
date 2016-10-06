@@ -23,7 +23,7 @@ function init()
     $.ajax({
         url: 'http://localhost/ascend/modules/searchascend/ajax.php',
         type: 'post',
-        dataType: 'html',
+        dataType: 'json',
         data:
         {
             'strProcess' : 'searchProduct',
@@ -42,6 +42,7 @@ function init()
            console.log("Exito");
            $('#contect').html(data.htmlProduct);
            console.log(data);
+
         }
     });
 
