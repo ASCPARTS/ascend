@@ -35,12 +35,20 @@ function init()
         beforeSend: function (data)
         {
             console.log("Antes de enviar");
-            $('#contect').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
         },
         success:function(data)
         {
            console.log("Exito");
-           $('#contect').html(data.htmlProduct);
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
            console.log(data);
 
         }

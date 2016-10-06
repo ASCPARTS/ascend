@@ -20,13 +20,19 @@
                     <label for="search">BUSCAR</label>
                 </div>
             </div>
-            <button class="btn btnBrandRed" onclick="testPost()">TEST</button>
+            <!--button class="btn btnBrandRed" onclick="testPost()" >TEST</button-->
         </div>
         <div class="row">
         	<table id="catalog" style="width:97.4%; margin: 0 auto 0 auto ">
 				<tr>
 					<td id="contect" style="width: *">
-						
+						<div id="products">
+							
+						</div>
+						<div class="row">
+							<div id="pagination" class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">
+							</div>
+						</div>
 					</td>
 
 					<td id="filters">
