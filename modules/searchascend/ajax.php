@@ -21,42 +21,29 @@ switch ($strProcess)
     #
     case 'searchProduct':
         $strType = $_REQUEST['strType'];
+        $intPage = $_REQUEST['intPage'];
+        $jsnParameters = json_decode($_REQUEST['jsnParameters']);
+        $intRecordsPerPage = $_REQUEST['intRecordsPerPage'];
+
+
         switch( $strType )
         {
             case 'initialSearch':
-                $sqlPromotion =
-                    "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
-                    ."FROM tblProduct P "
+                $sqlProduct =
+                    "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, IFNULL(PR.strRule, '') AS strPromotionRule, IFNULL(PR.strStatus, 'B') AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
+                    ."FROM tblProduct P  "
                     ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
                     ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
-                    ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
+                    ."LEFT JOIN tblBrand B ON P.intBrand = B.intId  "
                     ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-                    ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
-                    ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
-                    ."ORDER BY I.intSold DESC LIMIT 100;";
+                    ." LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
+                    ." WHERE P.strStatus='A' "
+                    ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
 
-                $rstPromotion = $objAscend->dbQuery($sqlPromotion);
-                if( count($rstPromotion) > 0 )
-                {
-                    $rstQuery = $rstPromotion;
-                }
-                else
-                {
-                    $sqlTop =
-                        "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
-                        ."FROM tblProduct P "
-                        ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
-                        ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
-                        ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-                        ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-                        ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
-                        ."where P.strStatus='A' "
-                        ."ORDER BY I.intSold DESC limit 100;";
-                    $rstTop= $objAscend->dbQuery($sqlTop);
-                    $rstQuery = $rstTop;
-                    unset($rstTop);
-                }
-                unset($rstPromotion);
+                $rstProduct = $objAscend->dbQuery($sqlProduct . $objAscend->queryLimit($sqlProduct, $intPage, $intRecordsPerPage) );
+                $rstQuery = $rstProduct;
+                unset($rstProduct);
+
             break;
             case 'customSearch':
                 break;
@@ -64,118 +51,7 @@ switch ($strProcess)
                 break;
         }
         break;
-
-    #funciones de busqueda
-    case 'initialSearch':
-        $sqlPromotion =
-            "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
-            ."FROM tblProduct P "
-            ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
-            ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
-            ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-            ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-            ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
-            ."WHERE PR.strStatus is not null  AND PR.strStatus = 'A' "
-            ."ORDER BY I.intSold DESC LIMIT 100;";
-
-        $rstPromotion = $objAscend->dbQuery($sqlPromotion);
-        if( count($rstPromotion) > 0 )
-        {
-            $rstQuery = $rstPromotion;
-        }
-        else
-        {
-            $sqlTop =
-                "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, PR.strRule AS strPromotionRule, PR.strStatus AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
-                ."FROM tblProduct P "
-                ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
-                ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
-                ."LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-                ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-                ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
-                ."where P.strStatus='A' "
-                ."ORDER BY I.intSold DESC limit 100;";
-            $rstTop= $objAscend->dbQuery($sqlTop);
-            $rstQuery = $rstTop;
-            unset($rstTop);
-        }
-        unset($rstPromotion);
-
-
-        break;
-    case 'searchProduct':
-        $strNeedle = strtoupper(trim($_REQUEST['strNeedle']));
-
-        $strBrand =$_REQUEST['strBrand'];
-        $strGroup =$_REQUEST['strGroup'];
-        $strPartNumber =$_REQUEST['strPartNumber'];
-
-        $arrayBuscador = explode(" ", $strBuscador );
-        $sqlWhereFamily = "( ";
-        $sqlWhereBrand = "( ";
-        $sqlWhereGroup = "( ";
-        $sqlWhereSKU = "( ";
-        $sqlWherePartNumber = "( ";
-        $sqlWhereDescription = "( ";
-
-        $sqlBrand = "( ";
-        $sqlGroup = "( ";
-        $sqlPartNumber = "( ";
-
-        foreach ($arrayBuscador as $strBuscadorSelected)
-        {
-            $sqlWhereFamily .= "F.strName LIKE '%$strNeedle%' OR ";
-            $sqlWhereBrand .= "B.strName LIKE '%$strNeedle%' OR ";
-            $sqlWhereGroup .= "G.strName LIKE '%$strNeedle%' OR ";
-            $sqlWhereSKU .= "P.strSKU LIKE '%$strNeedle%' OR ";
-            $sqlWherePartNumber .= "P.strPartNumber LIKE '%$strNeedle%' OR ";
-            $sqlWhereDescription .= "P.strDescription LIKE '%$strNeedle%' OR ";
-
-            $sqlBrand .= "B.strName LIKE '%$strBrand%' OR ";
-            $sqlGroup .= "G.strName LIKE '%$strGroup%' OR ";
-            $sqlPartNumber .= "P.strPartNumber LIKE '%$strPartNumber%' OR ";
-        }
-
-        if( strlen($sqlWhereFamily) > 0 ){ $sqlWhereFamily = substr($sqlWhereFamily, 0, ( strlen($sqlWhereFamily) - 3 )) . " ) OR "; }
-        if( strlen($sqlWhereBrand) > 0 ){ $sqlWhereBrand = substr($sqlWhereBrand, 0, ( strlen($sqlWhereBrand) - 3 )) . " ) OR "; }
-        if( strlen($sqlWhereGroup) > 0 ){ $sqlWhereGroup = substr($sqlWhereGroup, 0, ( strlen($sqlWhereGroup) - 3 )) . " ) OR "; }
-        if( strlen($sqlWhereSKU) > 0 ){ $sqlWhereSKU = substr($sqlWhereSKU, 0, ( strlen($sqlWhereSKU) - 3 )) . " ) OR "; }
-        if( strlen($sqlWherePartNumber) > 0 ){ $sqlWherePartNumber = substr($sqlWherePartNumber, 0, ( strlen($sqlWherePartNumber) - 3 )) . " ) OR "; }
-        if( strlen($sqlWhereDescription) > 0 ){ $sqlWhereDescription = substr($sqlWhereDescription, 0, ( strlen($sqlWhereDescription) - 3 )) . " ) "; }
-
-        if( strlen($sqlBrand) > 0 ){ $sqlBrand = substr($sqlBrand, 0, ( strlen($sqlBrand) - 3 )) . " ) " . ( strlen($sqlGroup) > 0 ? " OR " : "" ); }
-        if( strlen($sqlGroup) > 0 ){ $sqlGroup = substr($sqlGroup, 0, ( strlen($sqlGroup) - 3 )) . " ) " . ( strlen($sqlPartNumber) > 0 ? " OR " : "" ); }
-        if( strlen($sqlPartNumber) > 0 ){ $sqlPartNumber = substr($sqlPartNumber, 0, ( strlen($sqlPartNumber)  - 3)) . " ) "; }
-
-
-        $rstsearchProducts =$objAscend->dbQuery(
-            "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName AS strFamily, B.strName AS strBrand, G.strName AS strGroup,C.strName, P.decPrice"
-            ." FROM tblProduct P "
-            ." LEFT JOIN tblFamily F ON P.intFamily = F.intId "
-            ." LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-            ." LEFT JOIN tblGroup G ON P.intGroup = G.intId "
-            ."LEFT JOIN catCondition C ON P.intCondition = C.intId"
-            ." WHERE 
-            ( "
-            ."$sqlWhereFamily "
-            ."$sqlWhereBrand "
-            ."$sqlWhereGroup "
-            ."$sqlWhereSKU "
-            ."$sqlWherePartNumber "
-            ."$sqlWhereDescription "
-            .")
-            and
-            ("
-            ."$sqlBrand "
-            ."$sqlGroup "
-            ."$sqlPartNumber "
-            .")");
-        $jsnPhpScriptResponse=$rstsearchProducts;
-        echo"<pre>";
-        print_r($jsnPhpScriptResponse);
-        echo"</pre>";
-        break;
-
+    
     #detailed information of products
     case 'productInfo':
         $intId = $_REQUEST['intId'];

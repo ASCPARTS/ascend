@@ -417,7 +417,27 @@ class clsAscend
         $this->strDBError = "";
     }
 
-    //support functions
+    //generic support functions
+
+    public function queryLimit( $strSql, $intPage, $intRecordsPerPage )
+    {
+        $sqlCount = "SELECT COUNT(*) AS intCount FROM(" . str_replace(";", "", $strSql) . ") A;";
+        $rstCount = $this -> dbQuery( $sqlCount);
+        $intCount = $rstCount[0]["intCount"];
+        $intStartRecord = ( $intPage == 1 ? 0 : (( $intPage - 1 ) * $intRecordsPerPage) );
+
+        if( $intStartRecord >= $intCount )
+        {
+            $strLimit = "LIMIT 0, $intRecordsPerPage";
+        }
+        else
+        {
+            $strLimit = "LIMIT $intStartRecord, $intRecordsPerPage";
+        }
+        return " " . $strLimit . "; ";
+    }
+
+    //support functions ascend
     public function priceRuleCalculation($decPrice, $strRule)
     {
         $decResult = 0;
