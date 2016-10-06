@@ -30,7 +30,7 @@ function init()
             'strType' : 'initialSearch',
             'intPage' : 1,
             'intRecordsPerPage' : 10,
-            'jsnParameters' : {}
+            'jsnParameters' : Array
         },
         beforeSend: function (data)
         {
@@ -40,8 +40,8 @@ function init()
         success:function(data)
         {
            console.log("Exito");
-           $('#contect').html(data);
-           //console.log(data);
+           $('#contect').html(data.htmlProduct);
+           console.log(data);
         }
     });
 
