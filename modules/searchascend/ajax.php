@@ -40,7 +40,7 @@ switch ($strProcess)
                     ." LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
                     ." WHERE P.strStatus='A' "
                     ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
-                echo $sqlProduct;
+                //echo $sqlProduct;
                 $rstProduct = $objAscend->dbQuery($sqlProduct . $objAscend->queryLimit($sqlProduct, $intPage, $intRecordsPerPage) );
                 $rstQuery = $rstProduct;
                 unset($rstProduct);
