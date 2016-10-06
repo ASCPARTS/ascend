@@ -21,9 +21,17 @@ function init()
     });
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php?strProcess=initialSearch',
-        type: 'GET',
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
         dataType: 'html',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : 'initialSearch',
+            'intPage' : 1,
+            'intRecordsPerPage' : 10,
+            'jsnParameters' : {}
+        },
         beforeSend: function (data)
         {
             console.log("Antes de enviar");
@@ -144,7 +152,8 @@ function testPost()
             'strProcess' : 'searchProduct',
             'strType' : 'initialSearch',
             'intPage' : 1,
-            'intRecordsPerPage' : 10
+            'intRecordsPerPage' : 10,
+            'jsnParameters' : {}
         },
         beforeSend: function (data)
         {
