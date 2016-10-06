@@ -7,13 +7,14 @@ $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 $rstQuery = array();
 $strError = "";
-$jsnPhpScriptResponse = "";
+$jsnPhpScriptResponse = array();
 
 #parametros para balanceador de busquedas
 $strType = "";
 $intPage = 1;
 $jsnParameters = array();
 $intRecordsPerPage = 10;
+$sqlProduct = "";
 
 #### Preparado de datos
 switch ($strProcess)
@@ -39,7 +40,7 @@ switch ($strProcess)
                     ." LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
                     ." WHERE P.strStatus='A' "
                     ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
-
+                echo $sqlProduct;
                 $rstProduct = $objAscend->dbQuery($sqlProduct . $objAscend->queryLimit($sqlProduct, $intPage, $intRecordsPerPage) );
                 $rstQuery = $rstProduct;
                 unset($rstProduct);
@@ -51,7 +52,7 @@ switch ($strProcess)
                 break;
         }
         break;
-    
+
     #detailed information of products
     case 'productInfo':
         $intId = $_REQUEST['intId'];
@@ -286,8 +287,6 @@ switch ($strProcess)
 {
     #print the data of initialSearch(), searchProduct, advandecSearch()
     case 'searchProduct':
-    case 'advancedSearch':
-    case 'initialSearch':
         foreach($rstQuery as $product)
         {
             $htmlProduct = '';
@@ -342,7 +341,7 @@ switch ($strProcess)
             $htmlProduct .= '</div>';
             $htmlProduct .= '</div>';
 
-            $jsnPhpScriptResponse .= $htmlProduct;
+            $jsnPhpScriptResponse["htmlProduct"] .= $htmlProduct;
         }
 
         /*echo"<pre>";
@@ -488,5 +487,5 @@ switch ($strProcess)
         break;
 }
 unset($objAscend);
-echo ($jsnPhpScriptResponse);
+echo json_encode($jsnPhpScriptResponse);
 ?>
