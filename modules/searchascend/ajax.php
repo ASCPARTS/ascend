@@ -15,6 +15,7 @@ $intPage = 1;
 $jsnParameters = array();
 $intRecordsPerPage = 10;
 $sqlProduct = "";
+$objPagination = array();
 
 #### Preparado de datos
 switch ($strProcess)
@@ -41,7 +42,8 @@ switch ($strProcess)
                     ." WHERE P.strStatus='A' "
                     ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
                 //echo $sqlProduct;
-                $rstProduct = $objAscend->dbQuery($sqlProduct . $objAscend->queryLimit($sqlProduct, $intPage, $intRecordsPerPage) );
+                $objPagination = $objAscend->queryPagination($sqlProduct, $intPage, $intRecordsPerPage);
+                $rstProduct = $objAscend->dbQuery($sqlProduct . $objPagination["strLimit"] );
                 $rstQuery = $rstProduct;
                 unset($rstProduct);
 
@@ -345,6 +347,64 @@ switch ($strProcess)
             $jsnPhpScriptResponse["htmlProduct"] .= ($htmlProduct);
         }
 
+        #Pagineo
+
+        $htmlPagination = "";
+        $htmlPagination .= "<div class=\"divPagination\">";
+        if( $intPage != 1)
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(1)\" title=\"Inicio\">⋘</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(" . ( $intPage - 1) . ")\" title=\"Anterior\">≪</label>";
+        }
+        else
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Inicio\">&#8920;</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Anterior\">&#8810</label>";
+        }
+
+        $htmlPagination .= "<div class=\"divPagesScroll\">";
+
+        for($p = 1; $p <= $objPagination["intPages"]; $p++)
+        {
+            if( $p != $intPage)
+            {
+                $htmlPagination .= "<label class=\"labelPagination\" onclick=\"gridPagination($p)\">$p</label>";
+            }
+            else
+            {
+                $htmlPagination .= "<label class=\"labelPagination labelPaginationCurrent\">$p</label>";
+            }
+        }
+
+        $htmlPagination .= "</div>";
+
+        if( $intPage != $objPagination["intPages"])
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Siguiente\">&#8811</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Final\">&#8921</label>";
+        }
+        else
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(" . ( $intPage + 1) . ")\" title=\"Siguiente\">≫</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(" . $objPagination["intPages"] . ")\" title=\"Final\">⋙</label>";
+        }
+
+        $htmlPagination .= "<div class=\"paginationInfo\">";
+        $htmlPagination .= "<b> " . $objPagination["intTotalRows"] . " </b> Registros - <b>" . $objPagination["intPages"] . "</b> Páginas -";
+        $htmlPagination .= "<select onchange=\"gridRecords(this.value);\">";
+        $htmlPagination .= "<option  value=\"10\" " . ( $intRecordsPerPage ==  10 ? "selected=\"selected\"" : "" ) . ">10</option>";
+        $htmlPagination .= "<option  value=\"20\" " . ( $intRecordsPerPage ==  20 ? "selected=\"selected\"" : "" ) . ">20</option>";
+        $htmlPagination .= "<option  value=\"40\" " . ( $intRecordsPerPage ==  40 ? "selected=\"selected\"" : "" ) . ">40</option>";
+        $htmlPagination .= "<option  value=\"60\" " . ( $intRecordsPerPage ==  60 ? "selected=\"selected\"" : "" ) . ">60</option>";
+        $htmlPagination .= "<option  value=\"80\" " . ( $intRecordsPerPage ==  80 ? "selected=\"selected\"" : "" ) . ">80</option>";
+        $htmlPagination .= "<option value=\"100\" " . ( $intRecordsPerPage == 100 ? "selected=\"selected\"" : "" ) . ">100</option>";
+        $htmlPagination .= "</select>";
+        $htmlPagination .= "Registros por página";
+        $htmlPagination .= "</div>";
+        $htmlPagination .= "</div>";
+
+        $jsnPhpScriptResponse["htmlPagination"] = $htmlPagination;
+        //echo "<br><br><br>" . $htmlPagination;
         /*echo"<pre>";
         print_r($rstQuery);
         echo"</pre>";*/

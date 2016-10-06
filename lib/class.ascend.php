@@ -419,7 +419,7 @@ class clsAscend
 
     //generic support functions
 
-    public function queryLimit( $strSql, $intPage, $intRecordsPerPage )
+    public function queryPagination( $strSql, $intPage, $intRecordsPerPage )
     {
         $sqlCount = "SELECT COUNT(*) AS intCount FROM(" . str_replace(";", "", $strSql) . ") A;";
         $rstCount = $this -> dbQuery( $sqlCount);
@@ -434,7 +434,14 @@ class clsAscend
         {
             $strLimit = "LIMIT $intStartRecord, $intRecordsPerPage";
         }
-        return " " . $strLimit . "; ";
+
+        $intPages = ceil($intCount / $intRecordsPerPage);
+        return array
+        (
+            "strLimit" => " " . $strLimit . "; ",
+            "intPages" => $intPages,
+            "intTotalRows" => $intCount
+        );
     }
 
     //support functions ascend
