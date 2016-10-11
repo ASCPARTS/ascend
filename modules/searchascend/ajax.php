@@ -1,12 +1,13 @@
 <?php
 require_once('../../inc/include.config.php');
 require_once('../../'.LIB_PATH .'class.ascend.php');
+require_once('class.searchAscend.php');
 
 $objAscend = new clsAscend();
+$objSearchAscend = new clsSearchAscend();
 
 $strProcess = $_REQUEST['strProcess'];
 $rstQuery = array();
-$strError = "";
 $jsnPhpScriptResponse = array();
 
 #parametros para balanceador de busquedas
@@ -16,6 +17,9 @@ $jsnParameters = array();
 $intRecordsPerPage = 10;
 $sqlProduct = "";
 $objPagination = array();
+
+$arrPriceRange = array();
+
 
 #### Preparado de datos
 switch ($strProcess)
@@ -27,22 +31,87 @@ switch ($strProcess)
         $jsnParameters = json_decode($_REQUEST['jsnParameters']);
         $intRecordsPerPage = $_REQUEST['intRecordsPerPage'];
 
+        $intStock = $_REQUEST['intStock'];
+        $strPriceRange = $_REQUEST['strPriceRange'];
+
+        $jsnBrand = json_decode($_REQUEST['jsnBrand']);
+        $jsnGroup = json_decode($_REQUEST['jsnGroup']);
+
+
 
         switch( $strType )
         {
             case 'initialSearch':
+
+
                 $sqlProduct =
-                    "SELECT P. intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, B.strName AS strBrand, C.strName AS strCondition, I.intSold, IFNULL(PR.strRule, '') AS strPromotionRule, IFNULL(PR.strStatus, 'B') AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage "
+                    " SELECT P.intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, P.intBrand, B.strName AS strBrand, P.intGroup, C.strName AS strCondition, I.intSold, IFNULL(PR.strRule, '') AS strPromotionRule, IFNULL(PR.strStatus, 'B') AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage, IFNULL( (SELECT SUM(intStock) FROM tblWarehouseStock WHERE intProduct = P.intId AND strStatus = 'A'), 0) AS intStock "
                     ."FROM tblProduct P  "
                     ."LEFT JOIN tblInvoice I ON I.intProduct = P.intId "
                     ."LEFT JOIN tblPromotion PR ON P.intId = PR.intProduct "
                     ."LEFT JOIN tblBrand B ON P.intBrand = B.intId  "
+                    ."LEFT JOIN tblGroup G ON P.intGroup = G.intId "
                     ."LEFT JOIN catCondition C ON P.intCondition = C.intId "
-                    ." LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
-                    ." WHERE P.strStatus='A' "
+                    ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
+                    ."WHERE P.strStatus='A' "
                     ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
-                //echo $sqlProduct;
-                $objPagination = $objAscend->queryPagination($sqlProduct, $intPage, $intRecordsPerPage);
+
+                $jsnPhpScriptResponse["htmlLateralBar"] = $objSearchAscend -> getLateralBar($sqlProduct, $intStock, $strPriceRange, $jsnBrand, $jsnGroup );
+                $arrPriceRange = $rstLateralBarData["arrPriceRange"];
+                //$objAscend->printArray($arrPriceRange);
+                $boolLateralFilter = 0;
+                $strWhereProduct = "";
+                if( $intStock == 1 )
+                {
+                    $boolLateralFilter = 1;
+                    $strWhereProduct = " intStock > 0 AND ";
+                }
+
+                if( $strPriceRange != "ALL" )
+                {
+                    $boolLateralFilter = 1;
+                    $arrPriceRanges = explode("-", $strPriceRange );
+                    $strWhereProduct = " ( decPrice > " . $arrPriceRanges[0] . " AND decPrice <= " . $arrPriceRanges[1] . " ) AND ";
+                }
+
+                if( count($jsnBrand) > 0 )
+                {
+                    $boolLateralFilter = 1;
+                    $strWhereProduct .= "intBrand IN (";
+                    foreach( $jsnBrand as $arrBrand )
+                    {
+                        $strWhereProduct .= " " . $arrBrand . ",";
+                    }
+                    $strWhereProduct = substr($strWhereProduct, 0, ( strlen($strWhereProduct) - 1 ));
+                    $strWhereProduct .= " ) AND ";
+                }
+
+                if( count($jsnGroup) > 0 )
+                {
+                    $boolLateralFilter = 1;
+                    $strWhereProduct .= "intGroup IN (";
+                    foreach( $jsnGroup as $arrGroup )
+                    {
+                        $strWhereProduct .= " " . $arrGroup . ",";
+                    }
+                    $strWhereProduct = substr($strWhereProduct, 0, ( strlen($strWhereProduct) - 1 ));
+                    $strWhereProduct .= " ) AND ";
+                }
+                
+
+
+                if( $boolLateralFilter )
+                {
+                    $strWhereProduct = substr($strWhereProduct, 0, (strlen($strWhereProduct) - 4) ) . "";
+                    $sqlProduct =
+                    "SELECT * FROM "
+                    ."( "
+                    . $sqlProduct . " "
+                    .") "
+                    ."A WHERE" . $strWhereProduct;
+                }
+
+                $objPagination = $objSearchAscend->queryPagination($sqlProduct, $intPage, $intRecordsPerPage);
                 $rstProduct = $objAscend->dbQuery($sqlProduct . $objPagination["strLimit"] );
                 $rstQuery = $rstProduct;
                 unset($rstProduct);
@@ -132,44 +201,7 @@ switch ($strProcess)
         $rstQuery["stock"] = $rstStock;
         break;
 
-    case 'replacement':
 
-
-        $strSKU =$_REQUEST['strSKU'];
-        $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
-        $rstReplacement=$objAscend->dbQuery("select P.strSKU"
-            ." from tblProductRelationship PR"
-            ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-            ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'R' and PR.strStatus='A';");
-        $jsnPhpScriptResponse=$rstReplacement;
-        echo"<pre>";
-        print_r($jsnPhpScriptResponse);
-        echo"</pre>";
-        break;
-    case 'compatible':
-        $strSKU =$_REQUEST['strSKU'];
-        $intSKU= $objAscend->dbQuery("SELECT intId FROM tblProduct Where strSKU = '$strSKU';");
-        $rstCompatible=$objAscend->dbQuery("select P.strSKU"
-            ." from tblProductRelationship PR"
-            ." LEFT JOIN tblProduct P ON P.intId = PR.intRelatedProduct"
-            ." where PR.intProduct=".$intSKU[0]['intId']." and PR.strRelationshipType = 'C' and PR.strStatus='A';");
-        $jsnPhpScriptResponse=$rstCompatible;
-        echo"<pre>";
-        print_r($jsnPhpScriptResponse);
-        echo"</pre>";
-        break;
-    case 'stock':
-        $strSKU =$_REQUEST['strSKU'];
-        $sqlProduct=$objAscend->dbQuery("select intId from tblProduct where strSKU='6171374';");
-        $rstStock=$objAscend->dbQuery("select W.strDescription, WS.intStock"
-            ." from tblWarehouseStock WS"
-            ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId"
-            ." where WS.intProduct='".$sqlProduct[0]['intId']."' and WS.intStock > 0;");
-        $jsnPhpScriptResponse=$rstStock;
-        echo"<pre>";
-        print_r($jsnPhpScriptResponse);
-        echo"</pre>";
-        break;
     case 'autocomplete':
 
         $strNeedle = strtoupper(trim($_REQUEST['strNeedle']));
@@ -301,7 +333,7 @@ switch ($strProcess)
             $htmlProduct .= '<div class="imageProduct">';
             if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
             {
-                $objPromotion = $objAscend->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
+                $objPromotion = $objSearchAscend->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
                 $htmlProduct .= '<div class="activePromotion">' . $objPromotion["strRuleDescription"] . '</div>';
             }
             if(!file_exists("../../img/" . $product["strImage"])) { $product["strImage"] = "product/notfound.jpg";   }
@@ -405,9 +437,10 @@ switch ($strProcess)
 
         $jsnPhpScriptResponse["htmlPagination"] = $htmlPagination;
         //echo "<br><br><br>" . $htmlPagination;
-        /*echo"<pre>";
-        print_r($rstQuery);
-        echo"</pre>";*/
+        //$objAscend->printArray($rstQuery);
+
+        #
+
         break;
 
     #### DETAIL

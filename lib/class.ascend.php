@@ -76,6 +76,7 @@ class clsAscend
         {
             $this->strTransactionErrorCode = '';
             $this->strTransactionErrorMessage = '';
+            //echo $strSql;
             $rstData = mysqli_query($this->conMysql,$strSql);
             if(mysqli_error($this->conMysql)){
                 $this->strTransactionErrorCode = mysqli_error($this->conMysql);
@@ -418,50 +419,11 @@ class clsAscend
     }
 
     //generic support functions
-
-    public function queryPagination( $strSql, $intPage, $intRecordsPerPage )
+    public function printArray($array)
     {
-        $sqlCount = "SELECT COUNT(*) AS intCount FROM(" . str_replace(";", "", $strSql) . ") A;";
-        $rstCount = $this -> dbQuery( $sqlCount);
-        $intCount = $rstCount[0]["intCount"];
-        $intStartRecord = ( $intPage == 1 ? 0 : (( $intPage - 1 ) * $intRecordsPerPage) );
-
-        if( $intStartRecord >= $intCount )
-        {
-            $strLimit = "LIMIT 0, $intRecordsPerPage";
-        }
-        else
-        {
-            $strLimit = "LIMIT $intStartRecord, $intRecordsPerPage";
-        }
-
-        $intPages = ceil($intCount / $intRecordsPerPage);
-        return array
-        (
-            "strLimit" => " " . $strLimit . "; ",
-            "intPages" => $intPages,
-            "intTotalRows" => $intCount
-        );
-    }
-
-    //support functions ascend
-    public function priceRuleCalculation($decPrice, $strRule)
-    {
-        $decResult = 0;
-        $strRuleDescription = "";
-        switch ($strRule)
-        {
-            case "-10%":    $decResult = $decPrice * 0.9;   $strRuleDescription = "-10%";   break;
-            case "-20%":    $decResult = $decPrice * 0.8;   $strRuleDescription = "-20%";   break;
-            case "-30%":    $decResult = $decPrice * 0.7;   $strRuleDescription = "-30%";   break;
-            case "-40%":    $decResult = $decPrice * 0.6;   $strRuleDescription = "-40%";   break;
-            case "-50%":    $decResult = $decPrice * 0.5;   $strRuleDescription = "-50%";   break;
-            case "-60%":    $decResult = $decPrice * 0.4;   $strRuleDescription = "-60%";   break;
-            case "-70%":    $decResult = $decPrice * 0.3;   $strRuleDescription = "-70%";   break;
-            case "-80%":    $decResult = $decPrice * 0.2;   $strRuleDescription = "-80%";   break;
-            case "-90%":    $decResult = $decPrice * 0.1;   $strRuleDescription = "-90%";   break;
-        }
-        return array("decPrice" => $decResult, "strRuleDescription" => $strRuleDescription );
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
     }
 }
 
