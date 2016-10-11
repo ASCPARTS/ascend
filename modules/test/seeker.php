@@ -39,14 +39,14 @@
 					  	<div class="SubTitle">Existencias</div>
 				        <div class="row">
 							<div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="stocksFilter">
-			                    <label for="stocksFilter">Disponibles</label>
+			                    <input class="checkStock" type="checkbox" id="1" onchange="pushStock()">
+			                    <label for="1">Disponibles</label>
 			                </div>
 				        </div>
 				        <div class="SubTitle">Precios</div>
 				        <div class="row">
 				        	<div class="divSelect divBrandBlue costGray">
-                    			<select id="priceRangeFilter">
+                    			<select id="priceRangeFilter" onchange="onChangeRangePrice()">
                     				<option>De $0  a $100</option>
                     				<option>De $101 a $200</option>
                     				<option>De $201 a $300</option>
@@ -57,219 +57,44 @@
 				        <div class="SubTitle">Marcas</div>
 				        <div class="row sizeFilter" id="brandsFilter">
 							<div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="conceptronic">
+			                    <input class="checkBrands" type="checkbox" id="conceptronic"  onchange="pushBrand()">
 			                    <label for="conceptronic">CONCEPTRONIC</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">STP</label>
+			                    <input class="checkBrands" type="checkbox" id="stp" onchange="pushBrand()">
+			                    <label for="stp">STP</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">ACER</label>
+			                    <input class="checkBrands" type="checkbox" id="acer" onchange="pushBrand()">
+			                    <label for="acer">ACER</label>
 			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">APPLE</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">COMPAQ</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">DELL</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">FUJITSU</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">GATEWAY</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">MINOLTA</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">EPSON</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">NEC</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">MITAC</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">HP</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">IBM</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">LEXMARK</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PALM</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">TOSHIBA</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PANASONIC</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">OKIDATA</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">XEROX</label>
-			                </div>
+			        
 				        </div>
 				        <div class="SubTitle">Grupos</div>
 				        <div class="row sizeFilter" id="groupsFilter">
 							<div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">DISCO DURO INTERNO</label>
+			                    <input class="checkGroups" type="checkbox" id="1" onchange="pushGroup()">
+			                    <label for="1">DISCO DURO INTERNO</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">COMPUTER BAGS</label>
+			                    <input class="checkGroups" type="checkbox" id="2" onchange="pushGroup()">
+			                    <label for="2">COMPUTER BAGS</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">DISCO DURO EXTERNO</label>
+			                    <input class="checkGroups" type="checkbox" id="3" onchange="pushGroup()">
+			                    <label for="3">DISCO DURO EXTERNO</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">COMPONENTES ELECTRONICOS</label>
+			                    <input class="checkGroups" type="checkbox" id="4" onchange="pushGroup()">
+			                    <label for="4">COMPONENTES ELECTRONICOS</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">IMPRESORAS COMPLETAS</label>
+			                    <input class="checkGroups" type="checkbox" id="5" onchange="pushGroup()">
+			                    <label for="5">IMPRESORAS COMPLETAS</label>
 			                </div>
 			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PLOTTERS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">CABLES</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">MEMORY</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">POWER BANK</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">POWER SUPPLY</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">MARKETING</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">CUBIERTAS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">MOTHERBOARDS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">DIGITALIZADORES</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">TRANSFER</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">MOTOR</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PANTALLAS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">DUPLEX Y ACCESORIOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">COMPONENTES EXTERNOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">COMPONENTES INTERNOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">VENTILADORES</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">RODILLOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PARTES PARA CARTUCHOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">BANDEJAS Y ACCESORIOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">ADAPTADORES</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">BATERIAS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">CARTUCHOS</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">FUSORES</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">KITS DE MANTENIMIENTO</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PARTES EN GENERAL</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PARTES PARA KIT</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">PARTES PARA FUSOR</label>
-			                </div>
-			                <div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="che">
-			                    <label for="che">TECLADOS</label>
+			                    <input class="checkGroups" type="checkbox" id="6" onchange="pushGroup()">
+			                    <label for="6">PLOTTERS</label>
 			                </div>
 				        </div>
 					</td>
