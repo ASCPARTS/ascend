@@ -32,8 +32,8 @@ function init()
             'intRecordsPerPage' : 10,
             'intStock' : 0,
             'strPriceRange' : '1.00-10000.00',
-            'jsnBrand' : ["1","2","3","4"],
-            'jsnGroup' : ["1","2","3","4"],
+            'jsnBrand' : '["1","2","3","4"]',
+            'jsnGroup' : '["1","2","3","4"]',
             'jsnParameters' : Array
         },
         beforeSend: function (data)
