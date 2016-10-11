@@ -39,23 +39,23 @@
 					  	<div class="SubTitle">Existencias</div>
 				        <div class="row">
 							<div class="divInputMiniCheck divBrandBlue">
-			                    <input type="checkbox" id="stocks">
-			                    <label for="stocks">Disponibles</label>
+			                    <input type="checkbox" id="stocksFilter">
+			                    <label for="stocksFilter">Disponibles</label>
 			                </div>
 				        </div>
 				        <div class="SubTitle">Precios</div>
 				        <div class="row">
 				        	<div class="divSelect divBrandBlue costGray">
-                    			<select id="priceRange">
+                    			<select id="priceRangeFilter">
                     				<option>De $0  a $100</option>
                     				<option>De $101 a $200</option>
                     				<option>De $201 a $300</option>
                     			</select>
-                    			<label for="priceRange">Rango de precios</label>
+                    			<label for="priceRangeFilter">Rango de precios</label>
                 			</div>
 				        </div>
 				        <div class="SubTitle">Marcas</div>
-				        <div class="row">
+				        <div class="row sizeFilter" id="brandsFilter">
 							<div class="divInputMiniCheck divBrandBlue">
 			                    <input type="checkbox" id="conceptronic">
 			                    <label for="conceptronic">CONCEPTRONIC</label>
@@ -138,7 +138,7 @@
 			                </div>
 				        </div>
 				        <div class="SubTitle">Grupos</div>
-				        <div class="row">
+				        <div class="row sizeFilter" id="groupsFilter">
 							<div class="divInputMiniCheck divBrandBlue">
 			                    <input type="checkbox" id="che">
 			                    <label for="che">DISCO DURO INTERNO</label>
@@ -346,7 +346,6 @@
 												<div class="ca-icon" style="background:transparent url(../../img/slide/toner5.jpg) no-repeat center center"></div>
 											</div>
 										</div>
-										
 									</div>
 								</div>
 								<div class="MainTitle">ESPECIFICACIONES</div>
@@ -376,7 +375,6 @@
 					                        <th>Descripción</th>
 					                        <th>Marca</th>
 					                        <th>Tipo</th>
-
 					                    </tr>
 				                    </thead>
 				                    <tbody>
