@@ -149,6 +149,8 @@ class clsSearchAscend extends clsAscend
             foreach( $objGroups as $group )
             {
                 $intIsCheckedGroup = 0;
+                //echo gettype($jsnGroup);
+
                 foreach ($jsnGroup as $checkedGroup)
                 {
                     if( $group["intGroup"] == $checkedGroup ) { $intIsCheckedGroup = 1;  }

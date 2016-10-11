@@ -40,8 +40,12 @@ class clsAscend
     }
 
     function __destruct(){
-        mysqli_close($this->conMysql);
-        unset($this->conMysql);
+
+        if(isset($this->conMysql))
+        {
+            mysqli_close($this->conMysql);
+            unset($this->conMysql);
+        }
     }
 
     function dbOpenTransaction(){

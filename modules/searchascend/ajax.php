@@ -34,8 +34,8 @@ switch ($strProcess)
         $intStock = $_REQUEST['intStock'];
         $strPriceRange = $_REQUEST['strPriceRange'];
 
-        $jsnBrand = json_decode($_REQUEST['jsnBrand']);
-        $jsnGroup = json_decode($_REQUEST['jsnGroup']);
+        $jsnBrand = ($_REQUEST['jsnBrand']);
+        $jsnGroup = ($_REQUEST['jsnGroup']);
 
 
 
