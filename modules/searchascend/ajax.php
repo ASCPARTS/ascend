@@ -57,8 +57,8 @@ switch ($strProcess)
                     ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
 
                 $jsnPhpScriptResponse["htmlLateralBar"] = $objSearchAscend -> getLateralBar($sqlProduct, $intStock, $strPriceRange, $jsnBrand, $jsnGroup );
-                $arrPriceRange = $rstLateralBarData["arrPriceRange"];
-                //$objAscend->printArray($arrPriceRange);
+
+
                 $boolLateralFilter = 0;
                 $strWhereProduct = "";
                 if( $intStock == 1 )
