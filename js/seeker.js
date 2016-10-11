@@ -30,6 +30,10 @@ function init()
             'strType' : 'initialSearch',
             'intPage' : 1,
             'intRecordsPerPage' : 10,
+            'intStock' : 0,
+            'strPriceRange' : '1.00-10000.00',
+            'jsnBrand' : ["1","2","3","4"],
+            'jsnGroup' : ["1","2","3","4"],
             'jsnParameters' : Array
         },
         beforeSend: function (data)
@@ -47,8 +51,10 @@ function init()
         success:function(data)
         {
            console.log("Exito");
+           console.log(data)
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
            console.log(data);
 
         }
@@ -173,6 +179,51 @@ function testPost()
         {
             console.log('success');
             console.log(data);
+        }
+    });
+}
+
+function changeSearch(strProcess, strType, intPage, jsnParameters, intRecordsPerPage, intStock, strPrice, jsnBrand, jsnGroup)
+{
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : strProcess,
+            'strType' : strType,
+            'intPage' : intPage,
+            'jsnParameters' : jsnParameters,
+            'intRecordsPerPage' : intRecordsPerPage,
+            'intStock' : intStock,
+            'strPrice' : strPrice,
+            'jsnBrand' : jsnBrand,
+            'jsnGroup' : jsnGroup
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           //$('#stocksFilter').html();
+           //$('#priceRangeFilter').html();
+           //$('#brandsFilter').html();
+           //$('#groupsFilter').html();
+           console.log(data);
+
         }
     });
 }
