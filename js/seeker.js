@@ -218,7 +218,7 @@ function changeSearch(strProcess, strType, intPage, jsnParameters, intRecordsPer
            console.log("Exito");
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
-           //$('#stocksFilter').html();
+           $('#filters').html(data.htmlLateralBar);
            //$('#priceRangeFilter').html();
            //$('#brandsFilter').html();
            //$('#groupsFilter').html();
@@ -228,3 +228,60 @@ function changeSearch(strProcess, strType, intPage, jsnParameters, intRecordsPer
     });
 }
 
+function onChangeRangePrice() {
+    var range = document.getElementById("priceRangeFilter").value;
+    
+    console.log(range);
+}
+
+function pushBrand(){
+    
+    var selectedBrands = [];
+
+    $('.checkBrands:checkbox:checked').each(function() {
+        selectedBrands.push($(this).attr('id'));
+    });
+
+    console.log(selectedBrands)
+    
+}
+
+function pushGroup(){
+    
+    var selectedGroups = [];
+
+    $('.checkGroups:checkbox:checked').each(function() {
+        selectedGroups.push($(this).attr('id'));
+    });
+
+    console.log(selectedGroups)
+    
+}
+
+function pushStock(){
+    
+    var selectedStock = [];
+
+    $('.checkStock:checkbox:checked').each(function() {
+        selectedStock.push($(this).attr('id'));
+    });
+
+    console.log("stock-->"+selectedStock)
+
+    var selectedGroups = [];
+
+    $('.checkGroups:checkbox:checked').each(function() {
+        selectedGroups.push($(this).attr('id'));
+    });
+
+    console.log("groups--->"+selectedGroups)
+
+    var selectedBrands = [];
+
+    $('.checkBrands:checkbox:checked').each(function() {
+        selectedBrands.push($(this).attr('id'));
+    });
+
+    console.log("brands--->"+selectedBrands)
+    
+}
