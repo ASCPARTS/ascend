@@ -77,7 +77,7 @@ switch ($strProcess)
                 if( count($jsnBrand) > 0 )
                 {
                     $boolLateralFilter = 1;
-                    $strWhereProduct .= "intBrand IN (";
+                    $strWhereProduct .= " intBrand IN (";
                     foreach( $jsnBrand as $arrBrand )
                     {
                         $strWhereProduct .= " " . $arrBrand . ",";
@@ -89,7 +89,7 @@ switch ($strProcess)
                 if( count($jsnGroup) > 0 )
                 {
                     $boolLateralFilter = 1;
-                    $strWhereProduct .= "intGroup IN (";
+                    $strWhereProduct .= " intGroup IN (";
                     foreach( $jsnGroup as $arrGroup )
                     {
                         $strWhereProduct .= " " . $arrGroup . ",";
