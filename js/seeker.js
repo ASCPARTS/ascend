@@ -265,7 +265,6 @@ function pushStock(){
     $('.checkStock:checkbox:checked').each(function() {
         selectedStock.push($(this).attr('id'));
     });
-
     console.log("stock-->"+selectedStock)
 
     var selectedGroups = [];
@@ -273,7 +272,6 @@ function pushStock(){
     $('.checkGroups:checkbox:checked').each(function() {
         selectedGroups.push($(this).attr('id'));
     });
-
     console.log("groups--->"+selectedGroups)
 
     var selectedBrands = [];
@@ -281,7 +279,11 @@ function pushStock(){
     $('.checkBrands:checkbox:checked').each(function() {
         selectedBrands.push($(this).attr('id'));
     });
-
     console.log("brands--->"+selectedBrands)
+
+    var numPages = $("#numPages option:selected").val();
+    console.log("Num Pages--->"+numPages);
     
+    var page = $(".labelPaginationCurrent").text();
+    console.log("PAGINA--->"+page);
 }
