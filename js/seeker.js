@@ -229,61 +229,365 @@ function changeSearch(strProcess, strType, intPage, jsnParameters, intRecordsPer
 }
 
 function onChangeRangePrice() {
-    var range = document.getElementById("priceRangeFilter").value;
+    //OBTENER PARAMETROS ESTABLECIDOS
+
+    //Filtro de existencias
+    valueStock = 0;
+    $('.checkStock:checkbox:checked').each(function() {
+        valueStock = 1;
+    });
+    console.log("stock-->");
+    console.log(valueStock);
+
+    //Filtro de rango de precios
+    var rangePrice = document.getElementById("priceRangeFilter").value;
+    console.log("Range price");
+    console.log(rangePrice);
+
+    //Filtro de grupos
+    var selectedGroups = [];
+    $('.checkGroups:checkbox:checked').each(function() {
+        selectedGroups.push($(this).attr('value'));
+    });
+    console.log("groups--->");
+    console.log(selectedGroups);
+
+    //Filtro de marcas
+    var selectedBrands = [];
+    $('.checkBrands:checkbox:checked').each(function() {
+        selectedBrands.push($(this).attr('value'));
+    });
+    console.log("brands--->");
+    console.log(selectedBrands);
+
+    //Select de paginas
+    var numPages = parseInt($("#numPages option:selected").val());
+    console.log("Num Pages--->");
+    console.log(numPages);
     
-    console.log(range);
+    //Numero de pagina posicionado
+    var page = parseInt($(".labelPaginationCurrent").text());
+    if(isNaN(page))
+    {
+        console.log("pagina valia cero");
+        page = 1;
+    }
+    console.log("PAGINA final--->");
+    console.log(page);
+
+    //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : 'initialSearch',
+            'intPage' : page,
+            'intRecordsPerPage' : numPages,
+            'intStock' : valueStock,
+            'strPriceRange' : rangePrice,
+            'jsnBrand' : selectedBrands,
+            'jsnGroup' : selectedGroups,
+            'jsnParameters' : Array
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           console.log(data)
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
+           //console.log(data);
+
+        }
+    });
+    //
 }
 
 function pushBrand(){
     
-    var selectedBrands = [];
+    //OBTENER PARAMETROS ESTABLECIDOS
 
-    $('.checkBrands:checkbox:checked').each(function() {
-        selectedBrands.push($(this).attr('id'));
+    //Filtro de existencias
+    valueStock = 0;
+    $('.checkStock:checkbox:checked').each(function() {
+        valueStock = 1;
     });
+    console.log("stock-->");
+    console.log(valueStock);
 
-    console.log(selectedBrands)
+    //Filtro de rango de precios
+    var rangePrice = document.getElementById("priceRangeFilter").value;
+    console.log("Range price");
+    console.log(rangePrice);
+
+    //Filtro de grupos
+    var selectedGroups = [];
+    $('.checkGroups:checkbox:checked').each(function() {
+        selectedGroups.push($(this).attr('value'));
+    });
+    console.log("groups--->");
+    console.log(selectedGroups);
+
+    //Filtro de marcas
+    var selectedBrands = [];
+    $('.checkBrands:checkbox:checked').each(function() {
+        selectedBrands.push($(this).attr('value'));
+    });
+    console.log("brands--->");
+    console.log(selectedBrands);
+
+    //Select de paginas
+    var numPages = parseInt($("#numPages option:selected").val());
+    console.log("Num Pages--->");
+    console.log(numPages);
     
+    //Numero de pagina posicionado
+    var page = parseInt($(".labelPaginationCurrent").text());
+    if(isNaN(page))
+    {
+        console.log("pagina valia cero");
+        page = 1;
+    }
+    console.log("PAGINA final--->");
+    console.log(page);
+
+    //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : 'initialSearch',
+            'intPage' : page,
+            'intRecordsPerPage' : numPages,
+            'intStock' : valueStock,
+            'strPriceRange' : rangePrice,
+            'jsnBrand' : selectedBrands,
+            'jsnGroup' : selectedGroups,
+            'jsnParameters' : Array
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           console.log(data)
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
+           //console.log(data);
+
+        }
+    });
+    //    
 }
 
 function pushGroup(){
     
-    var selectedGroups = [];
+    //OBTENER PARAMETROS ESTABLECIDOS
 
-    $('.checkGroups:checkbox:checked').each(function() {
-        selectedGroups.push($(this).attr('id'));
+    //Filtro de existencias
+    valueStock = 0;
+    $('.checkStock:checkbox:checked').each(function() {
+        valueStock = 1;
     });
+    console.log("stock-->");
+    console.log(valueStock);
 
-    console.log(selectedGroups)
+    //Filtro de rango de precios
+    var rangePrice = document.getElementById("priceRangeFilter").value;
+    console.log("Range price");
+    console.log(rangePrice);
+
+    //Filtro de grupos
+    var selectedGroups = [];
+    $('.checkGroups:checkbox:checked').each(function() {
+        selectedGroups.push($(this).attr('value'));
+    });
+    console.log("groups--->");
+    console.log(selectedGroups);
+
+    //Filtro de marcas
+    var selectedBrands = [];
+    $('.checkBrands:checkbox:checked').each(function() {
+        selectedBrands.push($(this).attr('value'));
+    });
+    console.log("brands--->");
+    console.log(selectedBrands);
+
+    //Select de paginas
+    var numPages = parseInt($("#numPages option:selected").val());
+    console.log("Num Pages--->");
+    console.log(numPages);
     
+    //Numero de pagina posicionado
+    var page = parseInt($(".labelPaginationCurrent").text());
+    if(isNaN(page))
+    {
+        console.log("pagina valia cero");
+        page = 1;
+    }
+    console.log("PAGINA final--->");
+    console.log(page);
+
+    //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : 'initialSearch',
+            'intPage' : page,
+            'intRecordsPerPage' : numPages,
+            'intStock' : valueStock,
+            'strPriceRange' : rangePrice,
+            'jsnBrand' : selectedBrands,
+            'jsnGroup' : selectedGroups,
+            'jsnParameters' : Array
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           console.log(data)
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
+           //console.log(data);
+
+        }
+    });
+    //   
 }
 
 function pushStock(){
     
-    var selectedStock = [];
+    //OBTENER PARAMETROS ESTABLECIDOS
 
+    //Filtro de existencias
+    valueStock = 0;
     $('.checkStock:checkbox:checked').each(function() {
-        selectedStock.push($(this).attr('id'));
+        valueStock = 1;
     });
-    console.log("stock-->"+selectedStock)
+    console.log("stock-->");
+    console.log(valueStock);
 
+    //Filtro de rango de precios
+    var rangePrice = document.getElementById("priceRangeFilter").value;
+    console.log("Range price");
+    console.log(rangePrice);
+
+    //Filtro de grupos
     var selectedGroups = [];
-
     $('.checkGroups:checkbox:checked').each(function() {
-        selectedGroups.push($(this).attr('id'));
+        selectedGroups.push($(this).attr('value'));
     });
-    console.log("groups--->"+selectedGroups)
+    console.log("groups--->");
+    console.log(selectedGroups);
 
+    //Filtro de marcas
     var selectedBrands = [];
-
     $('.checkBrands:checkbox:checked').each(function() {
-        selectedBrands.push($(this).attr('id'));
+        selectedBrands.push($(this).attr('value'));
     });
-    console.log("brands--->"+selectedBrands)
+    console.log("brands--->");
+    console.log(selectedBrands);
 
-    var numPages = $("#numPages option:selected").val();
-    console.log("Num Pages--->"+numPages);
+    //Select de paginas
+    var numPages = parseInt($("#numPages option:selected").val());
+    console.log("Num Pages--->");
+    console.log(numPages);
     
-    var page = $(".labelPaginationCurrent").text();
-    console.log("PAGINA--->"+page);
+    //Numero de pagina posicionado
+   var page = parseInt($(".labelPaginationCurrent").text());
+    if(isNaN(page))
+    {
+        console.log("pagina valia cero");
+        page = 1;
+    }
+    console.log("PAGINA final--->");
+    console.log(page);
+    
+
+    //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : 'initialSearch',
+            'intPage' : page,
+            'intRecordsPerPage' : numPages,
+            'intStock' : valueStock,
+            'strPriceRange' : rangePrice,
+            'jsnBrand' : selectedBrands,
+            'jsnGroup' : selectedGroups,
+            'jsnParameters' : Array
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           console.log(data)
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
+           //console.log(data);
+
+        }
+    });
+    //    
 }
