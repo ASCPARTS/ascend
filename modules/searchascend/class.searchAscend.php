@@ -12,7 +12,8 @@ class clsSearchAscend extends clsAscend
     public function queryPagination( $strSql, $intPage, $intRecordsPerPage )
     {
         $sqlCount = "SELECT COUNT(*) AS intCount FROM( " . str_replace(";", "", $strSql) . " ) A";
-        //echo "<br><br>" . $sqlCount . "<br><br>";
+        echo "<br><br>" . $strSql . "<br><br> . $intPage . \"<br><br> . $intPage . \"<br><br>";
+        echo "<br><br>" . $sqlCount . "<br><br>";
         $rstCount = $this -> objAscend -> dbQuery( $sqlCount);
         $intCount = $rstCount[0]["intCount"];
         $intStartRecord = ( $intPage == 1 ? 0 : (( $intPage - 1 ) * $intRecordsPerPage) );
