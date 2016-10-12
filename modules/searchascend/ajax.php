@@ -423,7 +423,7 @@ switch ($strProcess)
 
         $htmlPagination .= "<div class=\"paginationInfo\">";
         $htmlPagination .= "<b> " . $objPagination["intTotalRows"] . " </b> Registros - <b>" . $objPagination["intPages"] . "</b> Páginas -";
-        $htmlPagination .= "<select onchange=\"gridRecords(this.value);\">";
+        $htmlPagination .= "<select id=\"numPages\" onchange=\"gridRecords(this.value);\">";
         $htmlPagination .= "<option  value=\"10\" " . ( $intRecordsPerPage ==  10 ? "selected=\"selected\"" : "" ) . ">10</option>";
         $htmlPagination .= "<option  value=\"20\" " . ( $intRecordsPerPage ==  20 ? "selected=\"selected\"" : "" ) . ">20</option>";
         $htmlPagination .= "<option  value=\"40\" " . ( $intRecordsPerPage ==  40 ? "selected=\"selected\"" : "" ) . ">40</option>";
