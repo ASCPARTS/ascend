@@ -82,13 +82,14 @@ class clsAscend
             $this->strTransactionErrorMessage = '';
             //echo $strSql;
             $rstData = mysqli_query($this->conMysql,$strSql);
+            $arrRows = array();
             if(mysqli_error($this->conMysql)){
                 $this->strTransactionErrorCode = mysqli_error($this->conMysql);
                 $this->strTransactionErrorMessage = mysqli_error($this->conMysql);
             }
             else
             {
-                $arrRows = array();
+
                 while($objData = mysqli_fetch_assoc($rstData)){
                     $arrRows[] = $objData;
                 }
