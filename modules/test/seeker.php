@@ -28,7 +28,7 @@
 					<td id="contentBtnSearch">
 						<div class="btn-group-justified">
 							<div class="btn-group">
-								<button class="btn btnBrandBlue" id="btnSearch">BUSCAR</button>
+								<button class="btn btnBrandBlue" id="btnSearch" onclick="engineSearch()">BUSCAR</button>
 							</div>
 						</div>
 						
@@ -48,7 +48,7 @@
 					</td>
 
 					<td id="filters">
-					  	<div class="SubTitle">Existencias</div>
+					  	<!--div class="SubTitle">Existencias</div>
 				        <div class="row">
 							<div class="divInputMiniCheck divBrandBlue">
 			                    <input class="checkStock" type="checkbox" id="1" onchange="pushStock()">
@@ -108,7 +108,7 @@
 			                    <input class="checkGroups" type="checkbox" id="6" onchange="pushGroup()">
 			                    <label for="6">PLOTTERS</label>
 			                </div>
-				        </div>
+				        </div-->
 					</td>
 				</tr>
 			</table>	

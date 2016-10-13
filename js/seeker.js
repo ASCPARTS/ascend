@@ -1,4 +1,5 @@
 //
+var algo = [];
 
 function init()
 {
@@ -20,6 +21,8 @@ function init()
 
     });
 
+
+
     $.ajax({
         url: 'http://localhost/ascend/modules/searchascend/ajax.php',
         type: 'post',
@@ -32,7 +35,7 @@ function init()
             'intRecordsPerPage' : 10,
             'intStock' : 0,
             'strPriceRange' : '1.00-10000.00',
-            'jsnBrand' : ["1","2","3","4"],
+            'jsnBrand' : [],
             'jsnGroup' : ["1","2","3","4"],
             'jsnParameters' : Array
         },
@@ -556,16 +559,134 @@ function pushStock(){
 
     //Busqueda mediante el input
 
-    var customArray = [];
+    var customArray = JSON.stringify({});
     console.log("SIZE INPUT---->"+inputSearch.length);
     if(inputSearch.length > 0)
     {
         var typeSearch = 'customSearch';
-        customArray["strNeedle"] = inputSearch;
+        customArray = JSON.stringify({ strNeedle: inputSearch });
+        //customArray['strNeedle'] = inputSearch;
     }
     console.log("customArray---->");
     console.log(customArray);
+
+    //customArray = JSON.stringify(customArray);
+    //console.log("customArray---->");
+    //console.log(customArray);
+
     
+
+    //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'searchProduct',
+            'strType' : typeSearch,
+            'intPage' : page,
+            'intRecordsPerPage' : numPages,
+            'intStock' : valueStock,
+            'strPriceRange' : rangePrice,
+            'jsnBrand' : selectedBrands,
+            'jsnGroup' : selectedGroups,
+            'jsnParameters' : customArray
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           console.log(data)
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
+           //console.log(data);
+
+        }
+    });
+    //    
+}
+
+
+function engineSearch(){
+
+    
+    //OBTENER PARAMETROS ESTABLECIDOS
+    var typeSearch = 'initialSearch';
+
+    //Filtro de existencias
+    valueStock = 0;
+    $('.checkStock:checkbox:checked').each(function() {
+        valueStock = 1;
+    });
+    console.log("stock-->");
+    console.log(valueStock);
+
+    //Filtro de rango de precios
+    var rangePrice = document.getElementById("priceRangeFilter").value;
+    console.log("Range price");
+    console.log(rangePrice);
+
+    //Filtro de grupos
+    var selectedGroups = [];
+    $('.checkGroups:checkbox:checked').each(function() {
+        selectedGroups.push($(this).attr('value'));
+    });
+    console.log("groups--->");
+    console.log(selectedGroups);
+
+    //Filtro de marcas
+    var selectedBrands = [];
+    $('.checkBrands:checkbox:checked').each(function() {
+        selectedBrands.push($(this).attr('value'));
+    });
+    console.log("brands--->");
+    console.log(selectedBrands);
+
+    //Select de paginas
+    var numPages = parseInt($("#numPages option:selected").val());
+    console.log("Num Pages--->");
+    console.log(numPages);
+    
+    //Numero de pagina posicionado
+   var page = parseInt($(".labelPaginationCurrent").text());
+    if(isNaN(page))
+    {
+        console.log("pagina valia cero");
+        page = 1;
+    }
+    console.log("PAGINA final--->");
+    console.log(page);
+
+    //Barra de busqueda
+    var inputSearch = $('#search').val();
+    console.log("input busqueda---->");
+    console.log(inputSearch);
+
+    //Busqueda mediante el input
+
+    var customArray = JSON.stringify({});
+    console.log("SIZE INPUT---->"+inputSearch.length);
+    if(inputSearch.length > 0)
+    {
+        var typeSearch = 'customSearch';
+        customArray = JSON.stringify({ strNeedle: inputSearch });
+        //customArray['strNeedle'] = inputSearch;
+    }
+    console.log("customArray---->");
+    console.log(customArray);
 
     //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
     $.ajax({
