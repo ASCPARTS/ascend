@@ -102,7 +102,7 @@ $objAscend->getTableData();
                     if($objForm['intLength']==0){
                         echo '$("#txt' . $objForm['strField'] . '").numeric({ decimal: false, negative: false });' . "\r\n";
                     }else{
-                        echo '$("#txt' . $objForm['strField'] . '").numeric({ decimal: ".", decimalPlaces : ' . $objForm['strLength'] . ', negative: false });' . "\r\n";
+                        echo '$("#txt' . $objForm['strField'] . '").numeric({ decimal: ".", decimalPlaces : ' . $objForm['intLength'] . ', negative: false });' . "\r\n";
                     }
                 }
             }
