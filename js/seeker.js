@@ -13,7 +13,7 @@ function init()
         if( this.value.length > 2 )
         {
 
-            console.log("presiona mas de 2");
+            //console.log("presiona mas de 2");
             $('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#searchResult" );
             
         }
@@ -503,6 +503,7 @@ function pushGroup(){
 function pushStock(){
     
     //OBTENER PARAMETROS ESTABLECIDOS
+    var typeSearch = 'initialSearch';
 
     //Filtro de existencias
     valueStock = 0;
@@ -547,6 +548,23 @@ function pushStock(){
     }
     console.log("PAGINA final--->");
     console.log(page);
+
+    //Barra de busqueda
+    var inputSearch = $('#search').val();
+    console.log("input busqueda---->");
+    console.log(inputSearch);
+
+    //Busqueda mediante el input
+
+    var customArray = [];
+    console.log("SIZE INPUT---->"+inputSearch.length);
+    if(inputSearch.length > 0)
+    {
+        var typeSearch = 'customSearch';
+        customArray["strNeedle"] = inputSearch;
+    }
+    console.log("customArray---->");
+    console.log(customArray);
     
 
     //EJECUTAR PROCESO DE BUSQUEDA POR PARAMETROS
@@ -557,14 +575,14 @@ function pushStock(){
         data:
         {
             'strProcess' : 'searchProduct',
-            'strType' : 'initialSearch',
+            'strType' : typeSearch,
             'intPage' : page,
             'intRecordsPerPage' : numPages,
             'intStock' : valueStock,
             'strPriceRange' : rangePrice,
             'jsnBrand' : selectedBrands,
             'jsnGroup' : selectedGroups,
-            'jsnParameters' : Array
+            'jsnParameters' : customArray
         },
         beforeSend: function (data)
         {
