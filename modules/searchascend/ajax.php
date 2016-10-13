@@ -29,14 +29,14 @@ switch ($strProcess)
     case 'searchProduct':
         $strType = $_REQUEST['strType'];
         $intPage = $_REQUEST['intPage'];
-        $jsnParameters = ($_REQUEST['jsnParameters']);
+        $jsnParameters = json_decode($_REQUEST['jsnParameters']);
         $intRecordsPerPage = $_REQUEST['intRecordsPerPage'];
 
         $intStock = $_REQUEST['intStock'];
         $strPriceRange = $_REQUEST['strPriceRange'];
 
-        $jsnBrand = ($_REQUEST['jsnBrand']);
-        $jsnGroup = ($_REQUEST['jsnGroup']);
+        $jsnBrand = json_decode($_REQUEST['jsnBrand']);
+        $jsnGroup = json_decode($_REQUEST['jsnGroup']);
 
 
 
