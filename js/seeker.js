@@ -41,7 +41,7 @@ function init()
         if( this.value.length > 2 )
         {
             //console.log("presiona mas de 2");
-            //$('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#searchResult" );
+            $('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#searchResult" );
         }
 
     });
@@ -516,6 +516,74 @@ function inputString(){
         });
 
     }
+}
+
+function searchId(idProduct){
+    //Inicializar variables
+    pageSearch = 1;
+    recordsPerPageSearch = 10;
+
+    stockValue = 0;
+    priceValue = 'ALL';
+    brandsValues = [];
+    groupsValues = [];
+
+    //Modificar las necesarias
+    typeSearch = 'customSearch';
+    parametersSearch = '{"strNeedle":"'+inputSearch+'"}';
+    console.log("parametersSearch---->");
+    console.log(parametersSearch);
+
+
+    //Ejecutar la busqueda
+    stringBrandsValues = '['+brandsValues.toString()+']';
+    stringGroupsValues = '['+groupsValues.toString()+']';
+
+    $.ajax({
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : processSearch,
+
+            'strType' : typeSearch,
+            'intPage' : pageSearch,
+            'jsnParameters' : parametersSearch, 
+            'intRecordsPerPage' : recordsPerPageSearch,
+
+            'intStock' : stockValue,
+            'strPriceRange' : priceValue,
+            'jsnBrand' : stringBrandsValues,
+            'jsnGroup' : stringGroupsValues
+        },
+        beforeSend: function (data)
+        {
+            console.log("Antes de enviar");
+            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
+        success:function(data)
+        {
+           console.log("Exito");
+           //console.log(data)
+           $('#products').html(data.htmlProduct);
+           $('#pagination').html(data.htmlPagination);
+           $('#filters').html(data.htmlLateralBar);
+           //console.log(data);
+
+        }
+    });
+}
+
+function searchGroup(GroupValue){
+
 }
 
 function openTab(evt, tabName) 
