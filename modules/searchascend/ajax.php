@@ -77,7 +77,7 @@ switch ($strProcess)
 
             break;
         }
-        
+
         $sqlProduct =
             " SELECT P.intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, P.intBrand, B.strName AS strBrand, P.intGroup, G.strName AS strGroup, P.intCondition, C.strName AS strCondition, I.intSold, IFNULL(PR.strRule, '') AS strPromotionRule, IFNULL(PR.strStatus, 'B') AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage, IFNULL( (SELECT SUM(intStock) FROM tblWarehouseStock WHERE intProduct = P.intId AND strStatus = 'A'), 0) AS intStock "
             ."FROM tblProduct P  "
@@ -605,7 +605,7 @@ switch ($strProcess)
         //print_r($rstQuery);
         //echo "</pre>";
 
-        $jsnPhpScriptResponse .= $jsnDetail . $jsnReplacement . $jsnCompatibility . $jsnStock;
+        $jsnPhpScriptResponse["htmlResult"] = $jsnDetail . $jsnReplacement . $jsnCompatibility . $jsnStock;
         break;
 }
 unset($objAscend);
