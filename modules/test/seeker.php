@@ -28,7 +28,7 @@
 					<td id="contentBtnSearch">
 						<div class="btn-group-justified">
 							<div class="btn-group">
-								<button class="btn btnBrandBlue" id="btnSearch" onclick="inOutStock()">BUSCAR</button>
+								<button class="btn btnBrandBlue" id="btnSearch" onclick="inputString()">BUSCAR</button>
 							</div>
 						</div>
 						

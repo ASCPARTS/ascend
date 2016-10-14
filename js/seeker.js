@@ -273,26 +273,249 @@ function inOutStock(){
 
 }
 
-function inputString(){
-    //typeSearch cambia
-    //jsnParametrs lleva la cadena
-    //Lo demas inicializa
-
-}
-
-function onChangeRangePrince(rangeValue){
+function onChangeRangePrice(rangePriceValue){
     //Pagina inicializa en 1
     //Lo demas queda igual
+    pageSearch = 1;
+
+    if(priceValue != rangePriceValue)
+    {
+        priceValue = rangePriceValue;
+
+        stringBrandsValues = '['+brandsValues.toString()+']';
+        stringGroupsValues = '['+groupsValues.toString()+']';
+
+        $.ajax({
+            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                'strProcess' : processSearch,
+
+                'strType' : typeSearch,
+                'intPage' : pageSearch,
+                'jsnParameters' : parametersSearch, 
+                'intRecordsPerPage' : recordsPerPageSearch,
+
+                'intStock' : stockValue,
+                'strPriceRange' : priceValue,
+                'jsnBrand' : stringBrandsValues,
+                'jsnGroup' : stringGroupsValues
+            },
+            beforeSend: function (data)
+            {
+                console.log("Antes de enviar");
+                $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Errores [INICIO]");
+                console.log(xhr.status);
+                console.log(thrownError);
+                console.log(xhr.responseText);
+                console.log("Errores [FIN]");
+            },
+            success:function(data)
+            {
+               console.log("Exito");
+               console.log(data)
+               $('#products').html(data.htmlProduct);
+               $('#pagination').html(data.htmlPagination);
+               $('#filters').html(data.htmlLateralBar);
+               console.log(data);
+
+            }
+        });
+    }
 }
 
 function onChangePage(pageValue){
-    //Todo queda igual 
+    //Todo queda igual
+    if(pageSearch != pageValue)
+    {
+        pageSearch = pageValue;
+
+        stringBrandsValues = '['+brandsValues.toString()+']';
+        stringGroupsValues = '['+groupsValues.toString()+']';
+
+        $.ajax({
+            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                'strProcess' : processSearch,
+
+                'strType' : typeSearch,
+                'intPage' : pageSearch,
+                'jsnParameters' : parametersSearch, 
+                'intRecordsPerPage' : recordsPerPageSearch,
+
+                'intStock' : stockValue,
+                'strPriceRange' : priceValue,
+                'jsnBrand' : stringBrandsValues,
+                'jsnGroup' : stringGroupsValues
+            },
+            beforeSend: function (data)
+            {
+                console.log("Antes de enviar");
+                $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Errores [INICIO]");
+                console.log(xhr.status);
+                console.log(thrownError);
+                console.log(xhr.responseText);
+                console.log("Errores [FIN]");
+            },
+            success:function(data)
+            {
+               console.log("Exito");
+               console.log(data)
+               $('#products').html(data.htmlProduct);
+               $('#pagination').html(data.htmlPagination);
+               $('#filters').html(data.htmlLateralBar);
+               console.log(data);
+
+            }
+        });
+    }
+
 }
 
 function onChangeRecords(recordsValue){
     //Pagina inicializa en 1
     //Lo demas queda igual
+    pageSearch = 1;
 
+    if(recordsPerPageSearch != recordsValue)
+    {
+        recordsPerPageSearch = recordsValue;
+
+        stringBrandsValues = '['+brandsValues.toString()+']';
+        stringGroupsValues = '['+groupsValues.toString()+']';
+
+        $.ajax({
+            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                'strProcess' : processSearch,
+
+                'strType' : typeSearch,
+                'intPage' : pageSearch,
+                'jsnParameters' : parametersSearch, 
+                'intRecordsPerPage' : recordsPerPageSearch,
+
+                'intStock' : stockValue,
+                'strPriceRange' : priceValue,
+                'jsnBrand' : stringBrandsValues,
+                'jsnGroup' : stringGroupsValues
+            },
+            beforeSend: function (data)
+            {
+                console.log("Antes de enviar");
+                $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Errores [INICIO]");
+                console.log(xhr.status);
+                console.log(thrownError);
+                console.log(xhr.responseText);
+                console.log("Errores [FIN]");
+            },
+            success:function(data)
+            {
+               console.log("Exito");
+               //console.log(data)
+               $('#products').html(data.htmlProduct);
+               $('#pagination').html(data.htmlPagination);
+               $('#filters').html(data.htmlLateralBar);
+               //console.log(data);
+
+            }
+        });
+    }
+
+}
+
+function inputString(){
+    //typeSearch cambia
+    //jsnParametrs lleva la cadena
+    //Lo demas inicializa
+
+    var inputSearch = $('#search').val();
+    console.log("input busqueda---->");
+    console.log(inputSearch);
+
+    //Busqueda mediante el input
+    console.log("SIZE INPUT---->"+inputSearch.length);
+    if(inputSearch.length > 0)
+    {
+        //Inicializar variables
+        pageSearch = 1;
+        recordsPerPageSearch = 10;
+
+        stockValue = 0;
+        priceValue = 'ALL';
+        brandsValues = [];
+        groupsValues = [];
+
+        //Modificar las necesarias
+        typeSearch = 'customSearch';
+        parametersSearch = '{"strNeedle":"'+inputSearch+'"}';
+        console.log("parametersSearch---->");
+        console.log(parametersSearch);
+
+
+        //Ejecutar la busqueda
+        stringBrandsValues = '['+brandsValues.toString()+']';
+        stringGroupsValues = '['+groupsValues.toString()+']';
+
+        $.ajax({
+            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                'strProcess' : processSearch,
+
+                'strType' : typeSearch,
+                'intPage' : pageSearch,
+                'jsnParameters' : parametersSearch, 
+                'intRecordsPerPage' : recordsPerPageSearch,
+
+                'intStock' : stockValue,
+                'strPriceRange' : priceValue,
+                'jsnBrand' : stringBrandsValues,
+                'jsnGroup' : stringGroupsValues
+            },
+            beforeSend: function (data)
+            {
+                console.log("Antes de enviar");
+                $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("Errores [INICIO]");
+                console.log(xhr.status);
+                console.log(thrownError);
+                console.log(xhr.responseText);
+                console.log("Errores [FIN]");
+            },
+            success:function(data)
+            {
+               console.log("Exito");
+               console.log(data)
+               $('#products').html(data.htmlProduct);
+               $('#pagination').html(data.htmlPagination);
+               $('#filters').html(data.htmlLateralBar);
+               console.log(data);
+
+            }
+        });
+
+    }
 }
 
 function openTab(evt, tabName) 
