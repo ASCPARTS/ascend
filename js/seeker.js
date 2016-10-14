@@ -539,19 +539,35 @@ function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
 {
     
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php?strProcess=productInfo&intId='+idCard,
-        type: 'GET',
-        dataType: 'html',
+        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        type: 'POST',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'productInfo',
+            'intId' : idCard,
+        },
         beforeSend: function (data)
         {
             console.log("Antes de enviar");
+            console.log(data);
             $('#modalTest').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
             
         },
+        error: function (xhr, ajaxOptions, thrownError) 
+        {
+            console.log("Errores [INICIO]");
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+            console.log("Errores [FIN]");
+        },
         success:function(data)
         {
+
            $('#modalTest').empty();
            console.log("Exito");
+           console.log(data);
            //$('#contectTabs').html(data);
            $('<ul class="tab"><li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, \'contectDetails\')">Detalles</a></li><li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, \'contectReplacements\')">Remplazos</a></li><li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, \'contectCompatible\')">Compatible</a></li><li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, \'contectStocks\')">Existencias</a></li></ul>').appendTo("#modalTest");
 
