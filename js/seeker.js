@@ -11,37 +11,19 @@ var priceValue = 'ALL';
 var brandsValues = [];
 var groupsValues = [];
 
-console.log("=====VARIABLES GLOBALES=======");
-console.log(processSearch);
-
-console.log(typeSearch);
-console.log(pageSearch);
-console.log(parametersSearch);
-console.log(recordsPerPageSearch);
-
-console.log(stockValue);
-console.log(priceValue);
-console.log(brandsValues);
-console.log(groupsValues);
-console.log("=============================");
 
 var inputSearch;
 
 
 function init()
 {
-    console.log("Init()");
-    
     $('#search').keyup( function() 
     {
-        
-       console.log("Ejecuta busqueda predecible");
        $('#searchResult').empty();
        
         if( this.value.length >= 2 )
         {
             var inputSearch = $('#search').val();
-            //console.log("presiona mas de 2");
             $.ajax({
                 url: 'http://localhost/ascend/modules/searchascend/ajax.php',
                 type: 'post',
@@ -53,26 +35,18 @@ function init()
                 },
                 beforeSend: function (data)
                 {
-                    console.log("Antes de enviar");
-                    //$('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.log("Errores [INICIO]");
-                    console.log(xhr.status);
-                    console.log(thrownError);
-                    console.log(xhr.responseText);
-                    console.log("Errores [FIN]");
+
                 },
                 success:function(data)
                 {
-                   console.log("Exito keyup");
-                   console.log(data)
-                   $(data.htmlList).appendTo( "#searchResult" );
-                   //console.log(data);
+                    $('#searchResult').empty();
 
+                    $(data.htmlList).appendTo( "#searchResult" );
                 }
             });
-            //$('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#searchResult" );
         }else if ( this.value.length < 2 )
         {
             $('#searchResult').empty();
@@ -103,25 +77,16 @@ function init()
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
             $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
-           console.log("Exito init");
-           //console.log(data)
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
            $('#filters').html(data.htmlLateralBar);
-           //console.log(data);
-
         }
     }); 
 }
@@ -164,25 +129,21 @@ function inOutBrand(itemBrand){
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
             $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
-           console.log("Exito inOutBrand");
-           //console.log(data)
-           $('#products').html(data.htmlProduct);
-           $('#pagination').html(data.htmlPagination);
-           $('#filters').html(data.htmlLateralBar);
-           //console.log(data);
+            //Limpiar input de busqueda
+            $('#searchResult').empty();
+            $("#search").val('');
 
+            //LLenar contenido de las secciones
+            $('#products').html(data.htmlProduct);
+            $('#pagination').html(data.htmlPagination);
+            $('#filters').html(data.htmlLateralBar);
         }
     });
 }
@@ -225,25 +186,19 @@ function inOutGroup(itemGroup){
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
             $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
-           console.log("Exito inOutGroup");
-           //console.log(data)
-           $('#products').html(data.htmlProduct);
-           $('#pagination').html(data.htmlPagination);
-           $('#filters').html(data.htmlLateralBar);
-           //console.log(data);
+            $('#searchResult').empty();
+            $("#search").val('');
 
+            $('#products').html(data.htmlProduct);
+            $('#pagination').html(data.htmlPagination);
+            $('#filters').html(data.htmlLateralBar);
         }
     });
 
@@ -283,25 +238,19 @@ function inOutStock(){
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
             $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
-           console.log("Exito inOutStock");
-           //console.log(data)
-           $('#products').html(data.htmlProduct);
-           $('#pagination').html(data.htmlPagination);
-           $('#filters').html(data.htmlLateralBar);
-           //console.log(data);
+            $('#searchResult').empty();
+            $("#search").val('');
 
+            $('#products').html(data.htmlProduct);
+            $('#pagination').html(data.htmlPagination);
+            $('#filters').html(data.htmlLateralBar);
         }
     });
 
@@ -339,25 +288,19 @@ function onChangeRangePrice(rangePriceValue){
             },
             beforeSend: function (data)
             {
-                console.log("Antes de enviar");
                 $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log("Errores [INICIO]");
-                console.log(xhr.status);
-                console.log(thrownError);
-                console.log(xhr.responseText);
-                console.log("Errores [FIN]");
+
             },
             success:function(data)
             {
-               console.log("Exito onChangeRangePrice");
-               //console.log(data)
-               $('#products').html(data.htmlProduct);
-               $('#pagination').html(data.htmlPagination);
-               $('#filters').html(data.htmlLateralBar);
-               //console.log(data);
+                $('#searchResult').empty();
+                $("#search").val('');
 
+                $('#products').html(data.htmlProduct);
+                $('#pagination').html(data.htmlPagination);
+                $('#filters').html(data.htmlLateralBar);
             }
         });
     }
@@ -392,25 +335,19 @@ function onChangePage(pageValue){
             },
             beforeSend: function (data)
             {
-                console.log("Antes de enviar");
                 $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log("Errores [INICIO]");
-                console.log(xhr.status);
-                console.log(thrownError);
-                console.log(xhr.responseText);
-                console.log("Errores [FIN]");
+
             },
             success:function(data)
             {
-               console.log("Exito onChangePage");
-               //console.log(data)
-               $('#products').html(data.htmlProduct);
-               $('#pagination').html(data.htmlPagination);
-               $('#filters').html(data.htmlLateralBar);
-               //console.log(data);
-
+                $('#searchResult').empty();
+                $("#search").val('');
+                
+                $('#products').html(data.htmlProduct);
+                $('#pagination').html(data.htmlPagination);
+                $('#filters').html(data.htmlLateralBar);
             }
         });
     }
@@ -449,24 +386,20 @@ function onChangeRecords(recordsValue){
             },
             beforeSend: function (data)
             {
-                console.log("Antes de enviar");
                 $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log("Errores [INICIO]");
-                console.log(xhr.status);
-                console.log(thrownError);
-                console.log(xhr.responseText);
-                console.log("Errores [FIN]");
+
             },
             success:function(data)
             {
-               console.log("Exito onChangeRecords ");
-               //console.log(data)
-               $('#products').html(data.htmlProduct);
-               $('#pagination').html(data.htmlPagination);
-               $('#filters').html(data.htmlLateralBar);
-               //console.log(data);
+
+                $('#searchResult').empty();
+                $("#search").val('');
+                
+                $('#products').html(data.htmlProduct);
+                $('#pagination').html(data.htmlPagination);
+                $('#filters').html(data.htmlLateralBar);
 
             }
         });
@@ -480,11 +413,8 @@ function inputString(){
     //Lo demas inicializa
 
     var inputSearch = $('#search').val();
-    console.log("input busqueda---->");
-    console.log(inputSearch);
 
     //Busqueda mediante el input
-    console.log("SIZE INPUT---->"+inputSearch.length);
     if(inputSearch.length > 0)
     {
         //Inicializar variables
@@ -499,8 +429,6 @@ function inputString(){
         //Modificar las necesarias
         typeSearch = 'customSearch';
         parametersSearch = '{"strNeedle":"'+inputSearch+'"}';
-        console.log("parametersSearch---->");
-        console.log(parametersSearch);
 
 
         //Ejecutar la busqueda
@@ -527,24 +455,21 @@ function inputString(){
             },
             beforeSend: function (data)
             {
-                console.log("Antes de enviar");
                 $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                console.log("Errores [INICIO]");
-                console.log(xhr.status);
-                console.log(thrownError);
-                console.log(xhr.responseText);
-                console.log("Errores [FIN]");
+
             },
             success:function(data)
             {
-               console.log("Exito");
-               console.log(data)
+                //Limpiar input de busqueda
+               $('#searchResult').empty();
+               $("#search").val('');
+
+               //LLenar contenido de las secciones
                $('#products').html(data.htmlProduct);
                $('#pagination').html(data.htmlPagination);
                $('#filters').html(data.htmlLateralBar);
-               console.log(data);
 
             }
         });
@@ -572,37 +497,24 @@ function searchId(idProduct){
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
-            console.log(data);
+
             $('#modalTest').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
-            
+    
         },
         error: function (xhr, ajaxOptions, thrownError) 
         {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
 
            $('#modalTest').empty();
-           console.log("Exito");
-           console.log(data);
-           //$('#contectTabs').html(data);
+
            $('<ul class="tab"><li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, \'contectDetails\')">Detalles</a></li><li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, \'contectReplacements\')">Remplazos</a></li><li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, \'contectCompatible\')">Compatible</a></li><li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, \'contectStocks\')">Existencias</a></li></ul>').appendTo("#modalTest");
 
            $(data.htmlResult).appendTo("#modalTest");
 
            $('#ca-container').contentcarousel();
-
-
-           //console.log(data);
-
-            // Get the button that opens the modal
-            //var btn = document.getElementById(idBtn);
 
             // Get the modal
             var modal = document.getElementById(idModal);
@@ -659,8 +571,6 @@ function searchGroup(GroupValue){
     //Modificar las necesarias
     typeSearch = 'searchByGroup';
     parametersSearch = '{"intGroup":"'+GroupValue+'"}';
-    console.log("parametersSearch---->");
-    console.log(parametersSearch);
 
 
     //Ejecutar la busqueda
@@ -687,29 +597,23 @@ function searchGroup(GroupValue){
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
             $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
-           console.log("Exito searchGroup");
-           //console.log(data)
-           $('#products').html(data.htmlProduct);
-           $('#pagination').html(data.htmlPagination);
-           $('#filters').html(data.htmlLateralBar);
-           //console.log(data);
-           $('#searchResult').empty();
-        }
-    });
+            $('#searchResult').empty();
+            $("#search").val('');
 
-    
+            $('#products').html(data.htmlProduct);
+            $('#pagination').html(data.htmlPagination);
+            $('#filters').html(data.htmlLateralBar);
+
+            $('#searchResult').empty();
+        }
+    });    
 }
 
 function openTab(evt, tabName) 
@@ -743,34 +647,22 @@ function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
         },
         beforeSend: function (data)
         {
-            console.log("Antes de enviar");
-            console.log(data);
-            $('#modalTest').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
-            
+            $('#modalTest').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');  
         },
         error: function (xhr, ajaxOptions, thrownError) 
         {
-            console.log("Errores [INICIO]");
-            console.log(xhr.status);
-            console.log(thrownError);
-            console.log(xhr.responseText);
-            console.log("Errores [FIN]");
+
         },
         success:function(data)
         {
 
            $('#modalTest').empty();
-           console.log("Exito");
-           console.log(data);
-           //$('#contectTabs').html(data);
+
            $('<ul class="tab"><li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, \'contectDetails\')">Detalles</a></li><li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, \'contectReplacements\')">Remplazos</a></li><li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, \'contectCompatible\')">Compatible</a></li><li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, \'contectStocks\')">Existencias</a></li></ul>').appendTo("#modalTest");
 
            $(data.htmlResult).appendTo("#modalTest");
 
            $('#ca-container').contentcarousel();
-
-
-           //console.log(data);
 
             // Get the button that opens the modal
             //var btn = document.getElementById(idBtn);
