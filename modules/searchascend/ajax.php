@@ -76,6 +76,10 @@ switch ($strProcess)
             case 'advancedSearch':
 
             break;
+            case 'searchByGroup':
+                $intGroup = $jsnParameters["intGroup"];
+                $strWhereProduct = "WHERE P.strStatus='A' AND G.intId = $intGroup ";
+            break;
         }
 
         $sqlProduct =
@@ -336,7 +340,7 @@ switch ($strProcess)
             }
             $arrayResponse["arrayList"][] = $arrayTempGroup;
         }
-        
+
 
         $htmlList = '';
 
