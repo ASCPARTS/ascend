@@ -40,8 +40,42 @@ function init()
        
         if( this.value.length > 2 )
         {
+            var inputSearch = $('#search').val();
             //console.log("presiona mas de 2");
-            $('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#searchResult" );
+            $.ajax({
+                url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+                type: 'post',
+                dataType: 'json',
+                data:
+                {
+                    'strProcess' : 'autocomplete',
+                    'strNeedle' : inputSearch
+                },
+                beforeSend: function (data)
+                {
+                    console.log("Antes de enviar");
+                    //$('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log("Errores [INICIO]");
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                    console.log(xhr.responseText);
+                    console.log("Errores [FIN]");
+                },
+                success:function(data)
+                {
+                   console.log("Exito keyup");
+                   console.log(data)
+                   $(data.htmlList).appendTo( "#searchResult" );
+                   //console.log(data);
+
+                }
+            });
+            //$('<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1"><ul class="autocomplete"><li class="title_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="44">734280-001 HP-COMPAQ HARD DRIVE HARDWARE KIT</a></li><li class="title_list"><a href="13">INTERNAL COMPONENTS <div class="look_more">VER MAS...</div></a></li><li class="item_list"><a href="44">003E77251 XEROX HANDLE CAM B2</a></li><li class="item_list"><a href="44">003K13893 XEROX HANDLE ASSY</a></li><li class="item_list"><a href="44">821665-001 HP HARD DRIVE HARDWARE KIT</a></li><li class="item_list"><a href="44">Q6651-60068 HP HARD DISK DRIVE ASSEMBLY INCLUDES HOLDER AND SCREWS</a></li><li class="title_list"><a href="13">GROUPS</a></li><li class="item_list"><a href="13">EXTERNAL COMPONENTS</a></li><li class="item_list"><a href="13">INTERNAL COMPONENTS</a></li></ul></div>').appendTo( "#searchResult" );
+        }else if ( this.value.length <= 2 )
+        {
+            $('#searchResult').empty();
         }
 
     });
@@ -519,50 +553,32 @@ function inputString(){
 }
 
 function searchId(idProduct){
-    //Inicializar variables
-    pageSearch = 1;
-    recordsPerPageSearch = 10;
 
-    stockValue = 0;
-    priceValue = 'ALL';
-    brandsValues = [];
-    groupsValues = [];
+    //var inputSearch = $('#search').val();
 
-    //Modificar las necesarias
-    typeSearch = 'customSearch';
-    parametersSearch = '{"strNeedle":"'+inputSearch+'"}';
-    console.log("parametersSearch---->");
-    console.log(parametersSearch);
-
-
-    //Ejecutar la busqueda
-    stringBrandsValues = '['+brandsValues.toString()+']';
-    stringGroupsValues = '['+groupsValues.toString()+']';
+    var idModal = 'modalProduct';
+    var idSpan = 'closeProduct'; 
+    var contentTab = 'contectDetails'; 
+    var tagTab = 'tabDetails';
 
     $.ajax({
         url: 'http://localhost/ascend/modules/searchascend/ajax.php',
-        type: 'post',
+        type: 'POST',
         dataType: 'json',
         data:
         {
-            'strProcess' : processSearch,
-
-            'strType' : typeSearch,
-            'intPage' : pageSearch,
-            'jsnParameters' : parametersSearch, 
-            'intRecordsPerPage' : recordsPerPageSearch,
-
-            'intStock' : stockValue,
-            'strPriceRange' : priceValue,
-            'jsnBrand' : stringBrandsValues,
-            'jsnGroup' : stringGroupsValues
+            'strProcess' : 'productInfo',
+            'intId' : idProduct,
         },
         beforeSend: function (data)
         {
             console.log("Antes de enviar");
-            $('#products').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            console.log(data);
+            $('#modalTest').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            
         },
-        error: function (xhr, ajaxOptions, thrownError) {
+        error: function (xhr, ajaxOptions, thrownError) 
+        {
             console.log("Errores [INICIO]");
             console.log(xhr.status);
             console.log(thrownError);
@@ -571,15 +587,64 @@ function searchId(idProduct){
         },
         success:function(data)
         {
+
+           $('#modalTest').empty();
            console.log("Exito");
-           //console.log(data)
-           $('#products').html(data.htmlProduct);
-           $('#pagination').html(data.htmlPagination);
-           $('#filters').html(data.htmlLateralBar);
+           console.log(data);
+           //$('#contectTabs').html(data);
+           $('<ul class="tab"><li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, \'contectDetails\')">Detalles</a></li><li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, \'contectReplacements\')">Remplazos</a></li><li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, \'contectCompatible\')">Compatible</a></li><li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, \'contectStocks\')">Existencias</a></li></ul>').appendTo("#modalTest");
+
+           $(data.htmlResult).appendTo("#modalTest");
+
+           $('#ca-container').contentcarousel();
+
+
            //console.log(data);
 
+            // Get the button that opens the modal
+            //var btn = document.getElementById(idBtn);
+
+            // Get the modal
+            var modal = document.getElementById(idModal);
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementById(idSpan);
+
+            // When the user clicks the button, open the modal
+            //btn.onclick = function() {
+                modal.style.display = "block";
+            //}
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+             var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) 
+            {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) 
+            {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(contentTab).style.display = "block";
+            document.getElementById(tagTab).className += " active";
+
+            $('#searchResult').empty();
         }
-    });
+
+    }); 
 }
 
 function searchGroup(GroupValue){
