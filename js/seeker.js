@@ -81,12 +81,12 @@ function init()
         },
         success:function(data)
         {
-           console.log("Exito");
-           console.log(data)
+           console.log("Exito init");
+           //console.log(data)
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
            $('#filters').html(data.htmlLateralBar);
-           console.log(data);
+           //console.log(data);
 
         }
     }); 
@@ -142,12 +142,12 @@ function inOutBrand(itemBrand){
         },
         success:function(data)
         {
-           console.log("Exito");
-           console.log(data)
+           console.log("Exito inOutBrand");
+           //console.log(data)
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
            $('#filters').html(data.htmlLateralBar);
-           console.log(data);
+           //console.log(data);
 
         }
     });
@@ -203,12 +203,12 @@ function inOutGroup(itemGroup){
         },
         success:function(data)
         {
-           console.log("Exito");
-           console.log(data)
+           console.log("Exito inOutGroup");
+           //console.log(data)
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
            $('#filters').html(data.htmlLateralBar);
-           console.log(data);
+           //console.log(data);
 
         }
     });
@@ -261,12 +261,12 @@ function inOutStock(){
         },
         success:function(data)
         {
-           console.log("Exito");
-           console.log(data)
+           console.log("Exito inOutStock");
+           //console.log(data)
            $('#products').html(data.htmlProduct);
            $('#pagination').html(data.htmlPagination);
            $('#filters').html(data.htmlLateralBar);
-           console.log(data);
+           //console.log(data);
 
         }
     });
@@ -317,12 +317,12 @@ function onChangeRangePrice(rangePriceValue){
             },
             success:function(data)
             {
-               console.log("Exito");
-               console.log(data)
+               console.log("Exito onChangeRangePrice");
+               //console.log(data)
                $('#products').html(data.htmlProduct);
                $('#pagination').html(data.htmlPagination);
                $('#filters').html(data.htmlLateralBar);
-               console.log(data);
+               //console.log(data);
 
             }
         });
@@ -370,12 +370,12 @@ function onChangePage(pageValue){
             },
             success:function(data)
             {
-               console.log("Exito");
-               console.log(data)
+               console.log("Exito onChangePage");
+               //console.log(data)
                $('#products').html(data.htmlProduct);
                $('#pagination').html(data.htmlPagination);
                $('#filters').html(data.htmlLateralBar);
-               console.log(data);
+               //console.log(data);
 
             }
         });
@@ -427,7 +427,7 @@ function onChangeRecords(recordsValue){
             },
             success:function(data)
             {
-               console.log("Exito");
+               console.log("Exito onChangeRecords ");
                //console.log(data)
                $('#products').html(data.htmlProduct);
                $('#pagination').html(data.htmlPagination);
