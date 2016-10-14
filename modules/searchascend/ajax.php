@@ -349,7 +349,7 @@ switch ($strProcess)
         foreach( $arrayResponse["arrayList"] as $arrList )
         {
             $htmlList .= '<li class="title_list">';
-            $htmlList .= ( count($arrList["arrayRows"]) > 5 ? '<a href="javascript:searchGroup(' . $arrList["intGroup"] . ');">' . $arrList["strGroup"] . '</a>' : $arrList["strGroup"] );
+            $htmlList .= '<a href="javascript:' . ( count($arrList["arrayRows"]) > 5 ? 'searchGroup(' . $arrList["intGroup"] . ')' : 'void(0)' ) . ';">' . $arrList["strGroup"] . ( count($arrList["arrayRows"]) > 5 ? '<div class="look_more">VER MAS...</div>' : '' ) . '</a>';
             $htmlList .= '</li>';
             $maxGroupRecords = ( count($arrList["arrayRows"]) > 5 ? 5 : count($arrList["arrayRows"]) );
             for( $c = 0; $c < $maxGroupRecords; $c++ )
@@ -358,10 +358,13 @@ switch ($strProcess)
                 $htmlList .= '<li class="item_list"><a href="javascript:searchId(' . $arrList["arrayRows"][$c]["intId"] . ');">' . $arrList["arrayRows"][$c]["strDescription"] . '</a></li>';
             }
         }
-
-        foreach( $arrayResponse["arrayGroups"] as $arrGroup )
+        if( count($arrayResponse["arrayGroups"]) > 0 )
         {
-            $htmlList .= '<li class="title_list"><a href="javascript:searchGroup(' . $arrGroup["intGroup"] . ');">' . $arrGroup["strGroup"] . '</a></li>';
+            $htmlList .= '<li class="title_list"><a href="javascript:void(0);">GRUPOS</a></li>';
+            foreach( $arrayResponse["arrayGroups"] as $arrGroup )
+            {
+                $htmlList .= '<li class="item_list"><a href="javascript:searchGroup(' . $arrGroup["intGroup"] . ');">' . $arrGroup["strGroup"] . '</a></li>';
+            }
         }
 
         $htmlList .= '</ul>';
