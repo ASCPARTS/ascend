@@ -68,7 +68,7 @@ class clsSearchAscend extends clsAscend
         $htmlLateralBar .= '<div class="SubTitle">Existencias</div>';
         $htmlLateralBar .= '<div class="row">';
         $htmlLateralBar .= '<div class="divInputMiniCheck divBrandBlue">';
-        $htmlLateralBar .= '<input class="checkStock" type="checkbox" id="chbExistence" onchange="pushStock()" ' . ( $intStock == 1 ? 'checked' : '' ) .' >';
+        $htmlLateralBar .= '<input class="checkStock" type="checkbox" id="chbExistence" onchange="inOutStock()" ' . ( $intStock == 1 ? 'checked' : '' ) .' >';
         $htmlLateralBar .= '<label for="stocksFilter">Disponibles</label>';
         $htmlLateralBar .= '</div>';
         $htmlLateralBar .= '</div>';
@@ -91,7 +91,7 @@ class clsSearchAscend extends clsAscend
         $htmlLateralBar .= '<div class="SubTitle">Precios</div> ';
 	    $htmlLateralBar .= '<div class="row"> ';
 		$htmlLateralBar .= '<div class="divSelect divBrandBlue costGray"> ';
-        $htmlLateralBar .= '<select id="priceRangeFilter" onchange="onChangeRangePrice()"> ';
+        $htmlLateralBar .= '<select id="priceRangeFilter" onchange="onChangeRangePrice(this.value)"> ';
 
         $arrPriceRange = array();
         $arrPriceRanges = explode("-", $strPriceRange );
@@ -130,7 +130,7 @@ class clsSearchAscend extends clsAscend
                     if( $brand["intBrand"] == $checkedBrand ) { $intIsCheckedBrand = 1;  }
                 }
                 $htmlLateralBar .= '<div class="divInputMiniCheck divBrandBlue">';
-                $htmlLateralBar .= '<input type="checkbox" class="checkBrands" id="' . 'chbStrBrand' . $brand["intBrand"] . '" onchange="pushBrand()" value="' . $brand["intBrand"] . '" ' . ( $intIsCheckedBrand == 1 ? 'checked' : '') . '>';
+                $htmlLateralBar .= '<input type="checkbox" class="checkBrands" id="' . 'chbStrBrand' . $brand["intBrand"] . '" onchange="inOutBrand(this.value)" value="' . $brand["intBrand"] . '" ' . ( $intIsCheckedBrand == 1 ? 'checked' : '') . '>';
                 $htmlLateralBar .= '<label for="' . 'chbStrBrand' . $brand["intBrand"] . '">' . $brand["strBrand"] . '</label>';
                 $htmlLateralBar .= '</div>';
             }
@@ -157,7 +157,7 @@ class clsSearchAscend extends clsAscend
                     if( $group["intGroup"] == $checkedGroup ) { $intIsCheckedGroup = 1;  }
                 }
                 $htmlLateralBar .= '<div class="divInputMiniCheck divBrandBlue">';
-                $htmlLateralBar .= '<input type="checkbox" class="checkGroups" id="' . 'chbStrGroup' . $group["intGroup"] . '"  onchange="pushGroup()" value="' . $group["intGroup"] . '" ' . ( $intIsCheckedGroup == 1 ? 'checked' : '') . '>';
+                $htmlLateralBar .= '<input type="checkbox" class="checkGroups" id="' . 'chbStrGroup' . $group["intGroup"] . '"  onchange="inOutGroup(this.value)" value="' . $group["intGroup"] . '" ' . ( $intIsCheckedGroup == 1 ? 'checked' : '') . '>';
                 $htmlLateralBar .= '<label for="' . 'chbStrGroup' . $group["intGroup"] . '">' . $group["strGroup"] . '</label>';
                 $htmlLateralBar .= '</div>';
             }

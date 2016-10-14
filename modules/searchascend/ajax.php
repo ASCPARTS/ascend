@@ -409,8 +409,8 @@ switch ($strProcess)
         $htmlPagination .= "<div class=\"divPagination\">";
         if( $intPage != 1)
         {
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(1)\" title=\"Inicio\">⋘</label>";
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(" . ( $intPage - 1) . ")\" title=\"Anterior\">≪</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(1)\" title=\"Inicio\">⋘</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . ( $intPage - 1) . ")\" title=\"Anterior\">≪</label>";
         }
         else
         {
@@ -424,7 +424,7 @@ switch ($strProcess)
         {
             if( $p != $intPage)
             {
-                $htmlPagination .= "<label class=\"labelPagination\" onclick=\"gridPagination($p)\">$p</label>";
+                $htmlPagination .= "<label class=\"labelPagination\" onclick=\"onChangePage($p)\">$p</label>";
             }
             else
             {
@@ -441,13 +441,13 @@ switch ($strProcess)
         }
         else
         {
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(" . ( $intPage + 1) . ")\" title=\"Siguiente\">≫</label>";
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"gridPagination(" . $objPagination["intPages"] . ")\" title=\"Final\">⋙</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . ( $intPage + 1) . ")\" title=\"Siguiente\">≫</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . $objPagination["intPages"] . ")\" title=\"Final\">⋙</label>";
         }
 
         $htmlPagination .= "<div class=\"paginationInfo\">";
         $htmlPagination .= "<b> " . $objPagination["intTotalRows"] . " </b> Registros - <b>" . $objPagination["intPages"] . "</b> Páginas -";
-        $htmlPagination .= "<select id=\"numPages\" onchange=\"gridRecords(this.value);\">";
+        $htmlPagination .= "<select id=\"numPages\" onchange=\"onChangeRecords(this.value);\">";
         $htmlPagination .= "<option  value=\"10\" " . ( $intRecordsPerPage ==  10 ? "selected=\"selected\"" : "" ) . ">10</option>";
         $htmlPagination .= "<option  value=\"20\" " . ( $intRecordsPerPage ==  20 ? "selected=\"selected\"" : "" ) . ">20</option>";
         $htmlPagination .= "<option  value=\"40\" " . ( $intRecordsPerPage ==  40 ? "selected=\"selected\"" : "" ) . ">40</option>";
