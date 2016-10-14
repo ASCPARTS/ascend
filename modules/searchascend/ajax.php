@@ -29,7 +29,10 @@ switch ($strProcess)
     case 'searchProduct':
         $strType = $_REQUEST['strType'];
         $intPage = $_REQUEST['intPage'];
-        $jsnParameters = json_decode($_REQUEST['jsnParameters']);
+        //echo var_dump($_REQUEST['jsnParameters']);
+        //settype($_REQUEST['jsnParameters'], "String");
+        //echo var_dump($_REQUEST['jsnParameters']);
+        $jsnParameters = json_decode($_REQUEST['jsnParameters'],true);
         $intRecordsPerPage = $_REQUEST['intRecordsPerPage'];
 
         $intStock = $_REQUEST['intStock'];
@@ -46,7 +49,8 @@ switch ($strProcess)
                 $strWhereProduct = "WHERE P.strStatus='A' ";
             break;
             case 'customSearch':
-                $arrNeedle = array_unique( explode( " ", $jsnParameters) );
+
+                $arrNeedle = array_unique( explode( " ", strtoupper($jsnParameters["strNeedle"])) );
 
                 $strWhereSKU = "";
                 $strWherePartNumber = "";
@@ -58,8 +62,8 @@ switch ($strProcess)
                     $strWhereSKU .= " P.strSKU LIKE '%" . $strNeedle . "%' OR";
                     $strWherePartNumber .= " P.strPartNumber LIKE '%" . $strNeedle . "%' OR";
                     $strWhereDescription .= " P.strDescription LIKE '%" . $strNeedle . "%' OR";
-                    $strWhereBrand .= " B.strName LIKE '%" . $strWhereBrand . "%' OR";
-                    $strWhereGroup .= " G.strName LIKE '%" . $strWhereGroup . "%' OR";
+                    $strWhereBrand .= " B.strName LIKE '%" . $strNeedle . "%' OR";
+                    $strWhereGroup .= " G.strName LIKE '%" . $strNeedle . "%' OR";
                 }
                 $strWhereSKU = substr($strWhereSKU, 0, ( strlen($strWhereSKU) - 2 ) );
                 $strWherePartNumber = substr($strWherePartNumber, 0, ( strlen($strWherePartNumber) - 2 ) );
@@ -73,7 +77,7 @@ switch ($strProcess)
 
             break;
         }
-
+        
         $sqlProduct =
             " SELECT P.intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, P.intBrand, B.strName AS strBrand, P.intGroup, G.strName AS strGroup, P.intCondition, C.strName AS strCondition, I.intSold, IFNULL(PR.strRule, '') AS strPromotionRule, IFNULL(PR.strStatus, 'B') AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage, IFNULL( (SELECT SUM(intStock) FROM tblWarehouseStock WHERE intProduct = P.intId AND strStatus = 'A'), 0) AS intStock "
             ."FROM tblProduct P  "
