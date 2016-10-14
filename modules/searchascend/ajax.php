@@ -336,11 +336,34 @@ switch ($strProcess)
             }
             $arrayResponse["arrayList"][] = $arrayTempGroup;
         }
+        
 
-        echo "<pre>";
-        print_r($arrayResponse);
-        echo "</pre>";
-        $jsnPhpScriptResponse['strResult'] = $arrayResponse;
+        $htmlList = '';
+
+        $htmlList .= '<div class="dropdown-content col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">';
+        $htmlList .= '<ul class="autocomplete">';
+        foreach( $arrayResponse["arrayList"] as $arrList )
+        {
+            $htmlList .= '<li class="title_list">';
+            $htmlList .= ( count($arrList["arrayRows"]) > 5 ? '<a href="javascript:searchGroup(' . $arrList["intGroup"] . ');">' . $arrList["strGroup"] . '</a>' : $arrList["strGroup"] );
+            $htmlList .= '</li>';
+            $maxGroupRecords = ( count($arrList["arrayRows"]) > 5 ? 5 : count($arrList["arrayRows"]) );
+            for( $c = 0; $c < $maxGroupRecords; $c++ )
+            {
+                $arrList["arrayRows"][$c];
+                $htmlList .= '<li class="item_list"><a href="javascript:searchId(' . $arrList["arrayRows"][$c]["intId"] . ');">' . $arrList["arrayRows"][$c]["strDescription"] . '</a></li>';
+            }
+        }
+
+        foreach( $arrayResponse["arrayGroups"] as $arrGroup )
+        {
+            $htmlList .= '<li class="title_list"><a href="javascript:searchGroup(' . $arrGroup["intGroup"] . ');">' . $arrGroup["strGroup"] . '</a></li>';
+        }
+
+        $htmlList .= '</ul>';
+        $htmlList .= '</div>';
+
+        $jsnPhpScriptResponse['htmlList'] = $htmlList;
         break;
 };
 
