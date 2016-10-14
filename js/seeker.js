@@ -571,7 +571,7 @@ function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
            //$('#contectTabs').html(data);
            $('<ul class="tab"><li><a href="#" id="tabDetails" class="tablinks" onclick="openTab(event, \'contectDetails\')">Detalles</a></li><li><a href="#" id="tabReplacements" class="tablinks" onclick="openTab(event, \'contectReplacements\')">Remplazos</a></li><li><a href="#" id="tabCompatible" class="tablinks" onclick="openTab(event, \'contectCompatible\')">Compatible</a></li><li><a href="#" id="tabStocks" class="tablinks" onclick="openTab(event, \'contectStocks\')">Existencias</a></li></ul>').appendTo("#modalTest");
 
-           $(data).appendTo("#modalTest");
+           $(data.htmlResult).appendTo("#modalTest");
 
            $('#ca-container').contentcarousel();
 
