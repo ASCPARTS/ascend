@@ -344,6 +344,8 @@ ul.tab li a:focus, .active {
     padding: 0px;
     margin: 0px;
     border: none;
+    width: 224px;
+    height: 224px;
 }
 
 #infoBase
@@ -352,7 +354,7 @@ ul.tab li a:focus, .active {
     border: none;
     padding: 10px;
     margin: 0px;
-    min-width: 574px;
+    /*574px*/
 
 }
 
