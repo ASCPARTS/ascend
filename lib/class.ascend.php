@@ -31,6 +31,8 @@ class clsAscend
     public $strTableStatusField;
     public $arrFormField = array();
     public $strIncludeJS;
+    public $objTableRelation = array();
+    public $objTableRelationCatalogs = array();
     //atributos para Pagineo
 
     function __construct(){
@@ -162,7 +164,7 @@ class clsAscend
         $strSql = "SELECT * FROM tblTable WHERE intId = " . $this->intTableId;
         $rstTable = $this->dbQuery($strSql);
         $this->strGridTitle = $rstTable[0]['strDisplay'];
-        $strTableSqlFrom = ' FROM ' . $rstTable[0]['strName'];
+        $strTableSqlFrom = ' FROM ' . $rstTable[0]['strName'] . ' T1 ';
         $this->strTableName = $rstTable[0]['strName'];
         $this->strIncludeJS = $rstTable[0]['strIncludeJs'];
         unset($rstTable);
@@ -170,12 +172,14 @@ class clsAscend
         $rstField = $this->dbQuery($strSql);
         $this->intGridNumberOfColumns = $this->intMySqlAffectedRows + 1;
         $strTableSqlSelect = 'SELECT ';
+        $strTableSqlJoin = '';
         $strTableSqlWhere = ' WHERE ';
         $strTableSqlOrder = '';
         $this->strGridHeader = '<tr>';
         $this->strGridForm = '<table class="form_main_table">';
         foreach ($rstField as $objField) {
             array_push($this->arrTableField, array(
+                    'intId' => $objField['intId'],
                     'strField' => $objField['strField'],
                     'strName' => $objField['strName'],
                     'strType' => $objField['strType'],
@@ -196,10 +200,49 @@ class clsAscend
                 $this->strTableIdField = $objField['strField'];
             }
             if ($objField['intStatusField'] == 1) {
-                $strTableSqlWhere .= $objField['strField'];
+                $strTableSqlWhere .= ' T1.' . $objField['strField'];
                 $this->strTableStatusField = $objField['strField'];
             }
-            $strTableSqlSelect .= $objField['strField'] . ', ';
+            $strTableSqlSelect .= ' T1.'  .$objField['strField'] . ', ';
+            if( $objField['strType'] == "R" )
+            {
+                /*
+                ##### Rlations Routine #####
+                */
+
+                $strSqlTableRelation = "SELECT TR.intId, TR.strRelationName, TR.strRelationAlias, TR.intOriginField, TFO.strField AS strOriginField, TR.intDestinyField, TFD.strField AS strDestinyField, TR.intDescriptionField, TFDESC.strField AS strDescriptionField, TR.strType, TR.intOriginTable, TTO.strTable AS strOriginTable "
+                ."FROM tblTableRelation TR "
+                ."LEFT JOIN tblTable TTO ON TR.intOriginTable = TTO.intId "
+                ."LEFT JOIN tblTableField TFD ON TR.intDestinyField = TFD.intId "
+                ."LEFT JOIN tblTableField TFO ON TR.intOriginField = TFO.intId "
+                ."LEFT JOIN tblTableField TFDESC ON TR.intDescriptionField = TFDESC.intId "
+                ."WHERE TR.intDestinyField = " . $objField['intId'] . ";";
+                //echo "<br><br>".$strSqlTableRelation."<br><br>";
+                $rstTableRelation = $this->dbQuery($strSqlTableRelation);
+
+                if( count($rstTableRelation) > 0 )
+                {
+                    $this-> objTableRelation = $rstTableRelation[0];
+                    /*echo "<br><br>";
+                    print_r($this-> objTableRelation);
+                    echo"<br><br>";
+                    echo $this-> objTableRelation['strRelationAlias'];
+                    echo"<br><br>";*/
+                    $strTableSqlSelect .= ' ' . $this-> objTableRelation['strRelationAlias'] . '.' . $this-> objTableRelation['strDescriptionField'] . ' AS ' . str_replace("int", "str", $objField['strField']) . ', ';
+                    $strTableSqlJoin .= ' LEFT JOIN ' . $this-> objTableRelation['strOriginTable'] . ' ' . $this-> objTableRelation['strRelationAlias'] . ' ON T1.' . $this-> objTableRelation['strDestinyField'] . ' = ' . $this-> objTableRelation['strRelationAlias'] . '.' . $this-> objTableRelation['strOriginField'] . ' ';
+
+                    $sqlTableCatalog = 'SELECT ' . $this-> objTableRelation['strRelationAlias'] . '.' . $this-> objTableRelation['strOriginField'] . ' AS intId, ' . $this-> objTableRelation['strRelationAlias'] . '.' . $this-> objTableRelation['strDescriptionField'] . ' AS strName '
+                    .'FROM ' . $this-> objTableRelation['strOriginTable'] . ' ' . $this-> objTableRelation['strRelationAlias'] . ' '
+                    .'ORDER BY strName;';
+                    //echo "<br><br>" . $sqlTableCatalog . "<br><br>";
+                    $rstTableCatalog = $this->dbQuery($sqlTableCatalog);
+                    $objTableRelationCatalogs[$objField['intId']] = $rstTableCatalog;
+                    /*echo "<br><br>";
+                    print_r($objTableRelationCatalogs[ $this-> objTableRelation['strRelationAlias']]);
+                    echo"<br><br>";*/
+                }
+            }
+
             if ($objField['intDisplay'] == 1) {
                 $this->strGridHeader .= $this->buildGridSortCell($objField['intSort'],$objField['strName'],$objField['strField']);
             }
@@ -228,16 +271,25 @@ class clsAscend
                     case 'S':
                         $this->strGridForm .= '<input type="text" id="txt' . $objField['strField'] . '" class="form_input_text" style="background-color:transparent; border:1px transparent solid; cursor:pointer;" onclick="changeSwitch2();" value="" />';
                         break;
+                    case 'R':
+
+                        $this->strGridForm .= '<select id="cbo' . $objField['intId'] . '" class="form_input_text" style="width: 150px;">';
+                        foreach( $objTableRelationCatalogs[$objField['intId']] as $catalogRow )
+                        {
+                            $this->strGridForm .= '<option value="' . $catalogRow["intId"] . '">' . $catalogRow["strName"] . '</option>';
+                        }
+                        $this->strGridForm .= '</select>';
+                        break;
                 }
                 $this->strGridForm .= '</td>';
                 $this->strGridForm .= '</tr>';
             }
         }
-        unset($objField);
-        unset($rstField);
-        /*
-        ##### Rlations Routine #####
-        */
+
+        //$this ->printArray($objTableRelationCatalogs);
+
+
+
         $this->arrFormField = json_encode($this->arrFormField);
         $this->arrTableRelation = json_encode($this->arrTableRelation);
         $this->strGridHeader .= '<th class="thGrid" style="">Editar</th>';
@@ -245,7 +297,10 @@ class clsAscend
         $this->strGridForm .= '</table>';
         $strTableSqlSelect = substr($strTableSqlSelect, 0, strlen($strTableSqlSelect) - 2);
         $strTableSqlWhere .= " IN ('B','A') ";
-        $this->strGridSql = $strTableSqlSelect . $strTableSqlFrom . $strTableSqlWhere;
+        $this->strGridSql = $strTableSqlSelect . $strTableSqlFrom . $strTableSqlJoin . $strTableSqlWhere;
+        /*echo"<br><br>";
+        echo $this->strGridSql;
+        echo"<br><br>";*/
         $this->strGridSqlOrder = $strTableSqlOrder . " ASC";
         $this->strGridOption = "default";
     }
@@ -300,6 +355,9 @@ class clsAscend
                                         }
                                         $this->strGrid .= '</td>';
                                     }
+                                    break;
+                                case 'R':
+                                    $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['strField'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['strAlign'] . ';">' . $rstData[$intIndex][ str_replace("int", "str", $this->arrTableField[$intArrayIndex]['strField'] ) ] . '</td>';
                                     break;
                             }
                         }
