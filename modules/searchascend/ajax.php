@@ -22,6 +22,7 @@ $objPagination = array();
 $arrPriceRange = array();
 
 
+
 #### Preparado de datos
 switch ($strProcess)
 {
