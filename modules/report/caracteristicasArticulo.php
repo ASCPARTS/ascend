@@ -6,176 +6,203 @@ require_once('../../'.LIB_PATH .'class.ascend.php');
 
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
-$rstQuery = array();
 
 switch ($strProcess) {
-
     case 'Filter':
-        $jsnPhpScriptResponse = array('htmlform'=>'','strError'=>'','arrFilters'=>array());
-        $family;
-        $bran;
-        $group;
-        $class;
-        $sqlResult = 'SELECT intId, strName FROM tblFamily';
-        $rstFamily = $objAscend->dbQuery($sqlResult);
-
-        $sqlResult = 'SELECT intId, strName FROM tblBrand';
-        $rstBrand = $objAscend->dbQuery($sqlResult);
-
-        $sqlResult = 'SELECT intId, strName FROM tblGroup';
-        $rstGroup = $objAscend->dbQuery($sqlResult);
-
-        $sqlResult = 'SELECT intId, strName FROM catClass';
-        $rstClass = $objAscend->dbQuery($sqlResult);
-
+        $jsnPhpScriptResponse = array('strTitle'=>'Caracteristicas de Articulos','arrFilters'=>array());
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divInputText barCodeGray">';
-        $strFilter .= '<input type="text" id="strSKU">';
+        $strFilter .= '<input type="text" id="strSKU" maxlength="7">';
         $strFilter .= '<label>SKU</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'strSKU','html'=>$strFilter,'type'=>'string','lenght'=>'7','required'=>'required'));
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'strSKU','label'=>'SKU','html'=>$strFilter,'type'=>'numeric','negative'=>'','decimalPlaces'=>'','required'=>''));
 
-        
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divSelect groupYellow ">';
-        $strFilter .= '<select id="cbo1" id="intFamily">';
-        $strFilter .= '<?php foreach ($rstFamily as $family){echo "<option value="'.$family['intId'].'">'.$family['strName'].'</option>";}?>';
+        $strFilter .= '<select id="intFamily">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM tblFamily';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
         $strFilter .= '</select>';
-        $strFilter .= '<label for="cbo1">Familia</label>';
+        $strFilter .= '<label for="intFamily">Familia</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intFamily','html'=>$strFilter,'type'=>'integer','lenght'=>'','required'=>''));
-        
-        
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intFamily','label'=>'Familia','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divSelect groupYellow ">';
-        $strFilter .= '<select id="cbo1" id="intBrand">';
-        $strFilter .= '<?php foreach ($rstBrand as $brand){echo "<option value="'.$brand['intId'].'">'.$brand['strName'].'</option>";}?>';
+        $strFilter .= '<select id="intBrand">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM tblBrand';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
         $strFilter .= ' </select>';
-        $strFilter .= '<label for="cbo1">Marca</label>';
+        $strFilter .= '<label for="intBrand">Marca</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intBrand','html'=>$strFilter,'type'=>'integer','lenght'=>'','required'=>''));
-        
-        
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intBrand','label'=>'Marca','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divSelect groupYellow ">';
-        $strFilter .= '<select id="cbo1" id="intGroup">';
-        $strFilter .= '<?php foreach ($rstGroup as $group){echo "<option value="'.$group['intId'].'">'.$group['strName'].'</option>";}?>';
+        $strFilter .= '<select id="intGroup">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM tblGroup';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
         $strFilter .= '</select>';
-        $strFilter .= '<label for="cbo1">Grupo</label>';
+        $strFilter .= '<label for="intGroup">Grupo</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intGroup','html'=>$strFilter,'type'=>'integer','lenght'=>'','required'=>''));
-        
-        
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intGroup','label'=>'Grupo','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divSelect groupYellow ">';
-        $strFilter .= '<select id="cbo1" id="intClass">';
-        $strFilter .= '<?php foreach ($rstClass as $class){echo "<option value="'.$class['intId'].'">'.$class['strName'].'</option>";}?>';
+        $strFilter .= '<select id="intClass">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM catClass';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
         $strFilter .= '</select>';
-        $strFilter .= '<label for="cbo1">Clase</label>';
+        $strFilter .= '<label for="intClass">Clase</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intClass','html'=>$strFilter,'type'=>'integer','lenght'=>'','required'=>''));
-
-        //$strSKU = $_REQUEST['strSKU'];
-        //$intFamily = $_REQUEST['intFamily'];
-        //$intBrand = $_REQUEST['intBrand'];
-        //$intGroup = $_REQUEST['intGroup'];
-        //$intClass = $_REQUEST['intClass'];
-
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intClass','label'=>'Clase','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
         break;
 
     case 'Report':
-
-        $strSKU = $_REQUEST['strSKU'];
-        $intFamily = $_REQUEST['strFamily'];
-        $intBrand = $_REQUEST['strBrand'];
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>true,'btnPDF'=>true,'btnTXT'=>true);
+        $strSKU = trim($_REQUEST['strSKU']);
+        $intFamily = $_REQUEST['intFamily'];
+        $intBrand = $_REQUEST['intBrand'];
         $intGroup = $_REQUEST['intGroup'];
-        $intClass = $_REQUEST['strClass'];
-        
-                $sqlResult = "SELECT P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion,  F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName,W.strDescription as LocalidadAlmacen, WS.intStock as Existencia, WS.intMinimum as Min, WS.intMaximum as Max, PPL.decPrice as Precio, PL.strDescription AS Lista "
-                ." FROM tblProduct P "
-                ." LEFT JOIN tblWarehouseStock WS ON P.intId = WS.intProduct "
-                ." LEFT JOIN catWarehouse W ON WS.intWarehouse= W.intId "
-                ." LEFT JOIN tblFamily F ON P.intFamily = F.intId "
-                ." LEFT JOIN tblBrand B ON P.intBrand = B.intId "
-                ." LEFT JOIN tblGroup G ON P.intGroup = G.intId "
-                ." LEFT JOIN catClass C ON P.intClass = C.intId "
-                ." LEFT JOIN catCondition CO ON P.intCondition = CO.intId "
-                ." LEFT JOIN tblProductPricelist PPL ON PPL.intProduct=P.intId "
-                ." LEFT JOIN tblPricelist PL ON PL.intId=PPL.intPriceList "
-                ." ORDER BY P.strSKU";
-
+        $intClass = $_REQUEST['intClass'];
+        $strSql = "SELECT P.intId AS intId, P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion, F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName AS Condicion ";
+        $strSql .= "FROM tblProduct P ";
+        $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
+        $strSql .= "LEFT JOIN tblBrand B ON P.intBrand = B.intId ";
+        $strSql .= "LEFT JOIN tblGroup G ON P.intGroup = G.intId ";
+        $strSql .= "LEFT JOIN catClass C ON P.intClass = C.intId ";
+        $strSql .= "LEFT JOIN catCondition CO ON P.intCondition = CO.intId ";
         $blnWhere = false;
-        IF ($_REQUEST['strSKU']!='')
-        {
-            if($blnWhere)
-            {
-                $sqlResult .= " AND ";
-            }
-            else
-            {
-                $sqlResult .= " WHERE ";
+        if($strSKU!=''){
+            if($blnWhere){
+                $strSql .="AND ";
+            }else{
+                $strSql .="WHERE ";
                 $blnWhere = true;
             }
-            $sqlResult .= "P.strSKU = " . $strSKU . " ";
+            $strSql .="P.strSKU = " . $strSKU . " ";
         }
-        IF ($_REQUEST['intFamily']!='')
-        {
-            if($blnWhere)
-            {
-                $sqlResult .= " AND ";
-            }
-            else
-            {
-                $sqlResult .= " WHERE ";
+        if($intFamily!=-1){
+            if($blnWhere){
+                $strSql .="AND ";
+            }else{
+                $strSql .="WHERE ";
                 $blnWhere = true;
             }
-            $sqlResult .= "F.intFamily = " . $strFamily . " ";
+            $strSql .="P.intFamily = " . $intFamily . " ";
         }
-        IF ($_REQUEST['intBrand']!='')
-        {
-            if($blnWhere)
-            {
-                $sqlResult .= " AND ";
-            }
-            else
-            {
-                $sqlResult .= " WHERE ";
+        if($intBrand!=-1){
+            if($blnWhere){
+                $strSql .="AND ";
+            }else{
+                $strSql .="WHERE ";
                 $blnWhere = true;
             }
-            $sqlResult .= "B.strBrand = " . $strBrand. " ";
+            $strSql .="P.intBrand = " . $intBrand . " ";
         }
-        IF ($_REQUEST['intGroup']!='')
-        {
-            if($blnWhere)
-            {
-                $sqlResult .= " AND ";
-            }else
-            {
-                $sqlResult .= " WHERE ";
+        if($intGroup!=-1){
+            if($blnWhere){
+                $strSql .="AND ";
+            }else{
+                $strSql .="WHERE ";
                 $blnWhere = true;
             }
-            $sqlResult .= "G.intGroup = " . $intGroup. " ";
+            $strSql .="P.intGroup = " . $intGroup . " ";
         }
-        IF ($_REQUEST['intClass']!='')
-        {
-            if ($blnWhere) {
-                $sqlResult .= " AND ";
-            } else {
-                $sqlResult .= " WHERE ";
+        if($intClass!=-1){
+            if($blnWhere){
+                $strSql .="AND ";
+            }else{
+                $strSql .="WHERE ";
                 $blnWhere = true;
             }
-            $sqlResult .= "C.intClass = " . $strClass. " ";
+            $strSql .="P.intClass = " . $intClass . " ";
         }
+        $strSql .= "ORDER BY P.strSKU;";
 
-            $rstQuery = $objAscend->dbQuery($sqlResult);
-            echo "<pre>";
-            print_r($rstQuery);
-            echo "</pre>";
-            break;
+        $rstData = $objAscend->dbQuery($strSql);
+
+        $strReport = '<table>';
+        $strReport .= '<tr>';
+        $strReport .= '<th>SKU</th>';
+        $strReport .= '<th>NumeroParte</th>';
+        $strReport .= '<th>Descripcion</th>';
+        $strReport .= '<th>Familia</th>';
+        $strReport .= '<th>Marca</th>';
+        $strReport .= '<th>Grupo</th>';
+        $strReport .= '<th>Clase</th>';
+        $strReport .= '<th>Condicion</th>';
+        $strSql = "SELECT strDescription FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
+        $rstPriceList = $objAscend->dbQuery($strSql);
+        foreach ($rstPriceList as $arrPriceList){
+            $strReport .= '<th>' . $arrPriceList['strDescription'] . '</th>';
+        }
+        unset($arrPriceList);
+        unset($rstPriceList);
+        $strReport .= '</tr>';
+        foreach($rstData as $arrData){
+            $strReport .= '<tr>';
+            $strReport .= '<td>' . $arrData['SKU'] . '</td>';
+            $strReport .= '<td>' . $arrData['NumeroParte'] . '</td>';
+            $strReport .= '<td>' . $arrData['Descripcion'] . '</td>';
+            $strReport .= '<td>' . $arrData['Familia'] . '</td>';
+            $strReport .= '<td>' . $arrData['Marca'] . '</td>';
+            $strReport .= '<td>' . $arrData['Grupo'] . '</td>';
+            $strReport .= '<td>' . $arrData['Clase'] . '</td>';
+            $strReport .= '<td>' . $arrData['Condicion'] . '</td>';
+            $strSql = "SELECT intId FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
+            $rstPriceList = $objAscend->dbQuery($strSql);
+            foreach ($rstPriceList as $arrPriceList){
+                $strSql = "SELECT decPrice FROM tblProductPricelist WHERE intProduct = " . $arrData['intId'] . " AND intPriceList = " . $arrPriceList['intId'] . ";";
+                $rstPrice = $objAscend->dbQuery($strSql);
+                if(count($rstPrice)==0){
+                    $strReport .= '<td>N/A</td>';
+                }else{
+                    foreach ($rstPrice as $arrPrice){
+                        $strReport .= '<td>$ ' . number_format($arrPrice['decPrice'],2,'.',',') . '</td>';
+                    }
+                    unset($arrPrice);
+                }
+                unset($rstPrice);
+            }
+            unset($arrPriceList);
+            unset($rstPriceList);
+            $strReport .= '</tr>';
+        }
+        $strReport .= '</table>';
+
+        echo $strReport;
+
+        $jsnPhpScriptResponse['strReport'] = $strReport;
+        break;
 };
-echo json_encode($jsnPhpScriptResponse);
+//echo json_encode($jsnPhpScriptResponse);
