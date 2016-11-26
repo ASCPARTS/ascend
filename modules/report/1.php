@@ -86,6 +86,24 @@ switch ($strProcess) {
         $strFilter .= '</div>';
         $strFilter .= '</div>';
         array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intClass','label'=>'Clase','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intCondition">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM catCondition';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
+        $strFilter .= '</select>';
+        $strFilter .= '<label >Condicion</label>';
+        $strFilter .= '</div>';
+        $strFilter .= '</div>';
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intCondition','label'=>'Condicion','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
         break;
 
     case 'Report':

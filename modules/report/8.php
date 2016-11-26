@@ -1,5 +1,5 @@
 <?php
-/*AA BackOrders para Seguimiento (Listado)*/
+/*Saldos Finales de Artículos por Día*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
@@ -10,25 +10,74 @@ $strProcess = $_REQUEST['strProcess'];
 
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'BackOrders para Seguimiento (Listado)','arrFilters'=>array());   
-       
-      $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect userGray ">';
-        $strFilter .= '<select id="intSeller">';
+        $jsnPhpScriptResponse = array('strTitle'=>'Saldos Finales de Artículos por Día','arrFilters'=>array());
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intFamily">';
         $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strName FROM tblUser where strRoll="VTA"';
+        $sqlResult = 'SELECT intId, strName FROM tblFamily';
         $rstData = $objAscend->dbQuery($sqlResult);
         foreach($rstData as $arrData){
             $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
         }
         unset($arrData);
         unset($rstData);
-
         $strFilter .= '</select>';
-        $strFilter .= '<label >Vendedor</label>';
+        $strFilter .= '<label >Familia</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intSeller','label'=>'Vendedor','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intFamily','label'=>'Familia','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intBrand">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM tblBrand';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
+        $strFilter .= ' </select>';
+        $strFilter .= '<label >Marca</label>';
+        $strFilter .= '</div>';
+        $strFilter .= '</div>';
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intBrand','label'=>'Marca','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intGroup">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM tblGroup';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
+        $strFilter .= '</select>';
+        $strFilter .= '<label >Grupo</label>';
+        $strFilter .= '</div>';
+        $strFilter .= '</div>';
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intGroup','label'=>'Grupo','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intClass">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strName FROM catClass';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
+        $strFilter .= '</select>';
+        $strFilter .= '<label >Clase</label>';
+        $strFilter .= '</div>';
+        $strFilter .= '</div>';
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intClass','label'=>'Clase','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
 
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divInputDate calendarYellow">';
@@ -45,7 +94,7 @@ switch ($strProcess) {
         $strFilter .= '</div>';
         $strFilter .= '</div>';
         array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intDate','label'=>'Fecha Final','html'=>$strFilter,'type'=>'date','negative'=>'','decimalPlaces'=>'','required'=>''));
-
+        
         break;
 
     case 'Report':

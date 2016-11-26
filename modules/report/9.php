@@ -1,5 +1,5 @@
 <?php
-/*AA BackOrders para Seguimiento (Listado)*/
+/*Pedimentos Prorrateados*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
@@ -10,25 +10,7 @@ $strProcess = $_REQUEST['strProcess'];
 
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'BackOrders para Seguimiento (Listado)','arrFilters'=>array());   
-       
-      $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect userGray ">';
-        $strFilter .= '<select id="intSeller">';
-        $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strName FROM tblUser where strRoll="VTA"';
-        $rstData = $objAscend->dbQuery($sqlResult);
-        foreach($rstData as $arrData){
-            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
-        }
-        unset($arrData);
-        unset($rstData);
-
-        $strFilter .= '</select>';
-        $strFilter .= '<label >Vendedor</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intSeller','label'=>'Vendedor','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+        $jsnPhpScriptResponse = array('strTitle'=>'Pedimentos Prorrateados','arrFilters'=>array());
 
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divInputDate calendarYellow">';

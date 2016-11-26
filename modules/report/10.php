@@ -1,5 +1,5 @@
 <?php
-/*AA BackOrders para Seguimiento (Listado)*/
+/*Clientes Nuevos con Primera Venta*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
@@ -10,25 +10,24 @@ $strProcess = $_REQUEST['strProcess'];
 
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'BackOrders para Seguimiento (Listado)','arrFilters'=>array());   
-       
-      $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect userGray ">';
-        $strFilter .= '<select id="intSeller">';
+        $jsnPhpScriptResponse = array('strTitle'=>'Clientes Nuevos con Primera Venta','arrFilters'=>array());
+
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intZone">';
         $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strName FROM tblUser where strRoll="VTA"';
+        $sqlResult = 'SELECT intId, strDescription FROM catZone';
         $rstData = $objAscend->dbQuery($sqlResult);
         foreach($rstData as $arrData){
-            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strDescription'] . '</option>';
         }
         unset($arrData);
         unset($rstData);
-
         $strFilter .= '</select>';
-        $strFilter .= '<label >Vendedor</label>';
+        $strFilter .= '<label >Zona de Venta</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intSeller','label'=>'Vendedor','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intZone','label'=>'Zona de Venta','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
 
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
         $strFilter .= '<div class="divInputDate calendarYellow">';
