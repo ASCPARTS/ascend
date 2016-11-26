@@ -86,6 +86,7 @@ $intIdReport = $_REQUEST['intIdReport'];
     $jsnReportParameters = '';
     $jsnReportResults = '';
 
+    
     $('document').ready(function(){
         $('#divWorkingBackground').fadeIn('slow',function(){
             $strQueryString = "strProcess=Filter";
