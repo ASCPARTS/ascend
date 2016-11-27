@@ -1,5 +1,5 @@
 <?php
-/*AA BackOrders para Seguimiento (Listado)*/
+/*Pedidos Pendientes de Surtir por Zona Venta*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
@@ -8,11 +8,22 @@ require_once('../../'.LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+
+/*pendientes facturar*/
+
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'BackOrders para Seguimiento (Listado)','arrFilters'=>array());   
-       
+        $jsnPhpScriptResponse = array('strTitle'=>'Pedidos Pendientes de Surtir por Zona Venta','arrFilters'=>array());
+
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
+        $strFilter .= '<div class="divInputText barCodeGray">';
+        $strFilter .= '<input type="text" id="strCustomer" maxlength="">';
+        $strFilter .= '<label>Cliente</label>';
+        $strFilter .= '</div>';
+        $strFilter .= '</div>';
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'strCustomer','label'=>'Cliente','html'=>$strFilter,'type'=>'numeric','negative'=>'','decimalPlaces'=>'','required'=>''));
+
+        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5\">';
         $strFilter .= '<div class="divSelect userGray ">';
         $strFilter .= '<select id="intSeller">';
         $strFilter .= '<option value="-1">--seleccionar--</option>';
@@ -23,7 +34,6 @@ switch ($strProcess) {
         }
         unset($arrData);
         unset($rstData);
-
         $strFilter .= '</select>';
         $strFilter .= '<label >Vendedor</label>';
         $strFilter .= '</div>';
@@ -31,20 +41,29 @@ switch ($strProcess) {
         array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intSeller','label'=>'Vendedor','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
 
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divInputDate calendarYellow">';
-        $strFilter .= '<input id="x" type="date" id="intDate">';
-        $strFilter .= '<label for="x">Fecha Inicial</label>';
+        $strFilter .= '<div class="divSelect groupYellow ">';
+        $strFilter .= '<select id="intZone">';
+        $strFilter .= '<option value="-1">--seleccionar--</option>';
+        $sqlResult = 'SELECT intId, strDescription FROM catZone';
+        $rstData = $objAscend->dbQuery($sqlResult);
+        foreach($rstData as $arrData){
+            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strDescription'] . '</option>';
+        }
+        unset($arrData);
+        unset($rstData);
+        $strFilter .= '</select>';
+        $strFilter .= '<label >Zona de Venta</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intDate','label'=>'Fecha Inicial','html'=>$strFilter,'type'=>'date','negative'=>'','decimalPlaces'=>'','required'=>''));
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intZone','label'=>'Zona de Venta','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
 
         $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divInputDate calendarYellow">';
-        $strFilter .= '<input id="x" type="date" id="intDate">';
-        $strFilter .= '<label for="x">Fecha Final</label>';
+        $strFilter .= '<div class="divInputText barCodeGray">';
+        $strFilter .= '<input type="text" id="strApproved" maxlength="1">';
+        $strFilter .= '<label>Estatus de Aprobación</label>';
         $strFilter .= '</div>';
         $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intDate','label'=>'Fecha Final','html'=>$strFilter,'type'=>'date','negative'=>'','decimalPlaces'=>'','required'=>''));
+        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'strApproved','label'=>'Estatus de Aprobacion','html'=>$strFilter,'type'=>'string','negative'=>'','decimalPlaces'=>'','required'=>''));
 
         break;
 
