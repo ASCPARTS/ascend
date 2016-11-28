@@ -100,9 +100,9 @@ $intIdReport = $_REQUEST['intIdReport'];
                         $('#divFormFilters').append($jsnReportParameters.arrFilters[$intIndex].html);
                         if($jsnReportParameters.arrFilters[$intIndex].type=='numeric'){
                             if($jsnReportParameters.arrFilters[$intIndex].decimalPlaces!=''){
-                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: ".", decimalPlaces: parseInt($jsnReportParameters.arrFilters[$intIndex].decimalPlaces), negative: false });
+                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: ".", decimalPlaces: parseInt($jsnReportParameters.arrFilters[$intIndex].decimalPlaces), negative: $jsnReportParameters.arrFilters[$intIndex].negative });
                             }else{
-                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: false, negative: false });
+                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: false, negative: $jsnReportParameters.arrFilters[$intIndex].negative });
                             }
                         }
                     }
@@ -118,7 +118,7 @@ $intIdReport = $_REQUEST['intIdReport'];
             $('#divFormErrMsg').slideUp('fast');
             $blnGo=true;
             for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
-                if($jsnReportParameters.arrFilters[$intIndex].required=='required'){
+                if($jsnReportParameters.arrFilters[$intIndex].required){
                     if(!evalRequired($jsnReportParameters.arrFilters[$intIndex].name,$jsnReportParameters.arrFilters[$intIndex].type)){
                         $('#' + $jsnReportParameters.arrFilters[$intIndex].name).focus();
                         $blnGo = false;
@@ -150,6 +150,8 @@ $intIdReport = $_REQUEST['intIdReport'];
                 for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
                     $strQueryString += '&' + $jsnReportParameters.arrFilters[$intIndex].name + '=' + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().trim();
                 }
+                console.log("1.php?" + $strQueryString);
+
                 $.ajax({
                     url: "<?php echo $intIdReport; ?>.php", data: $strQueryString, type: "POST", dataType: "json",
                     success: function ($jsnPhpScriptResponse) {

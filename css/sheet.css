@@ -938,6 +938,7 @@ table
 td, th
 {
     padding: 0;
+    white-space: nowrap;
 }
 
 
