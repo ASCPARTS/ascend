@@ -10,9 +10,16 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Clientes Nuevos con Primera Venta';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = false;
+$btnPDF = false;
+$btnTXT = true;
+
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Clientes Nuevos con Primera Venta','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
         //##### FUnction buildFilter
         //$strType: 'numeric' || 'select'

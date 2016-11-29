@@ -1,5 +1,5 @@
 <?php
-/*Pedidos Pendientes de Surtir por Vendedor*/
+/*Días Promedio Recuperación Cartera por Cliente y Fecha*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
@@ -10,7 +10,7 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
-$strTitle = 'Pedidos Pendientes de Surtir por Vendedor';
+$strTitle = 'Días Promedio Recuperación Cartera por Cliente y Fecha';
 $blnPaginated = true;
 $blnFreezeHeader = true;
 $btnXLS = false;
@@ -20,9 +20,8 @@ $btnTXT = true;
 switch ($strProcess) {
     case 'Filter':
         $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
-
-        //##### FUnction buildFilter
-        //$strType: 'numeric' || 'select'
+        //##### Function buildFilter
+        //$strType: 'numeric' || 'select' || 'date'
         //$strIcon: catalogo imagenes || ''
         //$strName: id del input
         //$strLabel: etiqueta para el input
@@ -33,13 +32,12 @@ switch ($strProcess) {
         //$strSql: sentencia sql para llenar campo tipo select
         //#####
 
-        //##### Input vendedor
-        $strSql="select intId as strValue, strName as strDisplay from tblUser where strRoll='VTA' and strStatus='A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','intSeller','Vendedor',0,false,0,false,$strSql));
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
         break;
-
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
@@ -98,7 +96,7 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
+        $strSql .= "ORDER BY P.strSKU;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
@@ -106,7 +104,7 @@ switch ($strProcess) {
         $strReport .= '<thead>';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
-        $strReport .= '<th>NumeroParte</th>';
+        $strReport .= '<th>Numero de Parte</th>';
         $strReport .= '<th>Descripcion</th>';
         $strReport .= '<th>Familia</th>';
         $strReport .= '<th>Marca</th>';
@@ -150,9 +148,9 @@ switch ($strProcess) {
             unset($rstPriceList);
             $strReport .= '</tr>';
         }
+        unset($arrData);
+        unset($rstData);
         $strReport .= '</table>';
-
-        //echo $strReport;
 
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;

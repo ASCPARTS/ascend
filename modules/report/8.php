@@ -10,9 +10,15 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Listado de Proveedores por Tipo';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = false;
+$btnPDF = false;
+$btnTXT = true;
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Listado de Proveedores por Tipo','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
         //##### FUnction buildFilter
         //$strType: 'numeric' || 'select'

@@ -10,9 +10,15 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'BackOrders por Artículos (Compras)';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = false;
+$btnPDF = false;
+$btnTXT = true;
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'BackOrders por Artículos (Compras)','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
         //##### FUnction buildFilter
         //$strType: 'numeric' || 'select'

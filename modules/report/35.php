@@ -10,10 +10,15 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Facturas por Artículo y Cliente';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = false;
+$btnPDF = false;
+$btnTXT = true;
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Facturas por Artículo y Cliente','arrFilters'=>array());
-
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
         //##### FUnction buildFilter
         //$strType: 'numeric' || 'select'
         //$strIcon: catalogo imagenes || ''

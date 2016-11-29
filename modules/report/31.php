@@ -10,10 +10,15 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Entadas por Cambio Físico por Almacén';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = false;
+$btnPDF = false;
+$btnTXT = true;
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Entadas por Cambio Físico por Almacén','arrFilters'=>array());
-
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
         //##### FUnction buildFilter
         //$strType: 'numeric' || 'select'
         //$strIcon: catalogo imagenes || ''
