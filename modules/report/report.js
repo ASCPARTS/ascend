@@ -61,8 +61,13 @@ function evalForm() {
         if($blnGo){
             $strQueryString = 'strProcess=Report';
             for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
-                if($jsnReportParameters.arrFilters[$intIndex].type='date'){
-                    $strQueryString += '&' + $jsnReportParameters.arrFilters[$intIndex].name + '=' + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().trim();
+                if($jsnReportParameters.arrFilters[$intIndex].type=='date'){
+                    $strQueryString += '&' + $jsnReportParameters.arrFilters[$intIndex].name + '=' + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().substr(0,4) + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().substr(5,2) + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().substr(8,2);
+                    if($jsnReportParameters.arrFilters[$intIndex].name.substr($jsnReportParameters.arrFilters[$intIndex].name.length - 5,5)=='_From'){
+                        $strQueryString += '000000';
+                    }else{
+                        $strQueryString += '999999';
+                    }
                 }else{
                     $strQueryString += '&' + $jsnReportParameters.arrFilters[$intIndex].name + '=' + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().trim();
                 }

@@ -51,11 +51,15 @@ $intIdReport = $_REQUEST['intIdReport'];
             padding: 6px 6px 6px 6px;
             display: none;
         }
+
+        .MCHeight{
+            height: calc(100vh - 60px);
+        }
     </style>
 </head>
 <body>
 <div class="MainTitle" id="divTitle"></div>
-<div class="MainContainer" style="height: calc(100vh - 10px);">
+<div class="MainContainer MCHeight">
     <div id="divForm">
         <div class="SubTitle">Ingresar filtros</div>
         <div id="divFormErrMsg"></div>
@@ -64,18 +68,17 @@ $intIdReport = $_REQUEST['intIdReport'];
             <input type="button" class="btnOnlineGreen btn" value="Generar reporte" onclick="evalForm();">
         </div>
     </div>
-    <div id="divReportContainer" style="display: none">
-        <div id="divReport" style="background-color: #00B8FE; height: 100%; width: 100%; overflow-x: auto; overflow-y: auto; ">
-
-        </div>
-        <div id="divFormSubmit" class="ButtonContainer">
+    <div id="divReportContainer" style="display: none; height: 100%;">
+        <div id="divFormSubmit" class="ButtonContainer" style="margin-bottom: 0 !important; ">
             <input type="button" id="btnXLS" class="btnOnlineGreen btn" value="XLS" style="display: none" onclick="reportXLS();">
             <input type="button" id="btnPDF" class="btnBrandRed btn" value="PDF" style="display: none" onclick="reportPDF();">
             <input type="button" id="btnTXT" class="btnOverGray btn" value="TXT" style="display: none" onclick="reportTXT();">
             <input type="button" id="btnTXT" class="btnBrandBlue btn" value="Printer" onclick="reportPrinter();">
             <input type="button" id="btnShowFilters" class="btnAlternativeBlue btn" value="Mostrar Filtros" onclick="showFilters();">
         </div>
+        <div id="divReport" style="width: 100%; height: calc(100% - 35px); overflow-x: auto; overflow-y: auto; display: block; margin: 0 0 0 0; ">
 
+        </div>
     </div>
     <br style="clear: both;" />
 </div>

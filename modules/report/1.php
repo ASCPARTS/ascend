@@ -10,12 +10,16 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Caracteristicas de Articulos';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Caracteristicas de Articulos','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
-        //##### FUnction buildFilter
-        //$strType: 'numeric' || 'select'
+        //##### Function buildFilter
+        //$strType: 'numeric' || 'select' || 'date'
         //$strIcon: catalogo imagenes || ''
         //$strName: id del input
         //$strLabel: etiqueta para el input
@@ -107,7 +111,7 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU LIMIT 20;";
+        $strSql .= "ORDER BY P.strSKU;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
@@ -159,9 +163,9 @@ switch ($strProcess) {
             unset($rstPriceList);
             $strReport .= '</tr>';
         }
+        unset($arrData);
+        unset($rstData);
         $strReport .= '</table>';
-
-        //echo $strReport;
 
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;
