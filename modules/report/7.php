@@ -28,7 +28,7 @@ switch ($strProcess) {
 
         //##### Input Folio Pedido
         array_push($jsnPhpScriptResponse['arrFilters'],
-         buildFilter('numeric','searchGray','strFolio','Folio','',false,0,false,''));
+        buildFilter('numeric','searchGray','strFolio','Folio','',false,0,false,''));
         //##### Input vendedor
         $strSql="select intId as strValue, strName as strDisplay from tblUser where strRoll='VTA' and strStatus='A' ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','intSeller','Vendedor',0,false,0,false,$strSql));

@@ -29,6 +29,10 @@ switch ($strProcess) {
         //##### Input zona de venta
         $strSql="select intId as strValue, strDescription as strDisplay from catZone where strStatus='A' Order By 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intZone','Zona de Venta',0,false,0,false,$strSql));
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
+
         break;
 
     case 'Report':

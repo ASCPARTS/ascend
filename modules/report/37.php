@@ -29,6 +29,10 @@ switch ($strProcess) {
         //##### Input Almacen
         $strSql="select intId as strValue, strDescription as strDisplay from catWarehouse where strStatus='A' ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','companyGray','intWarehouse','Almacen',0,false,0,false,$strSql));
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
+
         break;
 
     case 'Report':

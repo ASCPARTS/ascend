@@ -25,6 +25,10 @@ switch ($strProcess) {
         //$blnRequired: campo requerido: true=requerido || false=opcional
         //$strSql: sentencia sql para llenar campo tipo select
         //#####
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
+
 
         break;
 
