@@ -27,6 +27,14 @@ function buildFilter($strType, $strIcon, $strName, $strLabel, $intMaxLength, $bl
             }
             $strInput .= '>';
             break;
+        case 'date':
+            $strFilter .= 'divInputText ';
+            $strInput = '<input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="' . date("Y-m-d") . '" id="' . $strName . '"';
+            if($intMaxLength>0){
+                $strInput .= 'maxlength="' . $intMaxLength . '"';
+            }
+            $strInput .= '>';
+            break;
     }
     if($strIcon!='}'){
         $strFilter .= ' ' . $strIcon;

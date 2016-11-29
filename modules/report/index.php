@@ -55,7 +55,7 @@ $intIdReport = $_REQUEST['intIdReport'];
 </head>
 <body>
 <div class="MainTitle" id="divTitle"></div>
-<div class="MainContainer">
+<div class="MainContainer" style="height: calc(100vh - 10px);">
     <div id="divForm">
         <div class="SubTitle">Ingresar filtros</div>
         <div id="divFormErrMsg"></div>
@@ -65,6 +65,9 @@ $intIdReport = $_REQUEST['intIdReport'];
         </div>
     </div>
     <div id="divReportContainer" style="display: none">
+        <div id="divReport" style="background-color: #00B8FE; height: 100%; width: 100%; overflow-x: auto; overflow-y: auto; ">
+
+        </div>
         <div id="divFormSubmit" class="ButtonContainer">
             <input type="button" id="btnXLS" class="btnOnlineGreen btn" value="XLS" style="display: none" onclick="reportXLS();">
             <input type="button" id="btnPDF" class="btnBrandRed btn" value="PDF" style="display: none" onclick="reportPDF();">
@@ -72,7 +75,7 @@ $intIdReport = $_REQUEST['intIdReport'];
             <input type="button" id="btnTXT" class="btnBrandBlue btn" value="Printer" onclick="reportPrinter();">
             <input type="button" id="btnShowFilters" class="btnAlternativeBlue btn" value="Mostrar Filtros" onclick="showFilters();">
         </div>
-        <div id="divReport"></div>
+
     </div>
     <br style="clear: both;" />
 </div>
@@ -82,150 +85,11 @@ $intIdReport = $_REQUEST['intIdReport'];
     </div>
 </div>
 <script>
-
+    $intIdReport = <?php echo $intIdReport; ?>;
     $jsnReportParameters = '';
     $jsnReportResults = '';
-
-    
-    $('document').ready(function(){
-        $('#divWorkingBackground').fadeIn('slow',function(){
-            $strQueryString = "strProcess=Filter";
-            $.ajax({
-                url: "<?php echo $intIdReport; ?>.php", data: $strQueryString, type: "POST", dataType: "json",
-                success: function ($jsnPhpScriptResponse) {
-                    $jsnReportParameters = $jsnPhpScriptResponse;
-                    $('#divTitle').html($jsnReportParameters.strTitle);
-                    $('#divFormFilters').html('');
-                    for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
-                        $('#divFormFilters').append($jsnReportParameters.arrFilters[$intIndex].html);
-                        if($jsnReportParameters.arrFilters[$intIndex].type=='numeric'){
-                            if($jsnReportParameters.arrFilters[$intIndex].decimalPlaces!=''){
-                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: ".", decimalPlaces: parseInt($jsnReportParameters.arrFilters[$intIndex].decimalPlaces), negative: $jsnReportParameters.arrFilters[$intIndex].negative });
-                            }else{
-                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: false, negative: $jsnReportParameters.arrFilters[$intIndex].negative });
-                            }
-                        }
-                    }
-                    $('#divWorkingBackground').fadeOut('slow');
-                }
-            });
-        });
-    });
-
-    function evalForm() {
-        $('#divWorkingBackground').fadeIn('slow',function(){
-            $('#divFormErrMsg').html('');
-            $('#divFormErrMsg').slideUp('fast');
-            $blnGo=true;
-            for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
-                if($jsnReportParameters.arrFilters[$intIndex].required){
-                    if(!evalRequired($jsnReportParameters.arrFilters[$intIndex].name,$jsnReportParameters.arrFilters[$intIndex].type)){
-                        $('#' + $jsnReportParameters.arrFilters[$intIndex].name).focus();
-                        $blnGo = false;
-                        $('#divFormErrMsg').html('El campo ' + $jsnReportParameters.arrFilters[$intIndex].label + ' es requerido!');
-                        $('#divFormErrMsg').slideDown('fast');
-                        $('#divWorkingBackground').fadeOut('slow' );
-                        $intIndex = $jsnReportParameters.arrFilters.length + 1;
-                    }
-                }
-            }
-            if($blnGo){
-                for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
-                    switch($jsnReportParameters.arrFilters[$intIndex].type){
-                        case 'email':
-                            if(!evalEmail($jsnReportParameters.arrFilters[$intIndex].name)){
-                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).focus();
-                                $blnGo = false;
-                                $('#divFormErrMsg').html('El campo ' + $jsnReportParameters.arrFilters[$intIndex].label + ' tiene un formato incorrecto!');
-                                $('#divFormErrMsg').slideDown('fast');
-                                $('#divWorkingBackground').fadeOut('slow');
-                                $intIndex = $jsnReportParameters.arrFilters.length + 1;
-                            }
-                            break;
-                    }
-                }
-            }
-            if($blnGo){
-                $strQueryString = 'strProcess=Report';
-                for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
-                    $strQueryString += '&' + $jsnReportParameters.arrFilters[$intIndex].name + '=' + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().trim();
-                }
-                console.log("1.php?" + $strQueryString);
-
-                $.ajax({
-                    url: "<?php echo $intIdReport; ?>.php", data: $strQueryString, type: "POST", dataType: "json",
-                    success: function ($jsnPhpScriptResponse) {
-                        $jsnReportResults = $jsnPhpScriptResponse;
-                        $('#divReport').html($jsnReportResults.strReport);
-                        if($jsnReportResults.btnXLS){
-                            $('#btnXLS').show();
-                        }
-                        if($jsnReportResults.btnPDF){
-                            $('#btnPDF').show();
-                        }
-                        if($jsnReportResults.btnTXT){
-                            $('#btnTXT').show();
-                        }
-
-                        $('#divForm').slideUp('fast',function(){
-                            $('#divReportContainer').slideDown('fast',function(){
-                                $('#divWorkingBackground').fadeOut('slow');
-                            });
-                        });
-                    }
-                });
-            }
-        });
-
-    }
-
-    function evalRequired($strInput,$strInputType){
-        $blnReturn = true;
-        if($strInputType=='select'){
-            if($('#' + $strInput).val()=='-1'){
-                $blnReturn = false;
-            }
-        }else{
-            if($('#' + $strInput).val().trim()==''){
-                $blnReturn = false;
-            }
-        }
-        return $blnReturn;
-    }
-
-    function evalEmail($strInput){
-        $blnReturn = true;
-        $strEMExp=/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
-        if(!$strEMExp.exec($('#' + $strInput).val().trim())){
-            $blnReturn = false;
-        }
-        return $blnReturn;
-    }
-
-    function showFilters(){
-        $('#divReportContainer').slideUp('fast',function(){
-            $('#divForm').slideDown('fast');
-        });
-    }
-
-    function reportXLS(){
-
-    }
-
-    function reportPDF(){
-
-    }
-
-    function reportTXT(){
-
-    }
-
-    function reportPrinter(){
-
-    }
-
 </script>
-
+<script src="report.js"></script>
 </body>
 </html>
 

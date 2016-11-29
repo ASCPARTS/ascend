@@ -43,8 +43,10 @@ switch ($strProcess) {
         //##### Input Condition
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catCondition WHERE strStatus = 'A' ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupYellow','intCondition','Condicion',0,false,0,false,$strSql));
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_To','Fecha (hasta)',0,false,0,false,''));
         break;
-
     case 'Report':
         $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
         $strSKU = trim($_REQUEST['strSKU']);
@@ -105,7 +107,7 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
+        $strSql .= "ORDER BY P.strSKU LIMIT 20;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
@@ -113,7 +115,7 @@ switch ($strProcess) {
         $strReport .= '<thead>';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
-        $strReport .= '<th>NumeroParte</th>';
+        $strReport .= '<th>Numero de Parte</th>';
         $strReport .= '<th>Descripcion</th>';
         $strReport .= '<th>Familia</th>';
         $strReport .= '<th>Marca</th>';
