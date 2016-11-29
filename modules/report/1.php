@@ -13,11 +13,13 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Caracteristicas de Articulos';
 $blnPaginated = true;
 $blnFreezeHeader = true;
+$btnXLS = false;
+$btnPDF = false;
+$btnTXT = true;
 
 switch ($strProcess) {
     case 'Filter':
         $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
-
         //##### Function buildFilter
         //$strType: 'numeric' || 'select' || 'date'
         //$strIcon: catalogo imagenes || ''
@@ -52,7 +54,7 @@ switch ($strProcess) {
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_To','Fecha (hasta)',0,false,0,false,''));
         break;
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
