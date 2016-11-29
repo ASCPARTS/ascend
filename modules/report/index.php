@@ -65,7 +65,7 @@ $intIdReport = $_REQUEST['intIdReport'];
         <div id="divFormErrMsg"></div>
         <div id="divFormFilters" class="row"></div>
         <div id="divFormSubmit" class="ButtonContainer">
-            <input type="button" class="btnOnlineGreen btn" value="Generar reporte" onclick="evalForm();">
+            <input id="btnGetReport" type="button" class="btnOnlineGreen btn" value="Generar reporte" style="display: none;" onclick="evalForm();">
         </div>
     </div>
     <div id="divReportContainer" style="display: none; height: 100%;">
@@ -76,7 +76,7 @@ $intIdReport = $_REQUEST['intIdReport'];
             <input type="button" id="btnTXT" class="btnBrandBlue btn" value="Printer" onclick="reportPrinter();">
             <input type="button" id="btnShowFilters" class="btnAlternativeBlue btn" value="Mostrar Filtros" onclick="showFilters();">
         </div>
-        <div id="divReport" style="width: 100%; height: calc(100% - 35px); overflow-x: auto; overflow-y: auto; display: block; margin: 0 0 0 0; ">
+        <div id="divReport" style="width: 100%; height: calc(100% - 35px); overflow-x: hidden; overflow-y: hidden; display: block; margin: 0 0 0 0; ">
 
         </div>
     </div>
