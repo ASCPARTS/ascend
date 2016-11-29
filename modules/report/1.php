@@ -64,12 +64,6 @@ switch ($strProcess) {
         $intGroup = $_REQUEST['intGroup'];
         $intClass = $_REQUEST['intClass'];
 
-        $strSKU = '';
-        $intFamily = -1;
-        $intBrand = -1;
-        $intGroup = -1;
-        $intClass = -1;
-
         $strSql = "SELECT P.intId AS intId, P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion, F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName AS Condicion ";
         $strSql .= "FROM tblProduct P ";
         $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
