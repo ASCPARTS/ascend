@@ -6,8 +6,7 @@ function openMenuMain(){
 }
 
 function closeMenuMain() {
-    //$('#divcleanmenu').css('width', 'calc(85% - 1px)');
-    $('#divcleanmenu').css('width', '85%');
+    $('#divcleanmenu').css('width', '75%');
     if($intCurrentSubCategory!=''){
         $('#divMenuSubCategory_' + $intCurrentSubCategory).removeClass('divMenuSubCategorySelected');
         $('#divMenuMain_' + $intCurrentSubCategory).css('width','0');
@@ -24,7 +23,7 @@ function closeMenuMain() {
 }
 
 function openMenu($intLevel,$intMenu){
-    $('#divcleanmenu').css('width', 'calc(' + parseInt(100 - (15 * $intLevel)) + '% - ' + parseInt(1 * $intLevel) + 'px)');
+    $('#divcleanmenu').css('width', 'calc(' + parseInt(100 - (25 * $intLevel)) + '% - ' + parseInt(1 * $intLevel) + 'px)');
     switch($intLevel){
         case 2:
             if($intCurrentSubCategory!=''){
@@ -40,7 +39,7 @@ function openMenu($intLevel,$intMenu){
             }
             $intCurrentCategory = $intMenu;
             $('#divMenuCategory_' + $intMenu).addClass('divMenuCategorySelected');
-            $('#divMenuMain_' + $intMenu).css('width', 'calc(15% - 1px)');
+            $('#divMenuMain_' + $intMenu).css('width', 'calc(25% - 1px)');
             $('#divMenuMain_' + $intMenu).css('border-right', '1px #1E202C solid');
             break;
         case 3:
@@ -51,7 +50,7 @@ function openMenu($intLevel,$intMenu){
             }
             $intCurrentSubCategory = $intMenu;
             $('#divMenuSubCategory_' + $intMenu).addClass('divMenuSubCategorySelected');
-            $('#divMenuMain_' + $intMenu).css('width', 'calc(15% - 1px)');
+            $('#divMenuMain_' + $intMenu).css('width', 'calc(25% - 1px)');
             $('#divMenuMain_' + $intMenu).css('border-right', '1px #1E202C solid');
             break;
     }
