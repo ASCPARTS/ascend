@@ -13,9 +13,10 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Ventas por Articulo Acumulado';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
+
 switch ($strProcess) {
     case 'Filter':
         $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);

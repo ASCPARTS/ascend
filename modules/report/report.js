@@ -21,6 +21,7 @@ $('document').ready(function(){
                             case 'date':
                                 if($jsnReportParameters.arrFilters[$intIndex].name.substr($jsnReportParameters.arrFilters[$intIndex].name.length - 5,5)=='_From'){
                                     $('#' + $jsnReportParameters.arrFilters[$intIndex].name).datepicker({inline: false, language: 'es', firstDay: 1, toggleSelected: false, autoClose: true, onSelect: function(){if(parseInt($('#strDate_From').val().split('-').join(''))>parseInt($('#strDate_To').val().split('-').join(''))){$('#strDate_To').val($('#strDate_From').val());}}});
+                 
                                 }else{
                                     $('#' + $jsnReportParameters.arrFilters[$intIndex].name).datepicker({inline: false, language: 'es', firstDay: 1, toggleSelected: false, autoClose: true, onSelect: function(){if(parseInt($('#strDate_To').val().split('-').join(''))<parseInt($('#strDate_From').val().split('-').join(''))){$('#strDate_From').val($('#strDate_To').val());}}});
                                 }

@@ -13,9 +13,9 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Pedidos Pendientes de Surtir por Zona Venta';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
 
 switch ($strProcess) {
     case 'Filter':

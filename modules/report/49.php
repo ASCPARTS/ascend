@@ -13,9 +13,10 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Movimientos sin Conciliar';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
+
 
 switch ($strProcess) {
     case 'Filter':

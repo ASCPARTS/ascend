@@ -13,9 +13,9 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Compara Costo (Promedio 3 últimas compras)';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
 
 switch ($strProcess) {
     case 'Filter':

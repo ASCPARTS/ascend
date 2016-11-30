@@ -13,9 +13,10 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Estado de Cuenta Acumulado';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
+
 
 switch ($strProcess) {
     case 'Filter':

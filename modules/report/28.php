@@ -13,9 +13,9 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Listado de Pedidos Pendientes por Surtir OLEDB';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
 
 switch ($strProcess) {
     case 'Filter':

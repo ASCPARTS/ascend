@@ -13,9 +13,10 @@ $strProcess = $_REQUEST['strProcess'];
 $strTitle = 'Días Promedio Recuperación Cartera por Cliente y Fecha';
 $blnPaginated = true;
 $blnFreezeHeader = true;
-$btnXLS = false;
-$btnPDF = false;
-$btnTXT = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
+
 
 switch ($strProcess) {
     case 'Filter':

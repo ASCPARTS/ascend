@@ -9,10 +9,15 @@ require_once('lib/report.php');
 
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
-
+$strTitle = 'Pedidos Pendientes de Surtir por Articulo';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Pedidos Pendientes de Surtir por Articulo','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
         //##### FUnction buildFilter
         //$strType: 'numeric' || 'select'
