@@ -37,23 +37,20 @@ switch ($strProcess) {
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('numeric','barCodeGray','strSKU','SKU',7,false,0,false,''));
         //##### Input Family
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblFamily WHERE strStatus = 'A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupYellow','intFamily','Familia',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intFamily','Familia',0,false,0,false,$strSql));
         //##### Input Brand
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblBrand WHERE strStatus = 'A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupYellow','intBrand','Marca',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intBrand','Marca',0,false,0,false,$strSql));
         //##### Input Group
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblGroup WHERE strStatus = 'A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupYellow','intGroup','Grupo',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intGroup','Grupo',0,false,0,false,$strSql));
         //##### Input Class
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catClass WHERE strStatus = 'A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupYellow','intClass','Clase',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','classGray','intClass','Clase',0,false,0,false,$strSql));
         //##### Input Condition
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catCondition WHERE strStatus = 'A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupYellow','intCondition','Condicion',0,false,0,false,$strSql));
-        //##### Input Date
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_From','Fecha (de)',0,false,0,false,''));
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_To','Fecha (hasta)',0,false,0,false,''));
-
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','typeGray','intCondition','Condicion',0,false,0,false,$strSql));
+        
         break;
     case 'Report':
         $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
