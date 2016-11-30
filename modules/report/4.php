@@ -33,7 +33,7 @@ switch ($strProcess) {
         //#####
         //##### Input Periodo
         $strSql="select intId as strValue, strDescription as strDisplay from catPeriod where strStatus='A';";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','calendarGray','intZone','Zona de Venta',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','worldGray','intZone','Zona de Venta',0,false,0,false,$strSql));
 
         //##### Input Almacen
         $strSql="select intId as strValue, strDescription as strDisplay from catWarehouse where strStatus='A' ORDER BY 2;";
