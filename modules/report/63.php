@@ -1,5 +1,5 @@
 <?php
-/*Existencias por Almacén y Ubicación*/
+/*Proyección de Cobranza por Fechas*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
@@ -10,7 +10,7 @@ require_once('lib/report.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
-$strTitle = 'Existencias por Almacén y Ubicación';
+$strTitle = 'Proyección de Cobranza por Fechas';
 $blnPaginated = true;
 $blnFreezeHeader = true;
 $btnXLS = false;
@@ -20,9 +20,8 @@ $btnTXT = true;
 switch ($strProcess) {
     case 'Filter':
         $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
-
-        //##### FUnction buildFilter
-        //$strType: 'numeric' || 'select'
+        //##### Function buildFilter
+        //$strType: 'numeric' || 'select' || 'date'
         //$strIcon: catalogo imagenes || ''
         //$strName: id del input
         //$strLabel: etiqueta para el input
@@ -33,17 +32,16 @@ switch ($strProcess) {
         //$strSql: sentencia sql para llenar campo tipo select
         //#####
 
-        //##### Input Periodo
-        $strSql="select intId as strValue, strDescription as strDisplay from catPeriod where strStatus='A';";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','calendarGray','intPeriod','Periodo',0,false,0,false,$strSql));
-        //##### Input Almacen
-        $strSql="select intId as strValue, strDescription as strDisplay from catWarehouse where strStatus='A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','companyGray','intWarehouse','Almacen',0,false,0,false,$strSql));
-        
-        break;
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
+        //##### Input Folio Pedido
+        array_push($jsnPhpScriptResponse['arrFilters'],
+            buildFilter('numeric','searchGray','strFolio','Folio','',false,0,false,''));
 
+        break;
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
@@ -102,7 +100,7 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
+        $strSql .= "ORDER BY P.strSKU;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
@@ -110,7 +108,7 @@ switch ($strProcess) {
         $strReport .= '<thead>';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
-        $strReport .= '<th>NumeroParte</th>';
+        $strReport .= '<th>Numero de Parte</th>';
         $strReport .= '<th>Descripcion</th>';
         $strReport .= '<th>Familia</th>';
         $strReport .= '<th>Marca</th>';
@@ -154,9 +152,9 @@ switch ($strProcess) {
             unset($rstPriceList);
             $strReport .= '</tr>';
         }
+        unset($arrData);
+        unset($rstData);
         $strReport .= '</table>';
-
-        //echo $strReport;
 
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;
