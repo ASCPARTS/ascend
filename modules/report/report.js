@@ -5,7 +5,7 @@ $('document').ready(function(){
             url: $intIdReport + ".php", data: $strQueryString, type: "POST", dataType: "json",
             success: function ($jsnPhpScriptResponse) {
                 $jsnReportParameters = $jsnPhpScriptResponse;
-                $('#divTitle').html($jsnReportParameters.strTitle);
+                $('#divTitle').html($jsnReportParameters.strTitle + ' - (' + $intIdReport + ')');
                 $('#divFormFilters').html('');
                 if($jsnReportParameters.arrFilters.length!=0){
                     for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
