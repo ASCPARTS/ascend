@@ -33,125 +33,77 @@ switch ($strProcess) {
         //#####
         //##### Input vendedor
         $strSql="select intId as strValue, strName as strDisplay from tblUser where strRoll='VTA' and strStatus='A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','intSeller','Vendedor',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','strName','Vendedor',0,false,0,false,$strSql));
         //##### Input Date
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
-
-
 
         break;
 
     case 'Report':
         $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
-        $strSKU = trim($_REQUEST['strSKU']);
-        $intFamily = $_REQUEST['intFamily'];
-        $intBrand = $_REQUEST['intBrand'];
-        $intGroup = $_REQUEST['intGroup'];
-        $intClass = $_REQUEST['intClass'];
-        $strSql = "SELECT P.intId AS intId, P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion, F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName AS Condicion ";
-        $strSql .= "FROM tblProduct P ";
-        $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
-        $strSql .= "LEFT JOIN tblBrand B ON P.intBrand = B.intId ";
-        $strSql .= "LEFT JOIN tblGroup G ON P.intGroup = G.intId ";
-        $strSql .= "LEFT JOIN catClass C ON P.intClass = C.intId ";
-        $strSql .= "LEFT JOIN catCondition CO ON P.intCondition = CO.intId ";
-        $blnWhere = false;
-        if($strSKU!=''){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.strSKU = " . $strSKU . " ";
+
+        $strName = trim($_REQUEST['strName']);
+        $strDate_From = $_REQUEST['strDate_From'];
+        $strDate_To = $_REQUEST['strDate_To'];
+
+        $strSql = "select O.strKeyNumber, O.intAuthorized as Autorizado, O.intAuthorizationDate as FechaAutorizacion, O.strStatus, 
+        C.strKeyNumber as NumeroCliente, C.strCommercialName as RazonSocial, CC.strName AS ClaseCliente, P.strSKU as SKU, 
+        P.strDescription as Descripcion, cC.strName AS ClaseSKU, OD.intQuantity as Cantidad,
+        ODQ.decUnitPrice as PrecioUnitario, ODQ.decTotal as Importe,  O.intCreationDate as FechaCreacion, OD.intPromiseDate as FechaPromesa ";
+        $strSql .= "from tblOrder O ";
+        $strSql .= "LEFT JOIN tblCustomer C ON C.intId = O.intCustomer ";
+        $strSql .= "LEFT JOIN tblOrderDetail OD ON OD.intOrder= O.intId ";
+        $strSql .= "LEFT JOIN tblProduct P ON P.intId= OD.intProduct ";
+        $strSql .= "LEFT JOIN catClass cC ON cC.intId=P.intClass ";
+        $strSql .= "LEFT JOIN catClass CC ON CC.intId=C.intClass ";
+        $strSql .= "LEFT JOIN tblOrderDetailQuotation ODQ ON ODQ.intItem = OD.intId ";
+        $strSql .= "WHERE O.intCreationDate >= '$strDate_From' and O.intCreationDate <= '$strDate_To' ";
+        if($strName!=-1){
+            $strSql .="AND C.intId = " . $strName . " ";
         }
-        if($intFamily!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intFamily = " . $intFamily . " ";
-        }
-        if($intBrand!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intBrand = " . $intBrand . " ";
-        }
-        if($intGroup!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intGroup = " . $intGroup . " ";
-        }
-        if($intClass!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intClass = " . $intClass . " ";
-        }
-        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
+        $strSql.= "ORDER BY O.strKeyNumber;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
         $strReport = '<table>';
         $strReport .= '<thead>';
         $strReport .= '<tr>';
+        $strReport .= '<th>Folio</th>';
+        $strReport .= '<th>Autorizado</th>';
+        $strReport .= '<th>Fecha de Autorización</th>';
+        $strReport .= '<th>Estatus</th>';
+        $strReport .= '<th>Número de Cliente</th>';
+        $strReport .= '<th>Razón Social</th>';
+        $strReport .= '<th>Clase del Cliente</th>';
         $strReport .= '<th>SKU</th>';
-        $strReport .= '<th>NumeroParte</th>';
-        $strReport .= '<th>Descripcion</th>';
-        $strReport .= '<th>Familia</th>';
-        $strReport .= '<th>Marca</th>';
-        $strReport .= '<th>Grupo</th>';
-        $strReport .= '<th>Clase</th>';
-        $strReport .= '<th>Condicion</th>';
-        $strSql = "SELECT strDescription FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
-        $rstPriceList = $objAscend->dbQuery($strSql);
-        foreach ($rstPriceList as $arrPriceList){
-            $strReport .= '<th>' . $arrPriceList['strDescription'] . '</th>';
-        }
-        unset($arrPriceList);
-        unset($rstPriceList);
+        $strReport .= '<th>Descripción</th>';
+        $strReport .= '<th>Clase de SKU</th>';
+        $strReport .= '<th>Cantidad</th>';
+        $strReport .= '<th>Precio Unitario</th>';
+        $strReport .= '<th>Importe</th>';
+        $strReport .= '<th>Fecha de Creación</th>';
+        $strReport .= '<th>Fecha Promesa</th>';
+        $strReport .= '</tr>';
         $strReport .= '</thead>';
+
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
+            $strReport .= '<td>' . $arrData['strKeyNumber'] . '</td>';
+            $strReport .= '<td>' . $arrData['Autorizado'] . '</td>';
+            $strReport .= '<td>' . $arrData['FechaAutorizacion'] . '</td>';
+            $strReport .= '<td>' . $arrData['strStatus'] . '</td>';
+            $strReport .= '<td>' . $arrData['NumeroCliente'] . '</td>';
+            $strReport .= '<td>' . $arrData['RazonSocial'] . '</td>';
+            $strReport .= '<td>' . $arrData['ClaseCliente'] . '</td>';
             $strReport .= '<td>' . $arrData['SKU'] . '</td>';
-            $strReport .= '<td>' . $arrData['NumeroParte'] . '</td>';
             $strReport .= '<td>' . $arrData['Descripcion'] . '</td>';
-            $strReport .= '<td>' . $arrData['Familia'] . '</td>';
-            $strReport .= '<td>' . $arrData['Marca'] . '</td>';
-            $strReport .= '<td>' . $arrData['Grupo'] . '</td>';
-            $strReport .= '<td>' . $arrData['Clase'] . '</td>';
-            $strReport .= '<td>' . $arrData['Condicion'] . '</td>';
-            $strSql = "SELECT intId FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
-            $rstPriceList = $objAscend->dbQuery($strSql);
-            foreach ($rstPriceList as $arrPriceList){
-                $strSql = "SELECT decPrice FROM tblProductPricelist WHERE intProduct = " . $arrData['intId'] . " AND intPriceList = " . $arrPriceList['intId'] . ";";
-                $rstPrice = $objAscend->dbQuery($strSql);
-                if(count($rstPrice)==0){
-                    $strReport .= '<td>N/A</td>';
-                }else{
-                    foreach ($rstPrice as $arrPrice){
-                        $strReport .= '<td>$ ' . number_format($arrPrice['decPrice'],2,'.',',') . '</td>';
-                    }
-                    unset($arrPrice);
-                }
-                unset($rstPrice);
-            }
-            unset($arrPriceList);
-            unset($rstPriceList);
+            $strReport .= '<td>' . $arrData['ClaseSKU'] . '</td>';
+            $strReport .= '<td>' . $arrData['Cantidad'] . '</td>';
+            $strReport .= '<td>' . $arrData['PrecioUnitario'] . '</td>';
+            $strReport .= '<td>' . $arrData['Importe'] . '</td>';
+            $strReport .= '<td>' . $arrData['FechaCreacion'] . '</td>';
+            $strReport .= '<td>' . $arrData['FechaPromesa'] . '</td>';
             $strReport .= '</tr>';
         }
         $strReport .= '</table>';

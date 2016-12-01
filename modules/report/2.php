@@ -48,11 +48,13 @@ switch ($strProcess) {
 
     case 'Report':
         $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
-        $strSKU = trim($_REQUEST['strSKU']);
+
+        $intSeller = trim($_REQUEST['intSeller']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
         $intGroup = $_REQUEST['intGroup'];
         $intClass = $_REQUEST['intClass'];
+
         $strSql = "SELECT P.intId AS intId, P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion, F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName AS Condicion ";
         $strSql .= "FROM tblProduct P ";
         $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
