@@ -5,3 +5,4 @@
 <script src="../../lib/jquery.numeric.js"></script>
 <script src="../../lib/datepicker.min.js"></script>
 <script src="../../lib/datepicker.es.js"></script>
+<script src="../../lib/jquery.mask.min.js"></script>

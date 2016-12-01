@@ -22,7 +22,7 @@ html, body {
 
 .divMenuLevel0 {
     height: 100%;
-    width: calc(25% - 1px);
+    width: calc(20% - 1px);
     background-color: #1766A1;
     float: left;
     display: block;
@@ -63,12 +63,12 @@ html, body {
     background-image: url('../img/logo_h_a_256.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 80% auto;
+    background-size: 70% auto;
 }
 
 .divMenuClear{
     height: 100%;
-    width: 75%;
+    width: 80%;
     background-color: rgba(0,0,0,.5);
     float: left;
     display: block;
@@ -150,7 +150,7 @@ html, body {
     width: 152px;
     float: left;
     border-right: 2px #D8D8D8 solid;
-    /*background-image: url('../img/logo_h_byn_128.png');*/
+    background-image: url('../img/logo_h_byn_128.png');
     background-repeat: no-repeat;
     background-position: center center;
 }

@@ -18,6 +18,9 @@ $('document').ready(function(){
                                     $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: false, negative: $jsnReportParameters.arrFilters[$intIndex].negative });
                                 }
                                 break;
+                            case 'textwithscore':
+                                //$('#' + $jsnReportParameters.arrFilters[$intIndex].name).mask('000-00', {reverse: true,translation: {'Z': {pattern: /[0-9]/, optional: true}}});
+                                break;
                             case 'date':
                                 if($jsnReportParameters.arrFilters[$intIndex].name.substr($jsnReportParameters.arrFilters[$intIndex].name.length - 5,5)=='_From'){
                                     $('#' + $jsnReportParameters.arrFilters[$intIndex].name).datepicker({inline: false, language: 'es', firstDay: 1, toggleSelected: false, autoClose: true, onSelect: function(){if(parseInt($('#strDate_From').val().split('-').join(''))>parseInt($('#strDate_To').val().split('-').join(''))){$('#strDate_To').val($('#strDate_From').val());}}});
@@ -59,12 +62,20 @@ function evalForm() {
         if($blnGo){
             for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
                 switch($jsnReportParameters.arrFilters[$intIndex].type){
-                    case 'algo':
-
+                    case 'textwithscore1':
+                        if(!evalTextWithScore($jsnReportParameters.arrFilters[$intIndex].name)){
+                            $('#' + $jsnReportParameters.arrFilters[$intIndex].name).focus();
+                            $blnGo = false;
+                            $('#divFormErrMsg').html('El formato del campo ' + $jsnReportParameters.arrFilters[$intIndex].label + ' es incorrecto!');
+                            $('#divFormErrMsg').slideDown('fast');
+                            $('#divWorkingBackground').fadeOut('slow' );
+                            $intIndex = $jsnReportParameters.arrFilters.length + 1;
+                        }
                         break;
                 }
             }
         }
+        $blnGo = false;
         if($blnGo){
             $strQueryString = 'strProcess=Report';
             for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
@@ -136,6 +147,17 @@ function evalRequired($strInput,$strInputType){
         if($('#' + $strInput).val().trim()==''){
             $blnReturn = false;
         }
+    }
+    return $blnReturn;
+}
+
+function evalTextWithScore($strInput){
+    $blnReturn = false;
+    $strEMExp=/^[0-9]+([0-9]+)+(\-[0-9])$/;
+    if(!$strEMExp.exec($('#' + $strInput).val().trim())){
+        $blnReturn = false;
+    }else{
+        alert('furula');
     }
     return $blnReturn;
 }

@@ -50,7 +50,7 @@ switch ($strProcess) {
         //##### Input Condition
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catCondition WHERE strStatus = 'A' ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','typeGray','intCondition','Condicion',0,false,0,false,$strSql));
-        
+
         break;
     case 'Report':
         $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);

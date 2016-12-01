@@ -20,6 +20,7 @@ function buildFilter($strType, $strIcon, $strName, $strLabel, $intMaxLength, $bl
             $strInput .= '</select>';
             break;
         case 'numeric':
+        case 'textwithscore':
             $strFilter .= 'divInputText';
             $strInput = '<input type="text" id="' . $strName . '"';
             if($intMaxLength>0){
