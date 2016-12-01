@@ -114,7 +114,7 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU LIMIT 2;";
+        $strSql .= "ORDER BY P.strSKU;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
@@ -136,7 +136,7 @@ switch ($strProcess) {
         }
         unset($arrPriceList);
         unset($rstPriceList);
-        $strReport .= '<th style="16px"></th>';
+        $strReport .= '<th style="width: 16px"></th>';
         $strReport .= '</thead>';
         $strReport .= '<tbody id="tbodyReport" onscroll="scrollHeader();" style="position: relative; display: block; overflow-x: auto; overflow-y: auto; height: calc(100% - 30px); margin: 0 0 0 0; padding: 4px 20px 0 0; border:0 !important">';
         foreach($rstData as $arrData){

@@ -41,7 +41,7 @@ switch ($strProcess) {
         break;
 
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
 
         $strName = trim($_REQUEST['strName']);
         $strDate_From = $_REQUEST['strDate_From'];
@@ -66,10 +66,10 @@ switch ($strProcess) {
 
         $rstData = $objAscend->dbQuery($strSql);
 
-        $strReport = '<table>';
-        $strReport .= '<thead>';
+        $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
+        $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
         $strReport .= '<tr>';
-        $strReport .= '<th>Folio</th>';
+        $strReport .= '<th>Documento</th>';
         $strReport .= '<th>Autorizado</th>';
         $strReport .= '<th>Fecha de Autorización</th>';
         $strReport .= '<th>Estatus</th>';
@@ -84,14 +84,15 @@ switch ($strProcess) {
         $strReport .= '<th>Importe</th>';
         $strReport .= '<th>Fecha de Creación</th>';
         $strReport .= '<th>Fecha Promesa</th>';
+        $strReport .= '<th style="width: 16px; background-color: #0d3859;"></th>';
         $strReport .= '</tr>';
         $strReport .= '</thead>';
-
+        $strReport .= '<tbody id="tbodyReport" onscroll="scrollHeader();" style="position: relative; display: block; overflow-x: auto; overflow-y: auto; height: calc(100% - 30px); margin: 0 0 0 0; padding: 4px 20px 0 0; border:0 !important">';
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['strKeyNumber'] . '</td>';
             $strReport .= '<td>' . $arrData['Autorizado'] . '</td>';
-            $strReport .= '<td>' . $arrData['FechaAutorizacion'] . '</td>';
+            $strReport .= '<td>' . $objAscend->formatDateTime($arrData['FechaAutorizacion'],DTF_11) . '</td>';
             $strReport .= '<td>' . $arrData['strStatus'] . '</td>';
             $strReport .= '<td>' . $arrData['NumeroCliente'] . '</td>';
             $strReport .= '<td>' . $arrData['RazonSocial'] . '</td>';
@@ -102,10 +103,11 @@ switch ($strProcess) {
             $strReport .= '<td>' . $arrData['Cantidad'] . '</td>';
             $strReport .= '<td>' . $arrData['PrecioUnitario'] . '</td>';
             $strReport .= '<td>' . $arrData['Importe'] . '</td>';
-            $strReport .= '<td>' . $arrData['FechaCreacion'] . '</td>';
+            $strReport .= '<td>' . $objAscend->formatDateTime($arrData['FechaCreacion'],DTF_11) . '</td>';
             $strReport .= '<td>' . $arrData['FechaPromesa'] . '</td>';
             $strReport .= '</tr>';
         }
+        $strReport .= '</tbody>';
         $strReport .= '</table>';
 
         //echo $strReport;
