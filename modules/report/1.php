@@ -22,7 +22,7 @@ switch ($strProcess) {
         $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
         //##### Function buildFilter
-        //$strType: 'numeric' || 'select' || 'date'
+        //$strType: 'numeric' || 'select' || 'date' || 'textwithscore'
         //$strIcon: catalogo imagenes || ''
         //$strName: id del input
         //$strLabel: etiqueta para el input

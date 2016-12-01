@@ -19,7 +19,7 @@ $('document').ready(function(){
                                 }
                                 break;
                             case 'textwithscore':
-                                //$('#' + $jsnReportParameters.arrFilters[$intIndex].name).mask('000-00', {reverse: true,translation: {'Z': {pattern: /[0-9]/, optional: true}}});
+                                $('#' + $jsnReportParameters.arrFilters[$intIndex].name).mask('009-00999');
                                 break;
                             case 'date':
                                 if($jsnReportParameters.arrFilters[$intIndex].name.substr($jsnReportParameters.arrFilters[$intIndex].name.length - 5,5)=='_From'){
@@ -62,7 +62,7 @@ function evalForm() {
         if($blnGo){
             for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
                 switch($jsnReportParameters.arrFilters[$intIndex].type){
-                    case 'textwithscore1':
+                    case 'textwithscore':
                         if(!evalTextWithScore($jsnReportParameters.arrFilters[$intIndex].name)){
                             $('#' + $jsnReportParameters.arrFilters[$intIndex].name).focus();
                             $blnGo = false;
@@ -152,12 +152,9 @@ function evalRequired($strInput,$strInputType){
 }
 
 function evalTextWithScore($strInput){
-    $blnReturn = false;
-    $strEMExp=/^[0-9]+([0-9]+)+(\-[0-9])$/;
-    if(!$strEMExp.exec($('#' + $strInput).val().trim())){
+    $blnReturn = true;
+    if($('#' + $strInput).val().trim()==''){
         $blnReturn = false;
-    }else{
-        alert('furula');
     }
     return $blnReturn;
 }
