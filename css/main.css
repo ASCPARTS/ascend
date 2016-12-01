@@ -150,7 +150,7 @@ html, body {
     width: 152px;
     float: left;
     border-right: 2px #D8D8D8 solid;
-    background-image: url('../img/logo_h_byn_128.png');
+    /*background-image: url('../img/logo_h_byn_128.png');*/
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -255,10 +255,15 @@ html, body {
 .tdTabMainContainer{
     background-color: #1766A1;
     padding: 0 0 0 0;
+    width: 152px;
+    max-width: 152px;
+    min-width: 152px;
 }
 
 .divTabContainer{
     width: calc(100% - 4px);
+    max-width: calc(100% - 4px);
+    min-width: calc(100% - 4px);
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
@@ -269,7 +274,7 @@ html, body {
     background-color: #FFFFFF;
     height: 26px;
     white-space: nowrap;
-    font-size: 11pt;
+    font-size: 10pt;
     padding: 0 0 0 0;
     line-height: 26px;
     border: 0;
@@ -280,10 +285,14 @@ html, body {
 .labelTab{
     display: inline-block;
     width: calc(100% - 42px);
+    max-width: calc(100% - 42px);
+    min-width: calc(100% - 42px);
     float: left;
     border-left: 8px #FFFFFF solid;
     padding: 0 0 0 8px;
     cursor: pointer;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .labelTab:hover {
@@ -336,6 +345,9 @@ html, body {
 
 /*### BEGIN: Notification Panel ###*/
 #tdNotificationContainer{
+    width: 200px;
+    max-width: 200px;
+    minwidth: 200px;
     background-color: #1766A1;
     padding: 0 0 0 0;
     vertical-align: top;
