@@ -1,70 +1,60 @@
 <?php
-/*Pedidos Pendientes Por Articulo (Compras)*/
+/*Pedidos Pendientes por Articulo (Compras)*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
-require_once('../../'.LIB_PATH .'class.ascend.php');
+require_once('../../'. LIB_PATH .'class.ascend.php');
+
+require_once('lib/report.php');
 
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Pedidos Pendientes por Articulo (Compras)';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Pedidos Pendientes Por Articulo (Compras)','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divInputText barCodeGray">';
-        $strFilter .= '<input type="text" id="strApproved" maxlength="1">';
-        $strFilter .= '<label>Estatus de Aprobación</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'strApproved','label'=>'Estatus de Aprobacion','html'=>$strFilter,'type'=>'string','negative'=>'','decimalPlaces'=>'','required'=>''));
+        //##### FUnction buildFilter
+        //$strType: 'numeric' || 'select'
+        //$strIcon: catalogo imagenes || ''
+        //$strName: id del input
+        //$strLabel: etiqueta para el input
+        //$intMaxLength: longitud maxima || 0=no aplica || 0=ilimitado
+        //$blnNegative: si el campo es numerico true=admite negativos || false=no admite negativos
+        //$intDecimalPlaces: si el campo es numerico 0=no admite decimales || X=numero de decimales
+        //$blnRequired: campo requerido: true=requerido || false=opcional
+        //$strSql: sentencia sql para llenar campo tipo select
+        //#####
+        //##### Input vendedor
+        $strSql="select intId as strValue, strName as strDisplay from tblUser where strRoll='VTA' and strStatus='A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','intSeller','Vendedor',0,false,0,false,$strSql));
+        //##### Input Tipo de Documento
+        $strSql="select intId as strValue, strDescription as strDisplay from catDocumentStatus where strStatus='A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','referenceGray','intDocumento','Documento',0,false,0,false,$strSql));
+        //##### Input Autorizado
+        $strSql="SELECT 'S' AS strValue,'Si' AS strDisplay UNION SELECT 'N' AS strValue,'No' AS strDisplay;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','referenceGray','intApproved','Autorizado',0,false,0,false,$strSql));
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect userGray ">';
-        $strFilter .= '<select id="intSeller">';
-        $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strName FROM tblUser where strRoll="VTA"';
-        $rstData = $objAscend->dbQuery($sqlResult);
-        foreach($rstData as $arrData){
-            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
-        }
-        unset($arrData);
-        unset($rstData);
 
-        $strFilter .= '</select>';
-        $strFilter .= '<label >Vendedor</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intSeller','label'=>'Vendedor','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect referenceGray ">';
-        $strFilter .= '<select id="intDocument">';
-        $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strDescription FROM catDocumentStatus';
-        $rstData = $objAscend->dbQuery($sqlResult);
-        foreach($rstData as $arrData){
-            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strDescription'] . '</option>';
-        }
-        unset($arrData);
-        unset($rstData);
-        $strFilter .= ' </select>';
-        $strFilter .= '<label>Tipo de Documento</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intDocument','label'=>'Tipo de Documento','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
 
-        echo$strFilter;
         break;
 
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>true,'btnPDF'=>true,'btnTXT'=>true);
-        $strSKU = trim($_REQUEST['strSKU']);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
+
+        $intSeller = trim($_REQUEST['intSeller']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
         $intGroup = $_REQUEST['intGroup'];
         $intClass = $_REQUEST['intClass'];
+
         $strSql = "SELECT P.intId AS intId, P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion, F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName AS Condicion ";
         $strSql .= "FROM tblProduct P ";
         $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
@@ -118,11 +108,12 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU;";
+        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
         $strReport = '<table>';
+        $strReport .= '<thead>';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
         $strReport .= '<th>NumeroParte</th>';
@@ -139,7 +130,7 @@ switch ($strProcess) {
         }
         unset($arrPriceList);
         unset($rstPriceList);
-        $strReport .= '</tr>';
+        $strReport .= '</thead>';
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['SKU'] . '</td>';
@@ -171,9 +162,9 @@ switch ($strProcess) {
         }
         $strReport .= '</table>';
 
-        echo $strReport;
+        //echo $strReport;
 
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;
 };
-//echo json_encode($jsnPhpScriptResponse);
+echo json_encode($jsnPhpScriptResponse);

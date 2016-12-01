@@ -1,54 +1,62 @@
 <?php
-/*Clientes Nuevos con Primera Venta*/
+/*Saldos Finales de Artículos por Día*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
-require_once('../../'.LIB_PATH .'class.ascend.php');
+require_once('../../'. LIB_PATH .'class.ascend.php');
+
+require_once('lib/report.php');
 
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Saldos Finales de Artículos por Día';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
+
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Clientes Nuevos con Primera Venta','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect groupYellow ">';
-        $strFilter .= '<select id="intZone">';
-        $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strDescription FROM catZone';
-        $rstData = $objAscend->dbQuery($sqlResult);
-        foreach($rstData as $arrData){
-            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strDescription'] . '</option>';
-        }
-        unset($arrData);
-        unset($rstData);
-        $strFilter .= '</select>';
-        $strFilter .= '<label >Zona de Venta</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intZone','label'=>'Zona de Venta','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
+        //##### FUnction buildFilter
+        //$strType: 'numeric' || 'select'
+        //$strIcon: catalogo imagenes || ''
+        //$strName: id del input
+        //$strLabel: etiqueta para el input
+        //$intMaxLength: longitud maxima || 0=no aplica || 0=ilimitado
+        //$blnNegative: si el campo es numerico true=admite negativos || false=no admite negativos
+        //$intDecimalPlaces: si el campo es numerico 0=no admite decimales || X=numero de decimales
+        //$blnRequired: campo requerido: true=requerido || false=opcional
+        //$strSql: sentencia sql para llenar campo tipo select
+        //#####
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divInputDate calendarYellow">';
-        $strFilter .= '<input id="x" type="date" id="intDate">';
-        $strFilter .= '<label for="x">Fecha Inicial</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intDate','label'=>'Fecha Inicial','html'=>$strFilter,'type'=>'date','negative'=>'','decimalPlaces'=>'','required'=>''));
+        //##### Input Family
+        $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblFamily WHERE strStatus = 'A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intFamily','Familia',0,false,0,false,$strSql));
+        //##### Input Brand
+        $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblBrand WHERE strStatus = 'A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intBrand','Marca',0,false,0,false,$strSql));
+        //##### Input Group
+        $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblGroup WHERE strStatus = 'A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','groupGray','intGroup','Grupo',0,false,0,false,$strSql));
+        //##### Input Class
+        $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catClass WHERE strStatus = 'A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','classGray','intClass','Clase',0,false,0,false,$strSql));
+        //##### Input Condition
+        $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catCondition WHERE strStatus = 'A' ORDER BY 2;";
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','typeGray','intCondition','Condicion',0,false,0,false,$strSql));
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divInputDate calendarYellow">';
-        $strFilter .= '<input id="x" type="date" id="intDate">';
-        $strFilter .= '<label for="x">Fecha Final</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intDate','label'=>'Fecha Final','html'=>$strFilter,'type'=>'date','negative'=>'','decimalPlaces'=>'','required'=>''));
 
         break;
 
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>true,'btnPDF'=>true,'btnTXT'=>true);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
@@ -107,11 +115,12 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU;";
+        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
         $strReport = '<table>';
+        $strReport .= '<thead>';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
         $strReport .= '<th>NumeroParte</th>';
@@ -128,7 +137,7 @@ switch ($strProcess) {
         }
         unset($arrPriceList);
         unset($rstPriceList);
-        $strReport .= '</tr>';
+        $strReport .= '</thead>';
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['SKU'] . '</td>';
@@ -160,9 +169,9 @@ switch ($strProcess) {
         }
         $strReport .= '</table>';
 
-        echo $strReport;
+        //echo $strReport;
 
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;
 };
-//echo json_encode($jsnPhpScriptResponse);
+echo json_encode($jsnPhpScriptResponse);

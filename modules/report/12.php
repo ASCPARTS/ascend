@@ -1,39 +1,46 @@
 <?php
-/*Pedidos Pendientes de Surtir por Vendedor*/
+/*Facturas Vta. por Artículo y Cliente*/
 
 require_once ('../../inc/include.config.php');
 ini_set("display_errors",0);
-require_once('../../'.LIB_PATH .'class.ascend.php');
+require_once('../../'. LIB_PATH .'class.ascend.php');
+
+require_once('lib/report.php');
 
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 
+$strTitle = 'Facturas Vta. por Artículo y Cliente';
+$blnPaginated = true;
+$blnFreezeHeader = true;
+$btnXLS = true;
+$btnPDF = true;
+$btnTXT = false;
 
 switch ($strProcess) {
     case 'Filter':
-        $jsnPhpScriptResponse = array('strTitle'=>'Pedidos Pendientes de Surtir por Vendedor','arrFilters'=>array());
+        $jsnPhpScriptResponse = array('strTitle'=>$strTitle,'arrFilters'=>array(),'blnPaginated'=>$blnPaginated,'blnFreezeHeader'=>$blnFreezeHeader);
+
+        //##### FUnction buildFilter
+        //$strType: 'numeric' || 'select'
+        //$strIcon: catalogo imagenes || ''
+        //$strName: id del input
+        //$strLabel: etiqueta para el input
+        //$intMaxLength: longitud maxima || 0=no aplica || 0=ilimitado
+        //$blnNegative: si el campo es numerico true=admite negativos || false=no admite negativos
+        //$intDecimalPlaces: si el campo es numerico 0=no admite decimales || X=numero de decimales
+        //$blnRequired: campo requerido: true=requerido || false=opcional
+        //$strSql: sentencia sql para llenar campo tipo select
+        //#####
+        //##### Input Date
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
 
 
-        $strFilter = '<div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">';
-        $strFilter .= '<div class="divSelect userGray ">';
-        $strFilter .= '<select id="intSeller\">';
-        $strFilter .= '<option value="-1">--seleccionar--</option>';
-        $sqlResult = 'SELECT intId, strName FROM tblUser where strRoll="VTA"';
-        $rstData = $objAscend->dbQuery($sqlResult);
-        foreach($rstData as $arrData){
-            $strFilter .= '<option value="' . $arrData['intId'] . '">' . $arrData['strName'] . '</option>';
-        }
-        unset($arrData);
-        unset($rstData);
-        $strFilter .= '</select>';
-        $strFilter .= '<label >Vendedor</label>';
-        $strFilter .= '</div>';
-        $strFilter .= '</div>';
-        array_push($jsnPhpScriptResponse['arrFilters'],array('name'=>'intSeller','label'=>'Vendedor','html'=>$strFilter,'type'=>'select','negative'=>'','decimalPlaces'=>'','required'=>''));
-         break;
+        break;
 
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>true,'btnPDF'=>true,'btnTXT'=>true);
+        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];
         $intBrand = $_REQUEST['intBrand'];
@@ -92,11 +99,12 @@ switch ($strProcess) {
             }
             $strSql .="P.intClass = " . $intClass . " ";
         }
-        $strSql .= "ORDER BY P.strSKU;";
+        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
 
         $rstData = $objAscend->dbQuery($strSql);
 
         $strReport = '<table>';
+        $strReport .= '<thead>';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
         $strReport .= '<th>NumeroParte</th>';
@@ -113,7 +121,7 @@ switch ($strProcess) {
         }
         unset($arrPriceList);
         unset($rstPriceList);
-        $strReport .= '</tr>';
+        $strReport .= '</thead>';
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['SKU'] . '</td>';
@@ -145,9 +153,9 @@ switch ($strProcess) {
         }
         $strReport .= '</table>';
 
-        echo $strReport;
+        //echo $strReport;
 
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;
 };
-//echo json_encode($jsnPhpScriptResponse);
+echo json_encode($jsnPhpScriptResponse);

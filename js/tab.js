@@ -8,7 +8,7 @@ function handleTab($intTab, $strName, $strUrl){
         $arrTabs.push($intTab);
         $('#labelTab_' + $intCurrentTab).removeClass('labelTabSelected');
         $('#iframeSheet_' + $intCurrentTab).hide();
-        $strDivToAppend = '<div id="divTab_' + $intTab + '" class="divTab"><label id="labelTab_' + $intTab + '" class="labelTab" onclick="handleTab(\'' + $intTab + '\')">' + $strName + '</label><label class="labelTabClose" onclick="closeTab(\'' + $intTab + '\')">&#10005</label></div>';
+        $strDivToAppend = '<div id="divTab_' + $intTab + '" class="divTab"><label id="labelTab_' + $intTab + '" class="labelTab" onclick="handleTab(\'' + $intTab + '\')" title="' + $strName + '">' + $strName + '</label><label class="labelTabClose" onclick="closeTab(\'' + $intTab + '\')">&#10005</label></div>';
         $('#divTabContainer').append($strDivToAppend);
         $strIframeToAppend = '<iframe id="iframeSheet_' + $intTab + '" class="iframeSheet" src="' + $strUrl + '"></iframe>';
         $('#divSheetContainer').append($strIframeToAppend);
