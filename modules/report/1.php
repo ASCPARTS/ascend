@@ -49,7 +49,7 @@ switch ($strProcess) {
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','classGray','intClass','Clase',0,false,0,false,$strSql));
         //##### Input Condition
         $strSql="SELECT intId AS strValue, strName AS strDisplay FROM catCondition WHERE strStatus = 'A' ORDER BY 2;";
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','typeGray','intCondition','Condicion',0,false,0,false,$strSql));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','typeGray','intCondition','Condición',0,false,0,false,$strSql));
 
         break;
     case 'Report':
