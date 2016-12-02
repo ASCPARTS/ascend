@@ -8,7 +8,7 @@ html, body
     overflow: visible;
 }
 
-#divWorkingBackground {
+.divWorkingBackground {
     z-index: 10000001;
     background-color: rgba(0, 0, 0, .6);
     position: fixed;
@@ -21,11 +21,11 @@ html, body
     display: none;
 }
 
-#divWorking {
+.divWorking {
     text-align: center;
     padding: 20px 20px 20px 20px;
-    border: 1px #F9A11B solid;
-    box-shadow: 0 1px 0 #E58D07;
+    border: 1px #00b8fe solid;
+    box-shadow: 0 1px 0 #1766A1;
     background-color: #282828;
     top: 0;
     bottom: 0;
@@ -33,8 +33,8 @@ html, body
     right: 0;
     margin: auto auto auto auto;
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 128px;
+    height: 15px;
 }
 
 .MainTitle {

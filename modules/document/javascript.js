@@ -17,13 +17,14 @@ function fnDocument_init()
         },
         beforeSend: function (data)
         {
-            $('#divDocumentList').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            $('#divWorking').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
         },
         success:function(data)
         {
+            $('#divWorking').hide();
             $('#divDocumentList').empty();
 
             //LLenar contenido de las secciones
@@ -48,18 +49,19 @@ function fnDocument_newDocument()
         },
         beforeSend: function (data)
         {
-            $('#rowDocumentForm').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            $('#divWorking').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
         },
         success:function(data)
         {
+            $('#divWorking').hide();
             $('#rowDocumentForm').empty();
 
             //LLenar contenido de las secciones
             $('#rowDocumentForm').html(data.jsnDocumentDetail);
-            alert($jsnDocumentLife.intDocumentId)
+
         }
     });
 }
@@ -80,18 +82,19 @@ function fnDocument_getDocumentDetail(intDocumentId)
         },
         beforeSend: function (data)
         {
-            $('#rowDocumentForm').html('<img id="loading_gif" src="../../img/catalog/loading.gif">');
+            $('#divWorking').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
         },
         success:function(data)
         {
+            $('#divWorking').hide();
             $('#rowDocumentForm').empty();
 
             //LLenar contenido de las secciones
             $('#rowDocumentForm').html(data.jsnDocumentDetail);
-            alert($jsnDocumentLife.intDocumentId)
+
         }
     });
 }
