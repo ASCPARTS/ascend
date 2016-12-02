@@ -5,7 +5,13 @@ $strTopMenu = '';
 $strSql = "SELECT * FROM tblMenu WHERE intStatus = 1 AND strLocation = 'T' ORDER BY intOrder;";
 $rstTopMenu = $classAscend->dbQuery($strSql);
 foreach ($rstTopMenu as $arrTopMenu){
-    $strTopMenu .= '<div class="divTopMenu divTopMenuLeft imageTopMenu" style="background-image: url(\'' . $arrTopMenu['strIcon'] . '\');" title="' . $arrTopMenu['strName'] . '" onclick="handleTab(\'' . $arrTopMenu['intId'] . '\',\'' . $arrTopMenu['strName'] . '\',\'' . $arrTopMenu['strUrl'] . '\');"></div>' . "\r\n";
+    $strTopMenu .= '<div class="divTopMenu divTopMenuLeft imageTopMenu" style="background-image: url(\'' . $arrTopMenu['strIcon'] . '\');" title="' . $arrTopMenu['strName'] . '" onclick="';
+    if($arrTopMenu['intEmbedded']==1) {
+        $strTopMenu .= 'handleTab(\'' . $arrTopMenu['intId'] . '\',\'' . $arrTopMenu['strName'] . '\',\'' . $arrTopMenu['strUrl'] . '\');';
+    }else{
+        $strTopMenu .= 'window.open(\'' . $arrTopMenu['strUrl'] . '\',\'_blank\'); closeUserMenu();';
+    }
+    $strTopMenu .= '"></div>' . "\r\n";
 }
 unset($arrTopMenu);
 unset($rstTopMenu);
