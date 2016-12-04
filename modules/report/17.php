@@ -48,9 +48,9 @@ switch ($strProcess) {
         $intApproved = $_REQUEST['intApproved'];
        
 
-        $strSql = "select P.strSKU, P.strDescription, DSQ.decUnitPrice, D.strKeyNumber, D.intCreationDate, D.intAuthorizationDate, 
-        DD.intPromiseDate, catW.strCode, catW.strDescription as warehouse, catD.strDescription as document, D.intAuthorized, U.strName as user, C.strKeyNumber as keyCustomer, C.strRegisteredName as customer, 
-        DSD.intQuantity as quantity, P.strPartNumber, F.strName as family, G.strName as nameGroup ";
+        $strSql = "select D.strKeyNumber, P.strDescription, DSQ.decUnitPrice, D.intCreationDate, D.intAuthorizationDate, 
+        DD.intPromiseDate, catW.strCode, catW.strDescription as almacen, catD.strDescription as documento, D.intAuthorized, U.strName as usuario, C.strKeyNumber as codCliente, C.strRegisteredName as cliente, 
+        DSD.intQuantity ascantPend, P.strPartNumber, F.strName as familia, G.strName as grupo ";
         $strSql .= "from tblDocument D ";
         $strSql .= "LEFT JOIN tblDocumentDetail DD ON DD.intDocument = D.intId ";
         $strSql .= "LEFT JOIN tblProduct P ON P.intId = DD.intProduct ";
@@ -64,15 +64,14 @@ switch ($strProcess) {
         $strSql .= "LEFT JOIN tblFamily F ON F.intId=P.intFamily ";
         $strSql .= "LEFT JOIN tblGroup G ON G.intId=P.intGroup ";
         $strSql .= "WHERE DD.strStatus='A' and DSD.strStatus='P' ";
-
         if($intSeller!=-1){
             $strSql .="AND U.intId = " . $intSeller . " ";
         }
 
-
-        $strSql .= "ORDER BY P.strSKU ;";
+        $strSql .= "ORDER BY D.strKeyNumber ;";
 
         $rstData = $objAscend->dbQuery($strSql);
+        $objAscend->printArray($strSql);
 
         $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
         $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
