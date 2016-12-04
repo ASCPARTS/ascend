@@ -46,7 +46,7 @@ switch ($strProcess) {
         $intPeriod = trim($_REQUEST['intPeriod']);
         $intWarehouse = $_REQUEST['intWarehouse'];
 
-        $strSql = "select P.strSKU, P.strDescription as description, C.strName as class, WS.intMaximum as maximum, 
+        $strSql = "select P.intId, P.strSKU, P.strDescription as description, C.strName as class, WS.intMaximum as maximum, 
 F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as nameCondition ";
         $strSql .= "from tblProduct P ";
         $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
