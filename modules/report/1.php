@@ -53,7 +53,7 @@ switch ($strProcess) {
 
         break;
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
+        $jsnPhpScriptResponse = array('strReport'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
 
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];

@@ -32,7 +32,7 @@ switch ($strProcess) {
         //$strSql: sentencia sql para llenar campo tipo select
         //#####
         //##### Input vendedor
-        $strSql="select intId as strValue, strName as strDisplay from tblUser where strRoll='VTA' and strStatus='A' ORDER BY 2;";
+        $strSql="select intId as strValue, strName as strDisplay from tblUser where intRoll=4 ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','strName','Vendedor',0,false,0,false,$strSql));
         //##### Input Date
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
@@ -41,23 +41,23 @@ switch ($strProcess) {
         break;
 
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
+        $jsnPhpScriptResponse = array('strReport'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
 
         $strName = trim($_REQUEST['strName']);
         $strDate_From = $_REQUEST['strDate_From'];
         $strDate_To = $_REQUEST['strDate_To'];
 
-        $strSql = "select O.strKeyNumber, O.intAuthorized as Autorizado, O.intAuthorizationDate as FechaAutorizacion, O.strStatus, 
+        $strSql = "select D.strKeyNumber, D.intAuthorized as Autorizado, D.intAuthorizationDate as FechaAutorizacion, D.strStatus, 
         C.strKeyNumber as NumeroCliente, C.strCommercialName as RazonSocial, CC.strName AS ClaseCliente, P.strSKU as SKU, 
-        P.strDescription as Descripcion, cC.strName AS ClaseSKU, OD.intQuantity as Cantidad,
-        ODQ.decUnitPrice as PrecioUnitario, ODQ.decTotal as Importe,  O.intCreationDate as FechaCreacion, OD.intPromiseDate as FechaPromesa ";
-        $strSql .= "from tblOrder O ";
+        P.strDescription as Descripcion, cC.strName AS ClaseSKU, DD.intQuantity as Cantidad,
+        DSQ.decUnitPrice as PrecioUnitario, DSQ.decTotal as Importe,  D.intCreationDate as FechaCreacion, DD.intPromiseDate as FechaPromesa ";
+        $strSql .= "from tblDocument D ";
         $strSql .= "LEFT JOIN tblCustomer C ON C.intId = O.intCustomer ";
-        $strSql .= "LEFT JOIN tblOrderDetail OD ON OD.intOrder= O.intId ";
+        $strSql .= "LEFT JOIN tblDocumentDetail DD ON OD.intOrder= O.intId ";
         $strSql .= "LEFT JOIN tblProduct P ON P.intId= OD.intProduct ";
         $strSql .= "LEFT JOIN catClass cC ON cC.intId=P.intClass ";
         $strSql .= "LEFT JOIN catClass CC ON CC.intId=C.intClass ";
-        $strSql .= "LEFT JOIN tblOrderDetailQuotation ODQ ON ODQ.intItem = OD.intId ";
+        $strSql .= "LEFT JOIN tblDocumentSubdetailQuotation DSQ ON ODQ.intItem = OD.intId ";
         $strSql .= "WHERE O.intCreationDate >= '$strDate_From' and O.intCreationDate <= '$strDate_To' ";
         if($strName!=-1){
             $strSql .="AND C.intId = " . $strName . " ";
@@ -91,7 +91,7 @@ switch ($strProcess) {
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['strKeyNumber'] . '</td>';
-            $strReport .= '<td>' . $arrData['Autorizado'] . '</td>';
+            $strReport .= '<td>' . ( $arrData['Autorizado'] == 0 ? 'N' : 'S' ) . '</td>';
             $strReport .= '<td>' . $objAscend->formatDateTime($arrData['FechaAutorizacion'],DTF_11) . '</td>';
             $strReport .= '<td>' . $arrData['strStatus'] . '</td>';
             $strReport .= '<td>' . $arrData['NumeroCliente'] . '</td>';

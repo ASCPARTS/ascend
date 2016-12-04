@@ -34,73 +34,31 @@ switch ($strProcess) {
         //##### Input SKU
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('numeric','barCodeGray','strSKU','SKU',7,false,0,false,''));
         //##### Input Date
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_From','Fecha (de)',0,false,0,false,''));
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','barCodeGray','strDate_To','Fecha (hasta)',0,false,0,false,''));
+        //array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
+        //array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_To','Fecha (hasta)',0,false,0,false,''));
 
         break;
 
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>'','btnXLS'=>false,'btnPDF'=>false,'btnTXT'=>true);
-        $strSKU = trim($_REQUEST['strSKU']);
-        $intFamily = $_REQUEST['intFamily'];
-        $intBrand = $_REQUEST['intBrand'];
-        $intGroup = $_REQUEST['intGroup'];
-        $intClass = $_REQUEST['intClass'];
-        $strSql = "SELECT P.intId AS intId, P.strSKU as SKU, P.strPArtNumber as NumeroParte, P.strDescription as Descripcion, F.strName AS Familia, B.strName AS Marca, G.strName AS Grupo, C.strName AS Clase, CO.strName AS Condicion ";
-        $strSql .= "FROM tblProduct P ";
-        $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
-        $strSql .= "LEFT JOIN tblBrand B ON P.intBrand = B.intId ";
-        $strSql .= "LEFT JOIN tblGroup G ON P.intGroup = G.intId ";
-        $strSql .= "LEFT JOIN catClass C ON P.intClass = C.intId ";
-        $strSql .= "LEFT JOIN catCondition CO ON P.intCondition = CO.intId ";
-        $blnWhere = false;
-        if($strSKU!=''){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.strSKU = " . $strSKU . " ";
-        }
-        if($intFamily!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intFamily = " . $intFamily . " ";
-        }
-        if($intBrand!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intBrand = " . $intBrand . " ";
-        }
-        if($intGroup!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intGroup = " . $intGroup . " ";
-        }
-        if($intClass!=-1){
-            if($blnWhere){
-                $strSql .="AND ";
-            }else{
-                $strSql .="WHERE ";
-                $blnWhere = true;
-            }
-            $strSql .="P.intClass = " . $intClass . " ";
-        }
-        $strSql .= "ORDER BY P.strSKU LIMIT 5;";
+        $jsnPhpScriptResponse = array('strReport'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
 
+        $strSKU = trim($_REQUEST['strSKU']);
+        //$strDate_From = $_REQUEST['strDate_From'];
+        //$strDate_To = $_REQUEST['strDate_To'];
+
+
+        $strSql = "select P.strSKU as SKU, P.strDescription as Descripcion, F.strNAme as Familia, B.strName as Marca, G.strName as Grupo,cC.strName as Condicion, C.strNAme as Clase,P.decPrice as price ";
+        $strSql .= "FROM tblProduct P ";
+        $strSql .= "left join tblFamily F on F.intId=P.intFamily ";
+        $strSql .= "left join catClass C on C.intId = P.intClass ";
+        $strSql .= "left join tblBrand B on B.intId=P.intBrand ";
+        $strSql .= "left join tblGroup G on G.intId=P.intGroup ";
+        $strSql .= "left join catCondition cC on cC.intId = P.intCondition ";
+        $strSql .="where P.strStatus='A' ";
+        if($strSKU!=''){
+            $strSql .="AND P.strSKU = " . $strSKU . " ";
+        }
+        $strSql.= "ORDER BY P.strSKU;";
         $rstData = $objAscend->dbQuery($strSql);
 
         $strReport = '<table>';
@@ -114,6 +72,7 @@ switch ($strProcess) {
         $strReport .= '<th>Grupo</th>';
         $strReport .= '<th>Clase</th>';
         $strReport .= '<th>Condicion</th>';
+        $strReport .= '<th>Precio</th>';
         $strSql = "SELECT strDescription FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
         $rstPriceList = $objAscend->dbQuery($strSql);
         foreach ($rstPriceList as $arrPriceList){
@@ -132,6 +91,7 @@ switch ($strProcess) {
             $strReport .= '<td>' . $arrData['Grupo'] . '</td>';
             $strReport .= '<td>' . $arrData['Clase'] . '</td>';
             $strReport .= '<td>' . $arrData['Condicion'] . '</td>';
+            $strReport .= '<td>' . $arrData['Price'] . '</td>';
             $strSql = "SELECT intId FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
             $rstPriceList = $objAscend->dbQuery($strSql);
             foreach ($rstPriceList as $arrPriceList){
