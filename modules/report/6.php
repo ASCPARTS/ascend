@@ -61,54 +61,29 @@ switch ($strProcess) {
         $strSql.= "ORDER BY P.strSKU;";
         $rstData = $objAscend->dbQuery($strSql);
 
-        $strReport = '<table>';
-        $strReport .= '<thead>';
+        $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
+        $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
-        $strReport .= '<th>NumeroParte</th>';
         $strReport .= '<th>Descripcion</th>';
         $strReport .= '<th>Familia</th>';
         $strReport .= '<th>Marca</th>';
         $strReport .= '<th>Grupo</th>';
-        $strReport .= '<th>Clase</th>';
         $strReport .= '<th>Condicion</th>';
+        $strReport .= '<th>Clase</th>';
         $strReport .= '<th>Precio</th>';
-        $strSql = "SELECT strDescription FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
-        $rstPriceList = $objAscend->dbQuery($strSql);
-        foreach ($rstPriceList as $arrPriceList){
-            $strReport .= '<th>' . $arrPriceList['strDescription'] . '</th>';
-        }
-        unset($arrPriceList);
-        unset($rstPriceList);
-        $strReport .= '</thead>';
+        $strReport .= '<tbody id="tbodyReport" onscroll="scrollHeader();" style="position: relative; display: block; overflow-x: auto; overflow-y: auto; height: calc(100% - 30px); margin: 0 0 0 0; padding: 4px 20px 0 0; border:0 !important">';
+
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['SKU'] . '</td>';
-            $strReport .= '<td>' . $arrData['NumeroParte'] . '</td>';
             $strReport .= '<td>' . $arrData['Descripcion'] . '</td>';
             $strReport .= '<td>' . $arrData['Familia'] . '</td>';
             $strReport .= '<td>' . $arrData['Marca'] . '</td>';
             $strReport .= '<td>' . $arrData['Grupo'] . '</td>';
-            $strReport .= '<td>' . $arrData['Clase'] . '</td>';
             $strReport .= '<td>' . $arrData['Condicion'] . '</td>';
-            $strReport .= '<td>' . $arrData['Price'] . '</td>';
-            $strSql = "SELECT intId FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
-            $rstPriceList = $objAscend->dbQuery($strSql);
-            foreach ($rstPriceList as $arrPriceList){
-                $strSql = "SELECT decPrice FROM tblProductPricelist WHERE intProduct = " . $arrData['intId'] . " AND intPriceList = " . $arrPriceList['intId'] . ";";
-                $rstPrice = $objAscend->dbQuery($strSql);
-                if(count($rstPrice)==0){
-                    $strReport .= '<td>N/A</td>';
-                }else{
-                    foreach ($rstPrice as $arrPrice){
-                        $strReport .= '<td>$ ' . number_format($arrPrice['decPrice'],2,'.',',') . '</td>';
-                    }
-                    unset($arrPrice);
-                }
-                unset($rstPrice);
-            }
-            unset($arrPriceList);
-            unset($rstPriceList);
+            $strReport .= '<td>' . $arrData['Clase'] . '</td>';
+            $strReport .= '<td>' . $arrData['price'] . '</td>';
             $strReport .= '</tr>';
         }
         $strReport .= '</table>';

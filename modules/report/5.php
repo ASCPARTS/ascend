@@ -52,13 +52,13 @@ switch ($strProcess) {
         P.strDescription as Descripcion, cC.strName AS ClaseSKU, DD.intQuantity as Cantidad,
         DSQ.decUnitPrice as PrecioUnitario, DSQ.decTotal as Importe,  D.intCreationDate as FechaCreacion, DD.intPromiseDate as FechaPromesa ";
         $strSql .= "from tblDocument D ";
-        $strSql .= "LEFT JOIN tblCustomer C ON C.intId = O.intCustomer ";
-        $strSql .= "LEFT JOIN tblDocumentDetail DD ON OD.intOrder= O.intId ";
-        $strSql .= "LEFT JOIN tblProduct P ON P.intId= OD.intProduct ";
+        $strSql .= "LEFT JOIN tblCustomer C ON C.intId = D.intCustomer ";
+        $strSql .= "LEFT JOIN tblDocumentDetail DD ON DD.intOrder= D.intId ";
+        $strSql .= "LEFT JOIN tblProduct P ON P.intId= DD.intProduct ";
         $strSql .= "LEFT JOIN catClass cC ON cC.intId=P.intClass ";
         $strSql .= "LEFT JOIN catClass CC ON CC.intId=C.intClass ";
-        $strSql .= "LEFT JOIN tblDocumentSubdetailQuotation DSQ ON ODQ.intItem = OD.intId ";
-        $strSql .= "WHERE O.intCreationDate >= '$strDate_From' and O.intCreationDate <= '$strDate_To' ";
+        $strSql .= "LEFT JOIN tblDocumentSubdetailQuotation DSQ ON DSQ.intItem = DD.intId ";
+        $strSql .= "WHERE D.intCreationDate >= '$strDate_From' and D.intCreationDate <= '$strDate_To' ";
         if($strName!=-1){
             $strSql .="AND C.intId = " . $strName . " ";
         }

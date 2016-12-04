@@ -63,8 +63,8 @@ F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as n
 
         $rstData = $objAscend->dbQuery($strSql);
 
-        $strReport = '<table>';
-        $strReport .= '<thead>';
+        $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
+        $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
         $strReport .= '<th>Descripción</th>';
@@ -81,7 +81,7 @@ F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as n
         }
         unset($arrWarehouse);
         unset($rstWarehouse);
-        $strReport .= '</thead>';
+        $strReport .= '<tbody id="tbodyReport" onscroll="scrollHeader();" style="position: relative; display: block; overflow-x: auto; overflow-y: auto; height: calc(100% - 30px); margin: 0 0 0 0; padding: 4px 20px 0 0; border:0 !important">';
 
         foreach($rstData as $arrData){
             $strReport .= '<tr>';
