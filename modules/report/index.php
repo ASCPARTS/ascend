@@ -82,11 +82,7 @@ $intIdReport = $_REQUEST['intIdReport'];
     </div>
     <br style="clear: both;" />
 </div>
-<div id="divWorkingBackground" class="divWorkingBackground">
-    <div id="divWorking" class="divWorking">
-        <img src="ajax-loader.gif" class="imgWorking"/>
-    </div>
-</div>
+<?php require_once("../../inc/include.working.php");?>
 <script>
     $intIdReport = <?php echo $intIdReport; ?>;
     $jsnReportParameters = '';
