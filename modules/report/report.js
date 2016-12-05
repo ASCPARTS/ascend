@@ -75,7 +75,6 @@ function evalForm() {
                 }
             }
         }
-        $blnGo = false;
         if($blnGo){
             $strQueryString = 'strProcess=Report';
             for($intIndex=0;$intIndex<$jsnReportParameters.arrFilters.length;$intIndex++){
@@ -90,6 +89,7 @@ function evalForm() {
                     $strQueryString += '&' + $jsnReportParameters.arrFilters[$intIndex].name + '=' + $('#' + $jsnReportParameters.arrFilters[$intIndex].name).val().trim();
                 }
             }
+
             $.ajax({
                 url: $intIdReport + ".php", data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($jsnPhpScriptResponse) {
