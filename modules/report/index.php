@@ -88,7 +88,7 @@ $intIdReport = $_REQUEST['intIdReport'];
     $jsnReportParameters = '';
     $jsnReportResults = '';
 </script>
-<script src="report.js"></script>
+<script src="report.js?v=<?php echo date('Ymdhis') ;?>"></script>
 </body>
 </html>
 
