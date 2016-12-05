@@ -30,7 +30,6 @@ switch ($strProcess) {
         //$intDecimalPlaces: si el campo es numerico 0=no admite decimales || X=numero de decimales
         //$blnRequired: campo requerido: true=requerido || false=opcional
         //$strSql: sentencia sql para llenar campo tipo select
-        //#####
 
         //##### Input Folio Pedido
         array_push($jsnPhpScriptResponse['arrFilters'],
@@ -44,15 +43,12 @@ switch ($strProcess) {
         //##### Input Date
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
-
-
-
-
         break;
-
+    
     case 'Report':
+        
         $jsnPhpScriptResponse = array('strReport'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
-
+    
         $strFolio = trim($_REQUEST['strFolio']);
         $intSeller = $_REQUEST['intSeller'];
         $intApproved = $_REQUEST['intApproved'];
@@ -86,6 +82,7 @@ switch ($strProcess) {
         $strSql .= "ORDER BY D.strKeyNumber;";
 
         $rstData = $objAscend->dbQuery($strSql);
+        $objAscend->printArray($strSql);
 
         $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
         $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
@@ -130,4 +127,4 @@ switch ($strProcess) {
         $jsnPhpScriptResponse['strReport'] = $strReport;
         break;
 };
-echo json_encode($jsnPhpScriptResponse);
+        echo json_encode($jsnPhpScriptResponse);
