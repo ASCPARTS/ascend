@@ -35,8 +35,8 @@ switch ($strProcess) {
         $strSql="select intId as strValue, strName as strDisplay from tblUser where intRoll=4 ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','strName','Vendedor',0,false,0,false,$strSql));
         //##### Input Date
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,true,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,true,''));
 
         break;
 

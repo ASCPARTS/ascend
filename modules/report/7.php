@@ -35,14 +35,14 @@ switch ($strProcess) {
         array_push($jsnPhpScriptResponse['arrFilters'],
         buildFilter('numeric','searchGray','strFolio','Folio','',false,0,false,''));
         //##### Input vendedor
-        $strSql="select intId as strValue, strName as strDisplay from tblUser where strRoll='VTA' and strStatus='A' ORDER BY 2;";
+        $strSql="select intId as strValue, strName as strDisplay from tblUser where intRoll = (SELECT intId FROM catDepartment where strName='ventas') ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','userGray','intSeller','Vendedor',0,false,0,false,$strSql));
         //##### Input Autorizado
         $strSql="SELECT '1' AS strValue,'Si' AS strDisplay UNION SELECT '0' AS strValue,'No' AS strDisplay;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','referenceGray','intApproved','Autorizado',0,false,0,false,$strSql));
         //##### Input Date
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,false,''));
-        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,false,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow','strDate_From','Fecha (de)',0,false,0,true,''));
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('date','calendarYellow ','strDate_To','Fecha (hasta)',0,false,0,true,''));
         break;
     
     case 'Report':
@@ -82,7 +82,6 @@ switch ($strProcess) {
         $strSql .= "ORDER BY D.strKeyNumber;";
 
         $rstData = $objAscend->dbQuery($strSql);
-        $objAscend->printArray($strSql);
 
         $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
         $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';

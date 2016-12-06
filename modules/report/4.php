@@ -46,8 +46,8 @@ switch ($strProcess) {
         $intPeriod = trim($_REQUEST['intPeriod']);
         $intWarehouse = $_REQUEST['intWarehouse'];
 
-        $strSql = "select P.intId, P.strSKU, P.strDescription as description, C.strName as class, WS.intMaximum as maximum, 
-F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as nameCondition ";
+        $strSql = "select P.intId, P.strSKU, P.strDescription as description,P.decPrice as price, C.strName as class, WS.intMaximum as maximum, 
+        F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as nameCondition ";
         $strSql .= "from tblProduct P ";
         $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
         $strSql .= "LEFT JOIN tblBrand B ON P.intBrand = B.intId ";
@@ -68,14 +68,15 @@ F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as n
         $strReport .= '<tr>';
         $strReport .= '<th>SKU</th>';
         $strReport .= '<th>Descripción</th>';
+        $strReport .= '<th>Precio</th>';
         $strReport .= '<th>Clase</th>';
         $strReport .= '<th>Maximo</th>';
         $strReport .= '<th>Familia</th>';
         $strReport .= '<th>Grupo</th>';
         $strReport .= '<th>Marca</th>';
         $strReport .= '<th>Condicion</th>';
-        $strSql = "SELECT strDescription FROM catWarehouse WHERE strStatus = 'A' ORDER BY intId";
-        $rstPriceList = $objAscend->dbQuery($strSql);
+        $strSql = "SELECT strDescription FROM catWarehouse WHERE strStatus = 'A' ORDER BY intId;";
+        $rstWarehouse = $objAscend->dbQuery($strSql);
         foreach ($rstWarehouse as $arrWarehouse){
             $strReport .= '<th>' . $arrWarehouse['strDescription'] . '</th>';
         }
@@ -87,29 +88,30 @@ F.strName as family, G.strName as nameGroup, B.strName as brand, CO.strName as n
             $strReport .= '<tr>';
             $strReport .= '<td>' . $arrData['strSKU'] . '</td>';
             $strReport .= '<td>' . $arrData['description'] . '</td>';
+            $strReport .= '<td>$ ' . number_format($arrData['price'],2,'.',',') . '</td>';
             $strReport .= '<td>' . $arrData['class'] . '</td>';
             $strReport .= '<td>' . $arrData['maximum'] . '</td>';
             $strReport .= '<td>' . $arrData['family'] . '</td>';
             $strReport .= '<td>' . $arrData['nameGroup'] . '</td>';
             $strReport .= '<td>' . $arrData['brand'] . '</td>';
             $strReport .= '<td>' . $arrData['nameCondition'] . '</td>';
-            $strSql = "SELECT intId FROM catWarehouse WHERE strStatus = 'A' ORDER BY intId ";
-            $rstPriceList = $objAscend->dbQuery($strSql);
+            $strSql = "SELECT intId FROM catWarehouse WHERE strStatus = 'A' ORDER BY intId; ";
+            $rstWarehouse = $objAscend->dbQuery($strSql);
             foreach ($rstWarehouse as $arrWarehouse){
                 $strSql = "SELECT intStock FROM tblWarehouseStock WHERE intProduct = " . $arrData['intId'] . " AND intWarehouse = " . $arrWarehouse['intId'] . ";";
                 $rstWarehouse = $objAscend->dbQuery($strSql);
                 if(count($rstWarehouse)==0){
-                    $strReport .= '<td>N/A</td>';
+                    $strReport .= '<td>0</td>';
                 }else{
                     foreach ($rstWarehouse as $arrWarehouse){
-                        $strReport .= '<td>$ ' . number_format($arrWarehouse['decPrice'],2,'.',',') . '</td>';
+                        $strReport .= '<td>' . $arrWarehouse['intStock'] . '</td>';
                     }
-                    unset($arrPrice);
+                    unset($arrWarehouse);
                 }
-                unset($rstPrice);
+                unset($rstWarehouse);
             }
-            unset($arrPriceList);
-            unset($rstPriceList);
+            unset($arrWarehouse);
+            unset($rstWarehouse);
             $strReport .= '</tr>';
         }
         $strReport .= '</table>';

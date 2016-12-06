@@ -32,10 +32,15 @@ switch ($strProcess) {
         //$blnRequired: campo requerido: true=requerido || false=opcional
         //$strSql: sentencia sql para llenar campo tipo select
         //#####
+        // input Cliente
+        array_push($jsnPhpScriptResponse['arrFilters'],
+        buildFilter('textwithscore','userGray','strCustomer','Cliente','',false,0,false,''));
 
         break;
 
     case 'Report':
+        $strCustomer = trim($_REQUEST['strCustomer']);
+
         $jsnPhpScriptResponse = array('strReport'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
 
         $strSql = " select C.strKeyNumber, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, CC.strName, Z.strDescription ";
@@ -43,6 +48,9 @@ switch ($strProcess) {
         $strSql .= "LEFT JOIN catClass CC ON CC.intId = C.intClass ";
         $strSql .= "LEFT JOIN catZone Z ON Z.intId = C.intZone ";
         $strSql .= "where C.strStatus='A' ";
+        if($strCustomer!=''){
+            $strSql .="AND C.strKeyNumber =  '$strCustomer'  ";
+        }
         $strSql .= "ORDER BY C.strKeyNumber;";
 
         $rstData = $objAscend->dbQuery($strSql);
