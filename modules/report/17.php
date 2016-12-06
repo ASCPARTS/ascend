@@ -71,7 +71,6 @@ switch ($strProcess) {
         $strSql .= "ORDER BY D.strKeyNumber ;";
 
         $rstData = $objAscend->dbQuery($strSql);
-        $objAscend->printArray($strSql);
 
         $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
         $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
