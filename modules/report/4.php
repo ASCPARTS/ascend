@@ -37,6 +37,9 @@ switch ($strProcess) {
         //##### Input Almacen
         $strSql="select intId as strValue, strDescription as strDisplay from catWarehouse where strStatus='A' ORDER BY 2;";
         array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('select','companyGray','intWarehouse','Almacen',0,false,0,false,$strSql));
+        //##### Input numero de parte
+        array_push($jsnPhpScriptResponse['arrFilters'], buildFilter('text','barCodeGray','strPArtNmuber','Número de Parte','',false,0,false,''));
+
 
         break;
 
