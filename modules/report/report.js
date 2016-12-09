@@ -17,7 +17,7 @@ $('document').ready(function(){
                                 }else{
                                     $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: false, negative: $jsnReportParameters.arrFilters[$intIndex].negative });
                                 }
-                                break;
+                                breaww.wwwk;
                             case 'textwithscore':
                                 $('#' + $jsnReportParameters.arrFilters[$intIndex].name).mask('009-00999');
                                 break;
@@ -93,8 +93,9 @@ function evalForm() {
             $.ajax({
                 url: $intIdReport + ".php", data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($jsnPhpScriptResponse) {
+
+
                     $jsnReportResults = $jsnPhpScriptResponse;
-                    $('#divReport').html($jsnReportResults.strReport);
 
                     if($jsnReportResults.btnXLS){
                         $('#btnXLS').show();
@@ -105,27 +106,32 @@ function evalForm() {
                     if($jsnReportResults.btnTXT){
                         $('#btnTXT').show();
                     }
+
+                    $('#divReportHeader').html('');
+                    $('#divReportHeader').html($jsnReportResults.divReportHeader);
+
+                    $('#divReportTable').html('');
+                    $('#divReportTable').html($jsnReportResults.divReportTable);
+
                     $('#divForm').slideUp('fast',function(){
                         $('#divReportContainer').slideDown('fast',function(){
                             for($intColIndex=0;$intColIndex<parseInt($('#theadReport tr:nth-child(1) th').length - 1);$intColIndex++){
                                 $intColumnWidth = 0;
                                 $intColumnWidthHeader = $('#theadReport tr:first th:eq(' + $intColIndex + ')').width();
+                                $intColumnWidthContent = $('#tbodyReport tr:last td:eq(' + $intColIndex + ')').width();
 
-                                $intColumnWidthContent = 0;
-                                for($intRowIndex=0;$intRowIndex<parseInt($('#tbodyReport tr').length);$intRowIndex++){
-                                    if($('#tbodyReport tr:eq(' + $intRowIndex + ') td:eq(' + $intColIndex + ')').width()>$intColumnWidthContent){
-                                        $intColumnWidthContent = $('#tbodyReport tr:eq(' + $intRowIndex + ') td:eq(' + $intColIndex + ')').width();
-                                    }
-                                }
                                 if($intColumnWidthHeader>=$intColumnWidthContent){
                                     $intColumnWidth = $intColumnWidthHeader;
                                 }else{
                                     $intColumnWidth = $intColumnWidthContent;
                                 }
+
+                                console.log('intColumnWidthHeader: ' + $intColumnWidthHeader + ' - intColumnWidthContent: ' + $intColumnWidthContent + ' -> intColumnWidth: ' + $intColumnWidth);
+
                                 $('#tbodyReport tr:last td:eq(' + $intColIndex + ')').css('width',$intColumnWidth + 'px')
                                 $('#tbodyReport tr:last td:eq(' + $intColIndex + ')').css('min-width',$intColumnWidth + 'px');
-                                $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('width',parseInt($intColumnWidth + 1) + 'px');
-                                $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('min-width',parseInt($intColumnWidth + 1) + 'px');
+                                $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('width',$intColumnWidth + 'px');
+                                $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('min-width',$intColumnWidth + 'px');
                             }
                             $('#divWorkingBackground').fadeOut('slow');
                         });

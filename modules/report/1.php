@@ -53,7 +53,7 @@ switch ($strProcess) {
 
         break;
     case 'Report':
-        $jsnPhpScriptResponse = array('strReport'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
+        $jsnPhpScriptResponse = array('divReportHeader'=>'','divReportTable'=>'','strTitle'=>$strTitle,'btnXLS'=>$btnXLS,'btnPDF'=>$btnPDF,'btnTXT'=>$btnTXT);
 
         $strSKU = trim($_REQUEST['strSKU']);
         $intFamily = $_REQUEST['intFamily'];
@@ -118,47 +118,52 @@ switch ($strProcess) {
 
         $rstData = $objAscend->dbQuery($strSql);
 
-        $strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
-        $strReport .= '<thead id="theadReport" style="display: block; position: relative; margin: 0 0 0 0; padding: 0 20px 0 0; overflow-x: hidden; overflow-y: hidden; border:0 !important">';
-        $strReport .= '<tr>';
-        $strReport .= '<th>SKU</th>';
-        $strReport .= '<th>Numero de Parte</th>';
-        $strReport .= '<th>Descripcion</th>';
-        $strReport .= '<th>Familia</th>';
-        $strReport .= '<th>Marca</th>';
-        $strReport .= '<th>Grupo</th>';
-        $strReport .= '<th>Clase</th>';
-        $strReport .= '<th>Condicion</th>';
+        $divReportHeader = '<table class="tblReport">';
+        $divReportHeader .= '<thead id="theadReport">';
+        $divReportHeader .= '<tr>';
+        $divReportHeader .= '<th>SKU</th>';
+        $divReportHeader .= '<th>Numero de Parte</th>';
+        $divReportHeader .= '<th>Descripcion</th>';
+        $divReportHeader .= '<th>Familia</th>';
+        $divReportHeader .= '<th>Marca</th>';
+        $divReportHeader .= '<th>Grupo</th>';
+        $divReportHeader .= '<th>Clase</th>';
+        $divReportHeader .= '<th>Condicion</th>';
         $strSql = "SELECT strDescription FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
         $rstPriceList = $objAscend->dbQuery($strSql);
         foreach ($rstPriceList as $arrPriceList){
-            $strReport .= '<th>' . $arrPriceList['strDescription'] . '</th>';
+            $divReportHeader .= '<th>' . $arrPriceList['strDescription'] . '</th>';
         }
         unset($arrPriceList);
         unset($rstPriceList);
-        $strReport .= '<th style="width: 16px"></th>';
-        $strReport .= '</thead>';
-        $strReport .= '<tbody id="tbodyReport" onscroll="scrollHeader();" style="position: relative; display: block; overflow-x: auto; overflow-y: auto; height: calc(100% - 30px); margin: 0 0 0 0; padding: 4px 20px 0 0; border:0 !important">';
+        $divReportHeader .= '</thead>';
+        $divReportHeader .= '</table>';
+        $jsnPhpScriptResponse['divReportHeader'] = $divReportHeader;
+
+        //$strReport = '<table id="tableReport" style="position: relative; display: block; width: calc(100% - 10px); height: calc(100% - 4px); margin: 0 auto 0 auto;">';
+        //$strReport .= '<tbody id="tbodyReport" onscroll="scrollHeader();" style="position: relative; display: block; overflow-x: auto; overflow-y: auto; height: calc(100% - 30px); margin: 0 0 0 0; padding: 4px 20px 0 0; border:0 !important">';
+        $divReportTable = '<table class="tblReport">';
+        $divReportTable .= '<tbody id="tbodyReport">';
         foreach($rstData as $arrData){
-            $strReport .= '<tr>';
-            $strReport .= '<td>' . $arrData['SKU'] . '</td>';
-            $strReport .= '<td>' . $arrData['NumeroParte'] . '</td>';
-            $strReport .= '<td>' . $arrData['Descripcion'] . '</td>';
-            $strReport .= '<td>' . $arrData['Familia'] . '</td>';
-            $strReport .= '<td>' . $arrData['Marca'] . '</td>';
-            $strReport .= '<td>' . $arrData['Grupo'] . '</td>';
-            $strReport .= '<td>' . $arrData['Clase'] . '</td>';
-            $strReport .= '<td>' . $arrData['Condicion'] . '</td>';
+            $divReportTable .= '<tr>';
+            $divReportTable .= '<td>' . $arrData['SKU'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['NumeroParte'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['Descripcion'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['Familia'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['Marca'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['Grupo'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['Clase'] . '</td>';
+            $divReportTable .= '<td>' . $arrData['Condicion'] . '</td>';
             $strSql = "SELECT intId FROM tblPricelist WHERE strStatus = 'A' ORDER BY intId";
             $rstPriceList = $objAscend->dbQuery($strSql);
             foreach ($rstPriceList as $arrPriceList){
                 $strSql = "SELECT decPrice FROM tblProductPricelist WHERE intProduct = " . $arrData['intId'] . " AND intPriceList = " . $arrPriceList['intId'] . ";";
                 $rstPrice = $objAscend->dbQuery($strSql);
                 if(count($rstPrice)==0){
-                    $strReport .= '<td>N/A</td>';
+                    $divReportTable .= '<td>N/A</td>';
                 }else{
                     foreach ($rstPrice as $arrPrice){
-                        $strReport .= '<td>$ ' . number_format($arrPrice['decPrice'],2,'.',',') . '</td>';
+                        $divReportTable .= '<td>$ ' . number_format($arrPrice['decPrice'],2,'.',',') . '</td>';
                     }
                     unset($arrPrice);
                 }
@@ -166,14 +171,14 @@ switch ($strProcess) {
             }
             unset($arrPriceList);
             unset($rstPriceList);
-            $strReport .= '</tr>';
+            $divReportTable .= '</tr>';
         }
         unset($arrData);
         unset($rstData);
-        $strReport .= '</tbody>';
-        $strReport .= '</table>';
+        $divReportTable .= '</tbody>';
+        $divReportTable .= '</table>';
 
-        $jsnPhpScriptResponse['strReport'] = $strHeader . $strReport;
+        $jsnPhpScriptResponse['divReportTable'] = $divReportTable;
         break;
 };
 echo json_encode($jsnPhpScriptResponse);

@@ -1,0 +1,62 @@
+#divFormErrMsg {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14pt;
+    color:#C40000;
+    border: 1px #C40000 solid;
+    padding: 6px 6px 6px 6px;
+    display: none;
+}
+
+.MCHeight{
+    height: calc(100vh - 60px);
+}
+
+.divMainReport{
+    height: calc(100% - 35px);
+}
+
+.divReport{
+    display: block;
+}
+
+.divReportHeader{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 25px !important;
+    margin-bottom: 1px;
+}
+
+
+.divReportTable{
+    overflow-y: auto;
+    overflow-x: auto;
+    height: calc(100% - 26px);
+}
+
+.divReport .tblReport {
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
+.divReport.tblReport thead tr th {
+    background-color: #1766A1;
+    color: #F1F1F1;
+    padding: 4px;
+    white-space: nowrap;
+    border: 1px #323544 solid;
+}
+.divReport.tblReport tbody tr td {
+    padding: 4px;
+    /*line-height: 1.42857143;*/
+    vertical-align: top;
+    border: 1px #323544 solid;
+}
+.divReport .tblReport tbody  tr:nth-of-type(odd) {
+    background-color: #F1F1F1;
+}
+.divReport .tblReport tbody  tr:hover {
+    background-color: #abbed3;
+}
