@@ -8,10 +8,10 @@
 <body>
     <div class="MainTitle">Documento</div>
     <div class="MainContainer">
-    
+
         <div class="row" id="rowDocumentList">
         	<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentList">
-
+				
             </div>
         </div>
 
@@ -39,6 +39,7 @@
 		<!--JAVASCRIPT DEL CARRUCEL FIN-->
 
 	<?php require_once("../../inc/include.working.php");?>
+	<?php require_once("../../inc/include.modal.php");?>
 </body>
 <script type="text/javascript" src="../../js/modal.js"></script>
 </html>

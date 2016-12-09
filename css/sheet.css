@@ -54,6 +54,8 @@ html, body
     border-bottom: 1px #050409 solid;
     margin-bottom: 4px;
     text-transform: uppercase;
+    width: 100%;
+    float: left;
 }
 
 .MainContainer {
