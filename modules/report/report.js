@@ -95,7 +95,7 @@ function evalForm() {
                 success: function ($jsnPhpScriptResponse) {
 
 
-                    $jsnReportResults = $jsnPhpScriptResponse;
+                    $jsnReportResults = $jsnPhpScriptResponse.prductlist;
 
                     if($jsnReportResults.btnXLS){
                         $('#btnXLS').show();
