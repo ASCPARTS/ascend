@@ -17,7 +17,7 @@ $('document').ready(function(){
                                 }else{
                                     $('#' + $jsnReportParameters.arrFilters[$intIndex].name).numeric({ decimal: false, negative: $jsnReportParameters.arrFilters[$intIndex].negative });
                                 }
-                                breaww.wwwk;
+                                break;
                             case 'textwithscore':
                                 $('#' + $jsnReportParameters.arrFilters[$intIndex].name).mask('009-00999');
                                 break;
