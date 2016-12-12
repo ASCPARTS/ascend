@@ -1,4 +1,3 @@
-
 function getModal(idModal, idSpan)
 {
 	// Get the button that opens the modal
