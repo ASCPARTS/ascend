@@ -28,7 +28,6 @@
     padding-right: 50px !important;
 }
 
-
 .divReportTable{
     overflow-y: auto !important;
     overflow-x: auto !important;
@@ -41,7 +40,8 @@
     border-spacing: 0 !important;
     border-collapse: collapse !important;
     font-size: 9pt !important;
-    margin-bottom: 0px !important;
+    width: auto;
+    margin: 0 auto 0 auto !important;
 }
 
 .divReport .tblReport thead tr {
