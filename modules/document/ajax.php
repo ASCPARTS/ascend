@@ -33,7 +33,7 @@
 
             #Document
             $sqlDocument =
-            "SELECT D.intId, D.strKeyNumber, D.intCustomer, C.strKeyNumber AS strCustomerKeyNumber, D.intCreator, CR.strName AS strCreator, D.decAmount, D.decTotal, D.intAuthorized, D.intApprovedBy, APR.strName AS strApprovedBy, D.intAuthorizationDate, D.strStatus, ( SELECT COUNT( * ) FROM tblDocumentDetail WHERE intDocument = D.intId ) AS intItems "
+            "SELECT D.intId, D.strKeyNumber, D.intCustomer, C.strRFC AS strCustomerRFC, D.intCreator, CR.strName AS strCreator, D.decAmount, D.decTotal, D.intAuthorized, D.intApprovedBy, APR.strName AS strApprovedBy, D.intAuthorizationDate, D.strStatus, ( SELECT COUNT( * ) FROM tblDocumentDetail WHERE intDocument = D.intId ) AS intItems "
             ."FROM tblDocument D "
             ."LEFT JOIN tblCustomer C ON C.intId = D.intCustomer "
             ."LEFT JOIN tblUser CR ON CR.intId = D.intCreator "
@@ -57,7 +57,7 @@
             foreach( $rstDocument as $arrDocument )
             {
                 $jsnPhpScriptResponse["jsnDocumentList"] .= '<tr>';
-                $jsnPhpScriptResponse["jsnDocumentList"] .= '<td>' . $arrDocument["strKeyNumber"] . '</td> <td>' . $arrDocument["strCustomerKeyNumber"] . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intCreator"] . '\')">' . $arrDocument["strCreator"] . '</a></td> <td>' . $arrDocument["intItems"] . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decAmount"])  . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decTotal"])  . '</td> <td>' . ( $arrDocument["intAuthorized"] ? 'Aprobado' : 'No Aprobado' ) . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intApprovedBy"] . '\')">' . $arrDocument["strApprovedBy"] . '</a></td> <td><button class="btn btnBrandBlue" onclick="fnDocument_getDocumentDetail(\'' . $arrDocument["intId"] . '\')">Revisar...</button></td> ';
+                $jsnPhpScriptResponse["jsnDocumentList"] .= '<td>' . $arrDocument["strKeyNumber"] . '</td> <td>' . $arrDocument["strCustomerRFC"] . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intCreator"] . '\')">' . $arrDocument["strCreator"] . '</a></td> <td>' . $arrDocument["intItems"] . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decAmount"])  . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decTotal"])  . '</td> <td>' . ( $arrDocument["intAuthorized"] ? 'Aprobado' : 'No Aprobado' ) . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intApprovedBy"] . '\')">' . $arrDocument["strApprovedBy"] . '</a></td> <td><button class="btn btnBrandBlue" onclick="fnDocument_getDocumentDetail(\'' . $arrDocument["intId"] . '\')">Revisar...</button></td> ';
                 $jsnPhpScriptResponse["jsnDocumentList"] .= '</tr>';
             }
             $jsnPhpScriptResponse["jsnDocumentList"] .= '</tbody>';
@@ -71,7 +71,7 @@
 
             #Customer
             $sqlCustomer =
-            "SELECT C.intId, C.strKeyNumber, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus "
+            "SELECT C.intId, C.strRFC, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus "
             ."FROM tblCustomer C "
             ."LEFT JOIN tblDocument O ON C.intId = O.intCustomer "
             ."LEFT JOIN catClass CL ON C.intClass = CL.intId "
@@ -79,15 +79,6 @@
             ."WHERE O.intId = $intDocumentId ; ";
             $rstCustomer = $objAscend->dbQuery($sqlCustomer);
             $objCustomer = $rstCustomer[0];
-
-            #DocumentDetail
-            $sqlDocumentDetail =
-            "SELECT OD.intId, OD.intDocument, OD.intNumber, OD.intProduct, P.strSKU, P.strPartNumber, OD.intQuantity, OD.decUnitPrice, OD.decAmount, OD.intPromiseDate, OD.strStatus "
-            ."FROM tblDocumentDetail OD "
-            ."LEFT JOIN tblProduct P ON OD.intProduct = P.intId "
-            ."WHERE OD.intDocument = $intDocumentId "
-            ."ORDER BY OD.intNumber ASC; ";
-            $rstDocumentDetail = $objAscend->dbQuery($sqlDocumentDetail);
 
 
             //$objAscend->printArray($rstDocument);
@@ -104,46 +95,14 @@
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td> - </td> <td> - </td> <td> - </td> <td> - </td>';
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right"> <button class="btn btnOnlineGreen">Seleccionar Cliente</button> </td>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="4" class="text-right">';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandRed" onclick="fnDocument_cancelDocument();">Cancelar</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen" onclick="fnDocument_selectNewCustomer();">Seleccionar Cliente</button>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</td>';
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
 			$jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
-
-			$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="SubTitle" style="display: none">Partidas</div>';
-			$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormItems" style="display: none">';
-				$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
-					$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
-						$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-							$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>#</th>';
-							$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero de parte</th>';
-							$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Cantidad</th>';
-							$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Precio unitario</th>';
-							$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Subtotal</th>';
-							$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Fecha promesa</th>';
-						$jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-					$jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
-					$jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody>';
-            foreach( $rstDocumentDetail as $arrDocumentDetail )
-            {
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intNumber"] . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["strPartNumber"] . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intQuantity"] . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decUnitPrice"]) . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decAmount"]) . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatDateTime($arrDocumentDetail["intPromiseDate"], DTF_1) . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-            }
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right"> <button class="btn btnOnlineGreen">Agregar Partida</button> </td>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-					$jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
-				$jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
-			$jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
-
-
-
         break;
 
         case 'getDocumentDetail':
@@ -152,7 +111,7 @@
 
             #Customer
             $sqlCustomer =
-                "SELECT C.intId, C.strKeyNumber, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus "
+                "SELECT C.intId, C.strRFC, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus "
                 ."FROM tblCustomer C "
                 ."LEFT JOIN tblDocument O ON C.intId = O.intCustomer "
                 ."LEFT JOIN catClass CL ON C.intClass = CL.intId "
@@ -160,7 +119,7 @@
                 ."WHERE O.intId = $intDocumentId ; ";
             $rstCustomer = $objAscend->dbQuery($sqlCustomer);
             $objCustomer = $rstCustomer[0];
-
+            $jsnPhpScriptResponse["objCustomer"] = $objCustomer;
             #DocumentDetail
             $sqlDocumentDetail =
                 "SELECT OD.intId, OD.intDocument, OD.intNumber, OD.intProduct, P.strSKU, P.strPartNumber, OD.intQuantity, OD.decUnitPrice, OD.decAmount, OD.intPromiseDate, OD.strStatus "
@@ -169,64 +128,112 @@
                 ."WHERE OD.intDocument = $intDocumentId "
                 ."ORDER BY OD.intNumber ASC; ";
             $rstDocumentDetail = $objAscend->dbQuery($sqlDocumentDetail);
-
+            $jsnPhpScriptResponse["arrDocumentDetail"] = $rstDocumentDetail;
 
             //$objAscend->printArray($rstDocument);
             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="SubTitle">Datos de cliente</div>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormCustomer">';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1">';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Clave de cliente</th> <th>Razon social</th> <th>Cliente clase</th> <th>Zona</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $objCustomer["strKeyNumber"] . '</td> <td>' . $objCustomer["strRegisteredName"] . '</td> <td>' . $objCustomer["strClass"] . '</td> <td>' . $objCustomer["strZoneKey"] . ' / ' . $objCustomer["strZone"] . '</td>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-3-4 col-md-3-4 col-sm-3-4 col-xs-3-4"></div>';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormCustomer">';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero de Referencia</th> <th>Razon social</th> <th>Cliente clase</th> <th>Zona</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $objCustomer["strReferenceNumber"] . '</td> <td>' . $objCustomer["strRegisteredName"] . '</td> <td>' . $objCustomer["strClass"] . '</td> <td>' . $objCustomer["strZoneKey"] . ' / ' . $objCustomer["strZone"] . '</td>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
 
             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="SubTitle">Partidas</div>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormItems">';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>#</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero de parte</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Cantidad</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Precio unitario</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Subtotal</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Fecha promesa</th>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody>';
-            foreach( $rstDocumentDetail as $arrDocumentDetail )
-            {
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intNumber"] . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["strPartNumber"] . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intQuantity"] . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decUnitPrice"]) . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decAmount"]) . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatDateTime($arrDocumentDetail["intPromiseDate"], DTF_1) . '</td>';
-                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-            }
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right"> <button class="btn btnOnlineGreen">Agregar Partida</button> </td>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
-            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormItems">';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>#</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero de parte</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Cantidad</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Precio unitario</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Subtotal</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Fecha promesa</th>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody id="tbodyDocumentDetail">';
+                        foreach( $rstDocumentDetail as $arrDocumentDetail )
+                        {
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intNumber"] . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["strPartNumber"] . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intQuantity"] . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decUnitPrice"]) . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decAmount"]) . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatDateTime($arrDocumentDetail["intPromiseDate"], DTF_1) . '</td>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                        }
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right">';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandRed" onclick="fnDocument_cancelDocument();">Cancelar</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandBlue">Agregar Partida</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen">Actualizar Documento</button>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</td>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
 
 
 
             break;
 
+        case 'setClientToNewDocument':
+            $objCustomer = $_REQUEST['objCustomer'];
+            $jsnPhpScriptResponse["jsnDocumentDetail"] = '';
+            //$objAscend->printArray($objCustomer);
+
+            //$objAscend->printArray($rstDocument);
+            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="SubTitle">Datos de cliente</div>';
+            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormCustomer">';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero Referencia</th> <th>Razon social</th> <th>Clase</th> <th>Zona</th>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td> ' . $objCustomer["strReferenceNumber"] . ' </td> <td> ' . $objCustomer["strRegisteredName"] . ' </td> <td> ' . $objCustomer["strClass"] . ' </td> <td> ' . $objCustomer["strZone"] . ' </td>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
+            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
+
+            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="SubTitle">Partidas</div>';
+            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormItems">';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>#</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero de parte</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Cantidad</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Precio unitario</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Subtotal</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Fecha promesa</th>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody id="tbodyDocumentDetail">';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right">';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandRed" onclick="fnDocument_cancelDocument();">Cancelar</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandBlue">Agregar Partida</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen" disabled=disabled>Generar Documento</button>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</td>';
+                        $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
+                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
+            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
+        break;
 
     };
 
