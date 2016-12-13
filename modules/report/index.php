@@ -9,7 +9,7 @@ $intIdReport = $_REQUEST['intIdReport'];
 <html lang="en">
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-    <link rel="stylesheet" type="text/css" href="report.css">
+    <link rel="stylesheet" type="text/css" href="report.css?v=<?php echo date('Ymdhis') ;?>">
 </head>
 <body>
 <div class="MainTitle" id="divTitle"></div>

@@ -118,7 +118,7 @@ switch ($strProcess) {
 
         $rstData = $objAscend->dbQuery($strSql);
 
-        $divReportHeader = '<table class="tblReport">';
+        $divReportHeader = '<table id="tblReportHeader" class="tblReport">';
         $divReportHeader .= '<thead id="theadReport">';
         $divReportHeader .= '<tr>';
         $divReportHeader .= '<th>SKU</th>';
@@ -136,6 +136,7 @@ switch ($strProcess) {
         }
         unset($arrPriceList);
         unset($rstPriceList);
+        $divReportHeader .= '<th id="thReportOffset" class="thReportOffset"></th>';
         $divReportHeader .= '</thead>';
         $divReportHeader .= '</table>';
         $jsnPhpScriptResponse['divReportHeader'] = $divReportHeader;
@@ -171,6 +172,7 @@ switch ($strProcess) {
             }
             unset($arrPriceList);
             unset($rstPriceList);
+            $divReportTable .= '<td class="tdReportOffset"></td>';
             $divReportTable .= '</tr>';
         }
         unset($arrData);

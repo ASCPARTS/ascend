@@ -21,42 +21,72 @@
 }
 
 .divReportHeader{
-    overflow-y: hidden;
-    overflow-x: hidden;
-    height: 25px !important;
-    margin-bottom: 1px;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    height: 26px !important;
+    margin-bottom: 1px !important;
+    padding-right: 50px !important;
 }
 
 
 .divReportTable{
-    overflow-y: auto;
-    overflow-x: auto;
-    height: calc(100% - 26px);
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    height: calc(100% - 27px) !important;
+    padding-right: 50px !important;
 }
 
 .divReport .tblReport {
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-    font-size: 9pt;
+    border: 0 !important;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+    font-size: 9pt !important;
+    margin-bottom: 0px !important;
 }
 
-.divReport.tblReport thead tr th {
-    background-color: #1766A1;
-    color: #F1F1F1;
-    padding: 4px;
-    white-space: nowrap;
-    border: 1px #323544 solid;
+.divReport .tblReport thead tr {
+    margin-right: 50px !important;
 }
-.divReport.tblReport tbody tr td {
-    padding: 4px;
+
+.divReport .tblReport thead tr th {
+    background-color: #1766A1 !important;
+    color: #F1F1F1 !important;
+    padding: 4px 4px 4px 4px !important;
+    white-space: nowrap !important;
+    border: 1px #323544 solid !important;
+}
+
+.divReport .tblReport tbody tr {
+    margin-right: 50px !important;
+}
+
+.divReport .tblReport tbody tr td {
+    padding: 4px 4px 4px 4px !important;
     /*line-height: 1.42857143;*/
-    vertical-align: top;
-    border: 1px #323544 solid;
+    vertical-align: top !important;
+    border: 1px #323544 solid !important;
 }
 .divReport .tblReport tbody  tr:nth-of-type(odd) {
-    background-color: #F1F1F1;
+    background-color: #F1F1F1 !important;
 }
 .divReport .tblReport tbody  tr:hover {
-    background-color: #abbed3;
+    background-color: #abbed3 !important;
+}
+
+.divReport .tblReport tbody tr .tdReportOffset {
+    width: 1px !important;
+    max-width: 1px !important;
+    min-width: 1px !important;
+    padding: 4px 0 4px 0 !important;
+    background-color: #FFFFFF !important;
+    border: 1px #FFFFFF solid !important;
+}
+
+.divReport .tblReport thead tr .thReportOffset {
+    width: 1px !important;
+    max-width: 1px !important;
+    min-width: 1px !important;
+    padding: 4px 0 4px 0 !important;
+    background-color: #FFFFFF !important;
+    border: 1px #FFFFFF solid !important;
 }

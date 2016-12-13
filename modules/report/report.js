@@ -43,6 +43,9 @@ $('document').ready(function(){
 });
 
 function evalForm() {
+
+    console.clear();
+
     $('#divWorkingBackground').fadeIn('slow',function(){
         $('#divFormErrMsg').html('');
         $('#divFormErrMsg').slideUp('fast');
@@ -94,8 +97,7 @@ function evalForm() {
                 url: $intIdReport + ".php", data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($jsnPhpScriptResponse) {
 
-
-                    $jsnReportResults = $jsnPhpScriptResponse.prductlist;
+                    $jsnReportResults = $jsnPhpScriptResponse;
 
                     if($jsnReportResults.btnXLS){
                         $('#btnXLS').show();
@@ -117,25 +119,43 @@ function evalForm() {
                         $('#divReportContainer').slideDown('fast',function(){
                             for($intColIndex=0;$intColIndex<parseInt($('#theadReport tr:nth-child(1) th').length - 1);$intColIndex++){
                                 $intColumnWidth = 0;
-                                $intColumnWidthHeader = $('#theadReport tr:first th:eq(' + $intColIndex + ')').width();
-                                $intColumnWidthContent = $('#tbodyReport tr:last td:eq(' + $intColIndex + ')').width();
-
+                                $intColumnWidthHeader = $('#theadReport tr:first th:eq(' + $intColIndex + ')').outerWidth();
+                                $intColumnWidthContent = $('#tbodyReport tr:first td:eq(' + $intColIndex + ')').outerWidth();
                                 if($intColumnWidthHeader>=$intColumnWidthContent){
                                     $intColumnWidth = $intColumnWidthHeader;
                                 }else{
                                     $intColumnWidth = $intColumnWidthContent;
                                 }
-
-                                console.log('intColumnWidthHeader: ' + $intColumnWidthHeader + ' - intColumnWidthContent: ' + $intColumnWidthContent + ' -> intColumnWidth: ' + $intColumnWidth);
-
-                                $('#tbodyReport tr:last td:eq(' + $intColIndex + ')').css('width',$intColumnWidth + 'px')
-                                $('#tbodyReport tr:last td:eq(' + $intColIndex + ')').css('min-width',$intColumnWidth + 'px');
                                 $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('width',$intColumnWidth + 'px');
                                 $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('min-width',$intColumnWidth + 'px');
+                                $('#theadReport tr:first th:eq(' + $intColIndex + ')').css('max-width',$intColumnWidth + 'px');
+                                $('#tbodyReport tr:first td:eq(' + $intColIndex + ')').css('width',$intColumnWidth + 'px')
+                                $('#tbodyReport tr:first td:eq(' + $intColIndex + ')').css('min-width',$intColumnWidth + 'px');
+                                $('#tbodyReport tr:first td:eq(' + $intColIndex + ')').css('max-width',$intColumnWidth + 'px');
                             }
+                            if($('#divReportTable').get(0).scrollHeight>$('#divReportTable').height() && $('#divReportTable').get(0).scrollWidth>$('#divReportTable').width()){
+                                $intNewWidth = parseInt($('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').outerWidth() + 3);
+                                $('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').css('width',$intNewWidth + 'px');
+                                $('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').css('min-width',$intNewWidth + 'px');
+                                $('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').css('max-width',$intNewWidth + 'px');
+                            }
+                            /*
+                            if(!($('#divReportTable').get(0).scrollHeight>$('#divReportTable').height()) && ($('#divReportTable').get(0).scrollWidth>$('#divReportTable').width())){
+                                alert('ps entro');
+                                $intNewWidth = parseInt($('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').outerWidth() + 1);
+                                $('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').css('width',$intNewWidth + 'px');
+                                $('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').css('min-width',$intNewWidth + 'px');
+                                $('#theadReport tr:first th:eq(' + parseInt($('#theadReport tr:nth-child(1) th').length - 2) + ')').css('max-width',$intNewWidth + 'px');
+                            }
+                            */
                             $('#divWorkingBackground').fadeOut('slow');
                         });
                     });
+                },
+                error: function($objError){
+                    alert('algo paso');
+                    console.log($objError);
+                    $('#divWorkingBackground').fadeOut('slow');
                 }
             });
         }
@@ -188,6 +208,6 @@ function reportPrinter(){
 }
 
 function scrollHeader(){
-    $('#theadReport').scrollLeft($('#tbodyReport').scrollLeft());
+    $('#divReportHeader').scrollLeft($('#divReportTable').scrollLeft());
 }
 
