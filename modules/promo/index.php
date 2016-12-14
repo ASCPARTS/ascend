@@ -48,11 +48,12 @@
         <!--MODAL NUEVA PROMOCION-->
         <div class="row">
             <div id="modalAdd" class="modal">
-
                 <!-- Modal content -->
+                <div id="getModal-header" class="modal-header">
+                    <div id="getModal-title" class="modal-title">Promociones</div>
+                    <div class="modal-close"><span class="close" onclick="$('#modalAdd').hide();">&times;</span></div>
+                </div>
                 <div class="modal-content">
-                    <span id="closeAdd" class="close" onclick="closeLModal();">×</span>
-                    <div class="MainTitle">Promociones</div>
                     <div class="MainContainer" id="newPromo">
                         <div class="SubTitle">Información de la Promoción:</div>
                         <div class="row">
@@ -168,21 +169,13 @@
                             <button class="btn btnOnlineGreen" type="button" id="myBtnFilter" onclick="getProductList();">Filtrar</button>
                         </div>
                         <div class="SubTitle">Información de Productos:</div>
-                        <div class="row" id="divProduct">
-
-                        </div>
-                        
-
+                        <div class="row" id="divProduct"></div>
                         <div class="ButtonContainer">
                             <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="saveValues();">
                         </div>
-                        
-                        
                         <br style="clear: both;" />
                     </div>
-
                 </div>
-
             </div>
         </div>
         <!--ROW DEL MODAL [FIN]-->
