@@ -24,8 +24,6 @@
     switch ($strProcess)
     {
         #
-        
-
         #detailed information of products
         case 'getDocumentList':
             $intId = $_REQUEST['intId'];
