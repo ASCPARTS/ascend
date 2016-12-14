@@ -5,7 +5,7 @@ $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 switch ($strProcess) {
     case 'getNewPromo':
-        $jsnPhpScriptResponse = array('productList'=>'','historyPromotion'=>'','strName'=>'','strDiscount'=>'','intDiscount'=>'','intDateFrom'=>'','intDateTo'=>'','strStatus'=>'');
+        $jsnPhpScriptResponse = array('productList'=>'','historyPromotion'=>'','priceList'=>'','strName'=>'','strDiscount'=>'','intDiscount'=>'','intDateFrom'=>'','intDateTo'=>'','strStatus'=>'');
 
         $intIdPromo = $_REQUEST['intIdPromo'];
         $strSKU = trim($_REQUEST['strSKU']);
@@ -136,6 +136,33 @@ switch ($strProcess) {
             $strRespuesta .='</div>';
             $jsnPhpScriptResponse['historyPromotion'] = $strRespuesta;
             unset($rstData);
+
+
+            $strSql="SELECT PL.strDescription 
+            FROM tblPromotionPricetList PPL
+            LEFT JOIN tblPricelist PL ON PL.intId=PPL.intPriceList
+            WHERE PL.strStatus='A';";
+            $rstData = $objAscend->dbQuery($strSql);
+            $strRespuesta ='<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
+            $strRespuesta .='<table>';
+            $strRespuesta .='<thead>';
+            $strRespuesta .='<tr>';
+            for($x=0; $x=count($rstData); $x++){
+                $strRespuesta .='<th>' . $arrData['strDescription'] . '</th>';
+            }
+            $strRespuesta .='</tr>';
+            $strRespuesta .='</thead>';
+            $strRespuesta .='<tbody>';
+            $strRespuesta .= '<tr>';
+            for($x=0; $x=count($rstData); $x++) {
+                $strRespuesta .= '<td><input type="checkbox"></td>';
+            }
+            $strRespuesta .= '</tr>';
+            $strRespuesta .='</tbody>';
+            $strRespuesta .='</table>';
+            $strRespuesta .='</div>';
+            $jsnPhpScriptResponse['priceList'] = $strRespuesta;
+            unset($rstData);
         }
         break;
     case 'getPromotion':
@@ -181,7 +208,6 @@ switch ($strProcess) {
                 $strRespuesta .= '</td>';
                 $strRespuesta .= '</tr>';
             }
-
         }
         $strRespuesta .='</tbody>';
         $strRespuesta .='</table>';
@@ -189,6 +215,48 @@ switch ($strProcess) {
 
 
         $jsnPhpScriptResponse['promotionList'] = $strRespuesta;
+        unset($rstData);
+        break;
+    case 'saveValues':
+        $strName = $_REQUEST['strName'];
+        $strDiscount = $_REQUEST['strDiscount'];
+        $intDiscount = $_REQUEST['intDiscount'];
+        $intDateFrom = $_REQUEST['intDateFrom'];
+        $intDateTo = $_REQUEST['intDateTo'];
+        $strSql="INSERT INTO tblPromotionAsc values ('$strName','$strDiscount,'$intDiscount','$intDateFrom','$intDateTo');";
+        $rstData = $objAscend->dbQuery($strSql);
+        break;
+    case 'priceList':
+        $jsnPhpScriptResponse = array('priceList'=>'');
+        $strName = $_REQUEST['strName'];
+        $strDiscount = $_REQUEST['strDiscount'];
+        $intDiscount = $_REQUEST['intDiscount'];
+        $intDateFrom = $_REQUEST['intDateFrom'];
+        $intDateTo = $_REQUEST['intDateTo'];
+        $strSql="SELECT PL.strDescription 
+        FROM tblPromotionPricetList PPL
+        LEFT JOIN tblPricelist PL ON PL.intId=PPL.intPriceList
+        WHERE PL.strStatus='A';";
+        $rstData = $objAscend->dbQuery($strSql);
+        $strRespuesta ='<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
+        $strRespuesta .='<table>';
+        $strRespuesta .='<thead>';
+        $strRespuesta .='<tr>';
+        for($x=0; $x=count($rstData); $x++){
+            $strRespuesta .='<th>' . $arrData['strDescription'] . '</th>';
+        }
+        $strRespuesta .='</tr>';
+        $strRespuesta .='</thead>';
+        $strRespuesta .='<tbody>';
+        $strRespuesta .= '<tr>';
+        for($x=0; $x=count($rstData); $x++) {
+            $strRespuesta .= '<td><input type="checkbox"></td>';
+        }
+        $strRespuesta .= '</tr>';
+        $strRespuesta .='</tbody>';
+        $strRespuesta .='</table>';
+        $strRespuesta .='</div>';
+        $jsnPhpScriptResponse['priceList'] = $strRespuesta;
         unset($rstData);
         break;
 };

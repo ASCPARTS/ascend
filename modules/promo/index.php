@@ -8,8 +8,6 @@
     require_once("../../inc/sheet.inc");
 
     ini_set("display_errors",1);
-
-
     ?>
     
 </head>
@@ -92,10 +90,11 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="SubTitle" id="divPriceListTitle">Lista de Precios:</div>
+                        <div class="row" id="divPriceList"></div>
                         <div class="SubTitle" id="divHistoryTitle">Historial:</div>
                         <div class="row" id="divHistory"></div>
-
+                        
                         <div class="SubTitle" id="divFilterTitle">Filtrar por:</div>
                         <div class="row" id="divFilter">
                             <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
@@ -172,9 +171,10 @@
                         <div class="row" id="divProduct">
 
                         </div>
+                        
 
                         <div class="ButtonContainer">
-                            <input class="btn btnOnlineGreen" type="button" value="Guardar">
+                            <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="saveValues();">
                         </div>
                         
                         

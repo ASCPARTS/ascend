@@ -45,6 +45,8 @@ function getInfoFilter($intIdPromo){
         $('#intBrand option:eq(0)').prop('selected',true);
         $('#intGroup option:eq(0)').prop('selected',true);
         $('#divProduct').html('');
+        $('#divPriceListTitle').hide();
+        $('#divPriceList').hide();
         $('#divHistoryTitle').hide();
         $('#divHistory').hide();
         $('#divFilterTitle').hide();
@@ -63,8 +65,11 @@ function getProductList($intIdPromo){
             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
             success: function ($jsnPhpScriptResponse) {
                 $('#divProduct').html($jsnPhpScriptResponse.productList);
+                $('#divPriceList').html($jsnPhpScriptResponse.priceList);
                 if($intIdPromo!=0){
                     $('#divHistory').html($jsnPhpScriptResponse.historyPromotion);
+                    $('#divPriceListTitle').show();
+                    $('#divPriceList').show();
                     $('#divHistoryTitle').show();
                     $('#divHistory').show();
                     $('#strName').val($jsnPhpScriptResponse.strName);
@@ -84,6 +89,49 @@ function getProductList($intIdPromo){
             error: function ($objError) {
                 alert('ps que crees ...');
                 console.log($objError);
+            }
+        });
+    });
+}
+/*guardar valores*/
+/*
+ $strName = $_REQUEST['strName'];
+ $strDiscount = $_REQUEST['strDiscount'];
+ $intDiscount = $_REQUEST['intDiscount'];
+ $intDateFrom = $_REQUEST['intDateFrom'];
+ $intDateTo = $_REQUEST['intDateTo'];
+ */
+function saveValues(){
+    $('#divWorkingBackground').fadeIn('slow',function(){
+        $('#tblPromo').html('');
+        $strQueryString = "strProcess=saveValues&strName="+$('#strName').val() + "&strDiscount=" + $('#strDiscount').val() + "&intDiscount=" + $('#intDiscount').val() + "&intDateFrom=" + $('#intDateFrom').val().substr(0,4) + $('#intDateFrom').val().substr(5,2) + $('#intDateFrom').val().substr(8,2) + "000000&intDateTo=" + $('#intDateTo').val().substr(0,4) + $('#intDateTo').val().substr(5,2) + $('#intDateTo').val().substr(8,2)+"999999";
+        console.log($strQueryString);
+        $.ajax({
+            url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+            success: function ($jsnPhpScriptResponse) {
+                alert('se guardo...felicidades');
+                $('#divWorkingBackground').fadeOut('slow');
+            },
+            error: function($e){
+                alert('No se almaceno la información, contactar al administrador...Lindo día');
+                console.log($e);
+            }
+        });
+    });
+}
+function priceList(){
+    $('#divWorkingBackground').fadeIn('slow',function(){
+        $('#divPriceList').html('');
+        $strQueryString = "strProcess=priceList";
+        $.ajax({
+            url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+            success: function ($jsnPhpScriptResponse) {
+                $('#divPriceList').html($jsnPhpScriptResponse.priceList);
+                $('#divWorkingBackground').fadeOut('slow');
+            },
+            error: function($e){
+                alert('No se crearon las listas');
+                console.log($e);
             }
         });
     });
