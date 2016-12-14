@@ -54,7 +54,7 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span id="closeAdd" class="close" onclick="closeLModal();">×</span>
-                    <div class="MainTitle">NUEVA PROMOCION</div>
+                    <div class="MainTitle">Promociones</div>
                     <div class="MainContainer" id="newPromo">
                         <div class="SubTitle">Información de la Promoción:</div>
                         <div class="row">

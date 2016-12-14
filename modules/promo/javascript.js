@@ -68,6 +68,10 @@ function getProductList($intIdPromo){
                     $('#divHistoryTitle').show();
                     $('#divHistory').show();
                     $('#strName').val($jsnPhpScriptResponse.strName);
+                    $('#strDiscount').val($jsnPhpScriptResponse.strDiscount);
+                    $('#intDiscount').val($jsnPhpScriptResponse.intDiscount);
+                    $('#intDateFrom').val($jsnPhpScriptResponse.intDateFrom);
+                    $('#intDateTo').val($jsnPhpScriptResponse.intDateFrom);
                 }else{
                     $('#divFilterTitle').show();
                     $('#divFilter').show();

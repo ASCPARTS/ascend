@@ -46,9 +46,7 @@ switch ($strProcess) {
             LEFT JOIN tblPromotionDetail PD ON PD.intProduct=P.intId
             LEFT JOIN tblPromotionAsc PA ON PA.intId=PD.intPromotion 
             WHERE PA.strStatus='A' AND PD.intPromotion=" . $intIdPromo . "; ";
-
         }
-
         $rstData = $objAscend->dbQuery($strSql);
         $strRespuesta = '<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
         $strRespuesta .= '<table id="tblProduct">';
