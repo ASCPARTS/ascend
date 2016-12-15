@@ -61,10 +61,14 @@ function getProductList($intIdPromo){
     $('#divProduct').html('');
     $('#divWorkingBackground').fadeIn('slow',function() {
         $strQueryString = "strProcess=getNewPromo&intIdPromo=" + $intIdPromo + "&strSKU=" + $('#strSKU').val() + "&strPartNumber=" + $('#strPartNumber').val() + "&intFamily=" + $('#intFamily').val() + "&intBrand=" + $('#intBrand').val() + "&intGroup=" + $('#intGroup').val();
+
+        console.log("ajax.php?" + $strQueryString);
+
         $.ajax({
             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
             success: function ($jsnPhpScriptResponse) {
                 $('#divProduct').html($jsnPhpScriptResponse.productList);
+                $('#divPriceList').html($jsnPhpScriptResponse.priceList);
                 if($intIdPromo!=0){
                     $('#divHistory').html($jsnPhpScriptResponse.historyPromotion);
                     $('#divPriceListTitle').show();
@@ -77,6 +81,8 @@ function getProductList($intIdPromo){
                     $('#intDateFrom').val($jsnPhpScriptResponse.intDateFrom);
                     $('#intDateTo').val($jsnPhpScriptResponse.intDateFrom);
                 }else{
+                    $('#divPriceListTitle').show();
+                    $('#divPriceList').show();
                     $('#divFilterTitle').show();
                     $('#divFilter').show();
                     $('#myBtnFilter').show();
@@ -94,13 +100,42 @@ function getProductList($intIdPromo){
 }
 /*guardar valores*/
 function saveValues(){
+    arregloList = $('.chbList');
+    strList= '';
+    $.each(arregloList, function( index, obj ) {
+        if( $(obj).prop( "checked" ) )
+        {
+            strList += $(obj).val() + '|';
+        }
+    });
+    if( strList.length > 0 )
+    {
+        strList = strList.substr(0, ( strList.length -1 ) );
+    }
+    
+    
+    arregloSKU = $('.chbListSKU');
+    strListSKU= '';
+    $.each(arregloSKU, function( index, obj ) {
+        if( $(obj).prop( "checked" ) )
+        {
+            strListSKU += $(obj).val() + '|';
+        }
+    });
+    if( strListSKU.length > 0 )
+    {
+        strListSKU = strListSKU.substr(0, ( strListSKU.length -1 ) );
+    }
     $('#divWorkingBackground').fadeIn('slow',function(){
         $('#tblPromo').html('');
-        $strQueryString = "strProcess=saveValues&strName="+$('#strName').val() + "&strDiscount=" + $('#strDiscount').val() + "&intDiscount=" + $('#intDiscount').val() + "&intDateFrom=" + $('#intDateFrom').val().substr(0,4) + $('#intDateFrom').val().substr(5,2) + $('#intDateFrom').val().substr(8,2) + "000000&intDateTo=" + $('#intDateTo').val().substr(0,4) + $('#intDateTo').val().substr(5,2) + $('#intDateTo').val().substr(8,2)+"999999";
+        $strQueryString = "strProcess=saveValues&strName="+$('#strName').val() + "&strDiscount=" + $('#strDiscount').val() + "&intDiscount=" + $('#intDiscount').val() + "&intDateFrom=" + $('#intDateFrom').val().substr(0,4) + $('#intDateFrom').val().substr(5,2) + $('#intDateFrom').val().substr(8,2) + "000000&intDateTo=" + $('#intDateTo').val().substr(0,4) + $('#intDateTo').val().substr(5,2) + $('#intDateTo').val().substr(8,2)+"999999&chkList="+ strList+"&chkListSKU="+ strListSKU;
+        console.log($strQueryString);
         $.ajax({
             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
             success: function ($jsnPhpScriptResponse) {
                 alert('Promoción almacenada exitosamente');
+                $('#modalAdd').hide();
+                getPromo();
                 $('#divWorkingBackground').fadeOut('slow');
             },
             error: function($e){

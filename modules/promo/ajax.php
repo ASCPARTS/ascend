@@ -3,11 +3,10 @@ require_once ('../../inc/include.config.php');
 require_once('../../'. LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
-echo "1";
+
 switch ($strProcess) {
 
     case 'getNewPromo':
-        echo "2";
         $jsnPhpScriptResponse = array('productList'=>'','historyPromotion'=>'','priceList'=>'','strName'=>'','strDiscount'=>'','intDiscount'=>'','intDateFrom'=>'','intDateTo'=>'','strStatus'=>'');
 
         $intIdPromo = $_REQUEST['intIdPromo'];
@@ -18,7 +17,8 @@ switch ($strProcess) {
         $intGroup = $_REQUEST['intGroup'];
 
         if($intIdPromo==0){
-            $strSql  = "SELECT P.strSKU, P.strPartNumber, P.strDescription, F.strName as family, B.strName as brand, G.strName as nameGroup ";
+            /*Si es una nueva promocion se muestra la lista de SKU's activos para poner en promocion*/
+            $strSql  = "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName as family, B.strName as brand, G.strName as nameGroup ";
             $strSql .= "FROM tblProduct P ";
             $strSql .= "LEFT JOIN tblFamily F ON P.intFamily = F.intId ";
             $strSql .= "LEFT JOIN tblBrand B ON P.intBrand = B.intId ";
@@ -41,8 +41,8 @@ switch ($strProcess) {
             }
             $strSql .= " ORDER BY P.strSKU;";
         }else{
-            echo "asd";
-            $strSql  = "SELECT P.strSKU, P.strPartNumber, P.strDescription, F.strName as family, B.strName as brand, G.strName as nameGroup 
+            /*si es el detalle de una promoción se muestran los SKU´s que corresponden a la promocion seleccionada*/
+            $strSql  = "SELECT P.intId, P.strSKU, P.strPartNumber, P.strDescription, F.strName as family, B.strName as brand, G.strName as nameGroup 
             FROM tblProduct P 
             LEFT JOIN tblFamily F ON P.intFamily = F.intId 
             LEFT JOIN tblBrand B ON P.intBrand = B.intId 
@@ -76,7 +76,7 @@ switch ($strProcess) {
             $strRespuesta .= '<td>' . $arrData['nameGroup'] . '</td>';
             if($intIdPromo==0){
                 $strRespuesta .= '<td>';
-                $strRespuesta .= '<input id="chk_' . $arrData['intId'] . '" value="' . $arrData['intId'] . '" type="checkbox">';
+                $strRespuesta .= '<input id="chkProduct" class="chbListSKU" value="' . $arrData['intId'] . '" type="checkbox">';
                 $strRespuesta .= '</td>';
             }else{
                 $strRespuesta .= '<td>';
@@ -91,6 +91,39 @@ switch ($strProcess) {
         $strRespuesta .= '</div>';
         $jsnPhpScriptResponse['productList'] = $strRespuesta;
         unset($rstData);
+
+        if($intIdPromo==0){
+            $strSql="SELECT PL.intId, PL.strDescription 
+            FROM tblPricelist PL
+            WHERE PL.strStatus='A';";
+            $rstData = $objAscend->dbQuery($strSql);
+            $strRespuesta ='<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
+            $strRespuesta .='<table>';
+            $strRespuesta .='<thead>';
+            $strRespuesta .='<tr>';
+            foreach($rstData as $arrData){
+                $strRespuesta .='<th>' . $arrData['strDescription'] . '</th>';
+            }
+            $strRespuesta .='</tr>';
+            $strRespuesta .='</thead>';
+            $strRespuesta .='<tbody>';
+            $strRespuesta .= '<tr>';
+            foreach($rstData as $arrData){
+                $strRespuesta .= '<td><input id="chkList" class="chbList" value="' . $arrData['intId'] . '" type="checkbox"></td>';
+            }
+            $strRespuesta .= '</tr>';
+            $strRespuesta .='</tbody>';
+            $strRespuesta .='</table>';
+            $strRespuesta .='</div>';
+            $jsnPhpScriptResponse['priceList'] = $strRespuesta;
+            unset($rstData);
+        }else{
+            $strSql="SELECT PL.strDescription 
+            FROM tblPromotionPricetList PPL
+            LEFT JOIN tblPricelist PL ON PL.intId=PPL.intPriceList
+            WHERE PL.strStatus='A';";
+        }
+
 
         if($intIdPromo!=0){
             $strSql = "SELECT strName, strDiscount, intDiscount, intDateTo, intDateFrom,strStatus FROM tblPromotionAsc WHERE intId = " . $intIdPromo . ";";
@@ -139,33 +172,6 @@ switch ($strProcess) {
             $strRespuesta .='</table>';
             $strRespuesta .='</div>';
             $jsnPhpScriptResponse['historyPromotion'] = $strRespuesta;
-            unset($rstData);
-
-
-            $strSql="SELECT PL.strDescription 
-            FROM tblPromotionPricetList PPL
-            LEFT JOIN tblPricelist PL ON PL.intId=PPL.intPriceList
-            WHERE PL.strStatus='A';";
-            $rstData = $objAscend->dbQuery($strSql);
-            $strRespuesta ='<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
-            $strRespuesta .='<table>';
-            $strRespuesta .='<thead>';
-            $strRespuesta .='<tr>';
-            for($x=0; $x=count($rstData); $x++){
-                $strRespuesta .='<th>' . $arrData['strDescription'] . '</th>';
-            }
-            $strRespuesta .='</tr>';
-            $strRespuesta .='</thead>';
-            $strRespuesta .='<tbody>';
-            $strRespuesta .= '<tr>';
-            for($x=0; $x=count($rstData); $x++) {
-                $strRespuesta .= '<td><input type="checkbox"></td>';
-            }
-            $strRespuesta .= '</tr>';
-            $strRespuesta .='</tbody>';
-            $strRespuesta .='</table>';
-            $strRespuesta .='</div>';
-            $jsnPhpScriptResponse['priceList'] = $strRespuesta;
             unset($rstData);
         }
         break;
@@ -222,15 +228,35 @@ switch ($strProcess) {
         unset($rstData);
         break;
     case 'saveValues':
-
         $strName = $_REQUEST['strName'];
         $strDiscount = $_REQUEST['strDiscount'];
         $intDiscount = $_REQUEST['intDiscount'];
         $intDateFrom = $_REQUEST['intDateFrom'];
         $intDateTo = $_REQUEST['intDateTo'];
+        $chkList = $_REQUEST['chkList'];
+        $chkListSKU = $_REQUEST['chkListSKU'];
         $strStatus ='A';
+        $rstchk=explode("|",$chkList);
+        $rstchkSKU=explode("|",$chkListSKU);
+        /*guardamos el encabezado de la promo en tblPromotionAsc*/
         $strSql="INSERT INTO tblPromotionAsc (strName,strDiscount, intDiscount,intDateFrom, intDateTo, strStatus) values ('$strName','$strDiscount',$intDiscount,$intDateFrom,$intDateFrom,'$strStatus');";
         $rstData = $objAscend->dbInsert($strSql);
+        $intPromotion=$objAscend->intLastInsertedId;
+        /*se recorre el arreglo de la listas seleccionadas y se almacenan en tblPromotionPriceList*/
+        if(!empty($chkList)) {
+            foreach($rstchk as $arrchk ){
+                $strSql="INSERT INTO tblPromotionPriceList (intPromotion,intPriceList) values ($intPromotion,$arrchk);";
+                $rstData = $objAscend->dbInsert($strSql);
+            }
+        }
+        /*se recorre el arreglo de los SKU's seleccionados y se almacenan en tblPromotionDetail*/
+        if(!empty($chkListSKU)) {
+            foreach($rstchkSKU as $arrchkSKU ){
+                $strSql="INSERT INTO tblPromotionDetail (intPromotion,intProduct, strStatus) values ($intPromotion,$arrchkSKU,'$strStatus');";
+                $rstData = $objAscend->dbInsert($strSql);
+            }
+        }
+        unset($rstData);
         break;
 };
 echo json_encode($jsnPhpScriptResponse);
