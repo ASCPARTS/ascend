@@ -45,14 +45,20 @@ function getInfoFilter($intIdPromo){
         $('#intBrand option:eq(0)').prop('selected',true);
         $('#intGroup option:eq(0)').prop('selected',true);
         $('#divProduct').html('');
-        $('#divPriceListTitle').hide();
-        $('#divPriceList').hide();
+        $('#divPriceList').html('');
         $('#divHistoryTitle').hide();
         $('#divHistory').hide();
         $('#divFilterTitle').hide();
         $('#divFilter').hide();
         $('#myBtnFilter').hide();
         $('#divProduct').empty();
+        $('#saveNew').hide();
+        $('#update').hide();
+        $('#modalAdd').hide();
+        
+        if($intIdPromo!=0){
+            $('#update').attr('intIdPromo',$intIdPromo);
+        }
         getProductList($intIdPromo);
     });
 }
@@ -61,9 +67,6 @@ function getProductList($intIdPromo){
     $('#divProduct').html('');
     $('#divWorkingBackground').fadeIn('slow',function() {
         $strQueryString = "strProcess=getNewPromo&intIdPromo=" + $intIdPromo + "&strSKU=" + $('#strSKU').val() + "&strPartNumber=" + $('#strPartNumber').val() + "&intFamily=" + $('#intFamily').val() + "&intBrand=" + $('#intBrand').val() + "&intGroup=" + $('#intGroup').val();
-
-        console.log("ajax.php?" + $strQueryString);
-
         $.ajax({
             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
             success: function ($jsnPhpScriptResponse) {
@@ -71,21 +74,19 @@ function getProductList($intIdPromo){
                 $('#divPriceList').html($jsnPhpScriptResponse.priceList);
                 if($intIdPromo!=0){
                     $('#divHistory').html($jsnPhpScriptResponse.historyPromotion);
-                    $('#divPriceListTitle').show();
-                    $('#divPriceList').show();
                     $('#divHistoryTitle').show();
                     $('#divHistory').show();
+                    $('#update').show();
                     $('#strName').val($jsnPhpScriptResponse.strName);
                     $('#strDiscount').val($jsnPhpScriptResponse.strDiscount);
                     $('#intDiscount').val($jsnPhpScriptResponse.intDiscount);
                     $('#intDateFrom').val($jsnPhpScriptResponse.intDateFrom);
                     $('#intDateTo').val($jsnPhpScriptResponse.intDateFrom);
                 }else{
-                    $('#divPriceListTitle').show();
-                    $('#divPriceList').show();
                     $('#divFilterTitle').show();
                     $('#divFilter').show();
                     $('#myBtnFilter').show();
+                    $('#saveNew').show();
                 }
                 $('#modalAdd').show('fast', function () {
                     $('#divWorkingBackground').fadeOut('slow');
@@ -146,17 +147,52 @@ function saveValues(){
     });
 }
 /*funcion para cancelar la promo*/
-function cancelPromo($intIdPromo){
+function cancelProduct($intIdPromo,$strSKU){
     $('#divWorkingBackground').fadeIn('slow',function(){
-        $('#divpruebas').html('');
-            $strQueryString = "strProcess=promodetail&intIdPromo=" + $intIdPromo;
+            $strQueryString = "strProcess=cancelSKU&intIdPromo=" + $intIdPromo + "&intId="+$strSKU;
             $.ajax({
                 url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($jsnPhpScriptResponse) {
+                    alert("Se elimino el SKU de la Promoción");
+                    getPromo();
+                    getInfoFilter($intIdPromo);
                     $('#myModal').show('fast',function(){
                         $('#divWorkingBackground').fadeOut('slow');
                     });
                 }
             });
+    });
+}
+function cancelPromo($intId){
+    $('#divWorkingBackground').fadeIn('slow',function(){
+        $strQueryString = "strProcess=cancelPromo&intId=" + $intId;
+        $.ajax({
+            url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+            success: function ($jsnPhpScriptResponse) {
+                alert("Se elimino la la Promoción");
+                getPromo();
+                $('#myModal').show('fast',function(){
+                    $('#divWorkingBackground').fadeOut('slow');
+                });
+            }
+        });
+    });
+}
+function update(){
+
+    $intIdPromo = $('#update').attr('intIdPromo');
+        $('#divWorkingBackground').fadeIn('slow',function(){
+        $strQueryString = "strProcess=updatePromo&intIdPromo=" +$intIdPromo+ "&strName="+$('#strName').val() + "&strDiscount=" + $('#strDiscount').val() + "&intDiscount=" + $('#intDiscount').val() + "&intDateFrom=" + $('#intDateFrom').val().substr(0,4) + $('#intDateFrom').val().substr(5,2) + $('#intDateFrom').val().substr(8,2) + "000000&intDateTo=" + $('#intDateTo').val().substr(0,4) + $('#intDateTo').val().substr(5,2) + $('#intDateTo').val().substr(8,2)+"999999";
+        $.ajax({
+            url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+            success: function ($jsnPhpScriptResponse) {
+                alert("Se actualizo la Promocion Correctamente");
+                getInfoFilter($intIdPromo);
+                $('#modalAdd').hide();
+                $('#myModal').show('fast',function(){
+                    $('#divWorkingBackground').fadeOut('slow');
+                });
+            }
+        });
     });
 }
