@@ -102,10 +102,12 @@ html, body
 {
     background-color: #fefefe;
     margin:   0px 0px 0px 0px;
-    padding: 10px 0px 0px 0px;
-    width: calc( 100% - 20px );
+    padding: 3px 0px 7px 10px;
+    width: calc( 100% - 30px );
     height: 20px;
     float: left;
+    color: #1766A1;
+    font-size: 14pt;
 }
 
 /* The Close Button */

@@ -125,7 +125,7 @@ function fnDocument_setClientToNewDocument()
 
 
 
-function fnDocument_getDocumentDetail(intDocumentId)
+function fnDocument_getDocumentDetailList(intDocumentId)
 {
     $.ajax({
         url: 'ajax.php',
@@ -133,7 +133,7 @@ function fnDocument_getDocumentDetail(intDocumentId)
         dataType: 'json',
         data:
         {
-            'strProcess' : 'getDocumentDetail',
+            'strProcess' : 'getDocumentDetailList',
             'intDocumentId' : intDocumentId
         },
         beforeSend: function (data)
@@ -160,6 +160,35 @@ function fnDocument_getDocumentDetail(intDocumentId)
             $jsnDocument.arrCustomer = data.objCustomer;
             $jsnDocument.arrDocumentDetail = data.arrDocumentDetail;
             console.log($jsnDocument);
+        }
+    });
+}
+
+function fnDocument_getDocumentDetailInformation(intDocumentDetail)
+{
+    $.ajax({
+        url: 'ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'getDocumentDetailInformation',
+            'intDocumentDetail' : intDocumentDetail
+        },
+        beforeSend: function (data)
+        {
+            $('#divWorking').show();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+
+        },
+        success:function(data)
+        {
+            $('#divWorking').hide();
+            $('#infoModal').show();
+
+            $('#infoModal-title').html(data.jsnDocumentDetailInformationTitle);
+            $('#infoModal-content').html(data.jsnDocumentDetailInformation);
         }
     });
 }
