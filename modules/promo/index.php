@@ -8,6 +8,7 @@
     require_once("../../inc/sheet.inc");
 
     ini_set("display_errors",1);
+    ini_set("memory_limit",0);
     ?>
     
 </head>
@@ -166,12 +167,15 @@
                             </div>
                         </div>
                         <div class="ButtonContainer">
-                            <button class="btn btnOnlineGreen" type="button" id="myBtnFilter" onclick="getProductList();">Filtrar</button>
+                            <button class="btn btnOnlineGreen" type="button" id="myBtnFilter" onclick="getProductList(0);">Filtrar</button>
                         </div>
                         <div class="SubTitle">Información de Productos:</div>
                         <div class="row" id="divProduct"></div>
                         <div class="ButtonContainer">
                             <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="saveValues();">
+                        </div>
+                        <div class="ButtonContainer">
+                            <input class="btn btnOnlineGreen" id="update" type="button" value="Actualizar" onclick="update();">
                         </div>
                         <br style="clear: both;" />
                     </div>

@@ -1,58 +1,43 @@
-#divFormErrMsg {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 14pt;
-    color:#C40000;
-    border: 1px #C40000 solid;
-    padding: 6px 6px 6px 6px;
-    display: none;
-}
-
 .MCHeight{
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px) !important;
 }
 
-
-
-
-
-.divMainReport{
-    height: calc(100% - 35px);
+.divMainGrid{
+    height: calc(100% - 35px) !important;
 }
 
-.divReport{
-    display: block;
+.divGrid{
+    display: block !important;
 }
 
-.divReportHeader{
+.divGridHeader{
     overflow-y: hidden !important;
     overflow-x: hidden !important;
-    height: 26px !important;
+    height: 27px !important;
     margin-bottom: 1px !important;
-    padding-right: 50px !important;
+    padding-right: 1px !important;
 }
 
-.divReportTable{
+.divGridTable{
     overflow-y: auto !important;
     overflow-x: auto !important;
-    height: calc(100% - 27px) !important;
-    padding-right: 50px !important;
+    height: calc(100% - 28px) !important;
 }
 
-.divReport .tblReport {
+.divGrid .tblGrid {
     border: 0 !important;
     border-spacing: 0 !important;
     border-collapse: collapse !important;
     font-size: 9pt !important;
-    width: auto;
+    width: calc(100% - 90px) !important;
     margin: 0 auto 0 auto !important;
 }
 
-.divReport .tblReport thead tr {
+.divGrid .tblGrid thead tr {
     margin-right: 50px !important;
 }
 
-.divReport .tblReport thead tr th {
+.divGrid .tblGrid thead tr th {
     background-color: #1766A1 !important;
     color: #F1F1F1 !important;
     padding: 4px 4px 4px 4px !important;
@@ -60,24 +45,24 @@
     border: 1px #323544 solid !important;
 }
 
-.divReport .tblReport tbody tr {
+.divGrid .tblGrid tbody tr {
     margin-right: 50px !important;
 }
 
-.divReport .tblReport tbody tr td {
+.divGrid .tblGrid tbody tr td {
     padding: 4px 4px 4px 4px !important;
     /*line-height: 1.42857143;*/
     vertical-align: top !important;
     border: 1px #323544 solid !important;
 }
-.divReport .tblReport tbody  tr:nth-of-type(odd) {
+.divGrid .tblGrid tbody  tr:nth-of-type(odd) {
     background-color: #F1F1F1 !important;
 }
-.divReport .tblReport tbody  tr:hover {
+.divGrid .tblGrid tbody  tr:hover {
     background-color: #abbed3 !important;
 }
 
-.divReport .tblReport tbody tr .tdReportOffset {
+.divGrid .tblGrid tbody tr .tdGridOffset {
     width: 1px !important;
     max-width: 1px !important;
     min-width: 1px !important;
@@ -86,7 +71,7 @@
     border: 1px #FFFFFF solid !important;
 }
 
-.divReport .tblReport thead tr .thReportOffset {
+.divGrid .tblGrid thead tr .thGridOffset {
     width: 1px !important;
     max-width: 1px !important;
     min-width: 1px !important;

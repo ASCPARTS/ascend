@@ -44,7 +44,7 @@ echo $strTopMenu;
                 echo $strUserMenu;
                 ?>
                 <br />
-                <div class="divTopMenuUserOption" style="background-image: url('img/usermenu/logout.png');" onclick="window.location = 'index.php';">Cerrar Sesión</div>
+                <div class="divTopMenuUserOption" style="background-image: url('img/usermenu/logout.png');" onclick="logout();">Cerrar Sesión</div>
             </td>
         </tr>
         <tr><td width="204" height="*" onclick="closeUserMenu();"></td></tr>

@@ -137,6 +137,7 @@ switch ($strProcess) {
         unset($arrPriceList);
         unset($rstPriceList);
         $divReportHeader .= '<th id="thReportOffset" class="thReportOffset"></th>';
+        $divReportHeader .= '</tr>';
         $divReportHeader .= '</thead>';
         $divReportHeader .= '</table>';
         $jsnPhpScriptResponse['divReportHeader'] = $divReportHeader;
