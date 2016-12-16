@@ -17,12 +17,12 @@
 <div class="MainContainer">
     <div class="SubTitle">Proyección</div>
     <div class="row">
-        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
+        <div class="col-xs-1-1 col-sm-1-1 col-md-1-2 col-md-1-2 col-lg-1-2">
             <div class="divSelect groupYellow ">
-                <select id="intAnio">
+                <select id="decFactor">
                     <option value="-1">--Seleccionar--</option>
                     <?php
-                    $strSql="SELECT intFactor AS strValue, intAnio AS strDisplay FROM tblFamily WHERE strStatus = 'A' ORDER BY 2;";
+                    $strSql="SELECT decFactor as strValue, intAnio as strDisplay FROM tblFactor ORDER BY 2;";
                     $rstFactor = $objAscend->dbQuery($strSql);
                     foreach ($rstFactor as $arrFactor){
                         ?>
@@ -37,15 +37,27 @@
         </div>
         <div class="col-xs-1-1 col-sm-1-1 col-md-1-2 col-md-1-2 col-lg-1-2">
             <div class="divSelect numberYellow">
-                <select id="strStatus">
-                    <option value="1" selected="selected">SI</option>
-                    <option value="0">NO</option>
+                <select id="strEstimate">
+                    <option value="S" selected="selected">SI</option>
+                    <option value="N">NO</option>
                 </select>
                 <label>Estimado</label>
             </div>
         </div>
     </div>
+    <div class="ButtonContainer">
+        <input class="btn btnOnlineGreen" id="calculation" type="button" value="Calcular" onclick="calculation();">
+    </div>
+    <div class="row" id="divSales">
+    </div>
     <br style="clear: both;" />
 </div>
 </div>
+<?php require_once("../../inc/include.working.php");?>
 </body>
+<script>
+    $intDD = '<?php echo date('Y-m-d');?>';
+</script>
+<script src="javascript.js?v=<?php echo date('Ymdhis') ;?>"></script>
+<script type="text/javascript" src="../../js/modal.js"></script>
+</html>

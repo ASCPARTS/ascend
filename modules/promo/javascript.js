@@ -179,7 +179,6 @@ function cancelPromo($intId){
     });
 }
 function update(){
-
     $intIdPromo = $('#update').attr('intIdPromo');
         $('#divWorkingBackground').fadeIn('slow',function(){
         $strQueryString = "strProcess=updatePromo&intIdPromo=" +$intIdPromo+ "&strName="+$('#strName').val() + "&strDiscount=" + $('#strDiscount').val() + "&intDiscount=" + $('#intDiscount').val() + "&intDateFrom=" + $('#intDateFrom').val().substr(0,4) + $('#intDateFrom').val().substr(5,2) + $('#intDateFrom').val().substr(8,2) + "000000&intDateTo=" + $('#intDateTo').val().substr(0,4) + $('#intDateTo').val().substr(5,2) + $('#intDateTo').val().substr(8,2)+"999999";

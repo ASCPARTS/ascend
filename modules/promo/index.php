@@ -65,6 +65,17 @@
                                 </div>
                             </div>
                             <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
+                                <div class="divInputText calendarYellow">
+                                    <input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateNewFrom">
+                                    <label>Inicio de la Promoción</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3"><div class="divInputText calendarYellow ">
+                                    <input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateNewTo">
+                                    <label>Fin de la Promoción</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
                                 <div class="divSelect discountYellow">
                                     <select id="strDiscount">
                                         <option value="1" selected="selected">Porcentaje</option>
@@ -78,17 +89,6 @@
                                 <div class="divInputText numberYellow">
                                     <input type="text" id="intDiscount">
                                     <label>Cantidad a descontar</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                                <div class="divInputText calendarYellow">
-                                    <input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateNewFrom">
-                                    <label>Inicio de la Promoción</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3"><div class="divInputText calendarYellow ">
-                                    <input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateNewTo">
-                                    <label>Fin de la Promoción</label>
                                 </div>
                             </div>
                         </div>

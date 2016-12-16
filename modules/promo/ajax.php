@@ -3,7 +3,6 @@ require_once ('../../inc/include.config.php');
 require_once('../../'. LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
-
 switch ($strProcess) {
 
     case 'getNewPromo':
