@@ -46,13 +46,10 @@ ini_set("display_errors",1);
         </div>
     </div>
     <br style="clear: both" />
-    <div id="divGridContainer" style="height: calc(100% - 133px); ">
-        <div id="divMainGrid" class="divMainGrid">
-            <div id="divGridHeader" class="divGrid divGridHeader"></div>
-            <div id="divGridTable" class="divGrid divGridTable" onscroll="scrollGridHeader();"></div>
-        </div>
-    </div>
+    <?php require_once("../../inc/grid.php");?>
 </div>
+
+
 <?php require_once("../../inc/include.working.php");?>
 <script>
     $('#chkList')

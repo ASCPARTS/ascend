@@ -40,7 +40,7 @@ $classAscend = new clsAscend();
 <script type="text/javascript" src="<?php echo JS_PATH; ?>tab.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH; ?>notification.js"></script>
 <script>
-    //handleTab(1, "testPagineo", "modules/test/seeker.php");
+    handleTab(1, "testPagineo", "modules/test/seeker.php");
     //handleTab(1, "testPagineo", "modules/test/form.php");
 </script>
 </body>

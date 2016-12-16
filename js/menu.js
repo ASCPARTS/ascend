@@ -63,3 +63,9 @@ function openUserMenu(){
 function closeUserMenu(){
     $('#divTopMenuUserMain').slideUp('fast');
 }
+
+function logout(){
+    $('body').fadeOut('slow',function(){
+        window.location = 'http://localhost/ascend/';
+    });
+}
