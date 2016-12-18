@@ -176,10 +176,10 @@
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                         }
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right">';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="8" class="text-right">';
                                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandRed" onclick="fnDocument_cancelDocument();">Cancelar</button>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandBlue">Agregar Partida</button>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen">Actualizar Documento</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandBlue" onclick="fnDocument_addDocumentDetail();">Agregar Partida</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen">Finalizar Documento</button>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</td>';
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
@@ -191,7 +191,7 @@
             break;
 
         case 'getDocumentDetailInformation':
-            $intDocumentId = $_REQUEST['intDocumentDetail'];
+            $intDocumentDetaildId = $_REQUEST['intDocumentDetail'];
             $jsnPhpScriptResponse["jsnDocumentDetailInformation"] = '';
 
             #Customer
@@ -211,12 +211,13 @@
             ."FROM tblDocumentDetail DOCDET "
             ."LEFT JOIN tblDocument DOC ON DOCDET.intDocument = DOC.intId "
             ."LEFT JOIN tblProduct PRO ON DOCDET.intProduct = PRO.intId "
-            ."WHERE DOCDET.intId = $intDocumentId; ; ";
+            ."WHERE DOCDET.intId = $intDocumentDetaildId; ; ";
             //echo $sqlDocumentDetail . "<br><br>";
             $rstDocumentDetail = $objAscend->dbQuery($sqlDocumentDetail);
             $objDocumentDetail = $rstDocumentDetail[0];
 
-            $jsnPhpScriptResponse["jsnDocumentDetailInformationTitle"] = 'Detalle de la Partida <b>' . $objDocumentDetail["intNumber"] . '</b> del Documento con Folio <b>' . $objDocumentDetail["strKeyNumber"] . '</b>';
+
+            $jsnPhpScriptResponse["jsnDocumentDetailInformationTitle"] = 'Detalle de la Partida <b> #' . $objDocumentDetail["intNumber"] . '</b> del Documento con Folio <b>' . $objDocumentDetail["strKeyNumber"] . '</b>';
             $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormCustomer">';
                 $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<table style="margin-bottom: 4px;">';
                     $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<thead>';
@@ -261,7 +262,76 @@
                     $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tbody>';
                 $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</table>';
             $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</div>';
-            //$jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<hr/>';
+
+
+
+            $sqlDocumentSubdetail = "SELECT SUBDET.intId, SUBDET.intDocumentDetail, SUBDET.intQuantity, SUBDET.intDocumentStatus, DOCSTA.strDescription AS strDocumentStatus, SUBDET.intWarehouse, WH.strDescription AS strWarehouse, SUBDET.strStatus "
+                ."FROM tblDocumentSubdetail SUBDET "
+                ."LEFT JOIN catDocumentStatus DOCSTA ON DOCSTA.intId = SUBDET.intDocumentStatus "
+                ."LEFT JOIN catWarehouse WH ON WH.intId = SUBDET.intWarehouse "
+                ."WHERE SUBDET.intDocumentDetail = $intDocumentDetaildId;";
+
+            $rstDocumentSubdetail = $objAscend->dbQuery($sqlDocumentSubdetail);
+            $objDocumentSubdetail = $rstDocumentSubdetail;
+
+            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentFormCustomer">';
+                $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<table style="margin-bottom: 4px;">';
+                    $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<thead>';
+                        $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<th style="text-align: center;" colspan="4">Situacion y desglose de la partida</th>';
+                        $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tr>';
+                        $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<th style="text-align: center;">No. Unidades</th> <th style="text-align: center;">Situacion</th> <th style="text-align: center;">Almacen</th> <th>Operaciones</th>';
+                        $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tr>';
+                    $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</thead>';
+                    $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<tbody>';
+                    $arrDocumentSubdetailInformation = "";
+                    foreach( $objDocumentSubdetail as $arrDocumentSubdetail )
+                    {
+                        $sqlDocumentSubdetailQuotation = "SELECT SUBDQUO.intId, SUBDQUO.intDocumentSubDetail, SUBDQUO.intProvider, PRO.strBusinessName AS strProvider, SUBDQUO.intQuantity, SUBDQUO.decUnitPrice, SUBDQUO.decAmount, SUBDQUO.decTotal, SUBDQUO.intQuotationDate, SUBDQUO.strStatus "
+                        ."FROM tblDocumentSubdetailQuotation SUBDQUO "
+                        ."LEFT JOIN tblProvider PRO ON SUBDQUO.intProvider = PRO.intId "
+                        ."WHERE SUBDQUO.intDocumentSubdetail = " . $arrDocumentSubdetail["intId"] . ";";
+
+                        $rstDocumentSubdetailQuotation = $objAscend->dbQuery($sqlDocumentSubdetailQuotation);
+                        $objDocumentSubdetailQuotation = $rstDocumentSubdetailQuotation;
+                        $btnShowQuotations = ( count( $objDocumentSubdetailQuotation ) > 0? '<button class="btn btnOverBlueGray" onclick="fnDocument_showDocumentSubdetailQuotation(' . $arrDocumentSubdetail["intId"] . ');"> Cotizaciones</button>' : '');
+                        $arrDocumentSubdetailInformation = "";
+                        if(count( $objDocumentSubdetailQuotation ) > 0)
+                        {
+                            //--
+                            $arrDocumentSubdetailInformation .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1 colDocumentSubdetailQuotation" id="divDocumentSubdetailQuotation_' . $arrDocumentSubdetail["intId"] . '" style="display:none;">';
+                            $arrDocumentSubdetailInformation .= '<table style="margin-bottom: 4px;">';
+                            $arrDocumentSubdetailInformation .= '<thead>';
+                            $arrDocumentSubdetailInformation .= '<tr>';
+                            $arrDocumentSubdetailInformation .= '<th style="text-align: center;">Proveedor</th> <th style="text-align: center;">Unidades</th> <th style="text-align: right;">Precio unitario</th> <th style="text-align: right;">Cantidad</th> <th style="text-align: right;">Total</th> <th style="text-align: right;">Fecha de cotizacion</th>';
+                            $arrDocumentSubdetailInformation .= '</tr>';
+                            $arrDocumentSubdetailInformation .= '</thead>';
+                            $arrDocumentSubdetailInformation .= '<tbody>';
+
+                            foreach( $objDocumentSubdetailQuotation as $arrDocumentSubdetailQuotation )
+                            {
+                                $arrDocumentSubdetailInformation .= '<tr>';
+                                $arrDocumentSubdetailInformation .= '<td style="text-align: center;">' . $arrDocumentSubdetailQuotation["strProvider"] . '</td> <td style="text-align: center;">' . $arrDocumentSubdetailQuotation["intQuantity"] . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocumentSubdetailQuotation["decUnitPrice"]) . '</td> <td style="text-align: right;"> ' . $objAscend->formatMoney($arrDocumentSubdetailQuotation["decAmount"]) .  '</td> <td style="text-align: right;"> ' . $objAscend->formatMoney($arrDocumentSubdetailQuotation["decTotal"]) .  '</td> <td style="text-align: right;"> ' . $objAscend->formatDateTime($arrDocumentSubdetailQuotation["intQuotationDate"], DTF_1) .  '</td>';
+                                $arrDocumentSubdetailInformation .= '</tr>';
+                            }
+                            $arrDocumentSubdetailInformation .= '</tbody>';
+                            $arrDocumentSubdetailInformation .= '</table>';
+                            $arrDocumentSubdetailInformation .= '</div>';
+                            //--
+                        }
+
+                        $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<tr>';
+                            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<td style="text-align: center;">' . $arrDocumentSubdetail["intQuantity"] . '</td> <td style="text-align: center;">' . $arrDocumentSubdetail["strDocumentStatus"] . '</td> <td style="text-align: center;">' . ( $arrDocumentSubdetail["intWarehouse"] == null ? "N/A" : $arrDocumentSubdetail["strWarehouse"] ) . '</td> <td> ' . $btnShowQuotations .  '</td>';
+                        $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tr>';
+                    }
+                    $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tbody>';
+                $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</table>';
+            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</div>';
+
+            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<div class="row" id="divDocumentSubdetailInformation">';
+            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= $arrDocumentSubdetailInformation;
+            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</div>';
         break;
 
         case 'setClientToNewDocument':
@@ -303,8 +373,8 @@
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td colspan="6" class="text-right">';
                                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandRed" onclick="fnDocument_cancelDocument();">Cancelar</button>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandBlue">Agregar Partida</button>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen" disabled=disabled>Generar Documento</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnBrandBlue" onclick="fnDocument_addDocumentDetail();">Agregar Partida</button>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<button class="btn btnOnlineGreen">Generar Documento</button>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</td>';
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';

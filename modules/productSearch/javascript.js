@@ -1,6 +1,26 @@
+//var processSearch = 'searchProduct'
+
+//var productSearch_type = 'initialSearch';
+var productSearch_strType = '';
+var productSearch_intPage = 1;
+
+var productSearch_jsnParameters = '{}';
+var productSearch_intRecordsPerPage = 10;
+
+var productSearch_intStock = 0;
+var productSearch_strPriceRange = 'ALL';
+var productSearch_jsnBrand = "[]";
+var productSearch_jsnGroup = "[]";
+
+
+var inputSearch;
+
 
 function productSearch_modal()
 {
+    $('#getModal-title').empty();
+    $('#getModal-content').empty();
+
     $.ajax({
         url: '../productSearch/ajax.php',
         type: 'post',
@@ -21,25 +41,37 @@ function productSearch_modal()
             //showhide
             $('#divWorking').hide();
             $('#getModal').show();
-            $('#getModal_content').empty();
-            
+
             //fill
-            $('#getModal_content').html(data.jsnCustomerForm);
+            $('#getModal-content').html(data.jsnModal);
         }
     });
 }
 
-function getCustomerSearch()
+function productSearch_search()
 {
-    strCustomerParameter = $('#strCustomerParameter').val();
+    strProductParameter = $('#strProductParameter').val();
+    //productSearch_jsnParameters = { 'strNeedle' : strProductParameter};
+    productSearch_jsnParameters = '{ "strNeedle" : "' + strProductParameter + '" }';
     $.ajax({
-        url: '../customer/ajax.php',
+        url: '../productSearch/ajax.php',
         type: 'post',
         dataType: 'json',
         data:
         {
-            'strProcess' : 'getCustomerSearch',
-            'strCustomerParameter' : strCustomerParameter
+            'strProcess' : 'search',
+            
+            'strType' : productSearch_strType = '',
+            'intPage' : productSearch_intPage,
+            'intRecordsPerPage' : productSearch_intRecordsPerPage,
+
+            'intStock' : productSearch_intStock,
+            'strPriceRange' : productSearch_strPriceRange,
+
+            'jsnBrand' : productSearch_jsnBrand,
+            'jsnGroup' : productSearch_jsnGroup,
+
+            'jsnParameters' : productSearch_jsnParameters
         },
         beforeSend: function (data)
         {

@@ -22,10 +22,10 @@ function initCustomerSearch()
             //showhide
             $('#divWorking').hide();
             $('#getModal').show();
-            $('#getModal_content').empty();
+            $('#getModal-content').empty();
 
             //fill
-            $('#getModal_content').html(data.jsnCustomerForm);
+            $('#getModal-content').html(data.jsnCustomerForm);
         }
     });
 }
@@ -89,7 +89,7 @@ function selectCustomerSearch(intCustomer)
             $('#getModal').hide();
             $('#getModal-title').empty();
             $('#getModal-content').empty();
-            console.log(strCustomerSelectChainSwitch);
+            //console.log(strCustomerSelectChainSwitch);
             switch( strCustomerSelectChainSwitch )
             {
                 case 'document_new':

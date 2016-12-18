@@ -159,7 +159,7 @@ function fnDocument_getDocumentDetailList(intDocumentId)
             objCustomer = data.objCustomer;
             $jsnDocument.arrCustomer = data.objCustomer;
             $jsnDocument.arrDocumentDetail = data.arrDocumentDetail;
-            console.log($jsnDocument);
+            //console.log($jsnDocument);
         }
     });
 }
@@ -191,4 +191,23 @@ function fnDocument_getDocumentDetailInformation(intDocumentDetail)
             $('#infoModal-content').html(data.jsnDocumentDetailInformation);
         }
     });
+}
+
+function fnDocument_showDocumentSubdetailQuotation(intDocumentSubdetail)
+{
+
+    $.each($('.colDocumentSubdetailQuotation'), function( index, obj ) {
+        $(obj).hide();
+        if( $(obj).attr('id') == 'divDocumentSubdetailQuotation_' + intDocumentSubdetail )
+        {
+            $(obj).show();
+        }
+    });
+    //$('#divDocumentSubdetailQuotation_' + intDocumentSubdetail).show();
+}
+
+function fnDocument_addDocumentDetail()
+{
+    console.log($jsnDocument.strCurrentAction);
+    productSearch_modal();
 }

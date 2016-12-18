@@ -3,6 +3,7 @@
 <head>
 <?php require_once("../../inc/sheet.inc");?>
     <script type="text/javascript" src="../customer/customer.js"></script>
+    <script type="text/javascript" src="../productSearch/javascript.js"></script>
 	<script type="text/javascript" src="javascript.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 </head>

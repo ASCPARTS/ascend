@@ -1057,7 +1057,7 @@ table > tfoot > tr > td {
 }
 table > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 1px solid #1766A1;
+    border-bottom: 1px solid #000;
     background-color: #1766A1;
     color: #FFFFFF;
 }
