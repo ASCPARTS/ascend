@@ -2,10 +2,11 @@
 header('Content-Type: text/html; charset=utf-8');
 class clsSession extends clsAscend
 {
-    private $objAscend;
+    public $objAscend;
 
     public function __construct()
     {
+        $this -> objAscend = new clsAscend();
         session_set_save_handler
         (
             array(&$this, 'abrir'),
@@ -17,7 +18,7 @@ class clsSession extends clsAscend
         );
         //register_shutdown_function('session_write_close');
         session_start();
-        $this -> objAscend = new clsAscend();
+
     }
 
 
@@ -35,9 +36,9 @@ class clsSession extends clsAscend
     public function leerSesion($session_id)
     {
         $sqlSession = "SELECT strData FROM tblSesion WHERE intId = '$session_id' ";
-        $resultado = $this->bd->query($sqlSession);
+        $resultado = $this->objAscend->dbQuery($sqlSession);
 
-        if ($resultado["total"] > 0)
+        if (count($resultado) > 0)
         {
             return $resultado["registros"][0]["strData"];
         }
@@ -54,22 +55,24 @@ class clsSession extends clsAscend
         $insertSession = '';
         $resultado = '';
 
-        $sessionExists = $this->bd->query("SELECT COUNT(intId) as SESIONEXISTS from tblSesion WHERE intId = '$id'");
+        $sessionExists = $this->objAscend->dbQuery("SELECT COUNT(intId) as SESIONEXISTS from tblSesion WHERE intId = '$id'");
 
         settype($id, 'string');
         settype($sess_data, 'string');
 
-        if ($sessionExists["registros"][0]['SESIONEXISTS'] < 1)
+        if ($sessionExists[0]['SESIONEXISTS'] < 1)
         {
             $insertSession = "INSERT INTO tblSesion(strId, strLifetime, strData) VALUES ('$id',$lifeTime,'$sess_data');";
+            $resultado = $this->objAscend->dbInsert($insertSession);
         }
         else
         {
             $insertSession = "UPDATE tblSesion SET strData = '$sess_data', strLifetime =$lifeTime WHERE intId = '$id'";
+            $resultado = $this->objAscend->dbUpdate($insertSession);
         }
         // echo $insertSession;
 
-        $resultado = $this->bd->execute($insertSession);
+
         // core_utils::printArray($resultado);
 
         return $resultado;
@@ -77,14 +80,14 @@ class clsSession extends clsAscend
 
     public function borrar($id) {
 
-        $delete = $this->bd->execute("DELETE FROM tblSesion WHERE intId = '$id'");
+        $delete = $this->objAscend->dbDelete("DELETE FROM tblSesion WHERE intId = '$id'");
         return $delete;
     }
 
     public function gc($maxlifetime = 1800)
     {
         $limiteTiempo = time() - $maxlifetime;
-        $eliminar = $this->bd->execute("DELETE FROM tblSesion where strLifetime < $limiteTiempo");
+        $eliminar = $this->objAscend->dbDelete("DELETE FROM tblSesion where strLifetime < $limiteTiempo");
         return true;
     }
 
