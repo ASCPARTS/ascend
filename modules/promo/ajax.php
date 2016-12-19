@@ -2,6 +2,8 @@
 require_once ('../../inc/include.config.php');
 require_once('../../'. LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
+$intIdUser=$_SESSION['intUserID'];
+$fecha= date('Ymdhis');
 $strProcess = $_REQUEST['strProcess'];
 switch ($strProcess) {
 
@@ -175,21 +177,21 @@ switch ($strProcess) {
                 $jsnPhpScriptResponse['intDateTo'] = $objAscend->formatDateTime($arrData['intDateTo'],DTF_11);
                 $jsnPhpScriptResponse['strSatus'] = $arrData['strSatus'];
             }
-            $strSql="SELECT U.strName as userCreator, PH.intDateCreation, US.strName as UserModified, PH.intDateModify , UR.strName, PH.intDateCanceled as userCanceled
-        FROM tblPromotionHistory PH
-        LEFT JOIN tblPromotionAsc PA ON PA.intId=PH.intPromotion
-        LEFT JOIN tblUser U ON U.intId= PH.intCreatedBy
-        LEFT JOIN tblUser US ON US.intId= PH.intModifyBy
-        LEFT JOIN tblUser UR ON UR.intId= PH.intCanceledBy
-        WHERE PA.strStatus='A' AND intPromotion= " . $intIdPromo . " ";
+            $strSql="SELECT PH.intPromotion, U.strName, PH.intDate, PH.strAction
+            FROM tblPromotionHistory PH
+            LEFT JOIN tblPromotionAsc PA ON PA.intId=PH.intPromotion
+            LEFT JOIN tblUser U ON U.intId= PH.intUser
+            WHERE PA.strStatus='A'
+            AND intPromotion= " . $intIdPromo . "
+            ORDER BY PH.intDate;";
             $rstData = $objAscend->dbQuery($strSql);
             $strRespuesta ='<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
             $strRespuesta .='<table>';
             $strRespuesta .='<thead>';
             $strRespuesta .='<tr>';
-            $strRespuesta .='<th>Acción</th>';
             $strRespuesta .='<th>Usuario</th>';
             $strRespuesta .='<th>Fecha</th>';
+            $strRespuesta .='<th>Acción</th>';
             $strRespuesta .='</tr>';
             $strRespuesta .='</thead>';
             $strRespuesta .='<tbody>';
@@ -200,11 +202,13 @@ switch ($strProcess) {
             }else{
                 foreach($rstData as $arrData) {
                     $strRespuesta .= '<tr>';
-                    $strRespuesta .= '<td>' . $arrData['userCreator'] . '</td>';
                     $strRespuesta .= '<td>' . $arrData['strName'] . '</td>';
-                    $strRespuesta .= '<td>' . $objAscend->formatDateTime($arrData['intDateCreation'],DTF_11) . '</td>';
+                    $strRespuesta .= '<td>' . $objAscend->formatDateTime($arrData['intDate'],DTF_11) . '</td>';
+                    $strRespuesta .= '<td>' . ( $arrData['strAction'] == 'N' ? 'Creador' : ($arrData['strAction'] == 'M' ? 'Modifico' : 'Cancelo') ) . '</td>';
                     $strRespuesta .= '</tr>';
                 }
+
+
             }
             $strRespuesta .='</tbody>';
             $strRespuesta .='</table>';
@@ -248,7 +252,7 @@ switch ($strProcess) {
                 $strRespuesta .= '<td>' . $arrData['strName'] . '</td>';
                 $strRespuesta .= '<td>' . $objAscend->formatDateTime($arrData['intDateTo'],DTF_11) . '</td>';
                 $strRespuesta .= '<td>' . $objAscend->formatDateTime($arrData['intDateFrom'],DTF_11) . '</td>';
-                $strRespuesta .= '<td>' . ( $arrData['strDiscount'] == 1 ? 'Porcentaje' : ( $arrData['strDiscount'] == 2 ? 'Valor Monetario' : 'Piezas' ) ) . '</td>';
+                $strRespuesta .= '<td>' . ( $arrData['strDiscount'] == 1 ? 'Porcentaje' : 'Valor Monetario') . '</td>';
                 $strRespuesta .= '<td>' . $arrData['intDiscount'] . '</td>';
                 $strRespuesta .= '<td>';
                 $strRespuesta .= '<button class="btn btnOverYellow" onclick="getInfoFilter(' . $arrData['intId'] . ')">Editar / Ver</button>';
@@ -304,6 +308,9 @@ switch ($strProcess) {
                 $rstData = $objAscend->dbInsert($strSql);
             }
         }
+        $strSql="INSERT tblPromotionHistory (intPromotion, intUser, intDate, strAction) 
+        VALUES ($intPromotion,$intIdUser,$fecha,'N');";
+        $rstUser=$objAscend->dbInsert($strSql);
         unset($arrData);
         unset($rstData);
         break;
@@ -327,11 +334,11 @@ switch ($strProcess) {
         break;
     case 'cancelPromo':
         $intId = $_REQUEST['intId'];
-        $intId = $_REQUEST['intId'];
         $strSql="UPDATE tblPromotionAsc SET strStatus='C' WHERE intId=$intId;";
         $rstData=$objAscend->dbUpdate($strSql);
         $strSql="UPDATE tblPromotionDetail SET strStatus='C' WHERE intPromotion=$intId;";
         $rstData=$objAscend->dbUpdate($strSql);
+
         unset($rstData);
         break;
     case 'updatePromo':
@@ -344,6 +351,10 @@ switch ($strProcess) {
         $strSql="UPDATE tblPromotionAsc SET strName='$strName', strDiscount='$strDiscount', intDiscount=$intDiscount, intDateFrom=$intDateFrom, intDateTo=$intDateTo, strStatus='A' 
         WHERE intId =".$intIdPromo.";";
         $strData=$objAscend->dbUpdate($strSql);
+
+        $strSql="INSERT tblPromotionHistory (intPromotion, intUser, intDate, strAction) 
+        VALUES ($intIdPromo,$intIdUser,$fecha,'M');";
+        $rstUser=$objAscend->dbInsert($strSql);
         unset($rstData);
         break;
 };

@@ -28,6 +28,8 @@ $objAscend = new clsAscend();
             var options = {
                 title: 'Ventas por Familia',
                 is3D: true,
+                width: 500,
+                height: 600
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
@@ -39,7 +41,7 @@ $objAscend = new clsAscend();
 <body>
 <div class="MainTitle">INDICADORES</div>
 <div class="MainContainer">
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
     <br style="clear: both;" />
 </div>
 </body>

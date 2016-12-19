@@ -8,11 +8,9 @@
     require_once("../../inc/sheet.inc");
     ini_set("display_errors",1);
     ini_set("memory_limit",0);
-    $_SESSION['intUserID'];
+    $intIdUser=$_SESSION['intUserID'];
     ?>
 </head>
-
-
 <body>
 <div class="MainTitle">Proyección de Ventas</div>
 <div class="MainContainer">
