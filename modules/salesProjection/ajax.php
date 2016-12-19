@@ -60,7 +60,7 @@ switch ($strProcess) {
             $strRespuesta .='<thead>';
             $strRespuesta .='<tr>';
             $strRespuesta .='<th>Vendedor</th>';
-            $strRespuesta .='<th>Vacio</th>';
+            $strRespuesta .='<th></th>';
             foreach ($rstData as $arrData){
                 $strRespuesta .='<th>'.$arrData['nMonth'].'</th>';
             }
@@ -80,7 +80,7 @@ switch ($strProcess) {
                     //$totalAnio = $totalAnio + $arrData['totalMonth'];
                 }
                 $strRespuesta .='<td>$' . number_format($totalAnio,0,'.',',') . '</td>';
-                $strRespuesta .='<td>VACIO</td>';
+                $strRespuesta .='<td>---</td>';
                 $strRespuesta .='</tr>';
                 /*FIN TOTALES DEL AÑO*/
                 /*META DEL NUEVO AÑO*/
