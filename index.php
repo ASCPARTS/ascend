@@ -7,84 +7,11 @@ include_once 'lib/google/gpConfig.php';
 <head>
     <meta charset="UTF-8">
     <title>.:ASC Parts:.</title>
-    <style>
-        html, body { margin: 0 0 0 0; padding: 0 0 0 0; font-family: Arial; font-size: 10pt; background-color: #E0E0E0; }
-
-        .divTop { background-color: #2C3942; padding: 0 100px 0 100px; text-align: right; color: #E4EDF4; height: 39px; line-height: 39px; font-size: 8pt; font-weight: normal }
-
-        .divPleca { vertical-align: top; height: 103px; background-image: url('img/pleca.png'), url('img/pleca_left.png'); background-position: center top, left top; background-repeat: no-repeat, no-repeat; background-size: 270px 100px, 50% 100px; background-color: #38464F; padding: 0 0 0 0; border-bottom: 1px #4b5860 solid; }
-
-        .divPleca .divLogo { display: inline-block; width: calc(50% - 102px); height: 100px; line-height: 100px; padding-left: 100px; }
-
-        .divPleca .divLogo .imgLogo { cursor: pointer; height: 70%; vertical-align: middle; }
-
-        .divPleca .divLoginContainer { display: inline-block; width: calc(50% - 102px); height: 100px; text-align: right; padding-right: 100px; vertical-align: top; }
-
-        .divPleca .divLoginContainer .divLogin { cursor: pointer; display: inline-block; text-align: center; height: 30px; padding: 55px 10px 0 10px; margin-top: 7px; background-position: center 20px; background-repeat: no-repeat; background-size: auto 24px; color:#FFFFFF; }
-
-        .divPleca .divLoginContainer .divLoginBlue { background-color: #379AFF; }
-        .divPleca .divLoginContainer .divLoginBlue:hover { background-color: #2d90f4; }
-
-        .divMenuContainer { background-color: #38464F; height: 48px; text-align: center; }
-
-        .divMenuContainer .divMenu { color:#E4EDF4; display: inline-block; width: 110px; height: 40px; line-height: 40px; border-bottom: 8px #38464F solid; font-size: 10pt; margin: 0 10px 0 10px; cursor: pointer; }
-
-        .divContentContainer { padding: 50px 100px 50px 100px; }
-        .divContentContainer .divContent { background-color: #FFFFFF; color:#555555; padding: 70px 70px 70px 70px; font-size: 12pt; text-align: justify; }
-        .divContentContainer .divContent .spanTitle { font-size: 24pt; color:#000000; }
-        .divContentContainer .divContent .spanSubtitle { font-size: 18pt; color:#313841 }
-
-        .divPayment { background-color: #406884; height: 108px; text-align: center; font-size: 11pt; line-height: 108px; color:#FFFFFF; font-weight: normal; }
-        .divPayment .imgPayment { vertical-align: middle; margin-left: 50px; }
-
-        .divFooter { background-color: #38464F; padding: 50px 100px 50px 100px; font-size: 10pt; color: #FFFFFF; vertical-align: top; text-align: center; }
-        .divFooter .divBlock { display: inline-block; width: calc(20% - 30px); padding: 10px 10px 10px 10px; text-align: left; vertical-align: top; }
-        .divFooter .divBlock .spanHighlightblue { color: #2CA5FA;font-weight: bold; }
-        .divFooter .divBlock .spanGray {color: #707070; }
-
-        .inputLogin { background-color: #FFFFFF; color:#000000; border: 1px #000000 solid; padding: 10px 10px 10px 10px; font-size: 12pt; font-weight: bold; outline: none; }
-        .inputLogin:focus {border: 1px #406884 solid; background-color: rgba(64,104,132,.1)}
-        .buttonLogin { border: 0; padding: 10px 20px 10px 20px; font-size: 14pt; text-align: center; cursor: pointer; font-weight:bolder; background-color: rgba(64,104,132,.7); color: #FFFFFF; box-shadow: inset 0 -6px 0 #406884; margin-top: 20px; }
-        .buttonLogin:hover { background-color: #406884; }
-        .labelRegister { color: #000000; cursor: pointer; }
-        .labelRegister:hover { text-decoration: underline; }
-        .labelForgot { cursor: pointer; font-size: 11pt; }
-        .labelForgot:hover { text-decoration: underline; }
-        .divLoginError { border: 1px #FF2828 solid; color: #FF2828; background-color: rgba(255,192,0,.2); padding: 8px 8px 8px 8px; margin-top: 10px; display: none; }
-
-        .divWorkingBackground {
-            z-index: 10000001;
-            background-color: rgba(0, 0, 0, .6);
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            display: none;
-        }
-
-        .divWorking {
-            text-align: center;
-            padding: 20px 20px 20px 20px;
-            border: 1px #00b8fe solid;
-            box-shadow: 0 1px 0 #1766A1;
-            background-color: #282828;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto auto auto auto;
-            position: absolute;
-            width: 128px;
-            height: 15px;
-        }
-
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="homecarousel.css">
     <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="jssor.slider-22.0.6.mini.js" type="text/javascript"></script>
+    <script type="text/javascript" src="homecarousel.js"></script>
 </head>
 <body>
 <div class="divTop">
@@ -118,7 +45,38 @@ include_once 'lib/google/gpConfig.php';
 </div>
 <div class="divContentContainer">
     <div id="divContentHome" class="divContent">
-        <span class="spanTitle">LANDING</span><br /><br />
+        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden; visibility: hidden;">
+            <!-- Loading Screen -->
+            <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+                <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+                <div style="position:absolute;display:block;background:url('img/carousel/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+            </div>
+            <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden;">
+                <div data-b="0" data-p="170.00" data-po="80% 55%">
+                    <img data-u="image" src="img/carousel/01.jpg" />
+                </div>
+                <a data-u="any" href="http://www.jssor.com" style="display:none">Introduction Slider</a>
+                <div data-b="1" data-p="170.00" style="display: none;">
+                    <img data-u="image" src="img/carousel/02.jpg" />
+                </div>
+                <div data-b="2" data-p="170.00" style="display: none;">
+                    <img data-u="image" src="img/carousel/04.jpg" />
+                </div>
+            </div>
+            <!-- Bullet Navigator -->
+            <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+                <!-- bullet navigator item prototype -->
+                <div data-u="prototype" style="width:16px;height:16px;"></div>
+            </div>
+            <!-- Arrow Navigator -->
+            <span data-u="arrowleft" class="jssora22l" style="top:0px;left:10px;width:40px;height:58px;" data-autocenter="2"></span>
+            <span data-u="arrowright" class="jssora22r" style="top:0px;right:10px;width:40px;height:58px;" data-autocenter="2"></span>
+        </div>
+        <div style="background-color: #3d8230; margin-top: 20px; text-align: center; overflow-x: auto; overflow-y: hidden;">
+            <div style="display: inline-block; width: 150px; height: 150px; ">
+
+            </div>
+        </div>
     </div>
     <div id="divContentNosotros" class="divContent" style="display: none">
         <span class="spanTitle"">Nosotros.</span><br /><br />
