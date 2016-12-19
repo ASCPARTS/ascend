@@ -18,27 +18,28 @@ $objAscend = new clsAscend();
 
         function drawStuff() {
             var data = new google.visualization.arrayToDataTable([
-                ['Familias', 'Ventas'],
-                ["SERVERS", 50000],
-                ["LAPTOPS", 31000],
-                ["MOBILES", 12000],
-                ["DESKTOPS", 10000],
-                ["PRINTERS", 3000]
+                ['Grupos', 'Ventas'],
+                ["AC ADAPTADORES", 50000],
+                ["FUSORES", 31000],
+                ["BATERIAS", 12000],
+                ["DISPLAY", 10000],
+                ["KEYBOARDS", 3000],
+                ["HDD", 25000]
             ]);
 
             var options = {
                 title: 'Ventas por Familia',
                 width: 900,
                 legend: { position: 'none' },
-                chart: { title: 'Ventas por Familia',
+                chart: { title: 'Ventas por Marcas',
                     subtitle: 'Año 2016' },
-                bars: 'horizontal', // Required for Material Bar Charts.
+                bars: 'vertical', // Required for Material Bar Charts.
                 axes: {
                     x: {
                         0: { side: 'top', label: 'Ventas'} // Top x-axis.
                     }
                 },
-                bar: { groupWidth: "90%" }
+                bar: { groupWidth: "70%" }
             };
 
             var chart = new google.charts.Bar(document.getElementById('top_x_div'));
