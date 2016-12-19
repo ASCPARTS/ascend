@@ -139,11 +139,128 @@ switch ($strProcess)
                 .") "
                 ."A WHERE" . $strWhereProduct;
         }
-
-        $objPagination = $clsProductSearch->queryPagination($sqlProduct, $intPage, $intRecordsPerPage);
+        //echo $intPage . "<br>" . $intRecordsPerPage;
+        $objPagination = $objProductSearch->queryPagination($sqlProduct, $intPage, $intRecordsPerPage);
         $rstProduct = $objAscend->dbQuery($sqlProduct . $objPagination["strLimit"] );
         $rstQuery = $rstProduct;
         unset($rstProduct);
+
+        /////////////////////////////////////
+        $jsnPhpScriptResponse["htmlProduct"] = "";
+        $jsnPhpScriptResponse["htmlProduct"] .= "<table>";
+        $jsnPhpScriptResponse["htmlProduct"] .= "<thead>";
+            $jsnPhpScriptResponse["htmlProduct"] .= "<tr>";
+                $jsnPhpScriptResponse["htmlProduct"] .= "<td> Numero de Parte</td> <td>Promocion</td> <td>Descripcion</td> <td>Marca</td> <td>Tipo</td>";
+            $jsnPhpScriptResponse["htmlProduct"] .= "</tr>";
+        $jsnPhpScriptResponse["htmlProduct"] .= "</thead>";
+        $jsnPhpScriptResponse["htmlProduct"] .= "<tbody>";
+        foreach($rstQuery as $product)
+        {
+            $htmlProduct = '<tr>';
+            //if(!file_exists("../../img/" . $product["strImage"])) { $product["strImage"] = "product/notfound.jpg";   }
+            //$htmlProduct .= '<img src="../../img/' . $product["strImage"] .'">';
+            $htmlProduct .= '<td> ' . $product["strPartNumber"] . '</td>';
+
+            if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
+            {
+                $objPromotion = $objProductSearch->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
+                $htmlProduct .= '<td' . $objPromotion["strRuleDescription"] . '</td>';
+            }
+            else
+            {
+                $htmlProduct .= '<td >-</td>';
+            }
+
+            $htmlProduct .= '<td>' . $product["strDescription"] . '</td>';
+            $htmlProduct .= '<td>' . $product["strBrand"] . '</td>';
+            $htmlProduct .= '<td>' . $product["strCondition"] . '</td>';
+
+
+            $htmlProduct .= '<td>$ ' . number_format($product["decPrice"], 2, ",", ".") . '</td>';
+            if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
+            {
+                $htmlProduct .= '<td>$ ' . number_format($objPromotion["decPrice"], 2, ",", ".") . '</td>';
+            }
+            else
+            {
+                $htmlProduct .= '<td>-</td>';
+            }
+
+
+
+
+            /*
+            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectDetails\', \'tabDetails\', \'' . $product["intId"] . '\')">DETALLES</button>';
+            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectReplacements\', \'tabReplacements\', \'' . $product["intId"] . '\')">REMPLAZOS</button>';
+            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectCompatible\', \'tabCompatible\', \'' . $product["intId"] . '\')">COMPATIBLE</button>';
+            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectStocks\', \'tabStocks\', \'' . $product["intId"] . '\')">EXISTENCIAS</button>';
+            */
+            $jsnPhpScriptResponse["htmlProduct"] .= ($htmlProduct);
+        }
+
+        $jsnPhpScriptResponse["htmlProduct"] .= "</tbody>";
+        $jsnPhpScriptResponse["htmlProduct"] .= "</table>";
+        #Pagineo
+
+        $htmlPagination = "";
+        $htmlPagination .= "<div class=\"divPagination\">";
+        if( $intPage != 1)
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(1)\" title=\"Inicio\">⋘</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . ( $intPage - 1) . ")\" title=\"Anterior\">≪</label>";
+        }
+        else
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Inicio\">&#8920;</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Anterior\">&#8810</label>";
+        }
+
+        $htmlPagination .= "<div class=\"divPagesScroll\">";
+
+        for($p = 1; $p <= $objPagination["intPages"]; $p++)
+        {
+            if( $p != $intPage)
+            {
+                $htmlPagination .= "<label class=\"labelPagination\" onclick=\"onChangePage($p)\">$p</label>";
+            }
+            else
+            {
+                $htmlPagination .= "<label class=\"labelPagination labelPaginationCurrent\">$p</label>";
+            }
+        }
+
+        $htmlPagination .= "</div>";
+
+        if( $intPage != $objPagination["intPages"])
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Siguiente\">&#8811</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow labelPaginationDisabled\" title=\"Final\">&#8921</label>";
+        }
+        else
+        {
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . ( $intPage + 1) . ")\" title=\"Siguiente\">≫</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . $objPagination["intPages"] . ")\" title=\"Final\">⋙</label>";
+        }
+
+        $htmlPagination .= "<div class=\"paginationInfo\">";
+        $htmlPagination .= "<b> " . $objPagination["intTotalRows"] . " </b> Registros - <b>" . $objPagination["intPages"] . "</b> Páginas -";
+        $htmlPagination .= "<select id=\"numPages\" onchange=\"onChangeRecords(this.value);\">";
+        $htmlPagination .= "<option  value=\"10\" " . ( $intRecordsPerPage ==  10 ? "selected=\"selected\"" : "" ) . ">10</option>";
+        $htmlPagination .= "<option  value=\"20\" " . ( $intRecordsPerPage ==  20 ? "selected=\"selected\"" : "" ) . ">20</option>";
+        $htmlPagination .= "<option  value=\"40\" " . ( $intRecordsPerPage ==  40 ? "selected=\"selected\"" : "" ) . ">40</option>";
+        $htmlPagination .= "<option  value=\"60\" " . ( $intRecordsPerPage ==  60 ? "selected=\"selected\"" : "" ) . ">60</option>";
+        $htmlPagination .= "<option  value=\"80\" " . ( $intRecordsPerPage ==  80 ? "selected=\"selected\"" : "" ) . ">80</option>";
+        $htmlPagination .= "<option value=\"100\" " . ( $intRecordsPerPage == 100 ? "selected=\"selected\"" : "" ) . ">100</option>";
+        $htmlPagination .= "</select>";
+        $htmlPagination .= "Registros por página";
+        $htmlPagination .= "</div>";
+        $htmlPagination .= "</div>";
+
+        $jsnPhpScriptResponse["htmlPagination"] = $htmlPagination;
+        //echo "<br><br><br>" . $htmlPagination;
+        //$objAscend->printArray($rstQuery);
+
+        #
 
     break;
 

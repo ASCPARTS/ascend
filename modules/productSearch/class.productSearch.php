@@ -125,7 +125,7 @@ class clsProductSearch extends clsAscend
             foreach( $objBrands as $brand )
             {
                 $intIsCheckedBrand = 0;
-                $this -> printArray($jsnBrand);
+                //$this -> printArray($jsnBrand);
                 foreach ($jsnBrand as $checkedBrand)
                 {
                     if( $brand["intBrand"] == $checkedBrand ) { $intIsCheckedBrand = 1;  }

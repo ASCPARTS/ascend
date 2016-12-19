@@ -88,6 +88,7 @@ function productSearch_search()
 
             //fill
             $('#divCustomerList').html(data.jsnCustomerList);
+            $('#divProductList').html(data.htmlProduct);
         }
     });
 }

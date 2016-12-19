@@ -58,7 +58,7 @@ class clsSession extends clsAscend
         $resultado = '';
 
         $sessionExists = $this->objAscend->dbQuery("SELECT COUNT(strId) as SESIONEXISTS from tblSession WHERE strId = '$id'");
-        echo "1<br>";
+        //echo "1<br>";
         $this->objAscend->printArray($sessionExists);
 
         settype($id, 'string');
@@ -67,16 +67,16 @@ class clsSession extends clsAscend
         if ($sessionExists[0]['SESIONEXISTS'] < 1)
         {
             $insertSession = "INSERT INTO tblSession(strId, strLifetime, strData) VALUES ('$id',$lifeTime,'$sess_data');";
-            echo $insertSession;
+            //echo $insertSession;
             $resultado = $this->objAscend->dbInsert($insertSession);
-            echo "a<br>";
+            //echo "a<br>";
             $this->objAscend->printArray($resultado);
-            echo "b<br>";
+            //echo "b<br>";
         }
         else
         {
             $insertSession = "UPDATE tblSession SET strData = '$sess_data', strLifetime =$lifeTime WHERE strId = '$id'";
-            echo $insertSession;
+            //echo $insertSession;
             $resultado = $this->objAscend->dbUpdate($insertSession);
             $this->objAscend->printArray($resultado);
         }

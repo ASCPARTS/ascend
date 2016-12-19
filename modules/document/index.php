@@ -5,7 +5,8 @@
     <script type="text/javascript" src="../customer/customer.js"></script>
     <script type="text/javascript" src="../productSearch/javascript.js"></script>
 	<script type="text/javascript" src="javascript.js"></script>
-	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="../productSearch/stylesheet.css" />
 </head>
 <body>
     <div class="MainTitle">Documento</div>
