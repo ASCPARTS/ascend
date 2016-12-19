@@ -2,7 +2,7 @@
 <div class="divTopMenu divTopMenuLeft imageTopMenu imageTopMenuMenu" onclick="openMenuMain();"></div>
 <?php
 $strTopMenu = '';
-$strSql = "SELECT * FROM tblMenu WHERE intStatus = 1 AND strLocation = 'T' ORDER BY intOrder;";
+$strSql = "SELECT * FROM tblMenu WHERE intId IN (SELECT intMenu FROM tblProfileMenu WHERE intProfile IN (SELECT intProfile FROM tblUserProfile WHERE intUser = " . $_SESSION['intUserID'] . ")) AND intStatus = 1 AND strLocation = 'T' ORDER BY intOrder;";
 $rstTopMenu = $classAscend->dbQuery($strSql);
 foreach ($rstTopMenu as $arrTopMenu){
     $strTopMenu .= '<div class="divTopMenu divTopMenuLeft imageTopMenu" style="background-image: url(\'' . $arrTopMenu['strIcon'] . '\');" title="' . $arrTopMenu['strName'] . '" onclick="';
@@ -17,7 +17,7 @@ unset($arrTopMenu);
 unset($rstTopMenu);
 echo $strTopMenu;
 ?>
-<div class="divTopMenuUser" style="background-image: url('img/luis_quintero.jpg')" onclick="openUserMenu();">Luis Quintero</div>
+<div class="divTopMenuUser" style="background-image: url('<?php echo $_SESSION['strUserImage'];?>')" onclick="openUserMenu();"><?php echo $_SESSION['strUserName'];?></div>
 <div id="divTopMenuUserMain">
     <table id="tableTopMenuUserMain">
         <tr>
@@ -28,7 +28,7 @@ echo $strTopMenu;
             <td id="tdTopMenuUser" width="252" height="1">
                 <?php
                 $strUserMenu = '';
-                $strSql = "SELECT * FROM tblMenu WHERE intStatus = 1 AND strLocation = 'U' ORDER BY intOrder;";
+                $strSql = "SELECT * FROM tblMenu WHERE intId IN (SELECT intMenu FROM tblProfileMenu WHERE intProfile IN (SELECT intProfile FROM tblUserProfile WHERE intUser = " . $_SESSION['intUserID'] . ")) AND intStatus = 1 AND strLocation = 'U' ORDER BY intOrder;";
                 $rstUserMenu = $classAscend->dbQuery($strSql);
                 foreach ($rstUserMenu as $arrUserMenu){
                     $strUserMenu .= '<div class="divTopMenuUserOption" style="background-image: url(\'' . USER_MENU_ICON_PATH . $arrUserMenu['strIcon'] . '\');" onclick="';

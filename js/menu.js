@@ -65,7 +65,5 @@ function closeUserMenu(){
 }
 
 function logout(){
-    $('body').fadeOut('slow',function(){
-        window.location = 'http://localhost/ascend/';
-    });
+    window.location = 'logout.php';
 }

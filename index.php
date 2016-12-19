@@ -1,3 +1,7 @@
+<?php
+session_destroy();
+include_once 'lib/google/gpConfig.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,8 +42,49 @@
         .divFooter .divBlock .spanHighlightblue { color: #2CA5FA;font-weight: bold; }
         .divFooter .divBlock .spanGray {color: #707070; }
 
+        .inputLogin { background-color: #FFFFFF; color:#000000; border: 1px #000000 solid; padding: 10px 10px 10px 10px; font-size: 12pt; font-weight: bold; outline: none; }
+        .inputLogin:focus {border: 1px #406884 solid; background-color: rgba(64,104,132,.1)}
+        .buttonLogin { border: 0; padding: 10px 20px 10px 20px; font-size: 14pt; text-align: center; cursor: pointer; font-weight:bolder; background-color: rgba(64,104,132,.7); color: #FFFFFF; box-shadow: inset 0 -6px 0 #406884; margin-top: 20px; }
+        .buttonLogin:hover { background-color: #406884; }
+        .labelRegister { color: #000000; cursor: pointer; }
+        .labelRegister:hover { text-decoration: underline; }
+        .labelForgot { cursor: pointer; font-size: 11pt; }
+        .labelForgot:hover { text-decoration: underline; }
+        .divLoginError { border: 1px #FF2828 solid; color: #FF2828; background-color: rgba(255,192,0,.2); padding: 8px 8px 8px 8px; margin-top: 10px; display: none; }
+
+        .divWorkingBackground {
+            z-index: 10000001;
+            background-color: rgba(0, 0, 0, .6);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: none;
+        }
+
+        .divWorking {
+            text-align: center;
+            padding: 20px 20px 20px 20px;
+            border: 1px #00b8fe solid;
+            box-shadow: 0 1px 0 #1766A1;
+            background-color: #282828;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto auto auto auto;
+            position: absolute;
+            width: 128px;
+            height: 15px;
+        }
+
+
     </style>
     <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 <div class="divTop">
@@ -53,9 +98,15 @@
         <div class="divLogin divLoginBlue" style="background-image: url('img/client_login.png');" onclick="switchContent('Clientes');">
             Iniciar sesión
         </div>
-        <div class="divLogin" style="background-image: url('img/ascend_login.png');" onclick="openLogin('ASCEND');">
+        <?php
+        $authUrl = $gClient->createAuthUrl();
+        //$output = '<a href="'.filter_var($authUrl, FILTER_SANITIZE_URL).'"><img src="images/glogin.png" alt=""/></a>';
+        ?>
+        <a href="<?php echo filter_var($authUrl, FILTER_SANITIZE_URL); ?>">
+        <div class="divLogin" style="background-image: url('img/ascend_login.png');">
             ASCend
         </div>
+        </a>
     </div>
 </div>
 <div class="divMenuContainer">
@@ -165,7 +216,25 @@
         <span class="spanTitle">Contacto.</span><br /><br />
     </div>
     <div id="divContentClientes" class="divContent" style="display: none">
-        <span class="spanTitle">Iniciar Sesión.</span><br /><br />
+        <span class="spanTitle">Clientes.</span><br /><br />
+        <table style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+            <tbody>
+            <tr>
+                <td style="width: 20%; padding: 5px 5px 5px 5px;">No. de Cliente</td>
+                <td style="width: 55%; padding: 5px 5px 5px 5px;"><input id="strClientNumber" type="text" value="" class="inputLogin"></td>
+                <td style="width: 25%; padding: 5px 5px 5px 5px;"><label class="labelRegister">Registrarme</label></td>
+            </tr>
+            <tr>
+                <td style="width: 20%; padding: 5px 5px 5px 5px;">Contraseña</td>
+                <td style="width: 55%; padding: 5px 5px 5px 5px;"><input id="strClientPassword" type="password" value="" class="inputLogin"></td>
+                <td style="width: 25%; padding: 5px 5px 5px 5px;"><label class="labelForgot">Olvidé mi contraseña</label></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;"><input type="button" value="Ingresar" class="buttonLogin" onclick="loginClient();"> </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="divLoginError" id="divLoginError"></div>
     </div>
 </div>
 <div class="divPayment">
@@ -220,6 +289,13 @@
 <div style="background-color: #2C3942; padding: 0 100px 0 100px; text-align: right; color: #555555; height: 90px; line-height: 90px; font-size: 8pt; font-weight: normal">
     &copy; ASC Parts 2016. Derechos Reservados.
 </div>
+
+<div id="divWorkingBackground" class="divWorkingBackground">
+    <div id="divWorking" class="divWorking">
+        <img src="img/main/ajax-loader.gif" class="imgWorking"/>
+    </div>
+</div>
+
 <script>
     function openLogin($strLogin){
         $('body').fadeOut('slow',function(){
@@ -237,6 +313,12 @@
             if($arrSections[$intIx] != 'Home' && $arrSections[$intIx] != 'Clientes'){
                 $('#divMenu' + $arrSections[$intIx]).css('border-bottom-color','#38464F');
             }
+            if($arrSections[$intIx] == 'Clientes'){
+                $('#strClientNumber').val('');
+                $('#strClientPassword').val('');
+                $('#divLoginError').html('');
+                $('#divLoginError').hide();
+            }
             $('#divContent' + $arrSections[$intIx]).hide();
         }
         if($arrSections[$intIx] != 'Home' && $arrSections[$intIx] != 'Clientes') {
@@ -244,7 +326,57 @@
         }
         $('#divContent' + $strTarget).slideDown('slow');
     }
-    
+
+    function loginClient(){
+        $('#divWorkingBackground').fadeIn('fast',function(){
+            $('#divLoginError').html('');
+            $('#divLoginError').hide();
+            $strClientNumber = $('#strClientNumber').val().trim();
+            $strClientPassword = $('#strClientPassword').val().trim();
+            if($strClientNumber==''){
+                $('#divLoginError').html('Ingrese su número de cliente');
+                $('#divLoginError').show();
+                $('#divWorkingBackground').fadeOut('fast',function(){
+                    $('#strClientNumber').focus();
+                });
+            }else{
+                if($strClientPassword==''){
+                    $('#divLoginError').html('Ingrese su contraseña');
+                    $('#divLoginError').show();
+                    $('#divWorkingBackground').fadeOut('fast',function(){
+                        $('#strClientPassword').focus();
+                    });
+                }else{
+                    $strQueryString = "strProcess=authClient&strClientNumber=" + $strClientNumber + "&strClientPassword=" + $strClientPassword;
+                    $.ajax({
+                        url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+                        success: function ($jsnPhpScriptResponse) {
+                            switch($jsnPhpScriptResponse.authClient==0){
+                                case 0:
+                                    $('#divLoginError').html('Su número de cliente es erroneo, verifique');
+                                    $('#divLoginError').show();
+                                    $('#strClientNumber').focus();
+                                    break;
+                                case -1:
+                                    $('#divLoginError').html('Su contraseña es erronea, verifique');
+                                    $('#divLoginError').show();
+                                    $('#strClientNumber').focus();
+                                    break;
+                            }
+                            $('#divWorkingBackground').fadeOut('fast',function(){
+
+                            });
+                        },
+                        error: function($e){
+                            alert('Error de sistema, contactar al administrador');
+                            console.log($e);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
 </script>
 </body>
 </html>

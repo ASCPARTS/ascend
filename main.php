@@ -1,8 +1,13 @@
 <?php
 require_once 'inc/include.config.php';
+
+if($_SESSION['intUserID']==''){
+    header("Location:index.php");
+    exit(0);
+}
+
 require_once LIB_PATH . 'class.ascend.php';
 $classAscend = new clsAscend();
-$_SESSION['in ectotUserID'] = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
