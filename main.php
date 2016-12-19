@@ -23,8 +23,8 @@ $classAscend = new clsAscend();
 <table style="width: 100vw; height: 100vh; border: 0; border-spacing: 2px; border-collapse: separate;">
     <tbody>
     <tr style="height: 50px">
-        <td colspan="3" style="background-color: #050409; padding: 0 0 0 0">
-            <?php require_once INCLUDE_PATH . 'include.topmenu.php'; ?>
+        <td colspan="3" style="padding: 0 0 0 0; background-image: url('img/main/pleca_main_left.png'), url('img/main/pleca_main_center.png'), url('img/main/pleca_main_right.png') ; background-size: calc(50% - 65px) 50px, 131px 50px, calc(50% - 66px) 50px; background-repeat: no-repeat, no-repeat, no-repeat; background-position: left top, center top, right top; ">
+        <?php require_once INCLUDE_PATH . 'include.topmenu.php'; ?>
         </td>
     </tr>
     <tr style="calc(100% - 50px)">

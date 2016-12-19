@@ -1,5 +1,4 @@
 <?php
-session_destroy();
 include_once 'lib/google/gpConfig.php';
 ?>
 <!DOCTYPE html>
