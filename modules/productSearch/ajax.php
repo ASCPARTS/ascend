@@ -150,7 +150,7 @@ switch ($strProcess)
         $jsnPhpScriptResponse["htmlProduct"] .= "<table>";
         $jsnPhpScriptResponse["htmlProduct"] .= "<thead>";
             $jsnPhpScriptResponse["htmlProduct"] .= "<tr>";
-                $jsnPhpScriptResponse["htmlProduct"] .= "<td> Numero de Parte</td> <td>Promocion</td> <td>Descripcion</td> <td>Marca</td> <td>Tipo</td>";
+                $jsnPhpScriptResponse["htmlProduct"] .= "<td>Numero de Parte</td> <td>Descripcion</td> <td>Marca</td> <td>Tipo</td> <td>Precio</td> <td>Promocion</td> <td>Precio Promocion</td> <td>Existencias</td>";
             $jsnPhpScriptResponse["htmlProduct"] .= "</tr>";
         $jsnPhpScriptResponse["htmlProduct"] .= "</thead>";
         $jsnPhpScriptResponse["htmlProduct"] .= "<tbody>";
@@ -160,33 +160,24 @@ switch ($strProcess)
             //if(!file_exists("../../img/" . $product["strImage"])) { $product["strImage"] = "product/notfound.jpg";   }
             //$htmlProduct .= '<img src="../../img/' . $product["strImage"] .'">';
             $htmlProduct .= '<td> ' . $product["strPartNumber"] . '</td>';
-
-            if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
-            {
-                $objPromotion = $objProductSearch->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
-                $htmlProduct .= '<td' . $objPromotion["strRuleDescription"] . '</td>';
-            }
-            else
-            {
-                $htmlProduct .= '<td >-</td>';
-            }
-
             $htmlProduct .= '<td>' . $product["strDescription"] . '</td>';
             $htmlProduct .= '<td>' . $product["strBrand"] . '</td>';
             $htmlProduct .= '<td>' . $product["strCondition"] . '</td>';
 
-
             $htmlProduct .= '<td>$ ' . number_format($product["decPrice"], 2, ",", ".") . '</td>';
             if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
             {
+                $objPromotion = $objProductSearch->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
+                $htmlProduct .= '<td>' . $objPromotion["strRuleDescription"] . '</td>';
                 $htmlProduct .= '<td>$ ' . number_format($objPromotion["decPrice"], 2, ",", ".") . '</td>';
             }
             else
             {
                 $htmlProduct .= '<td>-</td>';
+                $htmlProduct .= '<td>-</td>';
             }
 
-
+            $htmlProduct .= '<td> <button class="btn btnOverYellow" type="button" id="btnStock" onclick="productSearch_stock();">Existencias</button> </td>';
 
 
             /*
@@ -195,6 +186,30 @@ switch ($strProcess)
             $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectCompatible\', \'tabCompatible\', \'' . $product["intId"] . '\')">COMPATIBLE</button>';
             $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectStocks\', \'tabStocks\', \'' . $product["intId"] . '\')">EXISTENCIAS</button>';
             */
+            $htmlProduct = '</tr>';
+            #Stock
+            $sqlStock =
+                "SELECT WHS.intWarehouse as intId, WH.strCode, WH.strDescription, WHS.intStock "
+                ."FROM tblWarehouseStock WHS "
+                ."LEFT JOIN catWarehouse WH ON WHS.intWarehouse = WH.intId "
+                ."WHERE WHS.intProduct = " . $objPromotion["intId"] . " AND WHS.strStatus <> 'B' AND WH.strStatus <> 'B';";
+            $rstStock = $objAscend->dbQuery($sqlStock);
+            $htmlProduct = '<tr>';
+                $htmlProduct = '<td colspan="8">';
+                    $htmlProduct = '<table>';
+                        $thStock = '';
+                        $tdStock = '';
+                        foreach ($rstStock as $warehouse )
+                        {
+                            $thStock .= '<th>' . $warehouse["strDescription"] . '</th>';
+                            $tdStock .= '<td>' . $warehouse["intStock"] . '</td>';
+                        }
+                        $htmlProduct = '<tr> $thStock </tr>';
+                        $htmlProduct = '<tr> $tdStock </tr>';
+                    $htmlProduct = '</table>';
+                $htmlProduct = '</td>';
+            $htmlProduct = '</tr>';
+
             $jsnPhpScriptResponse["htmlProduct"] .= ($htmlProduct);
         }
 
