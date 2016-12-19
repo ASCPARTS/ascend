@@ -6,28 +6,42 @@ require_once('../../'. LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
 
 //TITULO DE LA GRAFICA
-$strTitle='SKU';
+$strTitle='';
 //SUBTITULO DE LA GRAFICA
-$strSubTitle='Precios mes pasado';
+$strSubTitle='Ventas por Zona';
 //MEDIDAS DE LA GRAFICA
 $intWidth='300';
 $intHeight='400';
 //ORIENTACION QUE TENDRA LA GRAFICA
 $strBar='vertical';
 //ETIQUETE DE LA GRAFICA
-$strLabel='Hola Brenda';
+$strLabel='2016';
 //POSICION DE LA ETIQUETA
 $strSide='top';
 //CONSULTA PARA RELLENAR LA GRAFICA
-$strSql="select strSKU, decPrice from tblProduct where strStatus ='A' ORDER BY decPrice;";
-$rstData = $objAscend->dbQuery($strSql);
-$strValues = "['SKU','Precio']";
+$strSql="SELECT intId, strDescription FROM catZone WHERE strStatus='A';";
+$rstZone = $objAscend->dbQuery($strSql);
+$strValues = "['Zone','Venta']";
 //CICLO PARA RECORRRER LA CONSULTA
-foreach($rstData as $arrData){
-    $strValues .= ",['" . $arrData['strSKU'] . "', '" . $arrData['decPrice'] . "']";
+foreach($rstZone as $arrZone){
+    $strSql="SELECT (DD.decAmount) as decTotal
+    FROM tblInvoice I
+    LEFT JOIN tblInvoiceDocumentDetail IDD ON IDD.intInvoice=I.intId
+    LEFT JOIN tblDocumentDetail DD ON DD.intId=IDD.intDocumentDetail
+    LEFT JOIN tblDocument D ON D.intId = DD.intDocument
+    LEFT JOIN tblUser U ON U.intId=D.intCreator
+    LEFT JOIN catZone Z ON Z.intId=U.intZone
+    AND I.intCreationDate >= 20160000000000 
+    AND I.intCreationDate <= 20169999999999
+    AND Z.intZone= ".$arrZone['intId']."
+    GROUP BY Z.strDescription
+    ORDER BY Z.strDescription;";
+    $rstTotal=$objAscend->dbQuery($strSql);
+    foreach ($rstTotal as $arrTotal){
+        $strValues .= ",['" . $arrZone['strDescription'] . "', '" . $arrTotal['decTotal'] . "']";
+    }
 }
 ?>
-
 <head>
     <?php require_once("../../inc/sheet.inc");?>
 

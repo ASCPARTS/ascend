@@ -9,6 +9,7 @@
 
     ini_set("display_errors",1);
     ini_set("memory_limit",0);
+    $_SESSION['intUserID'];
     ?>
     
 </head>

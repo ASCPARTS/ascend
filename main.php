@@ -2,7 +2,7 @@
 require_once 'inc/include.config.php';
 require_once LIB_PATH . 'class.ascend.php';
 $classAscend = new clsAscend();
-$_SESSION['intUserID'] = 1;
+$_SESSION['in ectotUserID'] = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">

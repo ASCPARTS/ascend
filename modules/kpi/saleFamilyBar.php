@@ -8,23 +8,38 @@ $objAscend = new clsAscend();
 //TITULO DE LA GRAFICA
 $strTitle='SKU';
 //SUBTITULO DE LA GRAFICA
-$strSubTitle='Precios mes pasado';
+$strSubTitle='Ventas por Familia';
 //MEDIDAS DE LA GRAFICA
 $intWidth='300';
 $intHeight='400';
 //ORIENTACION QUE TENDRA LA GRAFICA
 $strBar='vertical';
 //ETIQUETE DE LA GRAFICA
-$strLabel='Hola Brenda';
+$strLabel='2016';
 //POSICION DE LA ETIQUETA
 $strSide='top';
 //CONSULTA PARA RELLENAR LA GRAFICA
-$strSql="select strSKU, decPrice from tblProduct where strStatus ='A' ORDER BY decPrice;";
-$rstData = $objAscend->dbQuery($strSql);
-$strValues = "['SKU','Precio']";
+$strSql="SELECT intId, strName FROM tblFamily WHERE strStatus='A';";
+$rstFamily = $objAscend->dbQuery($strSql);
+$strValues = "['Familia','Venta']";
 //CICLO PARA RECORRRER LA CONSULTA
-foreach($rstData as $arrData){
-    $strValues .= ",['" . $arrData['strSKU'] . "', '" . $arrData['decPrice'] . "']";
+foreach($rstFamily as $arrFamily){
+    $strSql="SELECT SUM(DD.decAmount) as decTotal
+        FROM tblInvoice I
+        LEFT JOIN tblInvoiceDocumentDetail IDD ON IDD.intInvoice=I.intId
+        LEFT JOIN tblDocumentDetail DD ON DD.intId=IDD.intDocumentDetail
+        LEFT JOIN tblDocument D ON D.intId=DD.intDocument
+        LEFT JOIN tblProduct P ON P.intId = DD.intProduct
+        LEFT JOIN tblFamily F ON F.intId=P.intFamily
+        WHERE I.strStatus='A' 
+        AND F.intId = ".$arrFamily['intId']."
+        AND I.intCreationDate >= 20160000000000 
+        AND I.intCreationDate <= 20169999999999;";
+    $rstTotal=$objAscend->dbQuery($strSql);
+    foreach ($rstTotal as $arrTotal){
+        $strValues .= ",['" . $arrFamily['strName'] . "', '" . $arrTotal['decTotal'] . "']";
+    }
+    
 }
 ?>
 
