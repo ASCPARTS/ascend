@@ -52,7 +52,7 @@ switch ($strProcess)
         $strWhereDescription = "";
         $strWhereBrand = "";
         $strWhereGroup = "";
-
+        
         foreach ($arrNeedle as $strNeedle)
         {
             $strWhereSKU .= " P.strSKU LIKE '%" . $strNeedle . "%' OR";
@@ -61,16 +61,16 @@ switch ($strProcess)
             $strWhereBrand .= " B.strName LIKE '%" . $strNeedle . "%' OR";
             $strWhereGroup .= " G.strName LIKE '%" . $strNeedle . "%' OR";
         }
-
+        
         $strWhereSKU = substr($strWhereSKU, 0, ( strlen($strWhereSKU) - 2 ) );
         $strWherePartNumber = substr($strWherePartNumber, 0, ( strlen($strWherePartNumber) - 2 ) );
         $strWhereDescription = substr($strWhereDescription, 0, ( strlen($strWhereDescription) - 2 ) );
         $strWhereBrand = substr($strWhereBrand, 0, ( strlen($strWhereBrand) - 2 ) );
         $strWhereGroup = substr($strWhereGroup, 0, ( strlen($strWhereGroup) - 2 ) );
-
+        
         $strWhereProduct = "WHERE P.strStatus='A' AND ( ( " . $strWhereSKU . " ) OR ( " . $strWherePartNumber . " ) OR ( " . $strWhereDescription . " ) OR ( " . $strWhereBrand . " ) OR ( " . $strWhereGroup . " ) ) ";
         //--
-
+        
         $sqlProduct =
         " SELECT P.intId, P.strSku, P.strPartNumber, P.strDescription, P.decPrice, P.intBrand, B.strName AS strBrand, P.intGroup, G.strName AS strGroup, P.intCondition, C.strName AS strCondition, I.intSold, IFNULL(PR.strRule, '') AS strPromotionRule, IFNULL(PR.strStatus, 'B') AS strPromotionStatus, IFNULL(PI.strUrl, 'product/notfound.jpg') AS strImage, IFNULL( (SELECT SUM(intStock) FROM tblWarehouseStock WHERE intProduct = P.intId AND strStatus = 'A'), 0) AS intStock "
         ."FROM tblProduct P  "
@@ -82,12 +82,12 @@ switch ($strProcess)
         ."LEFT JOIN tblProductImage PI ON P.intId = PI.intProduct AND PI.strType = 'default' "
         .$strWhereProduct
         ."ORDER BY strPromotionStatus ASC, I.intSold DESC ";
-
+        
         //echo $sqlProduct;
         
         $jsnPhpScriptResponse["htmlLateralBar"] = $objProductSearch -> getLateralBar($sqlProduct, $intStock, $strPriceRange, $jsnBrand, $jsnGroup );
-
-
+        
+        
         $boolLateralFilter = 0;
         $strWhereProduct = "";
         if( $intStock == 1 )
