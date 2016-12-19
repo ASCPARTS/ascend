@@ -21,13 +21,19 @@ foreach($rstFamily as $arrFamily){
         LEFT JOIN tblDocument D ON D.intId=DD.intDocument
         LEFT JOIN tblProduct P ON P.intId = DD.intProduct
         LEFT JOIN tblFamily F ON F.intId=P.intFamily
-        WHERE I.strStatus='A' 
+        WHERE I.strStatus='A'
         AND F.intId = ".$arrFamily['intId']."
         AND I.intCreationDate >= 20160000000000 
         AND I.intCreationDate <= 20169999999999;";
     $rstTotal=$objAscend->dbQuery($strSql);
     foreach ($rstTotal as $arrTotal){
-        $strValues .= ",['" . $arrFamily['strName'] . "', '" . $arrTotal['decTotal'] . "']";
+        if($arrTotal['decTotal']>0){
+            $strValues .= ",['" . $arrFamily['strName'] . "', '" . $arrTotal['decTotal'] . "']";
+        }
+        else{
+            $strValues .= ",['" . $arrFamily['strName'] . "', '0']";
+        }
+
     }
 }
 
@@ -43,7 +49,7 @@ foreach($rstFamily as $arrFamily){
 
             var options = {
                 title: '<?php echo $strTitle; ?>',
-                width: '<?php echo $strWidth; ?>',
+                width: '<?php echo $intHeight; ?>',
                 height: '<?php echo $intHeight; ?>',
                 is3D: true,
             };

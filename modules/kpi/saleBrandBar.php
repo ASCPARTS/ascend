@@ -37,7 +37,12 @@ foreach($rstBrand as $arrBrand){
         AND I.intCreationDate <= 20169999999999;";
     $rstTotal=$objAscend->dbQuery($strSql);
     foreach ($rstTotal as $arrTotal){
-        $strValues .= ",['" . $arrBrand['strName'] . "', '" . $arrTotal['decTotal'] . "']";
+        if($arrTotal['decTotal']>0){
+            $strValues .= ",['" . $arrBrand['strName'] . "', '" . $arrTotal['decTotal'] . "']";
+        }else{
+            $strValues .= ",['" . $arrBrand['strName'] . "', '0']";
+        }
+
     }
     
 }

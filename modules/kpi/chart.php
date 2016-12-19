@@ -16,7 +16,6 @@ foreach($rstData as $arrData){
 
 <head>
     <?php require_once("../../inc/sheet.inc");?>
-
 </head>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
