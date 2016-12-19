@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <?php
     require_once ('../../inc/include.config.php');
@@ -81,7 +81,6 @@
                                     <select id="strDiscount">
                                         <option value="1" selected="selected">Porcentaje</option>
                                         <option value="2">Valor Monetario</option>
-                                        <option value="3">Piezas</option>
                                     </select>
                                     <label>Tipo de Promoción</label>
                                 </div>
@@ -96,8 +95,9 @@
                         <div class="SubTitle" id="divPriceListTitle">Lista de Precios:</div>
                         <div class="row" id="divPriceList"></div>
                         <div class="SubTitle" id="divHistoryTitle">Historial:</div>
-                        <div class="row" id="divHistory"></div>
-                        
+                        <div class="row" id="divHistory">
+                            
+                        </div>
                         <div class="SubTitle" id="divFilterTitle">Filtrar por:</div>
                         <div class="row" id="divFilter">
                             <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
@@ -194,4 +194,5 @@
 </script>
 <script src="javascript.js?v=<?php echo date('Ymdhis') ;?>"></script>
 <script type="text/javascript" src="../../js/modal.js"></script>
+<script type="text/javascript" src="../../lib/jquery.numeric.js"></script>
 </html>

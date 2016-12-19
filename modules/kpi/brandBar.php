@@ -40,7 +40,8 @@ $objAscend = new clsAscend();
 
             var options = {
                 title: 'Ventas por Familia',
-                width: 900,
+                width: 500,
+                height: 600,
                 legend: { position: 'none' },
                 chart: { title: 'Ventas por Marcas',
                     subtitle: 'Año 2016' },

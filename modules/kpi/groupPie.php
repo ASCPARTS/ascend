@@ -29,6 +29,8 @@ $objAscend = new clsAscend();
             var options = {
                 title: 'Ventas por Grupo',
                 is3D: true,
+                width: 500,
+                height: 600
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));

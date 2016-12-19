@@ -28,7 +28,8 @@ $objAscend = new clsAscend();
 
             var options = {
                 title: 'Ventas por Familia',
-                width: 900,
+                width: 500,
+                height: 600,
                 legend: { position: 'none' },
                 chart: { title: 'Ventas por Familia',
                     subtitle: 'Año 2016' },
@@ -38,7 +39,7 @@ $objAscend = new clsAscend();
                         0: { side: 'top', label: 'Ventas'} // Top x-axis.
                     }
                 },
-                bar: { groupWidth: "90%" }
+                bar: { groupWidth: "60%" }
             };
 
             var chart = new google.charts.Bar(document.getElementById('top_x_div'));
@@ -51,7 +52,7 @@ $objAscend = new clsAscend();
 
         <div class="MainContainer">
             <div id="top_x_div" style="width: 100%; height: 100%;"></div>
-        <br style="clear: both;" />
+
         </div>
     </body>
 </html>
