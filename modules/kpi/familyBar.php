@@ -32,8 +32,7 @@ foreach($rstFamily as $arrFamily){
     WHERE I.strStatus='A' 
     AND F.intId = ".$arrFamily['intId']."
     AND I.intCreationDate >= 20160000000000 
-    AND I.intCreationDate <= 20169999999999
-    ORDER BY decTotal;";
+    AND I.intCreationDate <= 20169999999999;";
     $rstTotal=$objAscend->dbQuery($strSql);
     foreach ($rstTotal as $arrTotal) {
         if ($arrTotal['decTotal'] > 0) {
@@ -50,46 +49,41 @@ foreach($rstFamily as $arrFamily){
     <?php require_once("../../inc/sheet.inc");?>
 
 </head>
+<html>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
 
-    //se indica que  tipo de estructura tendra bar=barra
-    google.charts.load('current', {'packages':['bar']});
-    google.charts.setOnLoadCallback(drawStuff);
+        function drawStuff() {
+            var data = new google.visualization.arrayToDataTable([<?php echo $strValues; ?>]);
 
-    function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([<?php echo $strValues; ?>]);
+            var options = {
+                title: 'Chess opening moves',
+                width: 900,
+                legend: { position: 'none' },
+                chart: { title: 'Chess opening moves',
+                    subtitle: 'popularity by percentage' },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'Percentage'} // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: "90%" }
+            };
 
-        
-        var options = {
-            title: '<?php echo $strTitle; ?>',
-            width: '<?php echo $strWidth; ?>',
-            height: '<?php echo $intHeight; ?>',
-            legend: { position: 'none' },
-            chart: {
-                title:'<?php echo $strTitle; ?>',
-                subtitle: '<?php echo $strSubTitle; ?>' },
-            bars: '<?php echo $strBar; ?>', // Required for Material Bar Charts.
-            axes: {
-                x: {
-                    0: { side: '<?php echo $strSide; ?>', label: '<?php echo $strLabel; ?>'} // Top x-axis.
-                }
-            },
-            bar: { groupWidth: "100%" }
+            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
         };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        chart.draw(data, options);
-    };
-</script>
-
+    </script>
 
 <body>
 <div class="MainTitle">INDICADORES</div>
 <div class="MainContainer">
     <div class="MainContainer">
-        <div id="top_x_div" style="width: 100%; height: 100%;"></div>
+        <div id="top_x_div" style="width: 900px; height: 500px;"></div>
     </div>
     <br style="clear: both;" />
 </div>

@@ -89,28 +89,6 @@ function drawAnthonyChart() {
     var chart = new google.visualization.BarChart(document.getElementById("Anthony_chart_div"));
     chart.draw(view, options);
 }
-//xxxxx
-function drawStuff() {
-    var data = new google.visualization.arrayToDataTable([<?php echo $strValues; ?>]);
-alert($strTarget);
-    var options = {
-        title: 'LOS MUÑECOS DE LUIS',
-        width: 400,
-        height: 300,
-        legend: { position: 'none' },
-        chart: { title: 'LOS MUÑECOS DE LUIS',
-            subtitle: 'QUE NO HACEN NADA MAS QUE JODER' },
-        bars: 'vertical', // Required for Material Bar Charts.
-        axes: {
-            x: {
-                0: { side: 'top', label: 'Precios'} // Top x-axis.
-            }
-        },
-        bar: { groupWidth: "90%" }
-    };
 
-    var chart = new google.charts.Bar(document.getElementById($strTarget));
-    chart.draw(data, options);
-};
 
 </script>

@@ -57,7 +57,7 @@ foreach($rstData as $arrData){
                     0: { side: '<?php echo $strSide; ?>', label: '<?php echo $strLabel; ?>'} // Top x-axis.
                 }
             },
-            bar: { groupWidth: "0%" }
+            bar: { groupWidth: "10%" }
         };
 
         var chart = new google.charts.Bar(document.getElementById('top_x_div'));
