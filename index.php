@@ -46,7 +46,6 @@ include_once 'lib/google/gpConfig.php';
 <div class="divContentContainer">
     <div id="divContentHome" class="divContent">
         <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden; visibility: hidden;">
-            <!-- Loading Screen -->
             <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
                 <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
                 <div style="position:absolute;display:block;background:url('img/carousel/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
@@ -63,18 +62,168 @@ include_once 'lib/google/gpConfig.php';
                     <img data-u="image" src="img/carousel/04.jpg" />
                 </div>
             </div>
-            <!-- Bullet Navigator -->
             <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
-                <!-- bullet navigator item prototype -->
                 <div data-u="prototype" style="width:16px;height:16px;"></div>
             </div>
-            <!-- Arrow Navigator -->
             <span data-u="arrowleft" class="jssora22l" style="top:0px;left:10px;width:40px;height:58px;" data-autocenter="2"></span>
             <span data-u="arrowright" class="jssora22r" style="top:0px;right:10px;width:40px;height:58px;" data-autocenter="2"></span>
         </div>
-        <div style="background-color: #3d8230; margin-top: 20px; text-align: center; overflow-x: auto; overflow-y: hidden;">
-            <div style="display: inline-block; width: 150px; height: 150px; ">
-
+        <div style="margin-top: 25px; text-align: center; overflow-x: auto; overflow-y: hidden; height: 200px; max-height: 200px; white-space: nowrap;">
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 180px; background-color: rgba(55,215,255,.5); margin-right: 20px; text-align: left; ">
+                <span class="spanSubtitle">Impresión</span><br /><br />
+                - Apple Mobile<br />
+                - Samsung Mobile<br />
+                - Micromax Mobile<br />
+                - Nokia Mobile<br />
+                - HTC Mobile<br />
+                - Sony Mobile
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 180px; background-color: rgba(56,70,79,.5); color: #FFFFFF; margin-right: 20px; text-align: left; ">
+                <span class="spanSubtitle" style="color: #FFFFFF;">Cómputo</span><br /><br />
+                - Apple Mobile<br />
+                - Samsung Mobile<br />
+                - Micromax Mobile<br />
+                - Nokia Mobile<br />
+                - HTC Mobile<br />
+                - Sony Mobile
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 180px; background-color: rgba(129,226,90,.5); margin-right: 20px; text-align: left; ">
+                <span class="spanSubtitle">Impresión</span><br /><br />
+                - Apple Mobile<br />
+                - Samsung Mobile<br />
+                - Micromax Mobile<br />
+                - Nokia Mobile<br />
+                - HTC Mobile<br />
+                - Sony Mobile
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 180px; background-color: rgba(55,215,255,.5); margin-right: 20px; text-align: left; ">
+                <span class="spanSubtitle">Impresión</span><br /><br />
+                - Apple Mobile<br />
+                - Samsung Mobile<br />
+                - Micromax Mobile<br />
+                - Nokia Mobile<br />
+                - HTC Mobile<br />
+                - Sony Mobile
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 180px; background-color: rgba(56,70,79,.5); color: #FFFFFF; margin-right: 20px; text-align: left; ">
+                <span class="spanSubtitle" style="color: #FFFFFF;">Cómputo</span><br /><br />
+                - Apple Mobile<br />
+                - Samsung Mobile<br />
+                - Micromax Mobile<br />
+                - Nokia Mobile<br />
+                - HTC Mobile<br />
+                - Sony Mobile
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 180px; background-color: rgba(129,226,90,.5); margin-right: 20px; text-align: left; ">
+                <span class="spanSubtitle">Impresión</span><br /><br />
+                - Apple Mobile<br />
+                - Samsung Mobile<br />
+                - Micromax Mobile<br />
+                - Nokia Mobile<br />
+                - HTC Mobile<br />
+                - Sony Mobile
+            </div>
+        </div>
+        <br /><span class="spanSubtitle"">Los más vendidos</span><br />
+        <div style="margin-top: 20px; text-align: center; overflow-x: auto; overflow-y: hidden; height: 250px; max-height: 250px; white-space: nowrap; border-top: 5px #2CA5FA solid; ">
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodOne.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodTwo.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodThree.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodFour.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodFive.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodSix.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodSeven.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodEight.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+        </div>
+        <br /><span class="spanSubtitle"">Productos nuevos</span><br />
+        <div style="margin-top: 20px; text-align: center; overflow-x: auto; overflow-y: hidden; height: 250px; max-height: 250px; white-space: nowrap; border-top: 5px #2CA5FA solid; ">
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodOne.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodTwo.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodThree.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodFour.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodFive.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodSix.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodSeven.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
+            </div>
+            <div style="padding: 10px 10px 10px 10px; display: inline-block; width: 180px; height: 230px; margin-right: 20px; text-align: center; vertical-align: bottom; ">
+                <img src="img/index/prodEight.png" style="display: inline-block; border: 0; width: 180px" /><br />
+                Batería HP<br />
+                Precio Especial<br />
+                SKU: 66776677
             </div>
         </div>
     </div>
@@ -309,20 +458,35 @@ include_once 'lib/google/gpConfig.php';
                     $.ajax({
                         url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
                         success: function ($jsnPhpScriptResponse) {
-                            switch($jsnPhpScriptResponse.authClient==0){
-                                case 0:
+                            switch($jsnPhpScriptResponse.authClient){
+                                case '0':
                                     $('#divLoginError').html('Su número de cliente es erroneo, verifique');
                                     $('#divLoginError').show();
                                     $('#strClientNumber').focus();
+                                    $blnGo = 0;
                                     break;
-                                case -1:
+                                case '-1':
                                     $('#divLoginError').html('Su contraseña es erronea, verifique');
                                     $('#divLoginError').show();
                                     $('#strClientNumber').focus();
+                                    $blnGo = 0;
+                                    break;
+                                case '-2':
+                                    $('#divLoginError').html('Su número de cliente se encuentra inactivo');
+                                    $('#divLoginError').show();
+                                    $('#strClientNumber').focus();
+                                    $blnGo = 0;
+                                    break;
+                                default:
+                                    $blnGo = 1;
                                     break;
                             }
                             $('#divWorkingBackground').fadeOut('fast',function(){
-
+                                if($blnGo==1){
+                                    $('body').slideUp('fast',function(){
+                                        window.location = 'main.php';
+                                    })
+                                }
                             });
                         },
                         error: function($e){

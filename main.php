@@ -5,7 +5,6 @@ if($_SESSION['intUserID']==''){
     header("Location:index.php");
     exit(0);
 }
-
 require_once LIB_PATH . 'class.ascend.php';
 $classAscend = new clsAscend();
 ?>
@@ -35,9 +34,15 @@ $classAscend = new clsAscend();
         <td class="tdSheetMainContainer" width="*">
             <div id="divSheetContainer" class="divSheetContainer"></div>
         </td>
+        <?php
+        if($_SESSION['intGoogleId']!=''){
+        ?>
         <td id="tdNotificationContainer" width="200">
             <?php require_once INCLUDE_PATH . 'include.notification.php'; ?>
         </td>
+        <?php
+        }
+        ?>
     </tr>
     </tbody>
 </table>

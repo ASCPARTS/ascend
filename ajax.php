@@ -17,7 +17,7 @@ $_SESSION['intPriceList'] = '';
 switch ($strProcess) {
     case 'authClient':
         $jsnPhpScriptResponse = array('authClient'=>'0');
-        $_SESSION['intUserID'] = '0';
+        $_SESSION['intUserID'] = '1';
         $_SESSION['strUserEMail'] = 'mail@mail.com';
         $_SESSION['strUserName'] = 'Compureparaciones SA. de CV.';
         $_SESSION['strUserImage'] = '';
