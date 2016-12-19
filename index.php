@@ -50,14 +50,14 @@ include_once 'lib/google/gpConfig.php';
                 <div style="position:absolute;display:block;background:url('img/carousel/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
             </div>
             <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden;">
-                <div data-b="0" data-p="170.00" data-po="80% 55%">
-                    <img data-u="image" src="img/carousel/01.jpg" />
+                <div data-b="0" data-p="200.00" data-po="80% 55%">
+                    <img data-u="image" src="img/main/banner_0.jpg" />
                 </div>
                 <a data-u="any" href="http://www.jssor.com" style="display:none">Introduction Slider</a>
-                <div data-b="1" data-p="170.00" style="display: none;">
+                <div data-b="1" data-p="200.00" style="display: none;">
                     <img data-u="image" src="img/carousel/02.jpg" />
                 </div>
-                <div data-b="2" data-p="170.00" style="display: none;">
+                <div data-b="2" data-p="200.00" style="display: none;">
                     <img data-u="image" src="img/carousel/04.jpg" />
                 </div>
             </div>
