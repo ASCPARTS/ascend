@@ -13,11 +13,11 @@ $strSubTitle='Ventas por Familia';
 $intWidth='300';
 $intHeight='400';
 //ORIENTACION QUE TENDRA LA GRAFICA
-$strBar='vertical';
+$strBar='horizontal';
 //ETIQUETE DE LA GRAFICA
-$strLabel='2016';
+$strLabel='Ventas';
 //POSICION DE LA ETIQUETA
-$strSide='top';
+$strSide='bottom';
 //CONSULTA PARA RELLENAR LA GRAFICA
 $strSql="SELECT intId, strName FROM tblFamily WHERE strStatus='A';";
 $rstFamily = $objAscend->dbQuery($strSql);
@@ -34,7 +34,8 @@ foreach($rstFamily as $arrFamily){
         WHERE I.strStatus='A' 
         AND F.intId = ".$arrFamily['intId']."
         AND I.intCreationDate >= 20160000000000 
-        AND I.intCreationDate <= 20169999999999;";
+        AND I.intCreationDate <= 20169999999999
+        ORDER BY decTotal;";
     $rstTotal=$objAscend->dbQuery($strSql);
     foreach ($rstTotal as $arrTotal){
         if($arrTotal['decTotal']>0){
