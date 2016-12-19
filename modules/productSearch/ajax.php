@@ -30,7 +30,7 @@ switch ($strProcess)
             $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divProductInformation">';
         $jsnPhpScriptResponse["jsnModal"] .= '</div>';
     break;
-
+    
     case 'search':
         $strType = $_REQUEST['strType'];
         $intPage = $_REQUEST['intPage'];
