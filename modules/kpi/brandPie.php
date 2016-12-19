@@ -52,7 +52,7 @@ $objAscend = new clsAscend();
 <body>
 <div class="MainTitle">INDICADORES</div>
 <div class="MainContainer">
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 100%; height: 100%;"></div>
     <br style="clear: both;" />
 </div>
 </body>
