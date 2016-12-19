@@ -55,10 +55,10 @@ include_once 'lib/google/gpConfig.php';
                 </div>
                 <a data-u="any" href="http://www.jssor.com" style="display:none">Introduction Slider</a>
                 <div data-b="1" data-p="200.00" style="display: none;">
-                    <img data-u="image" src="img/carousel/02.jpg" />
+                    <img data-u="image" src="img/main/banner_1.jpg" />
                 </div>
                 <div data-b="2" data-p="200.00" style="display: none;">
-                    <img data-u="image" src="img/carousel/04.jpg" />
+                    <img data-u="image" src="img/main/banner_2.jpg" />
                 </div>
             </div>
             <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
