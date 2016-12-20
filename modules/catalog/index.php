@@ -1,6 +1,7 @@
 <?php
 require_once('../../inc/include.config.php');
 require_once( '../../' . LIB_PATH .  'class.ascend.php');
+
 $objAscend = new clsAscend();
 $objAscend->intTableId = $_GET['intTableId'];
 $objAscend->getTableData();
@@ -27,7 +28,9 @@ $objAscend->getTableData();
             <tbody id="tbodyGrid" class="tbodyGrid"></tbody>
         </table>
     </div>
+
     <div id="divPagination" class="divPagination"></div>
+
     <div id="divModalBackground">
         <div id="divModalMain">
             <div id="divModalClose"><label id="lblModalClose" onclick="closeModal();">&#10006</label></div>
@@ -45,6 +48,7 @@ $objAscend->getTableData();
             </div>
         </div>
     </div>
+
     <div id="divImportBackground">
         <div id="divImportMain">
             <div id="divImportClose"><label id="lblImportClose" onclick="closeImport();">&#10006</label></div>

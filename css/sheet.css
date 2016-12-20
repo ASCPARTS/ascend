@@ -8,6 +8,35 @@ html, body
     overflow: visible;
 }
 
+.divWorkingBackground {
+    z-index: 10000001;
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+.divWorking {
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+    border: 1px #00b8fe solid;
+    box-shadow: 0 1px 0 #1766A1;
+    background-color: #282828;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto auto auto;
+    position: absolute;
+    width: 128px;
+    height: 15px;
+}
+
 .MainTitle {
     font-size: 15pt;
     font-weight: normal;
@@ -25,6 +54,8 @@ html, body
     border-bottom: 1px #050409 solid;
     margin-bottom: 4px;
     text-transform: uppercase;
+    width: 100%;
+    float: left;
 }
 
 .MainContainer {
@@ -38,39 +69,65 @@ html, body
 }
 
 
+
+
 /*modal*/
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
-    padding-top: 50px; /* Location of the box */
+    display: none;
+    position: fixed;
+    padding-top: 30px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
     z-index: 20000;
 }
 
-/* Modal Content */
-.modal-content {
+
+/* Modal header */
+.modal-header {
     background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
-    margin-bottom: 100px;
+    margin:  20px 30px  0px  30px;
+    padding: 9px 10px  0px  10px;
+    width: calc( 100% - 80px );
+    height: 30px;
+    border-bottom: 1px solid #888;
+}
+
+/* Modal title */
+.modal-title
+{
+    background-color: #fefefe;
+    margin:   0px 0px 0px 0px;
+    padding: 3px 0px 7px 10px;
+    width: calc( 100% - 30px );
+    height: 20px;
+    float: left;
+    color: #1766A1;
+    font-size: 14pt;
 }
 
 /* The Close Button */
-.close {
+.modal-close {
+    background-color: #fefefe;
+    margin:  0px 0px  0px 0px;
+    padding: 0px 0px 10px 0px;
+    height: 0px;
+    width: 20px;
+    float: left;
+
     color: #aaaaaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
+
+}
+
+.close {
+    height: 20px;
+    width: 20px;
 }
 
 .close:hover,
@@ -79,6 +136,24 @@ html, body
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/* Modal Content */
+.modal-content {
+
+    width: calc( 100% - 60px );
+    height: calc( 100% - 110px);
+    background-color: #fefefe;
+    margin:  0px 30px  50px  30px;
+    padding: 0px 0px  0px  0px;
+    border: 0px solid #888;
+    overflow: auto;
+
+}
+
+
+
+
 
 
 
@@ -108,6 +183,13 @@ html, body
     width:100%;
     text-transform: capitalize;
     font-weight:bolder;
+}
+
+.btn:disabled
+{
+    background-color: #E0E0E0;
+    color: #FFFFFF;
+    box-shadow: inset 0 -6px 0 #333333;
 }
 
 /* SIZE COL SM*/
@@ -938,6 +1020,7 @@ table
 td, th
 {
     padding: 0;
+    white-space: nowrap;
 }
 
 
@@ -974,7 +1057,7 @@ table > tfoot > tr > td {
 }
 table > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 1px solid #1766A1;
+    border-bottom: 1px solid #000;
     background-color: #1766A1;
     color: #FFFFFF;
 }
