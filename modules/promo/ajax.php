@@ -175,7 +175,7 @@ switch ($strProcess) {
                 $jsnPhpScriptResponse['intDiscount'] = $arrData['intDiscount'];
                 $jsnPhpScriptResponse['intDateFrom'] = $objAscend->formatDateTime($arrData['intDateFrom'],DTF_11);
                 $jsnPhpScriptResponse['intDateTo'] = $objAscend->formatDateTime($arrData['intDateTo'],DTF_11);
-                $jsnPhpScriptResponse['strSatus'] = $arrData['strSatus'];
+                $jsnPhpScriptResponse['strStatus'] = $arrData['strStatus'];
             }
             $strSql="SELECT PH.intPromotion, U.strName, PH.intDate, PH.strAction
             FROM tblPromotionHistory PH
