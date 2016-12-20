@@ -2,7 +2,7 @@
 require_once ('../../inc/include.config.php');
 require_once('../../'. LIB_PATH .'class.ascend.php');
 $objAscend = new clsAscend();
-ini_set("display_errors",1);
+ini_set("display_errors",0);
 ?>
 
 <!DOCTYPE html>

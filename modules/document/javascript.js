@@ -497,6 +497,37 @@ function fnDocument_getSupplyPending()
 
             $('#divSupplyPending').html(data.htmlSupplyPending);
 
-        }
+        }   
     });
+}
+
+function fnDocument_quotationList()
+{
+    alert('Aqui hay que acomodar lo de las cotizaciones');
+    /*
+    $.ajax({
+        url: 'ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'getSupplyPending'
+        },
+        beforeSend: function (data)
+        {
+            $('#divWorkingBackground').show();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+
+        },
+        success:function(data)
+        {
+            //showhide
+            $('#divWorkingBackground').hide();
+            $('#getModal').hide();
+
+            $('#divSupplyPending').html(data.htmlSupplyPending);
+
+        }
+    });*/
 }

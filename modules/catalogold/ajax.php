@@ -102,7 +102,7 @@ switch ($strProcess)
         }
         break;
     case 'generateImportTemplate':
-        ini_set("display_errors",1);
+        ini_set("display_errors",0);
         $jsnPhpScriptResponse = array('strTemplateFile'=>'');
         require_once('../../lib/PHPExcel.php');
         $objPHPExcel = new PHPExcel();
