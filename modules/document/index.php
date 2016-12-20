@@ -25,7 +25,13 @@
         </div>
 
         <div class="row" id="rowDocumentForm">
-			
+
+        </div>
+
+        <div class="row" id="rowSupplyPending">
+            <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divSupplyPending">
+
+            </div>
         </div>
         
         <br style="clear: both;" />

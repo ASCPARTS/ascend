@@ -19,9 +19,8 @@
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-3 col-lg-1-3">
             <div class="divSelect groupYellow ">
                 <select id="decFactor">
-                    <option value="-1">--Seleccionar--</option>
                     <?php
-                    $strSql="SELECT decFactor as strValue, intAnio as strDisplay FROM tblFactor ORDER BY 2;";
+                    $strSql="SELECT decFactor as strValue, intAnio as strDisplay FROM tblFactor WHERE intAnio >= 2016 ORDER BY 2;";
                     $rstFactor = $objAscend->dbQuery($strSql);
                     foreach ($rstFactor as $arrFactor){
                         ?>
@@ -46,7 +45,6 @@
         <div class="col-xs-1-1 col-sm-1-2 col-md-1-3 col-lg-1-3">
             <div class="divSelect groupYellow ">
                 <select id="intProjection">
-                    <option value="-1">--Seleccionar--</option>
                     <option value="1">ZONA</option>
                     <option value="2">VENDEDOR</option>
 

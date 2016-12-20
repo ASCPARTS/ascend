@@ -438,3 +438,65 @@ function fnDocument_addDocumentDetailInsert(intProduct)
         });
     }
 }
+
+function fnDocument_documentSubdetailApprove(intDocumentSubdetail)
+{
+    $.ajax({
+        url: 'ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'documentSubdetailApprove',
+            'intDocumentSubdetail' : intDocumentSubdetail,
+        },
+        beforeSend: function (data)
+        {
+            $('#divWorkingBackground').show();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+
+        },
+        success:function(data)
+        {
+            //showhide
+            $('#divWorkingBackground').hide();
+            //$('#getModal').hide();
+            if(data.blnStatus)
+            {
+                $('#divDocumentStatus_' + intDocumentSubdetail).html('Aprobado por Admon.');
+                $('#btnDocumentSubDetailApprove_' + intDocumentSubdetail).remove();
+            }
+
+        }
+    });
+}
+
+function fnDocument_getSupplyPending()
+{
+    $.ajax({
+        url: 'ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'getSupplyPending'
+        },
+        beforeSend: function (data)
+        {
+            $('#divWorkingBackground').show();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+
+        },
+        success:function(data)
+        {
+            //showhide
+            $('#divWorkingBackground').hide();
+            $('#getModal').hide();
+
+            $('#divSupplyPending').html(data.htmlSupplyPending);
+
+        }
+    });
+}
