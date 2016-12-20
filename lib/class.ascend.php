@@ -36,6 +36,7 @@ class clsAscend
     //atributos para Pagineo
 
     function __construct(){
+
         $this->conMysql = mysqli_connect(DB_SERVER,DB_USER,DB_PASSWORD,DB_NAME);
         mysqli_report(MYSQLI_REPORT_OFF);
         mysqli_query($this->conMysql, "SET NAMES 'utf8'");
@@ -509,7 +510,7 @@ class clsAscend
         }
         return $openTag . "$ " . number_format($amount, 2, ".", ",") . $closeTag;
     }
-    
+
 }
 
 

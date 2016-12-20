@@ -11,6 +11,7 @@ var productSearch_intStock = 0;
 var productSearch_strPriceRange = 'ALL';
 var productSearch_jsnBrand = "[]";
 var productSearch_jsnGroup = "[]";
+var productSearch_jsnAuxiliary = "[]";
 
 
 var inputSearch;
@@ -31,7 +32,7 @@ function productSearch_modal()
         },
         beforeSend: function (data)
         {
-            $('#divWorking').show();
+            $('#divWorkingBackground').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
@@ -39,7 +40,7 @@ function productSearch_modal()
         success:function(data)
         {
             //showhide
-            $('#divWorking').hide();
+            $('#divWorkingBackground').hide();
             $('#getModal').show();
 
             //fill
@@ -48,11 +49,17 @@ function productSearch_modal()
     });
 }
 
-function productSearch_search()
+function productSearch_firstSearch()
 {
     strProductParameter = $('#strProductParameter').val();
     //productSearch_jsnParameters = { 'strNeedle' : strProductParameter};
     productSearch_jsnParameters = '{ "strNeedle" : "' + strProductParameter + '" }';
+    productSearch_search();
+}
+
+function productSearch_search()
+{
+    console.log($jsnDocument.intDocumentId);
     $.ajax({
         url: '../productSearch/ajax.php',
         type: 'post',
@@ -71,11 +78,12 @@ function productSearch_search()
             'jsnBrand' : productSearch_jsnBrand,
             'jsnGroup' : productSearch_jsnGroup,
 
-            'jsnParameters' : productSearch_jsnParameters
+            'jsnParameters' : productSearch_jsnParameters,
+            'jsnAuxiliary' : productSearch_jsnAuxiliary
         },
         beforeSend: function (data)
         {
-            $('#divWorking').show();
+            $('#divWorkingBackground').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
@@ -83,12 +91,16 @@ function productSearch_search()
         success:function(data)
         {
             //showhide
-            $('#divWorking').hide();
+            $('#divWorkingBackground').hide();
             $('#divCustomerList').empty();
 
             //fill
             $('#divCustomerList').html(data.jsnCustomerList);
             $('#divProductList').html(data.htmlProduct);
+            $('#divPagination').html(data.htmlPagination);
+            //$jsnDocument.arrWarehouseStock = data.jsnWarehouseStock;
+            console.log($jsnDocument.arrWarehouseStock);
+
         }
     });
 }
@@ -106,7 +118,7 @@ function selectCustomerSearch(intCustomer)
         },
         beforeSend: function (data)
         {
-            $('#divWorking').show();
+            $('#divWorkingBackground').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
@@ -114,7 +126,7 @@ function selectCustomerSearch(intCustomer)
         success:function(data)
         {
             //showhide
-            $('#divWorking').hide();
+            $('#divWorkingBackground').hide();
 
             //fill
             objCustomer = data.jsnCustomer;
@@ -124,7 +136,7 @@ function selectCustomerSearch(intCustomer)
             console.log(strCustomerSelectChainSwitch);
             switch( strCustomerSelectChainSwitch )
             {
-                case 'document_new':
+                case 'newDocument':
                     fnDocument_setClientToNewDocument();
                     $jsnDocument.strCurrentAction = 'newDocument';
                     $jsnDocument.intDocumentId = 0;
@@ -134,4 +146,62 @@ function selectCustomerSearch(intCustomer)
             }
         }
     });
+}
+
+function productSearch_showStock(intProduct) {
+    $jsnDocument.intCurrentProduct = intProduct;
+    $('.trStock').each(function( index ) {
+        $( this ).hide();
+        console.log($(this).attr('id'));
+        if( $( this ).attr('id') == 'trStock_' +  intProduct  )
+        {
+            $( this ).show();
+        }
+    });
+
+    $.ajax({
+        url: '../productSearch/ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'showStock',
+            'intProduct' : intProduct,
+            'intDocument' : $jsnDocument.intDocumentId,
+            'intCustomer' : $jsnDocument.arrCustomer.intId
+        },
+        beforeSend: function (data)
+        {
+            $('#divWorkingBackground').show();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+
+        },
+        success:function(data)
+        {
+            //showhide
+            $('#divWorkingBackground').hide();
+
+            //fill
+            $('#trStock_' + intProduct).html(data.htmlProduct);
+            $jsnDocument.arrWarehouseStock = data.jsnWarehouseStock;
+            console.log($jsnDocument.arrWarehouseStock)
+            fnDocument_updateWarehouseStock();
+            console.log($jsnDocument.arrWarehouseStock)
+        }
+    });
+}
+
+
+function productSearch_pageChange(pageValue){
+    productSearch_intPage = pageValue;
+    productSearch_search();
+}
+
+function productSearch_recordsPerPageCange(recordPerPage)
+{
+    productSearch_intPage = 1;
+    productSearch_intRecordsPerPage = recordPerPage;
+
+    productSearch_search();
 }

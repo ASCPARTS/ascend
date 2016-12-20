@@ -12,6 +12,12 @@
     <div class="MainTitle">Documento</div>
     <div class="MainContainer">
 
+        <div class="row" id="rowDocumentMenu">
+            <div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentMenu">
+
+            </div>
+        </div>
+
         <div class="row" id="rowDocumentList">
         	<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divDocumentList">
 				

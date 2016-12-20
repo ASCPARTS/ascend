@@ -1,6 +1,9 @@
 <?php
+include_once("../../inc/include.config.php");
 include_once("../../lib/class.ascend.php");
-include_once("../../lib/class.session.php");
 
-$session = new clsSession();
+
+$objAscend = new clsAscend();
+
+echo $objAscend->nextDocumentKeyNumber();
 
