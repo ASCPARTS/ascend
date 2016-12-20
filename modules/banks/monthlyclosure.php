@@ -90,8 +90,12 @@
             <div id="modalCierreMensual" class="modal">
 
             <!-- Modal content -->
+                <div id="getModal-header" class="modal-header">
+                    <div id="getModal-title" class="modal-title">Cierre Mensual</div>
+                    <div class="modal-close"><span class="close" onclick="$('#modalCierreMensual').hide();">&times;</span></div>
+                </div>
+
             <div class="modal-content">
-                <span class="close" id="closeCierreMensual">×</span>
                 <div class="MainContainer">
                 <div class="SubTitle">ESTADO</div>
                 	<p><b>ABIERTO</b>: Comprendiendo el periodo de [2016/09/01 - 2016/09/30]</p>
@@ -129,7 +133,7 @@
                         </div>
                     </div>
                 <div class="ButtonContainer">  
-		            <button class="btn btnOnlineGreen" type="button" id="myBtn" onclick="getModal('modalAlert','closeAlert')">Finalizar cierre</button> 
+		            <button class="btn btnOnlineGreen" type="button" id="myBtn">Finalizar cierre</button>
 		        	</div>
 
                     <br style="clear: both;" />
