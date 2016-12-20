@@ -78,9 +78,11 @@
 </div>
 <div id="nuevo" class="modal">
     <!-- Modal content -->
+    <div id="getModal-header" class="modal-header">
+        <div id="getModal-title" class="modal-title">Nuevo Pago</div>
+        <div class="modal-close"><span class="close" onclick="$('#nuevo').hide();">&times;</span></div>
+    </div>
     <div class="modal-content">
-        <span id="close" class="close">×</span>
-        <div class="MainTitle">Nuevo Pago</div>
         <div class="MainContainer">
             <div class="row">
                 <div class="col-lg-1-3 col-md-1-3 col-sm-1-3">
@@ -139,10 +141,13 @@
     </div>
 </div>
 <div id="pagar" class="modal">
+
     <!-- Modal content -->
+    <div id="getModal-header" class="modal-header">
+        <div id="getModal-title" class="modal-title">Pago de Servicios</div>
+        <div class="modal-close"><span class="close" onclick="$('#pagar').hide();">&times;</span></div>
+    </div>
     <div class="modal-content">
-        <span id="cerrar" class="close">×</span>
-        <div class="MainTitle">Pago de Servicios</div>
         <div class="MainContainer">
             <div class="SubTitle">Datos del Servicio</div>
             <div class="row">

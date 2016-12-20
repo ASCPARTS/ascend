@@ -118,9 +118,11 @@
             <div id="modalNuevo" class="modal">
 
                 <!-- Modal content -->
+                <div id="getModal-header" class="modal-header">
+                    <div id="getModal-title" class="modal-title">Nuevo Cheque</div>
+                    <div class="modal-close"><span class="close" onclick="$('#modalNuevo').hide();">&times;</span></div>
+                </div>
                 <div class="modal-content">
-                    <span id="closeNuevo" class="close">×</span>
-                    <div class="MainTitle">NUEVO CHEQUE</div>
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                         	
@@ -205,9 +207,11 @@
             <div id="modalEditar" class="modal">
 
                 <!-- Modal content -->
+                <div id="getModal-header" class="modal-header">
+                    <div id="getModal-title" class="modal-title">Editar Cheque</div>
+                    <div class="modal-close"><span class="close" onclick="$('#modalEditar').hide();">&times;</span></div>
+                </div>
                 <div class="modal-content">
-                    <span id="closeEditar" class="close">×</span>
-                    <div class="MainTitle">EDITAR CHEQUE</div>
                     <div class="MainContainer" id="nuevoPedimento">
                         <div class="row">
                             
