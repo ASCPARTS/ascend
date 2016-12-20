@@ -42,7 +42,27 @@
 
 	<script type="text/javascript">
         $( document ).ready(function() {
-            fnDocument_init();
+            <?php
+
+                if( isset($_REQUEST["intStatus"]))
+                {
+                    settype($_REQUEST["intStatus"], "integer");
+
+                    switch ( $_REQUEST["intStatus"] )
+                    {
+                        case 1:
+                            echo "fnDocument_init();";
+                            break;
+                        case 2:
+                            echo "fnDocument_quotationList();";
+                        break;
+                        case 4:
+                            echo "fnDocument_getSupplyPending();";
+                        break;
+                    }
+                }
+            ?>
+
         });
 
 	</script>
