@@ -1,4 +1,5 @@
 $('document').ready(function(){
+    
 
 });
 function calculation(){
@@ -9,7 +10,9 @@ function calculation(){
             $.ajax({
                 url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($jsnPhpScriptResponse) {
-                    $('#divSales').html($jsnPhpScriptResponse.salesProjection);
+                    console.log($jsnPhpScriptResponse);
+
+                    $('#divSales').html($jsnPhpScriptResponse.salesProjectionZone);
                     $('#divWorkingBackground').fadeOut('slow');
                 }
             });
