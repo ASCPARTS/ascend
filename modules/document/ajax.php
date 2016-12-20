@@ -6,6 +6,8 @@
     $objAscend = new clsAscend();
     //$objSearchAscend = new clsSearchAscend();
 
+    $department = 1;
+
     $strProcess = $_REQUEST['strProcess'];
     $rstQuery = array();
     $jsnPhpScriptResponse = array();
@@ -23,8 +25,19 @@
 
     switch ($strProcess)
     {
-        #
-        #detailed information of products
+        case 'getMenu':
+            $htmlMenu = '';
+            switch ($department)
+            {
+                case 1:
+                    #ventas
+                    //$htmlMenu .= ';<table
+                break;
+            }
+
+            $jsnPhpScriptResponse["htmlMenu"] = $htmlMenu;
+        break;
+
         case 'getDocumentList':
             $intId = $_REQUEST['intId'];
             $jsnPhpScriptResponse["jsnDocumentList"] = '';
@@ -109,7 +122,7 @@
 
             #Customer
             $sqlCustomer =
-                "SELECT C.intId, C.strRFC, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus "
+                "SELECT C.intId, C.strRFC, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus, ( SELECT DISTINCT intId FROM catWarehouse WHERE intZone = C.intZone ) AS intWarehouse "
                 ."FROM tblCustomer C "
                 ."LEFT JOIN tblDocument O ON C.intId = O.intCustomer "
                 ."LEFT JOIN catClass CL ON C.intClass = CL.intId "
@@ -121,7 +134,7 @@
             $jsnPhpScriptResponse["objCustomer"] = $objCustomer;
             #DocumentDetail
             $sqlDocumentDetail =
-                "SELECT OD.intId, OD.intDocument, OD.intNumber, OD.intProduct, P.strSKU, P.strPartNumber, OD.intQuantity, OD.decUnitPrice, OD.decAmount, OD.intPromiseDate, OD.strStatus "
+                "SELECT OD.intId, OD.intDocument, OD.intNumber, OD.intProduct, P.strSKU, P.strPartNumber, OD.intQuantity, OD.decUnitPrice, OD.decAmount, OD.intPromiseDate, OD.strStatus, (SELECT strUrl FROM tblProductImage WHERE strStatus = 'A' AND strType = 'default' AND intProduct = P.intId) AS strUrl "
                 ."FROM tblDocumentDetail OD "
                 ."LEFT JOIN tblProduct P ON OD.intProduct = P.intId "
                 ."WHERE OD.intDocument = $intDocumentId "
@@ -151,28 +164,30 @@
                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<table>';
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<thead>';
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>#</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-center">#</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-center"></th>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Numero de parte</th>';
-                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th>Cantidad</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-center">Cantidad</th>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Precio unitario</th>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Subtotal</th>';
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Fecha promesa</th>';
-                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Detalle</th>';
-                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-right">Modificar</th>';
+                            $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<th class="text-center">Detalle</th>';
+
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</thead>';
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tbody id="tbodyDocumentDetail">';
                         foreach( $rstDocumentDetail as $arrDocumentDetail )
                         {
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intNumber"] . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-center">' . $arrDocumentDetail["intNumber"] . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-center"><img style="height:100px; max-width: 150px;" src="../../img/' . $arrDocumentDetail["strUrl"] . '"/></td>';
                                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["strPartNumber"] . '</td>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td>' . $arrDocumentDetail["intQuantity"] . '</td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-center">' . $arrDocumentDetail["intQuantity"] . '</td>';
                                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decUnitPrice"]) . '</td>';
                                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatMoney($arrDocumentDetail["decAmount"]) . '</td>';
                                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right">' . $objAscend->formatDateTime($arrDocumentDetail["intPromiseDate"], DTF_1) . '</td>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right"> <button class="btn btnOverBlueGray" onclick="fnDocument_getDocumentDetailInformation(\'' . $arrDocumentDetail["intId"] . '\');"> Detalle</button> </td>';
-                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-right"> <button class="btn btnOverYellow"   onclick="modificar(\'' . $arrDocumentDetail["intPromiseDate"] . '\');">Modificar </button> </td>';
+                                $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<td class="text-center"> <button class="btn btnOverBlueGray" onclick="fnDocument_getDocumentDetailInformation(\'' . $arrDocumentDetail["intId"] . '\');"> Detalle</button> </td>';
+
                             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tr>';
                         }
                         $jsnPhpScriptResponse["jsnDocumentDetail"] .= '<tr>';
@@ -380,6 +395,145 @@
                     $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</tbody>';
                 $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</table>';
             $jsnPhpScriptResponse["jsnDocumentDetail"] .= '</div>';
+        break;
+
+        case 'addDocumentDetailInsert':
+            /*'strProcess' : 'addDocumentDetailInsert',
+                'strCurrentAction' : $jsnDocument.strCurrentAction,
+                'intProduct' : intProduct,
+                'intCustomer' : $jsnDocument.arrCustomer.intId,
+                'intDocument' : $jsnDocument.intDocumentId,
+                'strDocumentDetail' : strDocumentDetail*/
+            $strCurrentAction = $_REQUEST["strCurrentAction"];
+            $intDocument = $_REQUEST["intDocument"];
+            $intProduct = $_REQUEST["intProduct"];
+            $intCustomer = $_REQUEST["intCustomer"];
+
+            $jsnPhpScriptResponse["strCurrentAction"] = $strCurrentAction;
+            $jsnPhpScriptResponse["intDocument"] = $intDocument;
+            $jsnPhpScriptResponse["intProduct"] = $intProduct;
+            $jsnPhpScriptResponse["intProduintCustomerct"] = $intCustomer;
+
+            $sqlCustomer =
+            "SELECT C.intId, C.strRFC, C.strReferenceNumber, C.strRegisteredName, C.strCommercialName, C.intClass, CL.strName AS strClass, C.intZone, Z.strKey AS strZoneKey, Z.strDescription as strZone, C.strStatus, ( SELECT DISTINCT intId FROM catWarehouse WHERE intZone = C.intZone ) AS intWarehouse "
+            ."FROM tblCustomer C "
+            ."LEFT JOIN tblDocument O ON C.intId = O.intCustomer "
+            ."LEFT JOIN catClass CL ON C.intClass = CL.intId "
+            ."LEFT JOIN catZone Z ON C.intZone = Z.intId "
+            ."WHERE O.intId = $intDocument ; ";
+
+            $rstCustomer = $objAscend->dbQuery($sqlCustomer);
+            $jsnPhpScriptResponse["arrCustomer"] = $rstCustomer[0];
+
+
+
+            $jsnPhpScriptResponse["blnStatus"] = true;
+            $jsnPhpScriptResponse["strMsg"] = "";
+            $jsnDocumentDetailTemp = explode("|", $_REQUEST["strDocumentDetail"]);
+            $jsnDocumentDetail = array();
+            foreach ($jsnDocumentDetailTemp as $arrDocumentDetailTemp)
+            {
+                $jsnDocumentDetailTemp = explode("@@", $arrDocumentDetailTemp);
+                $jsnDocumentDetail[] = array("intProduct" => $jsnDocumentDetailTemp[0], "intWarehouse" => $jsnDocumentDetailTemp[1], "intQuantity" => $jsnDocumentDetailTemp[2]);
+            }
+
+
+            $msgRevalidateStock = "";
+            foreach($jsnDocumentDetail as $arrDocumentDetail)
+            {
+                $sqlRevalidateStock = "SELECT intStock "
+                ."FROM tblWarehouseStock "
+                ."WHERE intProduct = " . $arrDocumentDetail["intProduct"] . " AND intWarehouse = " . $arrDocumentDetail["intWarehouse"] . " AND intStock >= " . $arrDocumentDetail["intQuantity"] . ";";
+                //echo "<br>" . $sqlRevalidateStock . "<br>";
+                $rstRevalidateStock = $objAscend->dbQuery($sqlRevalidateStock);
+                if( count($rstRevalidateStock) != 1 )
+                {
+                    $jsnPhpScriptResponse["blnStatus"] = false;
+                    $jsnPhpScriptResponse["strMsg"] = "Otro usuario ya tomo el stock del almacen";
+                    //$objAscend->printArray($rstRevalidateStock);
+                }
+            }
+
+
+            #Generar Precio de producto
+            $sqlPrice = "SELECT decPrice from tblProduct WHERE intId = 1;";
+            $rstPrice = $objAscend->dbQuery($sqlPrice);
+            if( count($rstPrice) != 1 )
+            {
+                $jsnPhpScriptResponse["blnStatus"] = false;
+                $jsnPhpScriptResponse["strMsg"] = "No se pudo obtener la relacion de precio para el cliente.";
+            }
+
+            if( $rstPrice[0]["decPrice"] < 1 )
+            {
+                $jsnPhpScriptResponse["blnStatus"] = false;
+                $jsnPhpScriptResponse["strMsg"] = "No se pudo obtener la relacion de precio para el cliente.";
+            }
+            $decPrice = $rstPrice[0]["decPrice"];
+
+
+
+            ## --------------------------------------------------------------------------
+            //$jsnPhpScriptResponse["blnStatus"] = false;
+            if( $jsnPhpScriptResponse["blnStatus"] )
+            {
+                $sqlMaxDocumentDetail =
+                "SELECT IFNULL(MAX(intNumber), 0) AS intMax "
+                ."FROM tblDocumentDetail "
+                ."WHERE intDocument = $intDocument; ";
+                $rstMaxDocumentDetail = $objAscend->dbQuery($sqlMaxDocumentDetail);
+                $intNumber = $rstMaxDocumentDetail[0]["intMax"] + 1;
+
+                $intDocumentDetailQuantity = 0;
+                foreach($jsnDocumentDetail as $arrDocumentDetail)
+                {
+                    $intDocumentDetailQuantity += $arrDocumentDetail["intQuantity"];
+                }
+
+                if( $strCurrentAction == 'newDocument' )
+                {
+                    $sqlKeyNumber = "SELECT strValue FROM tblParameter WHERE strField = 'strKeyNumber';";
+                    $rstKeyNumber = $objAscend->dbQuery($sqlKeyNumber);
+                    $strKeyNumber = $rstKeyNumber[0]["strValue"];
+                    settype($strKeyNumber, "integer");
+                    $strKeyNumber++;
+
+                    $sqlDocumentInsert =
+                    "INSERT INTO tblDocument( strKeynumber, intCustomer, intCreator, decAmount, decTotal,                                          intAuthorized, intApprovedBy, intAuthorizationDate, intCreationDate,        strStatus ) "
+                    ."                VALUES( '" . $strKeyNumber . "', $intCustomer, 1,          $decPrice, " . ( $intDocumentDetailQuantity * $decPrice ) .", 0,             null,          00000000000000,       " . date("YmdHis") . ", 'A'       );";
+                    //echo $sqlDocumentInsert . "<br><br>";
+                    $rstDocumentInsert = $objAscend->dbInsert($sqlDocumentInsert);
+                    //echo trim($sqlDocumentDetailInsert);
+                    $intDocument = $objAscend->intLastInsertedId;
+                    $jsnPhpScriptResponse["intDocument"] = $intDocument;
+
+                    $sqlUpdateKeyNumber = "UPDATE tblParameter set strValue = '$strKeyNumber' WHERE strField = 'strKeyNumber';";
+                    $rstUpdateKeyNumber = $objAscend->dbUpdate($sqlUpdateKeyNumber);
+                }
+
+
+
+
+                $sqlDocumentDetailInsert =
+                "INSERT INTO tblDocumentDetail( intDocument,  intNumber,  intProduct,  intQuantity,                decUnitPrice, decAmount,                                         intPromiseDate,         strStatus ) "
+                ."                      VALUES( $intDocument, $intNumber, $intProduct, $intDocumentDetailQuantity, $decPrice,    " . ( $intDocumentDetailQuantity * $decPrice ) .", " . date("YmdHis") . ", 'A'       );";
+                $rstDocumentDetailInsert = $objAscend->dbInsert($sqlDocumentDetailInsert);
+
+                $intDocumentDetail = $objAscend->intLastInsertedId;
+                foreach($jsnDocumentDetail as $arrDocumentDetail)
+                {
+                    $sqlDocumentSubdetail =
+                    "INSERT INTO tblDocumentSubdetail ( intDocumentDetail,  intQuantity,                               intDocumentStatus, intWarehouse,                               strStatus ) "
+                    ."                          VALUES( $intDocumentDetail, " . $arrDocumentDetail["intQuantity"] . ", 5,                 " . $arrDocumentDetail["intWarehouse"] . ", 'A'       ) ";
+                    $rstDocumentSubdetail = $objAscend->dbInsert($sqlDocumentSubdetail);
+
+                    $sqlUpdateWarehouseStock =
+                    "UPDATE tblWarehouseStock "
+                    ."SET intStock = ( intStock - " . $arrDocumentDetail["intQuantity"] . ") "
+                    ."WHERE intProduct = $intProduct AND intWarehouse = " . $arrDocumentDetail["intWarehouse"] . ";";
+                    $rstUpdateWarehouseStock = $objAscend->dbUpdate($sqlUpdateWarehouseStock);
+                }
+            }
         break;
 
     };

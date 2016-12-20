@@ -12,7 +12,7 @@ function initCustomerSearch()
         },
         beforeSend: function (data)
         {
-            $('#divWorking').show();
+            $('#divWorkingBackground').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
@@ -20,7 +20,7 @@ function initCustomerSearch()
         success:function(data)
         {
             //showhide
-            $('#divWorking').hide();
+            $('#divWorkingBackground').hide();
             $('#getModal').show();
             $('#getModal-content').empty();
 
@@ -44,7 +44,7 @@ function getCustomerSearch()
         },
         beforeSend: function (data)
         {
-            $('#divWorking').show();
+            $('#divWorkingBackground').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
@@ -52,7 +52,7 @@ function getCustomerSearch()
         success:function(data)
         {
             //showhide
-            $('#divWorking').hide();
+            $('#divWorkingBackground').hide();
             $('#divCustomerList').empty();
 
             //fill
@@ -74,7 +74,7 @@ function selectCustomerSearch(intCustomer)
         },
         beforeSend: function (data)
         {
-            $('#divWorking').show();
+            $('#divWorkingBackground').show();
         },
         error: function (xhr, ajaxOptions, thrownError) {
 
@@ -82,7 +82,7 @@ function selectCustomerSearch(intCustomer)
         success:function(data)
         {
             //showhide
-            $('#divWorking').hide();
+            $('#divWorkingBackground').hide();
 
             //fill
             objCustomer = data.jsnCustomer;

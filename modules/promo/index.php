@@ -192,7 +192,7 @@
 <script>
     $intDD = '<?php echo date('Y-m-d');?>';
 </script>
-<script src="javascript.js?v=<?php echo date('Ymdhis') ;?>"></script>
+<script src="javascript.js?ascparts=<?php echo date('Ymdhis') ;?>"></script>
 <script type="text/javascript" src="../../js/modal.js"></script>
 <script type="text/javascript" src="../../lib/jquery.numeric.js"></script>
 </html>

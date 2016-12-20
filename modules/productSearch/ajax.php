@@ -16,10 +16,10 @@ switch ($strProcess)
     case 'modal':
         $jsnPhpScriptResponse["jsnModal"] .= '<div class="row">';
             $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-2" id="divParameter">';
-                $jsnPhpScriptResponse["jsnModal"] .= '<div class="divInputText searchGray"><input type="text" id="strProductParameter"><label for="strProductParameter">Datos del producto</label></div>';
+                $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-2" ><div class="divInputText searchGray"><input type="text" id="strProductParameter"><label for="strProductParameter">Datos del producto</label></div></div>';
             $jsnPhpScriptResponse["jsnModal"] .= '</div>';
             $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-2 col-md-1-2 col-sm-1-2 col-xs-1-2" id="divParameter">';
-                $jsnPhpScriptResponse["jsnModal"] .= '<button class="btn btnBrandBlue" type="button" id="btnSearch" onclick="productSearch_search();">Buscar</button>';
+                $jsnPhpScriptResponse["jsnModal"] .= '<button class="btn btnBrandBlue" type="button" id="btnSearch" onclick="productSearch_firstSearch();">Buscar</button>';
             $jsnPhpScriptResponse["jsnModal"] .= '</div>';
         $jsnPhpScriptResponse["jsnModal"] .= '</div>';
 
@@ -27,11 +27,12 @@ switch ($strProcess)
             $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divProductList">';
         $jsnPhpScriptResponse["jsnModal"] .= '</div>';
         $jsnPhpScriptResponse["jsnModal"] .= '<div class="row">';
-            $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divProductInformation">';
+            $jsnPhpScriptResponse["jsnModal"] .= '<div class="col-lg-1-1 col-md-1-1 col-sm-1-1 col-xs-1-1" id="divPagination">';
         $jsnPhpScriptResponse["jsnModal"] .= '</div>';
     break;
     
     case 'search':
+        $intUserWarehouse = 3;
         $strType = $_REQUEST['strType'];
         $intPage = $_REQUEST['intPage'];
         $intRecordsPerPage = $_REQUEST['intRecordsPerPage'];
@@ -43,6 +44,12 @@ switch ($strProcess)
         $jsnGroup = json_decode($_REQUEST['jsnGroup'], true);
 
         $jsnParameters = json_decode($_REQUEST["jsnParameters"], true);
+        $jsnAuxiliary = json_decode($_REQUEST["jsnAuxiliary"], true);
+        //$objAscend->printArray($_REQUEST["jsnAuxiliary"]);
+        //$objAscend->printArray($jsnAuxiliary);
+        $intDocument = $jsnAuxiliary["intDocumentId"];
+        //echo "asd" . $intDocument;
+
         //--
 
         $arrNeedle = array_unique( explode( " ", strtoupper($jsnParameters["strNeedle"])) );
@@ -150,67 +157,53 @@ switch ($strProcess)
         $jsnPhpScriptResponse["htmlProduct"] .= "<table>";
         $jsnPhpScriptResponse["htmlProduct"] .= "<thead>";
             $jsnPhpScriptResponse["htmlProduct"] .= "<tr>";
-                $jsnPhpScriptResponse["htmlProduct"] .= "<td>Numero de Parte</td> <td>Descripcion</td> <td>Marca</td> <td>Tipo</td> <td>Precio</td> <td>Promocion</td> <td>Precio Promocion</td> <td>Existencias</td>";
+                $jsnPhpScriptResponse["htmlProduct"] .= "<th>Numero de Parte</th> <th>Descripcion</th> <th>Marca</th> <th>Tipo</th> <th>Precio</th> <th>Promocion</th> <th>Precio Promocion</th> <th>Existencias</th>";
             $jsnPhpScriptResponse["htmlProduct"] .= "</tr>";
         $jsnPhpScriptResponse["htmlProduct"] .= "</thead>";
         $jsnPhpScriptResponse["htmlProduct"] .= "<tbody>";
         foreach($rstQuery as $product)
         {
-            $htmlProduct = '<tr>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<tr>';
             //if(!file_exists("../../img/" . $product["strImage"])) { $product["strImage"] = "product/notfound.jpg";   }
-            //$htmlProduct .= '<img src="../../img/' . $product["strImage"] .'">';
-            $htmlProduct .= '<td> ' . $product["strPartNumber"] . '</td>';
-            $htmlProduct .= '<td>' . $product["strDescription"] . '</td>';
-            $htmlProduct .= '<td>' . $product["strBrand"] . '</td>';
-            $htmlProduct .= '<td>' . $product["strCondition"] . '</td>';
+            //$jsnPhpScriptResponse["htmlProduct"] .= '<img src="../../img/' . $product["strImage"] .'">';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<td> ' . $product["strPartNumber"] . '</td>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<td>' . $product["strDescription"] . '</td>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<td>' . $product["strBrand"] . '</td>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<td>' . $product["strCondition"] . '</td>';
 
-            $htmlProduct .= '<td>$ ' . number_format($product["decPrice"], 2, ",", ".") . '</td>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<td>$ ' . number_format($product["decPrice"], 2, ",", ".") . '</td>';
             if( $product["strPromotionStatus"] != null && $product["strPromotionStatus"] == "A" )
             {
                 $objPromotion = $objProductSearch->priceRuleCalculation( $product["decPrice"], $product["strPromotionRule"] );
-                $htmlProduct .= '<td>' . $objPromotion["strRuleDescription"] . '</td>';
-                $htmlProduct .= '<td>$ ' . number_format($objPromotion["decPrice"], 2, ",", ".") . '</td>';
+                $jsnPhpScriptResponse["htmlProduct"] .= '<td>' . $objPromotion["strRuleDescription"] . '</td>';
+                $jsnPhpScriptResponse["htmlProduct"] .= '<td>$ ' . number_format($objPromotion["decPrice"], 2, ",", ".") . '</td>';
             }
             else
             {
-                $htmlProduct .= '<td>-</td>';
-                $htmlProduct .= '<td>-</td>';
+                $jsnPhpScriptResponse["htmlProduct"] .= '<td>-</td>';
+                $jsnPhpScriptResponse["htmlProduct"] .= '<td>-</td>';
             }
 
-            $htmlProduct .= '<td> <button class="btn btnOverYellow" type="button" id="btnStock" onclick="productSearch_stock();">Existencias</button> </td>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<td> <button class="btn btnOverYellow" type="button" id="btnStock_' . $product["intId"] . '" onclick="productSearch_showStock(' . $product["intId"] . ');">Existencias</button> </td>';
 
 
             /*
-            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectDetails\', \'tabDetails\', \'' . $product["intId"] . '\')">DETALLES</button>';
-            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectReplacements\', \'tabReplacements\', \'' . $product["intId"] . '\')">REMPLAZOS</button>';
-            $htmlProduct .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectCompatible\', \'tabCompatible\', \'' . $product["intId"] . '\')">COMPATIBLE</button>';
-            $htmlProduct .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectStocks\', \'tabStocks\', \'' . $product["intId"] . '\')">EXISTENCIAS</button>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectDetails\', \'tabDetails\', \'' . $product["intId"] . '\')">DETALLES</button>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectReplacements\', \'tabReplacements\', \'' . $product["intId"] . '\')">REMPLAZOS</button>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<button class="btn btnBrandBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectCompatible\', \'tabCompatible\', \'' . $product["intId"] . '\')">COMPATIBLE</button>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '<button class="btn btnAlternativeBlue" onclick="getModalTab(\'modalProduct\',\'closeProduct\', \'contectStocks\', \'tabStocks\', \'' . $product["intId"] . '\')">EXISTENCIAS</button>';
             */
-            $htmlProduct = '</tr>';
-            #Stock
-            $sqlStock =
-                "SELECT WHS.intWarehouse as intId, WH.strCode, WH.strDescription, WHS.intStock "
-                ."FROM tblWarehouseStock WHS "
-                ."LEFT JOIN catWarehouse WH ON WHS.intWarehouse = WH.intId "
-                ."WHERE WHS.intProduct = " . $objPromotion["intId"] . " AND WHS.strStatus <> 'B' AND WH.strStatus <> 'B';";
-            $rstStock = $objAscend->dbQuery($sqlStock);
-            $htmlProduct = '<tr>';
-                $htmlProduct = '<td colspan="8">';
-                    $htmlProduct = '<table>';
-                        $thStock = '';
-                        $tdStock = '';
-                        foreach ($rstStock as $warehouse )
-                        {
-                            $thStock .= '<th>' . $warehouse["strDescription"] . '</th>';
-                            $tdStock .= '<td>' . $warehouse["intStock"] . '</td>';
-                        }
-                        $htmlProduct = '<tr> $thStock </tr>';
-                        $htmlProduct = '<tr> $tdStock </tr>';
-                    $htmlProduct = '</table>';
-                $htmlProduct = '</td>';
-            $htmlProduct = '</tr>';
+            $jsnPhpScriptResponse["htmlProduct"] .= '</tr>';
 
-            $jsnPhpScriptResponse["htmlProduct"] .= ($htmlProduct);
+
+
+
+
+
+            $jsnPhpScriptResponse["htmlProduct"] .= '<tr class="trStock" id="trStock_' . $product["intId"] . '" style="display:none;">';
+
+            $jsnPhpScriptResponse["htmlProduct"] .= '</tr>';
+
         }
 
         $jsnPhpScriptResponse["htmlProduct"] .= "</tbody>";
@@ -221,8 +214,8 @@ switch ($strProcess)
         $htmlPagination .= "<div class=\"divPagination\">";
         if( $intPage != 1)
         {
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(1)\" title=\"Inicio\">⋘</label>";
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . ( $intPage - 1) . ")\" title=\"Anterior\">≪</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"productSearch_pageChange(1)\" title=\"Inicio\">⋘</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"productSearch_pageChange(" . ( $intPage - 1) . ")\" title=\"Anterior\">≪</label>";
         }
         else
         {
@@ -236,7 +229,7 @@ switch ($strProcess)
         {
             if( $p != $intPage)
             {
-                $htmlPagination .= "<label class=\"labelPagination\" onclick=\"onChangePage($p)\">$p</label>";
+                $htmlPagination .= "<label class=\"labelPagination\" onclick=\"productSearch_pageChange($p)\">$p</label>";
             }
             else
             {
@@ -253,13 +246,13 @@ switch ($strProcess)
         }
         else
         {
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . ( $intPage + 1) . ")\" title=\"Siguiente\">≫</label>";
-            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"onChangePage(" . $objPagination["intPages"] . ")\" title=\"Final\">⋙</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"productSearch_pageChange(" . ( $intPage + 1) . ")\" title=\"Siguiente\">≫</label>";
+            $htmlPagination .= "<label class=\"labelPagination labelPaginationArrow\" onclick=\"productSearch_pageChange(" . $objPagination["intPages"] . ")\" title=\"Final\">⋙</label>";
         }
 
         $htmlPagination .= "<div class=\"paginationInfo\">";
         $htmlPagination .= "<b> " . $objPagination["intTotalRows"] . " </b> Registros - <b>" . $objPagination["intPages"] . "</b> Páginas -";
-        $htmlPagination .= "<select id=\"numPages\" onchange=\"onChangeRecords(this.value);\">";
+        $htmlPagination .= "<select id=\"numPages\" onchange=\"productSearch_recordsPerPageCange(this.value);\">";
         $htmlPagination .= "<option  value=\"10\" " . ( $intRecordsPerPage ==  10 ? "selected=\"selected\"" : "" ) . ">10</option>";
         $htmlPagination .= "<option  value=\"20\" " . ( $intRecordsPerPage ==  20 ? "selected=\"selected\"" : "" ) . ">20</option>";
         $htmlPagination .= "<option  value=\"40\" " . ( $intRecordsPerPage ==  40 ? "selected=\"selected\"" : "" ) . ">40</option>";
@@ -277,6 +270,82 @@ switch ($strProcess)
 
         #
 
+    break;
+
+    case 'showStock':
+        $intProduct = $_REQUEST["intProduct"];
+        $intDocument = $_REQUEST["intDocument"];
+        #Stock
+        $sqlWarehouse = "SELECT WH.intId, WH.strCode, WH.strDescription, 0 AS intStock, 0 as intTaken "
+            ."FROM catWarehouse WH "
+            ."WHERE WH.intId < 10;";
+        $rstWarehouse = $objAscend->dbQuery($sqlWarehouse);
+        //echo $sqlWarehouse . "<br><br>";
+
+        $sqlStock =
+            "SELECT WHS.intWarehouse as intId, WH.strCode, WH.strDescription, WHS.intStock "
+            ."FROM tblWarehouseStock WHS "
+            ."LEFT JOIN catWarehouse WH ON WHS.intWarehouse = WH.intId "
+            ."WHERE WHS.intProduct = " . $intProduct . " AND WHS.strStatus <> 'B' AND WH.strStatus <> 'B';";
+        $rstStock = $objAscend->dbQuery($sqlStock);
+        //echo "doc:" . $intDocument;
+        if( !empty($intDocument) )
+        {
+            $sqlApart = "SELECT DSD.intId, DSD.intDocumentDetail, DSD.intQuantity, intDocumentStatus, DSD.intWarehouse, DD.intProduct "
+                ."FROM tblDocumentSubdetail DSD "
+                ."LEFT JOIN tblDocumentDetail DD ON DSD.intDocumentDetail = DD.intId "
+                ."WHERE DD.intDocument = $intDocument AND DSD.strStatus = 'A';";
+            $rstApart = $objAscend->dbQuery($sqlApart);
+            //$objAscend->printArray($rstApart);
+        }
+
+
+        for( $s = 0; $s < count($rstWarehouse); $s++)
+        {
+            foreach( $rstStock AS $whs)
+            {
+                if( $rstWarehouse[$s]["intId"] == $whs["intId"])
+                {
+                    $rstWarehouse[$s]["intStock"] = $whs["intStock"];
+                }
+            }
+
+            if( !empty($intDocument) )
+            {
+                foreach( $rstApart AS $arrApart)
+                {
+                    if( $product["intId"] == $arrApart["intProduct"] && $rstWarehouse[$s]["intId"] == $arrApart["intWarehouse"] )
+                    {
+                        $rstWarehouse[$s]["intStock"] -= $arrApart["intQuantity"];
+                    }
+                }
+            }
+        }
+
+        $jsnPhpScriptResponse["jsnWarehouseStock"] = $rstWarehouse;
+        $jsnPhpScriptResponse["htmlProduct"] .= '<td colspan="8">';
+
+        $thStock = '';
+        $tdStock = '';
+        $thStock .= '<th></th>';
+        $tdStock .= '<td>';
+        $tdStock .= '<div class="divInputText searchGray"><input type="text" id="strRequired_' . $intProduct . '" style="float: left;"><label for="strRequired"  style="float: left;">Unidades Requeridas</label></div>';
+        $tdStock .= '<br/>';
+        $tdStock .= '<div id="divStockRequired_' . $intProduct . '"></div>';
+        $tdStock .= '<br/>';
+        $tdStock .= '<button class="btn btnOnlineGreen" id="btnAddDocumentDetailInsert_' . $intProduct . '" onclick="fnDocument_addDocumentDetailInsert(' . $intProduct . ')">Agregar partida</button>';
+        $tdStock .= '<button class="btn btnBrandRed" id="btnRequestMissingStock_' . $intProduct . '" onclick="fnDocument_requestMissingStock(' . $intProduct . ')">Solicitar compra de faltantes</button>';
+        $tdStock .= '</td>';
+        foreach ($rstWarehouse as $warehouse )
+        {
+            $thStock .= '<th class="text-center">' . $warehouse["strDescription"] . '</th>';
+            $tdStock .= '<td id="tdWarehouseStock_' . $warehouse["intId"] . '" class="text-center" ' . ( $intUserWarehouse == $warehouse["intId"] ? 'style="background-color: #FFC000;"' : '' ) . '>' . $warehouse["intStock"] . ( $warehouse["intStock"] > 0 ? ' <br/> <button class="btn btnAlternativeBlue" onclick="fnDocument_takeStock(' . $intProduct . ', ' . $warehouse["intId"]  . ');">Tomar</button>' : '' ) .'</td>';
+        }
+        $jsnPhpScriptResponse["htmlProduct"] .= '<table style="margin-top: 13px;">';
+        $jsnPhpScriptResponse["htmlProduct"] .= '<thead><tr> ' . $thStock . ' </tr></thead>';
+        $jsnPhpScriptResponse["htmlProduct"] .= '<tbody><tr> ' . $tdStock . ' </tr></tbody>';
+        $jsnPhpScriptResponse["htmlProduct"] .= '</table>';
+        $jsnPhpScriptResponse["htmlProduct"] .= '</td>';
     break;
 
 };

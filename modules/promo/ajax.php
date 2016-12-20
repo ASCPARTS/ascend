@@ -54,7 +54,7 @@ switch ($strProcess) {
         }
         $rstData = $objAscend->dbQuery($strSql);
         $strRespuesta = '<div class="col-sm-1-1 col-lg-1-1 col-md-1-1 tblContainer">';
-        $strRespuesta .= '<table id="tblProduct">';
+        $strRespuesta .= '<table id="tblProduct" >';
         $strRespuesta .= '<thead>';
         $strRespuesta .= '<tr>';
         if($intIdPromo==0){
