@@ -311,6 +311,7 @@
                         $rstDocumentSubdetailQuotation = $objAscend->dbQuery($sqlDocumentSubdetailQuotation);
                         $objDocumentSubdetailQuotation = $rstDocumentSubdetailQuotation;
                         $btnShowQuotations = ( count( $objDocumentSubdetailQuotation ) > 0? '<button class="btn btnOverBlueGray" onclick="fnDocument_showDocumentSubdetailQuotation(' . $arrDocumentSubdetail["intId"] . ');"> Cotizaciones</button>' : '');
+                        $btnAuthorize = ( $arrDocumentSubdetail["intDocumentStatus"] == 5 ? '<button id="btnDocumentSubDetailApprove_' . $arrDocumentSubdetail["intId"] . '" class="btn btnOverBlueGray" onclick="fnDocument_documentSubdetailApprove(' . $arrDocumentSubdetail["intId"] . ');"> Aprobar</button>' : '');
                         $arrDocumentSubdetailInformation = "";
                         if(count( $objDocumentSubdetailQuotation ) > 0)
                         {
@@ -337,7 +338,7 @@
                         }
 
                         $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<tr>';
-                            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<td style="text-align: center;">' . $arrDocumentSubdetail["intQuantity"] . '</td> <td style="text-align: center;">' . $arrDocumentSubdetail["strDocumentStatus"] . '</td> <td style="text-align: center;">' . ( $arrDocumentSubdetail["intWarehouse"] == null ? "N/A" : $arrDocumentSubdetail["strWarehouse"] ) . '</td> <td> ' . $btnShowQuotations .  '</td>';
+                            $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '<td style="text-align: center;">' . $arrDocumentSubdetail["intQuantity"] . '</td> <td id="divDocumentStatus_' . $arrDocumentSubdetail["intId"] . '" style="text-align: center;">' . $arrDocumentSubdetail["strDocumentStatus"] . '</td> <td style="text-align: center;">' . ( $arrDocumentSubdetail["intWarehouse"] == null ? "N/A" : $arrDocumentSubdetail["strWarehouse"] ) . '</td> <td> ' . $btnShowQuotations . $btnAuthorize .  '</td>';
                         $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tr>';
                     }
                     $jsnPhpScriptResponse["jsnDocumentDetailInformation"] .= '</tbody>';
@@ -535,6 +536,49 @@
                 }
             }
         break;
+        
+        case 'documentSubdetailApprove':
+            $intDocumentSubdetail = $_REQUEST["intDocumentSubdetail"];
+
+            $sqlDocumentSubdetailApprove =
+            "UPDATE tblDocumentSubdetail "
+            ."SET intDocumentStatus = 6 "
+            ."WHERE intId = $intDocumentSubdetail;";
+            $rstDocumentSubdetailApprove = $objAscend->dbUpdate($sqlDocumentSubdetailApprove);
+            $jsnPhpScriptResponse["blnStatus"] = true;
+
+        break;
+
+        case 'getSupplyPending':
+            $sqlSupplyPending =
+            "SELECT DSD.intId, DSD.intDocumentDetail, DSD.intQuantity, DSD.intDocumentStatus, DSD.intWarehouse, WH.strDescription AS strWarehouse, DSD.strStatus, DD.intProduct, P.strSKU, P.strPartNumber, P.intFamily, F.strName AS strFamily, P.intBrand, B.strName AS strBrand, P.intGroup, G.strName AS strGroup, P.intCondition, F.strName AS strCondition, P.intClass, CLA.strName AS strClass, P.intUnit, U.strDescription AS strUnit, P.intType, T.strDescription AS strType, DD.intPromiseDate "
+            ."FROM tblDocumentSubdetail DSD "
+            ."LEFT JOIN tblDocumentDetail DD ON DD.intId = DSD.intDocumentDetail "
+            ."LEFT JOIN tblProduct P ON DD.intProduct = P.intId "
+            ."LEFT JOIN tblFamily F ON F.intId = P.intFamily "
+            ."LEFT JOIN tblBrand B ON B.intId = P.intBrand "
+            ."LEFT JOIN tblGroup G ON G.intId = P.intGroup "
+            ."LEFT JOIN catCondition CON ON CON.intId = P.intCondition "
+            ."LEFT JOIN catClass CLA ON CLA.intId = P.intClass "
+            ."LEFT JOIN catUnit U ON U.intId = P.intUnit "
+            ."LEFT JOIN catProductType T ON T.intId = P.intType "
+            ."LEFT JOIN catWarehouse WH ON WH.intId = DSD.intWarehouse "
+            ."WHERE DSD.intDocumentStatus = 6 "
+            ."ORDER BY DSD.intWarehouse ASC; ";
+            $rstSupplyPending = $objAscend -> dbQuery($sqlSupplyPending);
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] = '';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<table><thead><tr>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<th>Almacen</th> <th>SKU</th> <th> </th>No. Parte<th>Unidades</th> <th>Familia</th> <th>Marca</th> <th>Grupo</th>  <th>Condicion</th> <th>Clase</th> <th>Unidad</th>  <th>Fecha Promesa</th>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</tr></thead>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<tbody>';
+            foreach($rstSupplyPending as $obj)
+            {
+                $jsnPhpScriptResponse["htmlSupplyPending"] .= '<td>' . $obj["strWarehouse"] . '</td> <th>' . $obj["strSKU"] . '</th> <th>' . $obj["intQuantity"] . '<th>' . $obj["strFamily"] . '</th> <th>' . $obj["strBrand"] . '</th> <th>' . $obj["strGroup"] . '</th> <th>' . $obj["strCondition"] . '</th>  <th>' . $obj["strClass"] . '</th> <th>' . $obj["strUnit"] . '</th> <th>' . $obj["strType"] . '</th>  <th>' . $obj["intPromiseDate"] . '</th>';
+            }
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</tbody</table>';
+
+            break;
 
     };
 
