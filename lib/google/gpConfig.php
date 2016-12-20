@@ -10,7 +10,7 @@ include_once 'contrib/Google_Oauth2Service.php';
  */
 $clientId = '839294887884-aocngunfl5p38s9lmpqiobcosjingj1f.apps.googleusercontent.com'; //Google client ID
 $clientSecret = 'xhJHgeurjllQqvzIPLpiJ7KN'; //Google client secret
-$redirectURL = 'http://localhost/ascend/glogin.php'; //Callback URL
+$redirectURL = 'http://demo.ascparts.com/glogin.php'; //Callback URL
 
 //Call Google API
 $gClient = new Google_Client();
