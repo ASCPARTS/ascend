@@ -6,7 +6,7 @@ header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache"); // HTTP/1.0
 header("Expires: Fri, 1 Jan 1999 05:00:00 GMT");
-ini_set('display_errors',1);
+ini_set('display_errors',0);
 ini_set("max_execution_time",1800);
 ini_set('session.cookie_httponly',1);
 date_default_timezone_set('America/Mexico_City');

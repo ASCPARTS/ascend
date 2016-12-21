@@ -1,7 +1,7 @@
 <?php
 require_once ('inc/include.config.php');
 require_once(LIB_PATH .'class.ascend.php');
-ini_set("display_errors",1);
+ini_set("display_errors",0);
 $objAscend = new clsAscend();
 $strProcess = $_REQUEST['strProcess'];
 

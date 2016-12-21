@@ -25,7 +25,7 @@ function init()
         {
             var inputSearch = $('#search').val();
             $.ajax({
-                url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+                url: '/modules/searchascend/ajax.php',
                 type: 'post',
                 dataType: 'json',
                 data:
@@ -58,7 +58,7 @@ function init()
     stringGroupsValues = '['+groupsValues.toString()+']';
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'post',
         dataType: 'json',
         data:
@@ -110,7 +110,7 @@ function inOutBrand(itemBrand){
     stringGroupsValues = '['+groupsValues.toString()+']';
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'post',
         dataType: 'json',
         data:
@@ -167,7 +167,7 @@ function inOutGroup(itemGroup){
     stringGroupsValues = '['+groupsValues.toString()+']';
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'post',
         dataType: 'json',
         data:
@@ -219,7 +219,7 @@ function inOutStock(){
     stringGroupsValues = '['+groupsValues.toString()+']';
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'post',
         dataType: 'json',
         data:
@@ -269,7 +269,7 @@ function onChangeRangePrice(rangePriceValue){
         stringGroupsValues = '['+groupsValues.toString()+']';
 
         $.ajax({
-            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            url: '/modules/searchascend/ajax.php',
             type: 'post',
             dataType: 'json',
             data:
@@ -316,7 +316,7 @@ function onChangePage(pageValue){
         stringGroupsValues = '['+groupsValues.toString()+']';
 
         $.ajax({
-            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            url: '/modules/searchascend/ajax.php',
             type: 'post',
             dataType: 'json',
             data:
@@ -367,7 +367,7 @@ function onChangeRecords(recordsValue){
         stringGroupsValues = '['+groupsValues.toString()+']';
 
         $.ajax({
-            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            url: '/modules/searchascend/ajax.php',
             type: 'post',
             dataType: 'json',
             data:
@@ -436,7 +436,7 @@ function inputString(){
         stringGroupsValues = '['+groupsValues.toString()+']';
 
         $.ajax({
-            url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+            url: '/modules/searchascend/ajax.php',
             type: 'post',
             dataType: 'json',
             data:
@@ -487,7 +487,7 @@ function searchId(idProduct){
     var tagTab = 'tabDetails';
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'POST',
         dataType: 'json',
         data:
@@ -578,7 +578,7 @@ function searchGroup(GroupValue){
     stringGroupsValues = '['+groupsValues.toString()+']';
 
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'post',
         dataType: 'json',
         data:
@@ -637,7 +637,7 @@ function getModalTab(idModal, idSpan, contentTab, tagTab, idCard)
 {
     
     $.ajax({
-        url: 'http://localhost/ascend/modules/searchascend/ajax.php',
+        url: '/modules/searchascend/ajax.php',
         type: 'POST',
         dataType: 'json',
         data:
