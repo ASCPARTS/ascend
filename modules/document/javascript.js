@@ -501,6 +501,53 @@ function fnDocument_getSupplyPending()
     });
 }
 
+function fndocument_markSupplyDocumentDetail()
+{
+    arrDocumentSubdetail = '';
+    $.each($('.chbSupplyPending'), function( index, obj )
+    {
+        if( $(obj).prop( "checked" ) )
+        {
+            arrDocumentSubdetail = arrDocumentSubdetail + $(obj).val() + '|';
+        }
+    });
+    if( arrDocumentSubdetail.length > 0 )
+    {
+        arrDocumentSubdetail = arrDocumentSubdetail.substr(0, (arrDocumentSubdetail.length - 1));
+
+        $.ajax({
+            url: 'ajax.php',
+            type: 'post',
+            dataType: 'json',
+            data:
+            {
+                'strProcess' : 'markSupplyDocumentDetail',
+                'arrDocumentSubdetail' : arrDocumentSubdetail,
+                'intrackeEnterpriser' : $('#cboTrackeEnterpriser').val(),
+                'strGuideNumber' : $('#strGuideNumber').val(),
+                'intShipmentMethod' : $('#cboShipmentMethod').val(),
+                'strWeight' : $('#strWeight').val(),
+            },
+            beforeSend: function (data)
+            {
+                $('#divWorkingBackground').show();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+            },
+            success:function(data)
+            {
+                //showhide
+                $('#divWorkingBackground').hide();
+                alert('Los paquetes fueron marcados correctamente');
+                fnDocument_getSupplyPending();
+
+            }
+        });
+
+    }
+}
+
 function fnDocument_quotationList()
 {
     alert('Aqui hay que acomodar lo de las cotizaciones');
