@@ -373,8 +373,11 @@
             <div id="modalArticulo" class="modal">
 
                 <!-- Modal content -->
-                <div class="modal-content">
-                    <span id="closeArticulo" class="close">×</span>
+				<div id="getModal-header" class="modal-header">
+					<div id="getModal-title" class="modal-title"></div>
+					<div class="modal-close"><span class="close" onclick="$('#modalArticulo').hide();">&times;</span></div>
+				</div>
+				<div id="getModal-content" class="modal-content">
                     <div id="modalTest">
 					<ul class="tab">
 					  <li><a href="#" id="tabDetalles" class="tablinks" onclick="openTab(event, 'contenidoDetalles')">Detalles</a></li>

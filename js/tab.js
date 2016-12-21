@@ -25,6 +25,7 @@ function handleTab($intTab, $strName, $strUrl){
         }
     }
     closeMenuMain();
+    console.log($arrTabs);
 }
 
 function closeTab($intTab){
