@@ -38,7 +38,7 @@
        
 				<tr>
 					<td id="contect" style="width: *">
-						<div id="products">
+						<div id="products" style="white-space: normal !important;">
 							
 						</div>
 						<div class="row">
