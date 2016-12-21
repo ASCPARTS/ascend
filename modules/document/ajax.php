@@ -551,7 +551,7 @@
 
         case 'getSupplyPending':
             $sqlSupplyPending =
-            "SELECT DSD.intId, DSD.intDocumentDetail, DSD.intQuantity, DSD.intDocumentStatus, DSD.intWarehouse, WH.strDescription AS strWarehouse, DSD.strStatus, DD.intProduct, P.strSKU, P.strPartNumber, P.intFamily, F.strName AS strFamily, P.intBrand, B.strName AS strBrand, P.intGroup, G.strName AS strGroup, P.intCondition, F.strName AS strCondition, P.intClass, CLA.strName AS strClass, P.intUnit, U.strDescription AS strUnit, P.intType, T.strDescription AS strType, DD.intPromiseDate "
+            "SELECT DSD.intId, DSD.intDocumentDetail, DSD.intQuantity, DSD.intDocumentStatus, DSD.intWarehouse, WH.strDescription AS strWarehouse, DSD.strStatus, DD.intProduct, P.strSKU, P.strPartNumber, P.intFamily, F.strName AS strFamily, P.intBrand, B.strName AS strBrand, P.intGroup, G.strName AS strGroup, P.intCondition, CON.strName AS strCondition, P.intClass, CLA.strName AS strClass, P.intUnit, U.strDescription AS strUnit, P.intType, T.strDescription AS strType, DD.intPromiseDate "
             ."FROM tblDocumentSubdetail DSD "
             ."LEFT JOIN tblDocumentDetail DD ON DD.intId = DSD.intDocumentDetail "
             ."LEFT JOIN tblProduct P ON DD.intProduct = P.intId "
@@ -564,21 +564,63 @@
             ."LEFT JOIN catProductType T ON T.intId = P.intType "
             ."LEFT JOIN catWarehouse WH ON WH.intId = DSD.intWarehouse "
             ."WHERE DSD.intDocumentStatus = 6 "
-            ."ORDER BY DSD.intWarehouse ASC; ";
+            ."ORDER BY DSD.intWarehouse ASC, DD.intPromiseDate ASC; ";
             $rstSupplyPending = $objAscend -> dbQuery($sqlSupplyPending);
 
             $jsnPhpScriptResponse["htmlSupplyPending"] = '';
             $jsnPhpScriptResponse["htmlSupplyPending"] .= '<table><thead><tr>';
-            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<th>Almacen</th> <th>SKU</th> <th> </th>No. Parte<th>Unidades</th> <th>Familia</th> <th>Marca</th> <th>Grupo</th>  <th>Condicion</th> <th>Clase</th> <th>Unidad</th>  <th>Fecha Promesa</th>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<tr><th colspan="13" class="text-right">';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="row">';
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="col-lg-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">';
+                $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="divSelect"><select id="cboTrackeEnterpriser"><option value="1">DHL</option><option value="2">Estafeta</option><option value="3">UPS</option></select><label style="float:right;" for="cboTrackeEnterpriser" >Metodo de Embarque</label></div>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</div>';
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="col-lg-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="divInputText"><input id="strGuideNumber" type="text"><label for="strGuideNumber" style="float:right;" >Numero de Guia</label></div>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</div>';
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="col-lg-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">';
+                $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="divSelect"><select id="cboShipmentMethod"><option value="\'T\'">Terrestre</option><option value="\'M\'">Maritimo</option><option value="\'C\'">Aereo</option></select><label style="float:right;" >Metodo de Embarque</label></div>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</div>';
+
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="col-lg-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="divInputText"><input id="strWeight" type="text"><label style="float:right;" for="strWeight">Peso(Kg)</label></div>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</div>';
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<div class="col-lg-1-5 col-md-1-5 col-sm-1-2 col-xs-1-1">';
+                $jsnPhpScriptResponse["htmlSupplyPending"] .= '<button class="btn btnAlternativeGray"  onclick="fndocument_markSupplyDocumentDetail();">Marcar como surtido</button>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</div>';
+
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</div>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '</th></tr>';
+            $jsnPhpScriptResponse["htmlSupplyPending"] .= '<th class="text-center">Seleccionar</th> <th>Almacen</th> <th>SKU</th> <th> No. Parte</th><th class="text-center">Cantidad</th> <th>Familia</th> <th>Marca</th> <th>Grupo</th>  <th>Condicion</th> <th class="text-center">Clase</th> <th>Unidad</th> <th>Tipo</th>  <th>Fecha Promesa</th>';
             $jsnPhpScriptResponse["htmlSupplyPending"] .= '</tr></thead>';
             $jsnPhpScriptResponse["htmlSupplyPending"] .= '<tbody>';
             foreach($rstSupplyPending as $obj)
             {
-                $jsnPhpScriptResponse["htmlSupplyPending"] .= '<td>' . $obj["strWarehouse"] . '</td> <th>' . $obj["strSKU"] . '</th> <th>' . $obj["intQuantity"] . '<th>' . $obj["strFamily"] . '</th> <th>' . $obj["strBrand"] . '</th> <th>' . $obj["strGroup"] . '</th> <th>' . $obj["strCondition"] . '</th>  <th>' . $obj["strClass"] . '</th> <th>' . $obj["strUnit"] . '</th> <th>' . $obj["strType"] . '</th>  <th>' . $obj["intPromiseDate"] . '</th>';
+                $jsnPhpScriptResponse["htmlSupplyPending"] .= '<tr><td class="text-center"><input class="chbSupplyPending" value="' . $obj["intId"] . '" type="checkbox"/></td><td>' . $obj["strWarehouse"] . '</td> <td>' . $obj["strSKU"] . '</td> <td>' . $obj["strPartNumber"] . '</td> <td class="text-center">' . $obj["intQuantity"] . '<td>' . $obj["strFamily"] . '</td> <td>' . $obj["strBrand"] . '</td> <td>' . $obj["strGroup"] . '</td> <td>' . $obj["strCondition"] . '</td>  <td class="text-center">' . $obj["strClass"] . '</td> <td>' . $obj["strUnit"] . '</td> <td>' . $obj["strType"] . '</td>  <td>' . $objAscend->formatDateTime($obj["intPromiseDate"], DTF_1) . '</td></tr>';
             }
             $jsnPhpScriptResponse["htmlSupplyPending"] .= '</tbody</table>';
 
-            break;
+        break;
+
+        case 'markSupplyDocumentDetail':
+            $arrDocumentSubdetail = $_REQUEST["arrDocumentSubdetail"];
+            $objDocumentSubdetail = explode("|", $arrDocumentSubdetail);
+            $intrackeEnterpriser = $_REQUEST["intrackeEnterpriser"];
+            $strGuideNumber = $_REQUEST["strGuideNumber"];
+            $intShipmentMethod = $_REQUEST["intShipmentMethod"];
+            $strWeight = $_REQUEST["strWeight"];
+            foreach( $objDocumentSubdetail as $dsd )
+            {
+                $sqlUpdateDSD = "UPDATE tblDocumentSubdetail SET intDocumentStatus = 1 WHERE intId = $dsd;";
+                $objAscend -> dbUpdate($sqlUpdateDSD);
+            }
+            $jsnPhpScriptResponse["blnStatus"] = true;
+
+        break;
 
     };
 
