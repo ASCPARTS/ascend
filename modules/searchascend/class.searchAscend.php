@@ -105,7 +105,7 @@ class clsSearchAscend extends clsAscend
             //$arrPriceRange[$r] = array("intIndex" => ($r + 1), "strRange" => "$ " . number_format(( $objRange[0]["decMin"] + ( $decRange* $r) ), 2, ".", ",") . " - $ " . number_format(( $objRange[0]["decMin"] + ( $decRange* $r) + $decRange ), 2, ".", ",")  );
         }
         $htmlLateralBar .= '</select> ';
-        $htmlLateralBar .= '<label for="priceRangeFilter">Rango de precios</label> ';
+        $htmlLateralBar .= '<label style="float: left;" for="priceRangeFilter">Rango de precios</label> ';
         $htmlLateralBar .= '</div> ';
         $htmlLateralBar .= '</div>';
 
