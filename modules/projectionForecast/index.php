@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="add.png" id="add1" width="30" height="30">
+                            <input type="image" src="add.png" id="add1" width="30" height="30" oncl>
                         </div>
 
                     </div>

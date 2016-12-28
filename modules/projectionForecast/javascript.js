@@ -131,11 +131,9 @@ function agregarCampo(){
     NvoCampo.innerHTML=
         "<div class='col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3'>" +
         "<div class='divInputText calendarYellow'>" +
-        "<input type='text' id='intPeriod3'>" +
-        "        <input type='text' size='50' name='articu_" + campos +
-        "' id='articu_" + campos + "'>" +
+        "<input type='text' id='intPeriod3' name='articu_" + campos +"' id='articu_" + campos + "'>" +
         "<label>Periodo</label>" +
-        "</div>>" +
+        "</div>" +
         "        <a href='JavaScript:quitarCampo(" + campos +");'> Quitar </a>" +
         "     </td>" +
         "   </tr>" +
