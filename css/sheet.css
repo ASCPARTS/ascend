@@ -1,12 +1,58 @@
-html, body
-{
-    font-family: Arial;
+html, body {
+    font-family: "Roboto Condensed Light";
     font-size: 10pt;
     background-color: #F1F1F1;
+    color: #000000;
     margin: 0px;
     vertical-align: top;
     overflow: visible;
 }
+
+.divModalBackground {
+    background-color: rgba(0,0,0,.6);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+.divModalBackground .divModalMain {
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    overflow-x: auto;
+    overflow-y: auto;
+    border: 1px #000000 solid;
+}
+
+.divModalBackground .divModalMain .divModalBar {
+    background-color: #F1F1F1;
+    text-align: right;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 3px 0 0;
+}
+
+.divModalBackground .divModalMain .divModalBar .lblClose {
+    cursor: pointer;
+    color: #FF3754;
+    font-size: 12pt;
+}
+
+.divModalBackground .divModalMain .divModalWorkArea {
+    height: calc(100% - 36px);
+    padding: 8px 8px 8px 8px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+
+
 
 .divWorkingBackground {
     z-index: 10000001;
@@ -38,7 +84,7 @@ html, body
 }
 
 .MainTitle {
-    font-size: 15pt;
+    font-size: 14pt;
     font-weight: normal;
     color:#1766A1;
     border-bottom: 1px #1766A1 solid;
@@ -48,7 +94,7 @@ html, body
 }
 
 .SubTitle {
-    font-size: 10pt;
+    font-size: 11pt;
     font-weight: normal;
     color: #050409;
     border-bottom: 1px #050409 solid;
@@ -63,13 +109,13 @@ html, body
     text-align: left;
     padding: 6px 6px 6px 6px;
     border: 1px #1E202C solid;
-    margin: 0 auto 6px auto;
-    width: calc(100% - 16px);
-    max-width: 1100px;
+    margin: 0 auto 0 auto;
+    width: calc(100% - 28px);
+    max-width: 1280px;
+    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px) ;
 }
-
-
-
 
 /*modal*/
 .modal {
@@ -85,7 +131,6 @@ html, body
     background-color: rgba(0,0,0,0.8);
     z-index: 20000;
 }
-
 
 /* Modal header */
 .modal-header {
@@ -151,15 +196,6 @@ html, body
 
 }
 
-
-
-
-
-
-
-
-
-
 .ButtonContainer
 {
     float: left;
@@ -174,15 +210,15 @@ html, body
 
 
 .btn {
-    border: 0;
-    padding: 4px 8px 8px 8px;
-    font-size: 10pt;
+    border: 1px #000000 solid;
+    padding: 4px 12px 6px 12px;
+    font-size: 9pt;
     text-align: center;
     cursor: pointer;
     margin: 4px 0 4px 0;
     width:100%;
     text-transform: capitalize;
-    font-weight:bolder;
+    font-weight:normal;
 }
 
 .btn:disabled
@@ -225,7 +261,7 @@ html, body
 .btnOverBlue {
     background-color: #00b8fe;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #0080b3;
+    box-shadow: inset 0 -4px 0 #0080b3;
 }
 .btnOverBlue:hover {
     background-color: #0080b3;
@@ -234,7 +270,7 @@ html, body
 .btnBrandBlue {
     background-color: #1766A1;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #0d3859;
+    box-shadow: inset 0 -4px 0 #0d3859;
 }
 .btnBrandBlue:hover {
     background-color: #0d3859;
@@ -243,7 +279,7 @@ html, body
 .btnBackgroundBlack {
     background-color: #050409;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #323544;
+    box-shadow: inset 0 -4px 0 #323544;
 }
 .btnBackgroundBlack:hover {
     background-color: #323544;
@@ -252,7 +288,7 @@ html, body
 .btnBlueGray {
     background-color: #323544;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #0b0b0f;
+    box-shadow: inset 0 -4px 0 #0b0b0f;
 }
 .btnBlueGray:hover {
     background-color: #0b0b0f;
@@ -261,7 +297,7 @@ html, body
 .btnOverBlueGray {
     background-color: #1e202c;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #000000;
+    box-shadow: inset 0 -4px 0 #000000;
 }
 .btnOverBlueGray:hover {
     background-color: #000000;
@@ -270,7 +306,7 @@ html, body
 .btnAlternativeGray {
     background-color: #d8d8d8;
     color: #000000;
-    box-shadow: inset 0 -6px 0 #b3b3b3;
+    box-shadow: inset 0 -4px 0 #b3b3b3;
 }
 .btnAlternativeGray:hover {
     background-color: #b3b3b3;
@@ -279,7 +315,7 @@ html, body
 .btnLetterGray {
     background-color: #5c5c5c;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #333333;
+    box-shadow: inset 0 -4px 0 #333333;
 }
 .btnLetterGray:hover {
     background-color: #333333;
@@ -288,7 +324,7 @@ html, body
 .btnBackground {
     background-color: #F1F1F1;
     color: #000000;
-    box-shadow: inset 0 -6px 0 #cccccc;
+    box-shadow: inset 0 -4px 0 #cccccc;
 }
 .btnBackground:hover {
     background-color: #cccccc;
@@ -297,7 +333,7 @@ html, body
 .btnOverYellow {
     background-color: #FFC000;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #b38600;
+    box-shadow: inset 0 -4px 0 #b38600;
 }
 .btnOverYellow:hover {
     background-color: #b38600;
@@ -306,7 +342,7 @@ html, body
 .btnAlternativeBlue {
     background-color: #6285ad;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #466486;
+    box-shadow: inset 0 -4px 0 #466486;
 }
 .btnAlternativeBlue:hover {
     background-color: #466486;
@@ -315,7 +351,7 @@ html, body
 .btnOnlineGreen {
     background-color: #55B844;
     color: #FFFFFF;
-    box-shadow: inset 0 -6px 0 #3d8230;
+    box-shadow: inset 0 -4px 0 #3d8230;
 }
 .btnOnlineGreen:hover {
     background-color: #3d8230;
@@ -324,7 +360,7 @@ html, body
 .btnOverGray {
     background-color: #D2CFD8;
     color: #000000;
-    box-shadow: inset 0 -6px 0 #b0abba;
+    box-shadow: inset 0 -4px 0 #b0abba;
 }
 .btnOverGray:hover {
     background-color: #b0abba;
@@ -333,7 +369,7 @@ html, body
 .btnBrandRed {
     background-color: #ff3754;
     color: #ffffff;
-    box-shadow: inset 0 -6px 0 #d82e3f;
+    box-shadow: inset 0 -4px 0 #d82e3f;
 }
 .btnBrandRed:hover {
     background-color: #d82e3f;
@@ -537,6 +573,10 @@ html, body
     color: #FFFFFF;
 }
 
+.divInputText .inputAsLabel {
+    color: #FFFFFF !important;
+    background-color: #5C5C5C !important;
+}
 
 /* input date */
 .divInputDate{
@@ -1493,7 +1533,7 @@ table > tbody > tr.yellow:hover > th {
 .moneyYellow {  background-image: url('../img/glyph/money24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .moneyGray   {  background-image: url('../img/glyph/money24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .numberYellow {  background-image: url('../img/glyph/number24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
-.numberWordGray   {  background-image: url('../img/glyph/number24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
+.numberGray   {  background-image: url('../img/glyph/number24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .packageYellow {  background-image: url('../img/glyph/package24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .packageGray   {  background-image: url('../img/glyph/package24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .phoneYellow {  background-image: url('../img/glyph/phone24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
@@ -1504,9 +1544,10 @@ table > tbody > tr.yellow:hover > th {
 .providerGray   {  background-image: url('../img/glyph/provider24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .referenceYellow {  background-image: url('../img/glyph/reference24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .referenceGray   {  background-image: url('../img/glyph/reference24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
-.reductionYellow {  background-image: url('../img/glyph/reference24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
+
+.reductionYellow {  background-image: url('../img/glyph/reduction24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .reductionGray   {  background-image: url('../img/glyph/reduction24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
-.searchYellow {  background-image: url('../img/glyph/reduction24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
+.searchYellow {  background-image: url('../img/glyph/search24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .searchGray   {  background-image: url('../img/glyph/search24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .shipmentYellow {  background-image: url('../img/glyph/shipment24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .shipmentGray   {  background-image: url('../img/glyph/shipment24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
