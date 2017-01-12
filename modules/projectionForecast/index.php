@@ -6,12 +6,14 @@
     require_once('../../'. LIB_PATH .'class.ascend.php');
     $objAscend = new clsAscend();
     require_once("../../inc/sheet.inc");
+    
 
     ini_set("display_errors",0);
     ini_set("memory_limit",0);
     $_SESSION['intUserID'];
     ?>
 </head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <body>
     <div class="MainTitle">FORECAST ASC PARTS</div>
     <div class="MainContainer">
@@ -64,10 +66,10 @@
                             <select id="intWarehouse">
                                 <?php
                                 $strSql="SELECT intId AS strValue, strDescription AS strDisplay FROM catWarehouse WHERE strStatus = 'A' ORDER BY 2;";
-                                $rstFamily = $objAscend->dbQuery($strSql);
-                                foreach ($rstFamily as $arrFamily){
+                                $rstWarehouse = $objAscend->dbQuery($strSql);
+                                foreach ($rstWarehouse as $arrWarehouse){
                                     ?>
-                                    <option value='<?php echo $arrFamily['strValue']; ?>'><?php echo $arrFamily['strDisplay']; ?></option>
+                                    <option value='<?php echo $arrWarehouse['strValue']; ?>'><?php echo $arrWarehouse['strDisplay']; ?></option>
                                     <?php
                                 }
                                 unset($rstFamily);
@@ -77,181 +79,9 @@
                         </div>
                         </div>
                     </div>
-                    <div class="row" id="firstPeriod">
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod1">
-                                <label>Primer Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor1">
-                                <label>Primer Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod2">
-                                <label>Segundo Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor2">
-                                <label>Segundo Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="add.png" id="add1" width="30" height="30" oncl>
-                        </div>
-
+                    <div class="row" id="divPeriods">
                     </div>
-                    <div class="row" id="secondPeriod">
-                        
-                            
-                                
-                                
-                            
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor3">
-                                <label>Tercer Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod4">
-                                <label>Cuarto Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor4">
-                                <label>Cuarto Factor</label>
-                            </div>
-                        </div>
-                        <div id="2" class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="less.png" id="add2" width="30" height="30" onclick="deletePeriod('secondPeriod');">
-                        </div>
-                    </div>
-                    <div class="row" id="thirdPeriod">
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod5">
-                                <label>Quinto Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor5">
-                                <label>Quinto Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod6">
-                                <label>Sexto Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor6">
-                                <label>Sexto Factor</label>
-                            </div>
-                        </div>
-                        <div id="3" class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="less.png" id="add3" width="30" height="30" onclick="deletePeriod(thirdPeriod);">
-                        </div>
-                    </div>
-                    <div class="row" id="fourthPeriod">
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod7">
-                                <label>Septimo Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor7">
-                                <label>Septimo Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod8">
-                                <label>Octavo Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor8">
-                                <label>Octavo Factor</label>
-                            </div>
-                        </div>
-                        <div id="4" class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="less.png" id="add4" width="30" height="30" onclick="deletePeriod(fourthPeriod);">
-                        </div>
-                    </div>
-                    <div class="row" id="fifthPeriod">
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod9">
-                                <label>Noveno Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor9">
-                                <label>Noveno Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod10">
-                                <label>Decimo Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor10">
-                                <label>Decimo Factor</label>
-                            </div>
-                        </div>
-                        <div id="5" class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="less.png" id="add5" width="30" height="30" onclick="deletePeriod(fifthPeriod);">
-                        </div>
-                    </div>
-                    <div class="row" id="sixthPeriod">
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod11">
-                                <label>Decimo Primer Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor11">
-                                <label>Decimo Primer Factor</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" id="intPeriod12">
-                                <label>Decimo Segundo Periodo</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="decFactor12">
-                                <label>Decimo Segundo Factor</label>
-                            </div>
-                        </div>
-                        <div id="6" class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <input type="image" src="less.png" id="add6" width="30" height="30" onclick="deletePeriod(sixthPeriod);">
-                        </div>
-                    </div>
+                    
                     <div class="SubTitle" id="divFilterTitle">Aplicar A:</div>
                     <div class="row" id="divFilter">
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
@@ -308,7 +138,7 @@
                     </div>
                     <div class="row" id="divProduct"></div>
                     <div class="ButtonContainer">
-                        <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="saveValues();">
+                        <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="totalPeriod();">
                     </div>
                     <div class="ButtonContainer" >
                         <input class="btn btnBrandRed" id="btnOrder" type="button" value="Generar Orden de Compra">
