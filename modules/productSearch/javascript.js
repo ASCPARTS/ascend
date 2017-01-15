@@ -94,6 +94,7 @@ function productSearch_search()
             $('#divWorkingBackground').hide();
             $('#divCustomerList').empty();
 
+
             //fill
             $('#divCustomerList').html(data.jsnCustomerList);
             $('#divProductList').html(data.htmlProduct);
@@ -181,7 +182,7 @@ function productSearch_showStock(intProduct) {
         {
             //showhide
             $('#divWorkingBackground').hide();
-
+            $jsnDocument.intRequestMissing = 0;
             //fill
             $('#trStock_' + intProduct).html(data.htmlProduct);
             $jsnDocument.arrWarehouseStock = data.jsnWarehouseStock;

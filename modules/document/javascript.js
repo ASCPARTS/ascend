@@ -5,7 +5,11 @@ $jsnDocument =
     arrCustomer : {},
     arrDocumentDetail : {},
     arrWarehouseStock : {},
-    intCurrentProduct : 0
+    intCurrentProduct : 0,
+    intRequestMissing : 0
+
+
+
 };
 
 function fnDocument_getMenu()
@@ -317,6 +321,8 @@ function fnDocument_updateWarehouseStock()
     tblStockrequired = '<table>';
     tblStockrequired += '<thead> <tr><th colspan="2">Stock tomado</th></tr> <tr> <th>Almacen</th> <th>Unidades</th> </tr></thead>';
     tblStockrequired += '<tbody>';
+    $('#btnRequestMissingStock_' +  $jsnDocument.intCurrentProduct).hide();
+
     for( whs = 0; whs < ($jsnDocument.arrWarehouseStock).length; whs++ )
     {
         console.log('f2');
@@ -329,11 +335,13 @@ function fnDocument_updateWarehouseStock()
         tdContent = '';
         if( blnStockClienteWarehouse )
         {
+
             tdContent += $jsnDocument.arrWarehouseStock[whs].intStock;
             if( $jsnDocument.arrWarehouseStock[whs].intId == $jsnDocument.arrCustomer.intWarehouse && $jsnDocument.arrWarehouseStock[whs].intStock > 0 )
             {
                 tdContent += ' <br> <button class="btn btnAlternativeBlue" onclick="fnDocument_takeStock(' + $jsnDocument.intCurrentProduct + ', ' + $jsnDocument.arrWarehouseStock[whs].intId + ');">Tomar</button>';
             }
+
         }
         else
         {
@@ -341,11 +349,17 @@ function fnDocument_updateWarehouseStock()
             if( $jsnDocument.arrWarehouseStock[whs].intId != $jsnDocument.arrCustomer.intWarehouse && $jsnDocument.arrWarehouseStock[whs].intStock > 0 )
             {
                 tdContent += ' <br> <button class="btn btnAlternativeBlue" onclick="fnDocument_takeStock(' + $jsnDocument.intCurrentProduct + ', ' + $jsnDocument.arrWarehouseStock[whs].intId + ');">Tomar</button>';
+                $('#btnRequestMissingStock_' +  $jsnDocument.intCurrentProduct).show();
             }
         }
 
         $('#tdWarehouseStock_' + $jsnDocument.arrWarehouseStock[whs].intId).empty();
         $('#tdWarehouseStock_' + $jsnDocument.arrWarehouseStock[whs].intId).html(tdContent);
+    }
+
+    if( $jsnDocument.intRequestMissing > 0 )
+    {
+        tblStockrequired += '<tr> <td> Por comprar</td> <td>' + $jsnDocument.intRequestMissing + '</td> </tr>';
     }
 
     tblStockrequired += '</tbody></table>';
@@ -354,6 +368,14 @@ function fnDocument_updateWarehouseStock()
         $('#divStockRequired_' + $jsnDocument.intCurrentProduct).empty();
         $('#divStockRequired_' + $jsnDocument.intCurrentProduct).html(tblStockrequired);
     }
+}
+
+function fnDocument_requestMissingStock(intProduct)
+{
+    console.log(parseInt($('#strRequired_' + intProduct).val()));
+    $jsnDocument.intRequestMissing = $jsnDocument.intRequestMissing +  parseInt($('#strRequired_' + intProduct).val());
+    console.log($jsnDocument.intRequestMissing);
+    fnDocument_updateWarehouseStock();
 }
 
 function fnDocument_addDocumentDetailInsert(intProduct)
@@ -577,4 +599,71 @@ function fnDocument_quotationList()
 
         }
     });*/
+}
+
+function fnDocument_getPurchaseList()
+{
+
+     $.ajax({
+         url: 'ajax.php',
+         type: 'post',
+         dataType: 'json',
+         data:
+         {
+            'strProcess' : 'getPurchaseList'
+         },
+         beforeSend: function (data)
+         {
+            $('#divWorkingBackground').show();
+         },
+         error: function (xhr, ajaxOptions, thrownError) {
+
+         },
+         success:function(data)
+         {
+             //showhide
+             $('#divWorkingBackground').hide();
+             $('#getModal').hide();
+
+
+             $('#divDocumentSubdetail').empty().html(data.htmlDocumentSubdetail);
+             $('#divPurchaseOrderForm').hide();
+
+         }
+     });
+}
+
+function fnDocument_showPurchaseOrderForm()
+{
+    $.ajax({
+        url: 'ajax.php',
+        type: 'post',
+        dataType: 'json',
+        data:
+        {
+            'strProcess' : 'showPurchaseOrderForm'
+        },
+        beforeSend: function (data)
+        {
+            $('#divWorkingBackground').show();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+
+        },
+        success:function(data)
+        {
+            //showhide
+            $('#divWorkingBackground').hide();
+            $('#getModal').hide();
+             
+            $('#divPurchaseOrderForm').show();
+            $('#divPurchaseOrderForm').html(data.htmlForm);
+
+        }
+    });
+}
+
+function fnDocument_createPurchaseOrder()
+{
+
 }

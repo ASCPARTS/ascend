@@ -25,7 +25,7 @@ function init()
         {
             var inputSearch = $('#search').val();
             $.ajax({
-                url: '/modules/searchascend/ajax.php',
+                url: 'modules/searchascend/ajax.php',
                 type: 'post',
                 dataType: 'json',
                 data:
@@ -56,9 +56,9 @@ function init()
 
     stringBrandsValues = '['+brandsValues.toString()+']';
     stringGroupsValues = '['+groupsValues.toString()+']';
-
+    
     $.ajax({
-        url: '/modules/searchascend/ajax.php',
+        url: '../../modules/searchascend/ajax.php',
         type: 'post',
         dataType: 'json',
         data:

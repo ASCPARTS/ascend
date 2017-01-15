@@ -35,6 +35,7 @@ $classAscend = new clsAscend();
             <div id="divSheetContainer" class="divSheetContainer"></div>
         </td>
         <?php
+        $_SESSION['intGoogleId'] = '';
         if($_SESSION['intGoogleId']!=''){
         ?>
         <td id="tdNotificationContainer" width="200">
@@ -51,7 +52,8 @@ $classAscend = new clsAscend();
 <script type="text/javascript" src="<?php echo JS_PATH; ?>tab.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH; ?>notification.js"></script>
 <script>
-    handleTab("100000", "Buscador de partes", "modules/test/seeker.php");
+    //handleTab("100000", "Buscador de partes", "modules/test/seeker.php");
+    handleTab("96", "Orden de Venta", "modules/saleorder/");
 </script>
 </body>
 </html>

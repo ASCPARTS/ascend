@@ -246,7 +246,7 @@ switch ($strProcess) {
             $strRespuesta .= '<td colspan="100" style="text-align: center">- NO EXISTEN REGISTROS -</td>';
             $strRespuesta .= '</tr>';
         }else{
-            foreach($rstData as $arrData) {
+            foreach($rstData as $arrData){
                 $strRespuesta .= '<tr>';
                 $strRespuesta .= '<td>' . $arrData['intId'] . '</td>';
                 $strRespuesta .= '<td>' . $arrData['strName'] . '</td>';

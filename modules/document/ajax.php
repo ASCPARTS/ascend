@@ -10,7 +10,7 @@
 
     $strProcess = $_REQUEST['strProcess'];
     $rstQuery = array();
-    $jsnPhpScriptResponse = array();
+    $jsnPhpScriptResponse = array("blnStatus" => true, "strMsg" => "");
 
     #parametros para balanceador de busquedas
     $strType = "";
@@ -22,6 +22,8 @@
     $objPagination = array();
 
     $arrPriceRange = array();
+
+
 
     switch ($strProcess)
     {
@@ -44,11 +46,10 @@
 
             #Document
             $sqlDocument =
-            "SELECT D.intId, D.strKeyNumber, D.intCustomer, C.strRFC AS strCustomerRFC, D.intCreator, CR.strName AS strCreator, D.decAmount, D.decTotal, D.intAuthorized, D.intApprovedBy, APR.strName AS strApprovedBy, D.intAuthorizationDate, D.strStatus, ( SELECT COUNT( * ) FROM tblDocumentDetail WHERE intDocument = D.intId ) AS intItems "
+            "SELECT D.intId, D.strKeyNumber, D.intCustomer, C.strRFC AS strCustomerRFC, D.intCreator, CR.strName AS strCreator, D.decAmount, D.decTotal, D.intAuthorized, D.intApprovedBy, D.intAuthorizationDate, D.strStatus, ( SELECT COUNT( * ) FROM tblDocumentDetail WHERE intDocument = D.intId ) AS intItems "
             ."FROM tblDocument D "
             ."LEFT JOIN tblCustomer C ON C.intId = D.intCustomer "
             ."LEFT JOIN tblUser CR ON CR.intId = D.intCreator "
-            ."LEFT JOIN tblUser APR ON APR.intId = D.intApprovedBy "
             ."WHERE D.strStatus = 'A' "
             ."ORDER BY D.intCreationDate ASC; ";
 
@@ -61,14 +62,14 @@
             $jsnPhpScriptResponse["jsnDocumentList"] .= '<table>';
             $jsnPhpScriptResponse["jsnDocumentList"] .= '<thead>';
             $jsnPhpScriptResponse["jsnDocumentList"] .= '<tr>';
-            $jsnPhpScriptResponse["jsnDocumentList"] .= '<th>Folio</th> <th>Cliente</th> <th>Creador</th> <th>No. Partidas</th> <th>Monto</th> <th>Total</th> <th>Aprobado?</th> <th>Autorizo</th> <th></th> ';
+            $jsnPhpScriptResponse["jsnDocumentList"] .= '<th>Folio</th> <th>Cliente</th> <th>Creador</th> <th class="text-center">No. Partidas</th> <th>Monto</th> <th>Total</th> <th></th> ';
             $jsnPhpScriptResponse["jsnDocumentList"] .= '</tr>';
             $jsnPhpScriptResponse["jsnDocumentList"] .= '</thead>';
             $jsnPhpScriptResponse["jsnDocumentList"] .= '<tbody>';
             foreach( $rstDocument as $arrDocument )
             {
                 $jsnPhpScriptResponse["jsnDocumentList"] .= '<tr>';
-                $jsnPhpScriptResponse["jsnDocumentList"] .= '<td>' . $arrDocument["strKeyNumber"] . '</td> <td>' . $arrDocument["strCustomerRFC"] . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intCreator"] . '\')">' . $arrDocument["strCreator"] . '</a></td> <td>' . $arrDocument["intItems"] . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decAmount"])  . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decTotal"])  . '</td> <td>' . ( $arrDocument["intAuthorized"] ? 'Aprobado' : 'No Aprobado' ) . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intApprovedBy"] . '\')">' . $arrDocument["strApprovedBy"] . '</a></td> <td><button class="btn btnBrandBlue" onclick="fnDocument_getDocumentDetailList(\'' . $arrDocument["intId"] . '\')">Revisar...</button></td> ';
+                    $jsnPhpScriptResponse["jsnDocumentList"] .= '<td>' . $arrDocument["strKeyNumber"] . '</td> <td><a href="javascript: alert(\'' . $arrDocument["intCustomer"] . '\')">' . $arrDocument["strCustomerRFC"] . '</a></td> <td>' . $arrDocument["strCreator"] . '</td>  <td class="text-center">' . $arrDocument["intItems"] . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decAmount"])  . '</td> <td style="text-align: right;">' . $objAscend->formatMoney($arrDocument["decTotal"])  . '</td>   <td><button class="btn btnBrandBlue" onclick="fnDocument_getDocumentDetailList(\'' . $arrDocument["intId"] . '\')">Revisar...</button></td> ';
                 $jsnPhpScriptResponse["jsnDocumentList"] .= '</tr>';
             }
             $jsnPhpScriptResponse["jsnDocumentList"] .= '</tbody>';
@@ -134,7 +135,7 @@
             $jsnPhpScriptResponse["objCustomer"] = $objCustomer;
             #DocumentDetail
             $sqlDocumentDetail =
-                "SELECT OD.intId, OD.intDocument, OD.intNumber, OD.intProduct, P.strSKU, P.strPartNumber, OD.intQuantity, OD.decUnitPrice, OD.decAmount, OD.intPromiseDate, OD.strStatus, (SELECT strUrl FROM tblProductImage WHERE strStatus = 'A' AND strType = 'default' AND intProduct = P.intId) AS strUrl "
+                "SELECT OD.intId, OD.intDocument, OD.intNumber, OD.intProduct, P.strSKU, P.strPartNumber, OD.intQuantity, OD.decUnitPrice, OD.decAmount, OD.intPromiseDate, OD.strStatus, IFNULL( (SELECT strUrl FROM tblProductImage WHERE strStatus = 'A' AND strType = 'default' AND intProduct = P.intId), 'product/notfound.jpg')  AS strUrl "
                 ."FROM tblDocumentDetail OD "
                 ."LEFT JOIN tblProduct P ON OD.intProduct = P.intId "
                 ."WHERE OD.intDocument = $intDocumentId "
@@ -622,6 +623,227 @@
 
         break;
 
+        case 'getPurchaseList':
+
+            if( isset($_SESSION["intUserID"]) && $_SESSION["intUserID"] > 0 )
+            {
+                //$objAscend->printArray($_SESSION);
+                $sqlPurchaserBrand = "SELECT intBrand, strAction "
+                    ."FROM tblPurchaserBrand "
+                    ."WHERE intUser = " . $_SESSION["intUserID"] . " AND strAction IN ('SCOM', 'NCOM') AND strStatus = 'A';";
+                $rstPurchaserBrand = $objAscend -> dbQuery($sqlPurchaserBrand);
+
+
+                $sqlPurchaserFamily = "SELECT intFamily, strAction "
+                    ."FROM tblPurchaserFamily "
+                    ."WHERE intUser = " . $_SESSION["intUserID"] . " AND strAction IN ('SCOM', 'NCOM') AND strStatus = 'A';";
+                $rstPurchaserFamily = $objAscend -> dbQuery($sqlPurchaserFamily);
+
+
+                $sqlPurchaserGroup = "SELECT intGroup, strAction "
+                ."FROM tblPurchaserGroup "
+                ."WHERE intUser = " . $_SESSION["intUserID"] . " AND strAction IN ('SCOM', 'NCOM') AND strStatus = 'A';";
+                $rstPurchaserGroup = $objAscend -> dbQuery($sqlPurchaserGroup);
+
+                if( count( $rstPurchaserBrand ) < 1 && count( $rstPurchaserFamily ) < 1 && count( $rstPurchaserGroup ) < 1 )
+                {
+                    $jsnPhpScriptResponse["blnStatus"] = false; $jsnPhpScriptResponse["blnMsg"] = "No se pudo recabar la relacion de privilegios del usuario.";
+                }
+                else
+                {
+                    $purchaseBrand = array();   $purchaseFamily = array();      $purchaseGroup = array();   $noPurchaseBrand = array(); $noPurchaseFamily = array();    $noPurchaseGroup = array();
+                    $contPurchase = 0;  $contNoPurchase = 0;
+                    $strPB = "";     $strPF = "";     $strPG = "";
+                    $strNPB = "";    $strNPF = "";    $strNPG = "";
+
+                    foreach( $rstPurchaserBrand as $arrPurchaserBrand )
+                    {
+                        if( $arrPurchaserBrand["strAction"] == "SCOM")  {   $purchaseBrand[]   = $arrPurchaserBrand["intBrand"];  }
+                        if( $arrPurchaserBrand["strAction"] == "NCOM")  {   $noPurchaseBrand[] = $arrPurchaserBrand["intBrand"];  }
+                    }
+
+                    foreach( $rstPurchaserFamily as $arrPurchaserFamily )
+                    {
+                        if( $arrPurchaserFamily["strAction"] == "SCOM")  {   $purchaseFamily[]   = $arrPurchaserFamily["intFamily"];  }
+                        if( $arrPurchaserFamily["strAction"] == "NCOM")  {   $noPurchaseFamily[] = $arrPurchaserFamily["intFamily"];  }
+                    }
+
+                    foreach( $rstPurchaserGroup as $arrPurchaserGroup )
+                    {
+                        if( $arrPurchaserGroup["strAction"] == "SCOM")  {   $purchaseGroup[]   = $arrPurchaserGroup["intGroup"];  }
+                        if( $arrPurchaserGroup["strAction"] == "NCOM")  {   $noPurchaseGroup[] = $arrPurchaserGroup["intGroup"];  }
+                    }
+
+
+                    if( count($purchaseBrand) > 0 )
+                    {
+                        foreach( $purchaseBrand as $brand )     {   $strPB .= $brand . ", ";    }
+                        $strPB = " P.intBrand IN ( " . substr($strPB, 0, ( strlen($strPB) - 2 )) . ") ";
+                        $contPurchase++;
+                    }
+
+                    if( count($purchaseFamily) > 0 )
+                    {
+                        foreach( $purchaseFamily as $family )     {   $strPF .= $family . ", ";    }
+                        $strPF = " P.intFamily IN ( " . substr($strPF, 0, ( strlen($strPF) - 2 )) . ") ";
+                        $contPurchase++;
+                    }
+
+                    if( count($purchaseGroup) > 0 )
+                    {
+                        foreach( $purchaseGroup as $group )     {   $strPG .= $group . ", ";    }
+                        $strPG = " P.intGroup IN ( " . substr($strPG, 0, ( strlen($strPG) - 2 )) . ") ";
+                        $contPurchase++;
+                    }
+
+
+                    if( count($noPurchaseBrand) > 0 )
+                    {
+                        foreach( $noPurchaseBrand as $brand )     {   $strNPB .= $brand . ", ";    }
+                        $strNPB = " P.intBrand NOT IN( " . substr($strNPB, 0, ( strlen($strNPB) - 2 )) . ") ";
+                        $contNoPurchase++;
+                    }
+
+                    if( count($noPurchaseFamily) > 0 )
+                    {
+                        foreach( $noPurchaseFamily as $family )     {   $strNPF .= $family . ", ";    }
+                        $strNPF = " P.intFamily NOT IN ( " . substr($strNPF, 0, ( strlen($strNPF) - 2 )) . ") ";
+                        $contNoPurchase++;
+                    }
+
+                    if( count($noPurchaseGroup) > 0 )
+                    {
+                        foreach( $noPurchaseGroup as $group )     {   $strNPG .= $group . ", ";    }
+                        $strNPG = " P.intGroup NOT IN ( " . substr($strNPG, 0, ( strlen($strNPG) - 2 )) . ") ";
+                        $contNoPurchase++;
+                    }
+
+
+
+
+                    foreach( $rstPurchaserFamily as $arrPurchaserFamily )
+                    {
+                        if( $arrPurchaserFamily["strAction"] == "SCOM")  {   $purchaseFamily[] = $arrPurchaserFamily["intBrand"];  }
+                        if( $arrPurchaserFamily["strAction"] == "NCOM")  {   $noPurchaseFamily[] = $arrPurchaserFamily["intBrand"];  }
+                    }
+
+                    foreach( $rstPurchaserGroup as $arrPurchaserGroup )
+                    {
+                        if( $arrPurchaserGroup["strAction"] == "SCOM")  {   $purchaseGroup[] = $arrPurchaserGroup["intBrand"];  }
+                        if( $arrPurchaserGroup["strAction"] == "NCOM")  {   $noPurchaseGroup[] = $arrPurchaserGroup["intBrand"];  }
+                    }
+
+                    $andPurchaserPermissions = " AND (DSD.intDesignatedPurchaser = " . $_SESSION["intUserID"] . " ) AND ( "
+                    . ( $contPurchase > 0 ?   "( " . ( count($purchaseBrand) ? $strPB : "" ) . " " . (  count($purchaseBrand) > 0 && count($purchaseFamily) > 0 ? " OR " : "" ) . " " . ( count($purchaseFamily) ? $strPF : "" ) . " " . (  count($purchaseGroup) > 0 && ( count($purchaseBrand) > 0 || count($purchaseFamily) > 0 ) ? " OR " : "" ) . " " . ( count($purchaseGroup) ? $strPG : "" ) . " )" : "")  . " "
+                    . ( $contPurchase > 0 && $contNoPurchase > 0 ? " AND " : "" ) . " "
+                    . ( $contNoPurchase > 0 ? "( " . ( count($noPurchaseBrand) ? $strNPB : "" ) . " " . (  count($noPurchaseBrand) > 0 && count($noPurchaseFamily) > 0 ? " AND " : "" ) . " " . ( count($noPurchaseFamily) > 0 ? $strNPF : "" ) . " " . (  count($noPurchaseGroup) > 0 && ( count($noPurchaseBrand) > 0 || count($noPurchaseFamily) > 0 ) ? " AND " : "" ) . " " . ( count($noPurchaseGroup) ? $strNPG : "" ) . " )" : "" ) . " )";
+                    $andPurchaserPermissions = "";
+
+                    $sqlDocumentSubdetail = "SELECT D.strKeyNumber, DD.intNumber, DSD.intId AS intDocumentSubdetail, DSD.intDocumentDetail, DSD.intQuantity, DSD.intDocumentStatus, DSD.intWarehouse, DSD.intDesignatedPurchaser, DSD.strStatus, "
+                    ."DD.intProduct, P.strSKU, P.strPartNumber, P.strDescription, P.intCondition, P.intClass, P.intUnit, P.intType, P.intBrand, P.intFamily, P.intGroup, U.strName AS strSeller "
+                    ."FROM tblDocumentSubdetail DSD "
+                    ."LEFT JOIN tblDocumentDetail DD ON DD.intId = DSD.intDocumentDetail "
+                    ."LEFT JOIN tblDocument D ON DD.intDocument = D.intId "
+                    ."LEFT JOIN tblProduct P ON P.intId = DD.intProduct "
+                    ."LEFT JOIN tblUser U ON U.intid = DSD.intRequestingSeller "
+                    ."WHERE DSD.intDocumentStatus IN( 11, 12, 13) $andPurchaserPermissions;";
+                    $rstDocumentSubdetail = $objAscend -> dbQuery($sqlDocumentSubdetail);
+
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] = "";
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= '<div class="row"><div class="col-lg-1-1 col-md-1-4 col-sm-1-2 col-xs-1-1" id="divDocumentSubdetail">';
+                        $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= '<button class="btn btnOverYellow" onclick="fnDocument_showPurchaseOrderForm()">Generar Orden de Compra</button>';
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= '</div></div>';
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "<table>";
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "<thead>";
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "<tr> <th></th> <th>Documento</th> <th class='text-center'># Partida</th> <th>SKU</th> <th>Numero de parte</th> <th>Descripcion</th> <th>Unidades solicitadas</th> <th>Solicita</th> </tr>";
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "</thead>";
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "<tbody>";
+                    foreach( $rstDocumentSubdetail as $subdetail )
+                    {
+                        $htmlButtons = "";
+                        settype($subdetail["intDocumentStatus"], "integer");
+                        switch( $subdetail["intDocumentStatus"] )
+                        {
+                            case 11:
+                                $htmlButtons = '<button class="btn btnOverYellow" onclick="fnDocument_showPurchaseOrderForm(\'' . $subdetail["intDocumentSubdetail"] .'\')">Generar Orden de Compra</button>';
+                            break;
+                            case 12:
+                                $htmlButtons = '<button class="btn btnAlternativeBlue" onclick="fnDocument_registerGuideNumber(\'' . $subdetail["intDocumentSubdetail"] .'\')">Registrar numero de guia</button>';
+                            break;
+                            case 13:
+                                $htmlButtons = '<button class="btn btnOverGray" onclick="fnDocument_showSubdetailInformation(\'' . $subdetail["intDocumentSubdetail"] .'\')">Mostrar informacion de guia</button>';
+                            break;
+                        }
+
+                        $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= '<tr> <td> <input type="checkbox"/> </td> <td class="text-center">' . $subdetail["strKeyNumber"] . '</td> <td>' . $subdetail["intNumber"] . '</td> <td>' . $subdetail["strSKU"] . '</td> <td>' . $subdetail["strPartNumber"] . '</td> <td>' . $subdetail["strDescription"] . '</td> <td class="text - center">' . $subdetail["intQuantity"] . '</td> <td>' . $subdetail["strSeller"] . '</td> </tr>';
+                    }
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "</tbody>";
+                    $jsnPhpScriptResponse["htmlDocumentSubdetail"] .= "</table>";
+                }
+            }
+            else
+            {
+                $jsnPhpScriptResponse["blnStatus"] = false; $jsnPhpScriptResponse["blnMsg"] = "La sesion ha caducado.";
+            }
+
+
+        break;
+
+        case 'showPurchaseOrderForm':
+            $sqlWarehouse =
+            "SELECT intId, strCode, strDescription, strLocation, intZone, strStatus "
+            ."FROM catWarehouse "
+            ."WHERE strStatus = 'A' AND intId < 10 "
+            ."ORDER BY strCode; ";
+            $rstWarehouse = $objAscend->dbQuery($sqlWarehouse);
+
+            $jsnPhpScriptResponse["htmlForm"] = '';
+            $jsnPhpScriptResponse["htmlForm"] .= '<div class="row">';
+
+                $jsnPhpScriptResponse["htmlForm"] .= '<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">';
+                    $jsnPhpScriptResponse["htmlForm"] .= '<div class="divSelectItem"><input type="text" id="intProvider" disabled><button>*</button><label for="intProvider">Proveedor</label></div>';
+                $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+
+                $jsnPhpScriptResponse["htmlForm"] .= '<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">';
+                    $jsnPhpScriptResponse["htmlForm"] .= '<div class="divSelect">';
+                        $jsnPhpScriptResponse["htmlForm"] .= '<select id="intWarehouse">';
+                            foreach($rstWarehouse as $warehouse)
+                            {
+                                $jsnPhpScriptResponse["htmlForm"] .= '<option value="' . $warehouse["intId"] . '">' . $warehouse["strDescription"] . '</option>';
+                            }
+                        $jsnPhpScriptResponse["htmlForm"] .= '</select>';
+                        $jsnPhpScriptResponse["htmlForm"] .= '<label for="intWarehouse">Almacen</label>';
+                    $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+                $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+
+                $jsnPhpScriptResponse["htmlForm"] .= '<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">';
+                    $jsnPhpScriptResponse["htmlForm"] .= '<div class="divSelect">';
+                        $jsnPhpScriptResponse["htmlForm"] .= '<select id="intShipmentWay">';
+                            $jsnPhpScriptResponse["htmlForm"] .= '<option value="1">Terrestre</option><option value="2">Marino</option><option value="3">Aereo</option>';
+                        $jsnPhpScriptResponse["htmlForm"] .= '</select>';
+                        $jsnPhpScriptResponse["htmlForm"] .= '<label for="intWarehouse">Medio de embarque</label>';
+                    $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+                $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+
+                $jsnPhpScriptResponse["htmlForm"] .= '<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">';
+                    $jsnPhpScriptResponse["htmlForm"] .= '<div class="divInputText"><input type="text" id="intCost" value=""><label for="intCost">Precio de compra</label></div>';
+                $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+
+                $jsnPhpScriptResponse["htmlForm"] .= '<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">';
+                    $jsnPhpScriptResponse["htmlForm"] .= '<div class="divInputText"><input type="text" id="intPromiseDate" value=""><label for="intPromiseDate">Fecha compromiso</label></div>';
+                $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+
+                $jsnPhpScriptResponse["htmlForm"] .= '<div class="col-lg-1-4 col-md-1-4 col-sm-1-2 col-xs-1-1">';
+                    $jsnPhpScriptResponse["htmlForm"] .= '<div class="divSelect">';
+                        $jsnPhpScriptResponse["htmlForm"] .= '<select id="intShippingTerm">';
+                            $jsnPhpScriptResponse["htmlForm"] .= '<option value="1">Termino 1</option><option value="2">Termino 2</option><option value="3">Termino 2</option>';
+                        $jsnPhpScriptResponse["htmlForm"] .= '</select>';
+                        $jsnPhpScriptResponse["htmlForm"] .= '<label for="intShippingTerm">Terminos de envio</label>';
+                    $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+                $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+
+            $jsnPhpScriptResponse["htmlForm"] .= '</div>';
+        break;
     };
 
     unset($objAscend);

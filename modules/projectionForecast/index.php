@@ -6,42 +6,20 @@
     require_once('../../'. LIB_PATH .'class.ascend.php');
     $objAscend = new clsAscend();
     require_once("../../inc/sheet.inc");
+    
 
     ini_set("display_errors",0);
     ini_set("memory_limit",0);
     $_SESSION['intUserID'];
     ?>
-    
 </head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <body>
-    <div class="MainTitle">PROMOCIONES ASC PARTS</div>
+    <div class="MainTitle">FORECAST ASC PARTS</div>
     <div class="MainContainer">
-    <div class="SubTitle">PROMOCIONES VIGENTES</div>
-        <div class="row">
-            <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">
-                <div class="divInputText calendarYellow"><input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateFrom">
-                    <label>Inicio de Promoción</label>
-                </div>
-            </div>
-            <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">
-                <div class="divInputText calendarYellow "><input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateTo">
-                    <label>Fin de la Promoción</label>
-                </div>
-            </div>
-            <div class="col-xs-1-1 col-sm-1-2 col-md-1-4 col-md-1-4 col-lg-1-5">
-                <div class="divSelect groupYellow">
-                    <select id="strStatus">
-                        <option value="'A'" selected="selected">Activas</option>
-                        <option value="'C'">Canceladas</option>
-                        <option value="'A','C'">Ambas</option>
-                    </select>
-                    <label>Estatus de la Promoción</label>
-                </div>
-            </div>
-        </div>
+    <div class="SubTitle">REGLAS DE FORECAST VIGENTES</div>
         <div class="ButtonContainer">
-            <button class="btn btnOnlineGreen" type="button" id="myBtn" onclick="getPromo();">Filtrar</button>
-            <button class="btn btnOnlineGreen" type="button" id="myBtn" onclick="getInfoFilter(0)">Nueva Promoción</button>
+            <button class="btn btnOnlineGreen" type="button" id="myBtn" onclick="getInfoFilter(0)">Nueva Regla Forecast</button>
         </div>
         <div class="row" id="tblPromo">
        
@@ -49,77 +27,66 @@
 
         <br style="clear: both;" />
     </div>
-
-
     <!--MODAL NUEVA PROMOCION-->
     <div class="row">
         <div id="modalAdd" class="modal">
             <!-- Modal content -->
             <div id="getModal-header" class="modal-header">
-                <div id="getModal-title" class="modal-title">Promociones</div>
+                <div id="getModal-title" class="modal-title">FORECAST</div>
                 <div class="modal-close"><span class="close" onclick="$('#modalAdd').hide();">&times;</span></div>
             </div>
             <div class="modal-content">
                 <div class="MainContainer" id="newPromo">
-                    <div class="SubTitle">Información de la Promoción:</div>
+                    <div class="SubTitle">Información de la regla del Forecast:</div>
                     <div class="row">
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
                             <div class="divInputText attachmentYellow">
                                 <input type="text" id="strName">
-                                <label>Nombre de la Promoción</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText calendarYellow">
-                                <input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateNewFrom">
-                                <label>Inicio de la Promoción</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3"><div class="divInputText calendarYellow ">
-                                <input type="text" class="datepicker-here" style="cursor: pointer" onkeydown="return false;" value="<?php echo date('Y-m-d'); ?>" id="intDateNewTo">
-                                <label>Fin de la Promoción</label>
+                                <label>Nombre de la Regla</label>
                             </div>
                         </div>
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
                             <div class="divSelect discountYellow">
-                                <select id="strDiscount">
-                                    <option value="1" selected="selected">Porcentaje</option>
-                                    <option value="2">Valor Monetario</option>
+                                <select id="strType">
+                                    <option value="M" selected="selected">Mensual</option>
+                                    <option value="Q">Quincenal</option>
+                                    <option value="S">Semanal</option>
                                 </select>
-                                <label>Tipo de Promoción</label>
+                                <label>Tipo de Forcast</label>
                             </div>
                         </div>
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText numberYellow">
-                                <input type="text" id="intDiscount">
-                                <label>Cantidad a descontar</label>
+                            <div class="divInputText calendarYellow">
+                                <input type="text" id="intQuantity">
+                                <label>Semanas a Proyectar</label>
                             </div>
                         </div>
+                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
+                        <div class="divSelect boxYellow">
+                            <select id="intWarehouse">
+                                <?php
+                                $strSql="SELECT intId AS strValue, strDescription AS strDisplay FROM catWarehouse WHERE strStatus = 'A' ORDER BY 2;";
+                                $rstWarehouse = $objAscend->dbQuery($strSql);
+                                foreach ($rstWarehouse as $arrWarehouse){
+                                    ?>
+                                    <option value='<?php echo $arrWarehouse['strValue']; ?>'><?php echo $arrWarehouse['strDisplay']; ?></option>
+                                    <?php
+                                }
+                                unset($rstFamily);
+                                ?>
+                            </select>
+                            <label for="cbo1">Almacen</label>
+                        </div>
+                        </div>
                     </div>
-                    <div class="SubTitle" id="divPriceListTitle">Lista de Precios:</div>
-                    <div class="row" id="divPriceList"></div>
-                    <div class="SubTitle" id="divHistoryTitle">Historial:</div>
-                    <div class="row" id="divHistory">
-
+                    <div class="row" id="divPeriods">
                     </div>
-                    <div class="SubTitle" id="divFilterTitle">Filtrar por:</div>
+                    
+                    <div class="SubTitle" id="divFilterTitle">Aplicar A:</div>
                     <div class="row" id="divFilter">
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText searchGray">
-                                <input type="text" id="strSKU">
-                                <label>SKU</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
-                            <div class="divInputText attachmentYellow">
-                                <input type="text" id="strPartNumber">
-                                <label>Número de Parte</label>
-                            </div>
-                        </div>
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
                             <div class="divSelect groupYellow ">
                                 <select id="intFamily">
-                                    <option value="-1">--Seleccionar--</option>
                                     <?php
                                     $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblFamily WHERE strStatus = 'A' ORDER BY 2;";
                                     $rstFamily = $objAscend->dbQuery($strSql);
@@ -137,7 +104,6 @@
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
                             <div class="divSelect groupYellow ">
                                 <select id="intBrand">
-                                    <option value="-1">--Seleccionar--</option>
                                     <?php
                                     $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblBrand WHERE strStatus = 'A' ORDER BY 2;";
                                     $rstBrand = $objAscend->dbQuery($strSql);
@@ -155,7 +121,6 @@
                         <div class="col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3">
                             <div class="divSelect groupYellow ">
                                 <select id="intGroup">
-                                    <option value="-1">--Seleccionar--</option>
                                     <?php
                                     $strSql="SELECT intId AS strValue, strName AS strDisplay FROM tblGroup WHERE strStatus = 'A' ORDER BY 2;";
                                     $rstGroup = $objAscend->dbQuery($strSql);
@@ -171,16 +136,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ButtonContainer">
-                        <button class="btn btnOnlineGreen" type="button" id="myBtnFilter" onclick="getProductList(0);">Filtrar</button>
-                    </div>
-                    <div class="SubTitle">Información de Productos:</div>
                     <div class="row" id="divProduct"></div>
                     <div class="ButtonContainer">
-                        <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="saveValues();">
+                        <input class="btn btnOnlineGreen" id="saveNew" type="button" value="Guardar" onclick="totalPeriod();">
                     </div>
-                    <div class="ButtonContainer">
-                        <input class="btn btnOnlineGreen" id="update" type="button" value="Actualizar" onclick="update();">
+                    <div class="ButtonContainer" >
+                        <input class="btn btnBrandRed" id="btnOrder" type="button" value="Generar Orden de Compra">
                     </div>
                     <br style="clear: both;" />
                 </div>
