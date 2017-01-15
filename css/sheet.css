@@ -1544,7 +1544,6 @@ table > tbody > tr.yellow:hover > th {
 .providerGray   {  background-image: url('../img/glyph/provider24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .referenceYellow {  background-image: url('../img/glyph/reference24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .referenceGray   {  background-image: url('../img/glyph/reference24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
-
 .reductionYellow {  background-image: url('../img/glyph/reduction24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .reductionGray   {  background-image: url('../img/glyph/reduction24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .searchYellow {  background-image: url('../img/glyph/search24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }

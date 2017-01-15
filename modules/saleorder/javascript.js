@@ -3,9 +3,15 @@ $strCurrentModal = '';
 function openForm($intSalesOrderId){
     $('#divWorkingBackground').fadeIn('slow',function(){
         $strCurrentModal = 'divSaleOrder';
-        if($intSalesOrderId==0){
+        if($intSalesOrderId==-1){
             $('#divClientListOption').show();
             $('#strClient').val('');
+            $('#labelClientName').hide();
+            $('#labelClientNumber').hide();
+            $('#labelClientRFC').hide();
+            $('#labelClientClass').hide();
+            $('#labelClientZone').hide();
+            $('#labelClientStatus').hide();
         }else{
 
         }
@@ -39,7 +45,25 @@ function selectClient($intId){
     $('#divWorkingBackground').fadeIn('slow',function(){
         $('#divClientList').hide();
         $('#divClientList').html('');
-        $('#divWorkingBackground').fadeOut('slow');
+        $strQueryString = "strProcess=getClientInfo&intId=" + $intId;
+        $.ajax({url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+            success: function ($jsnPhpScriptResponse) {
+                $('#strClient').val('');
+                $('#strClientName').val($jsnPhpScriptResponse.strClientName);
+                $('#labelClientName').show();
+                $('#strClientNumber').val($jsnPhpScriptResponse.strClientNumber);
+                $('#labelClientNumber').show();
+                $('#strClientRFC').val($jsnPhpScriptResponse.strClientRFC);
+                $('#labelClientRFC').show();
+                $('#strClientClass').val($jsnPhpScriptResponse.strClientClass);
+                $('#labelClientClass').show();
+                $('#strClientZone').val($jsnPhpScriptResponse.strClientZone);
+                $('#labelClientZone').show();
+                $('#strClientStatus').val($jsnPhpScriptResponse.strClientStatus);
+                $('#labelClientStatus').show();
+                $('#divWorkingBackground').fadeOut('slow');
+            }
+        });
     })
 
 }

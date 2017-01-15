@@ -33,31 +33,31 @@
                     <label for="strClientName">Razón Social</label>
                 </div>
             </div>
-            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-2 col-lg-1-2" id="labelClientNumber">
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-5 col-lg-1-5" id="labelClientNumber">
                 <div class="divInputText numberGray">
                     <input type="text" id="strClientNumber" class="inputAsLabel" disabled="disabled">
                     <label for="strClientNumber">Número de Cliente</label>
                 </div>
             </div>
-            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-2 col-lg-1-2" id="labelClientRFC">
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-5 col-lg-1-5" id="labelClientRFC">
                 <div class="divInputText numberGray">
                     <input type="text" id="strClientRFC" class="inputAsLabel" disabled="disabled">
                     <label for="strClientRFC">RFC</label>
                 </div>
             </div>
-            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-2 col-lg-1-2" id="labelClientClass">
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-5 col-lg-1-5" id="labelClientClass">
                 <div class="divInputText numberGray">
                     <input type="text" id="strClientClass" class="inputAsLabel" disabled="disabled">
                     <label for="strClientClass">Clase</label>
                 </div>
             </div>
-            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-2 col-lg-1-2" id="labelClientZone">
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-5 col-lg-1-5" id="labelClientZone">
                 <div class="divInputText numberGray">
                     <input type="text" id="strClientZone" class="inputAsLabel" disabled="disabled">
                     <label for="strClientZone">Zona</label>
                 </div>
             </div>
-            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-2 col-lg-1-2" id="labelClientStatus">
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5 col-md-1-5 col-lg-1-5" id="labelClientStatus">
                 <div class="divInputText numberGray">
                     <input type="text" id="strClientStatus" class="inputAsLabel" disabled="disabled">
                     <label for="strClientStatus">Estátus</label>
