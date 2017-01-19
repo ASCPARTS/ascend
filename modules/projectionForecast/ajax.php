@@ -101,23 +101,24 @@ switch ($strProcess) {
         $intGroup = $_REQUEST['intGroup'];
 
 
-        if ($intIdForecast > 0) {
-
+        if ($intIdForecast > 0)
+        {
         $strSql = "SELECT intId,intUser,strName,strTypeProjection,intQuantity,intWarehouse,strStatus FROM tblForecast WHERE strStatus='A' AND intId=".$intIdForecast.";";
         $rstForecast = $objAscend->dbQuery($strSql);
-            foreach ($rstForecast as $arrForecast) {
-                $jsnPhpScriptResponse['strName'] = $arrForecast['strName'];
-                $jsnPhpScriptResponse['strTypeProjection'] = $arrForecast['strTypeProjection'];
-                $jsnPhpScriptResponse['intQuantity'] = $arrForecast['intQuantity'];
-                $jsnPhpScriptResponse['intWarehouse'] = $arrForecast['intWarehouse'];
-            }
+        foreach ($rstForecast as $arrForecast)
+        {
+        $jsnPhpScriptResponse['strName'] = $arrForecast['strName'];
+        $jsnPhpScriptResponse['strTypeProjection'] = $arrForecast['strTypeProjection'];
+        $jsnPhpScriptResponse['intQuantity'] = $arrForecast['intQuantity'];
+        $jsnPhpScriptResponse['intWarehouse'] = $arrForecast['intWarehouse'];
+        }
         $weekProjection=$rstForecast['intQuantiy'];
         unset($arrForecast);
-
         $strSql="SELECT intId,intPeriod, decFactor FROM tblForecastPeriod WHERE strStatus='A' AND intForecast = ".$intIdForecast.";";
         $rstPeriodFactor=$objAscend->dbQuery($strSql);
         $strRespuesta = '';
-            foreach ($rstPeriodFactor as $arrPeriodFactor){
+            foreach ($rstPeriodFactor as $arrPeriodFactor)
+            {
                 $strRespuesta .="<div class='row'>";
                 $strRespuesta .= "<div class='col-lg-1-5 col-md-1-5 col-sm-1-4 col-xs-1-3'>" ;
                 $strRespuesta .="<div class='divInputText calendarYellow'>" ;
@@ -136,7 +137,6 @@ switch ($strProcess) {
             $jsnPhpScriptResponse['periodList'] = $strRespuesta;
             unset($rstPeriodFactor);
             unset($arrPeriodFactor);
-
         /*si es el detalle de una promoción se muestran los SKU´s que corresponden a la promocion seleccionada*/
         $strSql = "SELECT P.intId, P.strSKU, P.strPartNumber, WS.intStock
         FROM tblProduct P
@@ -167,7 +167,8 @@ switch ($strProcess) {
         ORDER BY nMonth
         LIMIT $rstForecast[intQuantity];";
         $rstSalesTotal=$objAscend->dbQuery($strSql);
-            foreach($rstSalesTotal as $arrSalesTotal){
+            foreach($rstSalesTotal as $arrSalesTotal)
+            {
                 $semana = date('W',  mktime(0,0,0,$mes,$dia,$anio));
                 $strRespuesta .= '<th>'.$semana.'</th>';
             }
@@ -179,7 +180,8 @@ switch ($strProcess) {
         $strRespuesta .= '</tr>';
         $strRespuesta .= '</thead>';
         $strRespuesta .= '<tbody>';
-        foreach ($rstSKU as $arrSKU) {
+        foreach ($rstSKU as $arrSKU)
+        {
             $strRespuesta .= '<tr>';
             $strRespuesta .= '<td>' . $arrSKU['strSKU'] . '</td>';
             $strRespuesta .= '<td>' . $arrSKU['strPartNumber'] . '</td>';
@@ -192,7 +194,8 @@ switch ($strProcess) {
             $strRespuesta .= '<td>MS</td>';
             $strRespuesta .= '<td>' . $arrSKU['intStock'] . ' Pzas</td>';
             $strRespuesta .= '<td>cac</td>';
-            if ($intIdForecast > 0) {
+            if ($intIdForecast > 0)
+            {
                 $strRespuesta .= '<td>';
                 $strRespuesta .= '<input type="text" id=(' . $intIdForecast . ',' . $arrSKU['intId'] . ')">';
                 $strRespuesta .= '</td>';
