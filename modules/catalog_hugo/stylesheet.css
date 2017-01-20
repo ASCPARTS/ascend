@@ -1,0 +1,399 @@
+
+.tblSort
+{
+    margin: 0px 0px 0px 0px;
+    background-color: #1766A1;
+    border: solid 0px #1766A1 ;
+    vertical-align: bottom;
+}
+
+.tblSort tr td
+{
+    background-color: #1766A1;
+    border: solid 0px #1766A1 ;
+    vertical-align: bottom;
+}
+
+.tblSort tr .arrow
+{
+    text-align: center;
+}
+
+.tblSort tr .arrow:hover
+{
+    color: #1766A1;
+    background-color: #ffffff;
+}
+
+/*
+
+.divSort {
+    padding: 0 0 0 0;
+    vertical-align: middle;
+}
+
+.divSort .divSortContainer {
+    display: inline-block;
+    padding: 0 0 0 0;
+    vertical-align: middle;
+}
+
+.divSort .divSortContainer .divSortLabel {
+    width: calc(100% - 9px);
+    text-align: left;
+}
+
+.divSort .divSortContainer .divSortOrder {
+    font-size: 7pt;
+    padding: 0 1px 0 2px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.divSort .divSortContainer .divSortOrder:hover {
+    color: #EAEAEA;
+}
+*/
+
+
+/*____*/
+
+.divTitles
+{
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+
+}
+
+.divActions
+{
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+.divGrid
+{
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+.divPagination
+{
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+
+/* ____ */
+#divModalBackground
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1e202c;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+#divModalBackground #divModalMain
+{
+    position: absolute;
+    width: 800px;
+    min-height: 100px;
+    background-color:  #d8d8d8;
+    /*top: calc(  (100% - 500px)  / 2  );*/
+    top: 30px;
+    left: calc(  (100% - 800px)  / 2  );
+}
+
+#divModalBackground #divModalMain #divModalClose
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+#divModalBackground #divModalMain #divModalClose #lblModalClose
+{
+    float: right;
+}
+
+#divModalBackground #divModalMain #divModalTitle
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+#divModalBackground #divModalMain #divModalForm
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#divModalBackground #divModalMain #divModalForm table
+{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+    height: auto;
+}
+
+#divModalBackground #divModalMain #divModalError
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: capitalize;
+    color: #ff3754;
+}
+
+#divModalBackground #divModalMain #divModalButtons
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    text-align: right;
+}
+
+#divModalBackground #divModalMain #divModalWorking
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    text-align: center;
+}
+
+/* ____ */
+#divImportBackground
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1e202c;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+#divImportBackground #divImportMain
+{
+    position: absolute;
+    width: 800px;
+    min-height: 100px;
+    background-color:  #d8d8d8;
+    /*top: calc(  (100% - 500px)  / 2  );*/
+    top: 30px;
+    left: calc(  (100% - 800px)  / 2  );
+}
+
+#divImportBackground #divImportMain #divImportClose
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+#divImportBackground #divImportMain #divImportClose #lblImportClose
+{
+    float: right;
+}
+
+#divImportBackground #divImportMain #divImportTitle
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+#divImportBackground #divImportMain #divImportFile
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+#divImportBackground #divImportMain #divImportResults
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: capitalize;
+    color: #55B844;
+}
+
+#divImportBackground #divImportMain #divImportButtons
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    text-align: right;
+}
+
+#divImportBackground #divImportMain #divImportWorking
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    text-align: center;
+}
+
+
+
+
+/* ____ */
+#divImagesImportBackground
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1e202c;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+#divImagesImportBackground #divImagesImportMain
+{
+    position: absolute;
+    width: 800px;
+    min-height: 100px;
+    background-color:  #d8d8d8;
+    /*top: calc(  (100% - 500px)  / 2  );*/
+    top: 30px;
+    left: calc(  (100% - 800px)  / 2  );
+}
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportClose
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportClose #lblImagesImportClose
+{
+    float: right;
+}
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportTitle
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportFile
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportResults
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: capitalize;
+    color: #55B844;
+}
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportButtons
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    text-align: right;
+}
+
+#divImagesImportBackground #divImagesImportMain #divImagesImportWorking
+{
+    float: left;
+    margin: 4px 10px 6px 10px;
+    width: calc(100% - 20px);
+    height: auto;
+    text-align: center;
+}
+
+
+
+
+
+/* ____ */
+.divWorkingBackground
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1e202c;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.divWorkingBackground .divWorking
+{
+    position: absolute;
+    width: 400px;
+    min-height: 50px;
+    padding: 30px 0px;
+    background-color:  #d8d8d8;
+    /*top: calc(  (100% - 500px)  / 2  );*/
+    top: 50px;
+    left: calc(  (100% - 400px)  / 2  );
+    text-align: center;
+}
