@@ -51,10 +51,6 @@ $classAscend = new clsAscend();
 <script type="text/javascript" src="<?php echo JS_PATH; ?>menu.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH; ?>tab.js"></script>
 <script type="text/javascript" src="<?php echo JS_PATH; ?>notification.js"></script>
-<script>
-    //handleTab("100000", "Buscador de partes", "modules/test/seeker.php");
-    handleTab("96", "Orden de Venta", "modules/saleorder/");
-</script>
 </body>
 </html>
 <?php
