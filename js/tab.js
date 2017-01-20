@@ -16,7 +16,6 @@ function handleTab($intTab, $strName, $strUrl){
         $('#labelTab_' + $intTab).addClass('labelTabSelected');
     }else{
         if($intCurrentTab!=$intTab){
-            console.log($intTab + ": !=");
             $('#labelTab_' + $intCurrentTab).removeClass('labelTabSelected');
             $('#iframeSheet_' + $intCurrentTab).hide();
             $intCurrentTab = $intTab;
@@ -25,7 +24,6 @@ function handleTab($intTab, $strName, $strUrl){
         }
     }
     closeMenuMain();
-    console.log($arrTabs);
 }
 
 function closeTab($intTab){

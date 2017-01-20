@@ -1107,6 +1107,7 @@ html, body {
 
 
 /* -- TABLES -- */
+/*
 table
 {
     border-spacing: 0;
@@ -1167,13 +1168,16 @@ table > thead:first-child > tr:first-child > td
 {
     border-top: 0;
 }
-
+*/
 
 /*Table Strip*/
+/*
 table > tbody > tr:nth-of-type(odd) {
     background-color: #F1F1F1;
 }
+*/
 /*Table Hover*/
+/*
 table > tbody > tr:hover {
     background-color: #abbed3;
 }
@@ -1189,8 +1193,9 @@ table th[class*="col-"] {
     display: table-cell;
     float: none;
 }
-
+*/
 /* cell colors GREEN*/
+/*
 table > thead > tr > td.green,
 table > tbody > tr > td.green,
 table > tfoot > tr > td.green,
@@ -1213,8 +1218,9 @@ table > tbody > tr:hover > .green,
 table > tbody > tr.green:hover > th {
     background-color: #3d8230;
 }
-
+*/
 /* cell colors BLUE*/
+/*
 table > thead > tr > td.blue,
 table > tbody > tr > td.blue,
 table > tfoot > tr > td.blue,
@@ -1237,8 +1243,9 @@ table > tbody > tr:hover > .blue,
 table > tbody > tr.blue:hover > th {
     background-color: #0080b3;
 }
-
+*/
 /* cell colors RED*/
+/*
 table > thead > tr > td.red,
 table > tbody > tr > td.red,
 table > tfoot > tr > td.red,
@@ -1261,8 +1268,9 @@ table > tbody > tr:hover > .red,
 table > tbody > tr.red:hover > th {
     background-color: #d82e3f;
 }
-
+*/
 /* cell colors YELLOW*/
+/*
 table > thead > tr > td.yellow,
 table > tbody > tr > td.yellow,
 table > tfoot > tr > td.yellow,
@@ -1339,7 +1347,7 @@ table > tbody > tr.yellow:hover > th {
 }
 
 
-
+*/
 
 
 
@@ -1459,14 +1467,7 @@ table > tbody > tr.yellow:hover > th {
 
 /*Alineacion de textos [FIN]*/
 
-
-
-
-
-
-
 /* -- GLYPHS */
-
 
 .actionYellow {  background-image: url('../img/glyph/action24Yellow.png');         background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }
 .actionGray   {  background-image: url('../img/glyph/action24Gray.png');           background-repeat: no-repeat;   background-position: 4px 4px;   background-size: 24px 24px;  }

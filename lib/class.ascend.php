@@ -165,17 +165,20 @@ class clsAscend
         $strSql = "SELECT * FROM tblTable WHERE intId = " . $this->intTableId;
         $rstTable = $this->dbQuery($strSql);
         $this->strGridTitle = $rstTable[0]['strDisplay'];
-        $strTableSqlFrom = ' FROM ' . $rstTable[0]['strName'] . ' T1 ';
         $this->strTableName = $rstTable[0]['strName'];
         $this->strIncludeJS = $rstTable[0]['strIncludeJs'];
         unset($rstTable);
         $strSql = 'SELECT * FROM tblTableField WHERE intTable = ' . $this->intTableId . ' ORDER BY intOrder';
         $rstField = $this->dbQuery($strSql);
         $this->intGridNumberOfColumns = $this->intMySqlAffectedRows + 1;
+
+
         $strTableSqlSelect = 'SELECT ';
+        $strTableSqlFrom = ' FROM ' . $rstTable[0]['strName'] . ' T1 ';
         $strTableSqlJoin = '';
         $strTableSqlWhere = ' WHERE ';
         $strTableSqlOrder = '';
+
         $this->strGridHeader = '<tr>';
         $this->strGridForm = '<table class="form_main_table">';
         foreach ($rstField as $objField) {
