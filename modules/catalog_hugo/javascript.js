@@ -12,7 +12,8 @@ $jsnGridData = {
     "arrFormField":"",
     "arrTableRelation":"",
     "intScrollPosition":0,
-    "arrRelation":""
+    "arrRelation":"",
+    "strGridOption":""
 };
 
 function gridPagination($intPage){
@@ -21,6 +22,7 @@ function gridPagination($intPage){
 }
 
 function gridSort($strSort){
+    console.log('numberofrecords: ' + $jsnGridData.intSqlNumberOfRecords);
     if($jsnGridData.intSqlNumberOfRecords!=0){
         $jsnGridData.strSqlOrder= $strSort;
         gridUpdate();
@@ -34,8 +36,8 @@ function gridRecords($intRecords){
 }
 
 function gridUpdate(){
-    console.log($jsnGridData)
-    $strtbodyGridHeight = $('#tbodyGrid').css('height');
+    //console.log($jsnGridData)
+    //$strtbodyGridHeight = $('#tbodyGrid').css('height');
     $jsnGridData.intScrollPosition = $('#divPagesScroll').scrollLeft();
     $("body").css('overflow', 'hidden');
     $('#divWorkingBackground').fadeIn('fast',function(){
@@ -47,7 +49,7 @@ function gridUpdate(){
                 gridAdjustColumnsWidth();
                 $('#divPagination').html($jsnPhpScriptResponse['pagination'])
                 $('#divPagesScroll').scrollLeft($jsnPhpScriptResponse['intScrollPosition'])
-                $('#tbodyGrid').css('height',$strtbodyGridHeight);
+                //$('#tbodyGrid').css('height',$strtbodyGridHeight);
                 $('#divWorkingBackground').fadeOut();
                 $("body").css('overflow', 'auto');
             }
@@ -78,12 +80,14 @@ function gridAdjustColumnsWidth(){
 }
 
 function gridBuildQueryString() {
+    console.log('order: ' + $jsnGridData.strSqlOrder)
     $strQueryString = "intTableId=" + $jsnGridData.intTableId;
     $strQueryString += "&strProcess=" + $jsnGridData.strAjaxProcess;
     $strQueryString += "&strSqlOrder=" + $jsnGridData.strSqlOrder;
     $strQueryString += "&intSqlPage=" + $jsnGridData.intSqlPage;
     $strQueryString += "&intSqlLimit=" + $jsnGridData.intSqlLimit;
     $strQueryString += "&intScrollPosition=" + $jsnGridData.intScrollPosition;
+    $strQueryString += "&strGridOption=" + $jsnGridData.strGridOption;
     return $strQueryString;
 }
 
@@ -170,9 +174,11 @@ function showModal($intRecordId) {
     var $intIndex;
     $("body").css('overflow', 'hidden');
     showModalError('');
-    $('#divModalBackground').fadeIn('fast', function(){
+    $('#divModalBackground').fadeIn('fast', function() {
         $('#btnModalSubmitRecord').attr('intRecordId',$intRecordId);
-        if($jsnGridData.arrTableRelation.length>0) {
+        if($jsnGridData.arrTableRelation.length>0)
+        {
+            console.log('if');
             $strQueryString = "intTableId=" + $jsnGridData.intTableId + "&strProcess=getRelation&intRecordId=" + $intRecordId;
             $.ajax({
                 url: $jsnGridData.strAjaxUrl, data: $strQueryString, type: "POST", dataType: "json",
@@ -201,13 +207,13 @@ function showModal($intRecordId) {
                             $('#divModalTitle').html('Editar');
                             $('#btnModalSubmitRecord').val('editar')
                             for($intIndex=0;$intIndex<$jsnGridData.arrFormField.length;$intIndex++){
-                                if($jsnGridData.arrFormField[$intIndex].TBL_TYPE=='I'){
-                                    $('#img' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).attr("src","/images/parts/" + $('#td' + $jsnGridData.arrFormField[4].TBL_FIELD + '_' + $intRecordId).html());
+                                if($jsnGridData.arrFormField[$intIndex].strType=='I'){
+                                    $('#img' + $jsnGridData.arrFormField[$intIndex].strField).attr("src","/images/parts/" + $('#td' + $jsnGridData.arrFormField[4].strField + '_' + $intRecordId).html());
                                 }else{
-                                    if($jsnGridData.arrFormField[$intIndex].TBL_TYPE=='N' || $jsnGridData.arrFormField[$intIndex].TBL_TYPE=='D4'){
-                                        $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html().replace(',','').replace(',','').replace(',','').replace(',','').replace(',',''));
+                                    if($jsnGridData.arrFormField[$intIndex].strType=='N' || $jsnGridData.arrFormField[$intIndex].strType=='D4'){
+                                        $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val($('#td' + $jsnGridData.arrFormField[$intIndex].strField + '_' + $intRecordId).html().replace(',','').replace(',','').replace(',','').replace(',','').replace(',',''));
                                     }else{
-                                        $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html());
+                                        $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val($('#td' + $jsnGridData.arrFormField[$intIndex].strField + '_' + $intRecordId).html());
                                     }
 
                                 }
@@ -220,8 +226,13 @@ function showModal($intRecordId) {
                     });
                 }
             });
-        }else{
-            if($intRecordId==0){
+        }
+        else
+        {
+            console.log('else');
+            if($intRecordId==0)
+            {
+                console.log('if 1');
                 $('#divModalTitle').html('Insertar');
                 $('#btnModalSubmitRecord').val('insertar')
                 $("#divModalForm :input").each(function() {
@@ -235,11 +246,14 @@ function showModal($intRecordId) {
                         $('#img' + $('#' + $(this).attr("id")).attr("id").replace('fle','')).attr("src","/images/parts/no_photo.png");
                     }
                 });
-            }else{
+            }
+            else
+            {
+                console.log('else 1');
                 $('#divModalTitle').html('Editar');
                 $('#btnModalSubmitRecord').val('editar')
                 for($intIndex=0;$intIndex<$jsnGridData.arrFormField.length;$intIndex++){
-                    $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html());
+                    $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val($('#td' + $jsnGridData.arrFormField[$intIndex].strField + '_' + $intRecordId).html());
                 }
             };
             $('#divModalMain').show('fast', function(){
@@ -324,35 +338,35 @@ function submitRecord(){
     $blnFilledForm = true;
     $strQueryString = '';
     for($intIndex=0;$intIndex<$jsnGridData.arrFormField.length;$intIndex++){
-        switch($jsnGridData.arrFormField[$intIndex].TBL_TYPE){
+        switch($jsnGridData.arrFormField[$intIndex].strType){
             case 'T':
-                if($('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val().trim()==''){
-                    $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).focus();
-                    $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).select();
-                    showModalError('El campo <b>' + $jsnGridData.arrFormField[$intIndex].TBL_NAME + '</b> debe ser llenado');
+                if($('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val().trim()==''){
+                    $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).focus();
+                    $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).select();
+                    showModalError('El campo <b>' + $jsnGridData.arrFormField[$intIndex].strName + '</b> debe ser llenado');
                     $intIndex = $jsnGridData.arrFormField.length;
                     $blnFilledForm = false;
                     $('#divModalWorking').hide();
                     $('#divModalButtons').show();
                 }else{
-                    $strQueryString += "&" + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + "=" + encodeURIComponent($('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val().trim().toUpperCase());
+                    $strQueryString += "&" + $jsnGridData.arrFormField[$intIndex].strField + "=" + encodeURIComponent($('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val().trim().toUpperCase());
                 }
                 break;
             case 'N':
-                if($('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val().trim()==''){
-                    $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).focus();
-                    $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).select();
-                    showModalError('El campo <b>' + $jsnGridData.arrFormField[$intIndex].TBL_NAME + '</b> debe ser llenado');
+                if($('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val().trim()==''){
+                    $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).focus();
+                    $('#txt' + $jsnGridData.arrFormField[$intIndex].strField).select();
+                    showModalError('El campo <b>' + $jsnGridData.arrFormField[$intIndex].strName + '</b> debe ser llenado');
                     $intIndex = $jsnGridData.arrFormField.length;
                     $blnFilledForm = false;
                     $('#divModalWorking').hide();
                     $('#divModalButtons').show();
                 }else{
-                    $strQueryString += "&" + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + "=" + encodeURIComponent($('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val().trim().toUpperCase());
+                    $strQueryString += "&" + $jsnGridData.arrFormField[$intIndex].strField + "=" + encodeURIComponent($('#txt' + $jsnGridData.arrFormField[$intIndex].strField).val().trim().toUpperCase());
                 }
                 break;
             case 'I':
-                $strQueryString += "&" + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + "=" + encodeURIComponent($('#img' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).attr('strfile').trim().toUpperCase());
+                $strQueryString += "&" + $jsnGridData.arrFormField[$intIndex].strField + "=" + encodeURIComponent($('#img' + $jsnGridData.arrFormField[$intIndex].strField).attr('strfile').trim().toUpperCase());
                 break;
         }
     }
@@ -367,7 +381,7 @@ function submitRecord(){
             }
         }
         if(!$blnSelected){
-            showModalError('El campo <b>' + $jsnGridData.arrTableRelation[$intRelationIndex].TBL_DISPLAY + '</b> debe ser seleccionado al menos una vez');
+            showModalError('El campo <b>' + $jsnGridData.arrTableRelation[$intRelationIndex].strDisplay + '</b> debe ser seleccionado al menos una vez');
             $blnFilledForm = false;
             $('#divModalWorking').hide();
             $('#divModalButtons').show();
